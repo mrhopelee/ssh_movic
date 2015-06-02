@@ -28,5 +28,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <s:textfield label="密码" name="password"></s:textfield>
   <s:submit value="登录2"></s:submit>
   </s:form>
+  <h1>我是梁泽民</h1>
   </body>
 </html>
