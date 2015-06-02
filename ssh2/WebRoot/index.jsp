@@ -29,5 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <s:submit value="登录2"></s:submit>
   </s:form>
   1
+  2
   </body>
 </html>
