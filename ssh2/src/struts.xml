@@ -7,5 +7,6 @@
     <action name="login" class="login" method="check">
     <result name="success">/index.jsp</result>
     </action>
+    <!-- don't move ! -->
     </package>
 </struts>    
