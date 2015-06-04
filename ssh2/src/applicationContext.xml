@@ -33,10 +33,18 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>com/bean/Usertype.hbm.xml</value>
-				<value>com/bean/Userinfo.hbm.xml</value>
-				<value>com/bean/Postresponse.hbm.xml</value>
-				<value>com/bean/Post.hbm.xml</value></list>
+				<value>com/bean/UserSignIn.hbm.xml</value>
+				<value>com/bean/MovicType.hbm.xml</value>
+				<value>com/bean/MovicDownload.hbm.xml</value>
+				<value>com/bean/UserType.hbm.xml</value>
+				<value>com/bean/UserIntegral.hbm.xml</value>
+				<value>com/bean/MovicVisiterNumber.hbm.xml</value>
+				<value>com/bean/UserScoreMovic.hbm.xml</value>
+				<value>com/bean/MovicInfo.hbm.xml</value>
+				<value>com/bean/MovicArea.hbm.xml</value>
+				<value>com/bean/MovicComments.hbm.xml</value>
+				<value>com/bean/UserInfo.hbm.xml</value>
+				<value>com/bean/MovicPicture.hbm.xml</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -50,14 +58,14 @@
     <!-- 打开aop 注解 -->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
     <!-- 配置action -->
-	<bean id="login" class="com.action.login">
-	</bean>
+	
+	
 	<!-- 配置server -->
-	<bean id="loginserver" class="com.server.Loginserver">
-	</bean>
+
+	
 	<!-- 打开aop容器 -->
 	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
 	<!-- 配置aop类 -->
-	<bean  class="com.aop.befordaop"></bean>
+	
 	
 	</beans>
