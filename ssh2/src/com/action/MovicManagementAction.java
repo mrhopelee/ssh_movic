@@ -117,7 +117,31 @@ public class MovicManagementAction extends ActionSupport {
 		//System.out.println(movic.getMovicImdbScore());
 		int movic_oid=movicManagementServer.addMovic(movic);
 		
+		if(movic_oid==0)
+		{
+			addFieldError("movic_name", "电影名已存在");
+			return "input";
+		}
+		movic_oid=movicManagementServer.searchMovicOidByMovicName(movic.getMovicName());
 		
+		
+		int i;
+		for(i=0;i<3;i++)
+		{
+			if(mt[i]>=0)
+			{
+				movicManagementServer.addMovicType(movic_oid, mt[i]);
+			}
+		}
+		
+		for(i=0;i<2;i++)
+		{
+			if(ma[i]>=0)
+			{
+				movicManagementServer.addMovicArea(movic_oid,ma[i]);
+			}
+		}
+	
 		return "success";
 	}
 	

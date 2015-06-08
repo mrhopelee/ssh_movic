@@ -17,8 +17,9 @@ public class MovicManagementServerImp implements MovicManagementServer {
 	private MovicManagementDao movicManagementDao;
 
 	public int addMovic(MovicInfo movic) {
-		
-		return movicManagementDao.addMovic(movic);
+	
+			return movicManagementDao.addMovic(movic);
+
 	}
 
 	
@@ -56,9 +57,16 @@ public class MovicManagementServerImp implements MovicManagementServer {
 
 
 
-	public boolean addMovicArea(int movic_oid, int type_oid) {
+	public boolean addMovicArea(int movic_oid, int area_oid) {
 		
-		return movicManagementDao.addMovicType(movic_oid, type_oid);
+		return movicManagementDao.addMovicArea(movic_oid, area_oid);
+	}
+
+
+	@Override
+	public int searchMovicOidByMovicName(String movic_name) {
+		
+		return movicManagementDao.searchMovicOidByMovicName(movic_name);
 	}
 
 	

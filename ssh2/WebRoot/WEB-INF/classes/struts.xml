@@ -17,6 +17,7 @@
     <!-- addMovic 添加电影的action -->
     <action name="addMovicAction" class="movicManagementAction" method="addMovic">
    	<result name="success">/adminFunction.jsp</result>
+   	<result name="input">/addMovic.jsp</result>
     </action>
     
     <!-- 梁泽民配置的action 结束-->

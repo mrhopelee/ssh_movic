@@ -11,7 +11,7 @@
   
   <body>
     <a href="adminFunction.jsp">返回管理页面</a><br>
-   
+   	<s:fielderror></s:fielderror>
     <!-- 	private String movicName;
 	private String movicActor;
 	private String movicDirector;

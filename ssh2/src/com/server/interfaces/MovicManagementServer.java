@@ -11,5 +11,6 @@ public interface MovicManagementServer {
 	public List getMovicType();//获取电影类型
 	public List getMovicArea();//获取电影地区
 	public boolean addMovicType(int movic_oid,int type_oid);//添加电影类型记录
-	public boolean addMovicArea(int movic_oid,int type_oid);//添加电影地区记录
+	public boolean addMovicArea(int movic_oid,int area_oid);//添加电影地区记录
+	public int searchMovicOidByMovicName(String movic_name);
 }
