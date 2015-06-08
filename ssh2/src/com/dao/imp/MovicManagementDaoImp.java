@@ -1,5 +1,7 @@
 package com.dao.imp;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
@@ -9,8 +11,7 @@ import com.dao.interfaces.MovicManagementDao;
 
 public class MovicManagementDaoImp implements MovicManagementDao {
 
-	//∏√¿‡ «MovicManagementDaoµƒ µœ÷¿‡
-	//◊˜’ﬂ¡∫‘Û√Ò
+	
 	
 	@Resource
 	private SessionFactory sessionFactory;
@@ -27,9 +28,21 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 	}
 
 
-	public boolean addMovic(MovicInfo movic) {
+	public int addMovic(MovicInfo movic) {
 		
-		return false;
+		try
+		{
+			sessionFactory.getCurrentSession().save(movic);
+		}
+		catch(Exception e)
+		{
+			return 0;
+		}
+		//Ëé∑ÂèñÊ∑ªÂä†ÁîµÂΩ±‰ø°ÊÅØÂêéÁöÑÁîµÂΩ±oid ÂÄº
+		
+		MovicInfo mid= (MovicInfo) sessionFactory.getCurrentSession().createQuery("from MovicInfo where movicName=?").setString(0,movic.getMovicName()).uniqueResult();
+		
+		return mid.getMovicOid();
 	}
 
 
@@ -41,6 +54,35 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 
 	public boolean updateMovic(MovicInfo movic) {
 	
+		return false;
+	}
+
+
+	
+	public List getMovicType() {
+
+		
+		return sessionFactory.getCurrentSession().createQuery("from MovicType").list();
+	}
+
+
+	@Override
+	public List getMovicArea() {
+		
+		return sessionFactory.getCurrentSession().createQuery("from MovicArea").list();
+	}
+
+
+
+	public boolean addMovicType(int movic_oid, int type_oid) {
+		
+		return false;
+	}
+
+
+	
+	public boolean addMovicArea(int movic_oid, int type_oid) {
+		
 		return false;
 	}
 	

@@ -6,8 +6,8 @@
 -->
 <hibernate-mapping>
     <class name="com.bean.MovicBeloneType" table="MovicBeloneType" schema="dbo" catalog="movicssh">
-        <id name="mbaOid" type="java.lang.Integer">
-            <column name="mba_oid" />
+        <id name="mbtOid" type="java.lang.Integer">
+            <column name="mbt_oid" />
             <generator class="native" />
         </id>
         <many-to-one name="movicInfo" class="com.bean.MovicInfo" fetch="select">

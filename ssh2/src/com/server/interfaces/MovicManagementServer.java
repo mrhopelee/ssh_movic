@@ -1,10 +1,15 @@
 package com.server.interfaces;
 
+import java.util.List;
+
 import com.bean.MovicInfo;
 
 public interface MovicManagementServer {
-	public boolean addMovic(MovicInfo movic);//添加电影信息
-	public boolean deleteMovicByOid(int movicOid);//删除电影根据电影oid
-	public boolean updateMovic(MovicInfo movic);//更新电影信息
-
+	public int addMovic(MovicInfo movic);//娣诲姞鐢靛奖
+	public boolean deleteMovicByOid(int movicOid);//鍒犻櫎鐢靛奖
+	public boolean updateMovic(MovicInfo movic);//鏇存柊鐢靛奖
+	public List getMovicType();//鑾峰彇鐢靛奖绫诲瀷
+	public List getMovicArea();//鑾峰彇鐢靛奖鍦板尯
+	public boolean addMovicType(int movic_oid,int type_oid);//娣诲姞鐢靛奖绫诲瀷璁板綍
+	public boolean addMovicArea(int movic_oid,int type_oid);//娣诲姞鐢靛奖鍦板尯璁板綍
 }
