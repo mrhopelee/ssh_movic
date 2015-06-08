@@ -15,7 +15,7 @@
         </property>
         <set name="movicBeloneTypes" inverse="true">
             <key>
-                <column name="area_oid" />
+                <column name="type_oid" />
             </key>
             <one-to-many class="com.bean.MovicBeloneType" />
         </set>

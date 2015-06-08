@@ -1,9 +1,16 @@
 package com.dao.interfaces;
 
+import java.util.List;
+
 import com.bean.MovicInfo;
 
 public interface MovicManagementDao {
-	public boolean addMovic(MovicInfo movic);//添加电影信息
-	public boolean deleteMovicByOid(int movicOid);//删除电影根据电影oid
-	public boolean updateMovic(MovicInfo movic);//更新电影信息
+	public int addMovic(MovicInfo movic);
+	public boolean deleteMovicByOid(int movicOid);
+	public boolean updateMovic(MovicInfo movic);
+	public List getMovicType();
+	public List getMovicArea();
+	public boolean addMovicType(int movic_oid,int type_oid);//娣诲姞鐢靛奖绫诲瀷璁板綍
+	public boolean addMovicArea(int movic_oid,int area_oid);//娣诲姞鐢靛奖鍦板尯璁板綍
+	public int searchMovicOidByMovicName(String movic_name);
 }

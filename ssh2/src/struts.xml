@@ -4,9 +4,7 @@
 <struts>
 
 	<package name="default" namespace="/" extends="struts-default">
-		<action name="login" class="login" method="check">
-			<result name="success">/index.jsp</result>
-		</action>
+		
 		<!--李灏 don't move ! begin -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
 			<result name="success">/movic_type.jsp</result>
@@ -18,5 +16,22 @@
 			<result name="success">/movic_type.jsp</result>
 		</action>
 		<!--李灏 don't move ! end -->
-	</package>
+	<action name="login" class="login" method="check">
+    <result name="success">/index.jsp</result>
+    </action>
+    
+    <!-- 梁泽民配置的action 开始-->
+    <!-- 跳转到添加电影页面 -->
+    <action name="goToAddMovicPageAction" class="movicManagementAction" method="goToAddMovicPage">
+   	<result name="success">/addMovic.jsp</result>
+    </action>
+    
+    <!-- addMovic 添加电影的action -->
+    <action name="addMovicAction" class="movicManagementAction" method="addMovic">
+   	<result name="success">/adminFunction.jsp</result>
+   	<result name="input">/addMovic.jsp</result>
+    </action>
+    
+    <!-- 梁泽民配置的action 结束-->
+</package>
 </struts>    

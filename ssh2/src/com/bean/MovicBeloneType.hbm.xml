@@ -14,7 +14,7 @@
             <column name="movic_oid" />
         </many-to-one>
         <many-to-one name="movicType" class="com.bean.MovicType" fetch="select">
-            <column name="area_oid" />
+            <column name="type_oid" />
         </many-to-one>
     </class>
 </hibernate-mapping>
