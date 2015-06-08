@@ -13,11 +13,11 @@
         <property name="areaName" type="java.lang.String">
             <column name="area_name" length="20" not-null="true" unique="true" />
         </property>
-        <set name="movicInfos" inverse="true">
+        <set name="movicBeloneAreas" inverse="true">
             <key>
-                <column name="movic_area" />
+                <column name="area_oid" />
             </key>
-            <one-to-many class="com.bean.MovicInfo" />
+            <one-to-many class="com.bean.MovicBeloneArea" />
         </set>
     </class>
 </hibernate-mapping>

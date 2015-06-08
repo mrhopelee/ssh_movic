@@ -44,7 +44,9 @@
 				<value>com/bean/MovicArea.hbm.xml</value>
 				<value>com/bean/MovicComments.hbm.xml</value>
 				<value>com/bean/UserInfo.hbm.xml</value>
-				<value>com/bean/MovicPicture.hbm.xml</value></list>
+				<value>com/bean/MovicPicture.hbm.xml</value>
+				<value>com/bean/MovicBeloneArea.hbm.xml</value>
+				<value>com/bean/MovicBeloneType.hbm.xml</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">

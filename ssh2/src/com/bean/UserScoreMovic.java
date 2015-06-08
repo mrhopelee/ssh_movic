@@ -1,77 +1,63 @@
 package com.bean;
 
-
-
 /**
  * UserScoreMovic entity. @author MyEclipse Persistence Tools
  */
 
-public class UserScoreMovic  implements java.io.Serializable {
+public class UserScoreMovic implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private Integer usmOid;
+	private UserInfo userInfo;
+	private MovicInfo movicInfo;
+	private Double score;
 
-     private Integer usmOid;
-     private UserInfo userInfo;
-     private MovicInfo movicInfo;
-     private Double score;
+	// Constructors
 
+	/** default constructor */
+	public UserScoreMovic() {
+	}
 
-    // Constructors
+	/** full constructor */
+	public UserScoreMovic(UserInfo userInfo, MovicInfo movicInfo, Double score) {
+		this.userInfo = userInfo;
+		this.movicInfo = movicInfo;
+		this.score = score;
+	}
 
-    /** default constructor */
-    public UserScoreMovic() {
-    }
+	// Property accessors
 
-    
-    /** full constructor */
-    public UserScoreMovic(UserInfo userInfo, MovicInfo movicInfo, Double score) {
-        this.userInfo = userInfo;
-        this.movicInfo = movicInfo;
-        this.score = score;
-    }
+	public Integer getUsmOid() {
+		return this.usmOid;
+	}
 
-   
-    // Property accessors
+	public void setUsmOid(Integer usmOid) {
+		this.usmOid = usmOid;
+	}
 
-    public Integer getUsmOid() {
-        return this.usmOid;
-    }
-    
-    public void setUsmOid(Integer usmOid) {
-        this.usmOid = usmOid;
-    }
+	public UserInfo getUserInfo() {
+		return this.userInfo;
+	}
 
-    public UserInfo getUserInfo() {
-        return this.userInfo;
-    }
-    
-    public void setUserInfo(UserInfo userInfo) {
-        this.userInfo = userInfo;
-    }
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
 
-    public MovicInfo getMovicInfo() {
-        return this.movicInfo;
-    }
-    
-    public void setMovicInfo(MovicInfo movicInfo) {
-        this.movicInfo = movicInfo;
-    }
+	public MovicInfo getMovicInfo() {
+		return this.movicInfo;
+	}
 
-    public Double getScore() {
-        return this.score;
-    }
-    
-    public void setScore(Double score) {
-        this.score = score;
-    }
-   
+	public void setMovicInfo(MovicInfo movicInfo) {
+		this.movicInfo = movicInfo;
+	}
 
+	public Double getScore() {
+		return this.score;
+	}
 
-
-
-
-
-
+	public void setScore(Double score) {
+		this.score = score;
+	}
 
 }

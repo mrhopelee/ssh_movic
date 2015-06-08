@@ -10,12 +10,6 @@
             <column name="movic_oid" />
             <generator class="native" />
         </id>
-        <many-to-one name="movicType" class="com.bean.MovicType" fetch="select">
-            <column name="movic_type" />
-        </many-to-one>
-        <many-to-one name="movicArea" class="com.bean.MovicArea" fetch="select">
-            <column name="movic_area" />
-        </many-to-one>
         <property name="movicName" type="java.lang.String">
             <column name="movic_name" length="100" />
         </property>
@@ -37,17 +31,35 @@
         <property name="movicPost" type="java.lang.String">
             <column name="movic_post" length="100" />
         </property>
+        <set name="movicPictures" inverse="true">
+            <key>
+                <column name="movic_oid" />
+            </key>
+            <one-to-many class="com.bean.MovicPicture" />
+        </set>
+        <set name="movicDownloads" inverse="true">
+            <key>
+                <column name="movic_oid" />
+            </key>
+            <one-to-many class="com.bean.MovicDownload" />
+        </set>
         <set name="userScoreMovics" inverse="true">
             <key>
                 <column name="movic_oid" />
             </key>
             <one-to-many class="com.bean.UserScoreMovic" />
         </set>
-        <set name="movicPictures" inverse="true">
+        <set name="movicBeloneTypes" inverse="true">
             <key>
                 <column name="movic_oid" />
             </key>
-            <one-to-many class="com.bean.MovicPicture" />
+            <one-to-many class="com.bean.MovicBeloneType" />
+        </set>
+        <set name="movicBeloneAreas" inverse="true">
+            <key>
+                <column name="movic_oid" />
+            </key>
+            <one-to-many class="com.bean.MovicBeloneArea" />
         </set>
         <set name="movicVisiterNumbers" inverse="true">
             <key>
@@ -60,12 +72,6 @@
                 <column name="movic_oid" />
             </key>
             <one-to-many class="com.bean.MovicComments" />
-        </set>
-        <set name="movicDownloads" inverse="true">
-            <key>
-                <column name="movic_oid" />
-            </key>
-            <one-to-many class="com.bean.MovicDownload" />
         </set>
     </class>
 </hibernate-mapping>
