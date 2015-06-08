@@ -67,5 +67,9 @@
 	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
 	<!-- 配置aop类 -->
 	
-	
+	<!-- 电影管理有关的bean配置   梁泽民配置 开始-->
+	<bean id="movicManagementDao" class="com.dao.imp.MovicManagementDaoImp"></bean>
+	<bean id="movicManagementServer" class="com.server.imp.MovicManagementServerImp"></bean>
+	<bean id="movicManagementAction" class="com.action.MovicManagementAction"></bean>
+	<!-- 电影管理有关的bean配置   梁泽民配置 结束-->
 	</beans>
