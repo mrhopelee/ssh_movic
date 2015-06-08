@@ -1,67 +1,53 @@
 package com.bean;
 
-
-
 /**
  * MovicPicture entity. @author MyEclipse Persistence Tools
  */
 
-public class MovicPicture  implements java.io.Serializable {
+public class MovicPicture implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private Integer mpOid;
+	private MovicInfo movicInfo;
+	private String picturePath;
 
-     private Integer mpOid;
-     private MovicInfo movicInfo;
-     private String picturePath;
+	// Constructors
 
+	/** default constructor */
+	public MovicPicture() {
+	}
 
-    // Constructors
+	/** full constructor */
+	public MovicPicture(MovicInfo movicInfo, String picturePath) {
+		this.movicInfo = movicInfo;
+		this.picturePath = picturePath;
+	}
 
-    /** default constructor */
-    public MovicPicture() {
-    }
+	// Property accessors
 
-    
-    /** full constructor */
-    public MovicPicture(MovicInfo movicInfo, String picturePath) {
-        this.movicInfo = movicInfo;
-        this.picturePath = picturePath;
-    }
+	public Integer getMpOid() {
+		return this.mpOid;
+	}
 
-   
-    // Property accessors
+	public void setMpOid(Integer mpOid) {
+		this.mpOid = mpOid;
+	}
 
-    public Integer getMpOid() {
-        return this.mpOid;
-    }
-    
-    public void setMpOid(Integer mpOid) {
-        this.mpOid = mpOid;
-    }
+	public MovicInfo getMovicInfo() {
+		return this.movicInfo;
+	}
 
-    public MovicInfo getMovicInfo() {
-        return this.movicInfo;
-    }
-    
-    public void setMovicInfo(MovicInfo movicInfo) {
-        this.movicInfo = movicInfo;
-    }
+	public void setMovicInfo(MovicInfo movicInfo) {
+		this.movicInfo = movicInfo;
+	}
 
-    public String getPicturePath() {
-        return this.picturePath;
-    }
-    
-    public void setPicturePath(String picturePath) {
-        this.picturePath = picturePath;
-    }
-   
+	public String getPicturePath() {
+		return this.picturePath;
+	}
 
-
-
-
-
-
-
+	public void setPicturePath(String picturePath) {
+		this.picturePath = picturePath;
+	}
 
 }

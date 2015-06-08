@@ -10,14 +10,14 @@
             <column name="mt_oid" />
             <generator class="native" />
         </id>
-        <property name="tyoe" type="java.lang.String">
-            <column name="tyoe" length="20" not-null="true" unique="true" />
+        <property name="type" type="java.lang.String">
+            <column name="type" length="20" not-null="true" unique="true" />
         </property>
-        <set name="movicInfos" inverse="true">
+        <set name="movicBeloneTypes" inverse="true">
             <key>
-                <column name="movic_type" />
+                <column name="area_oid" />
             </key>
-            <one-to-many class="com.bean.MovicInfo" />
+            <one-to-many class="com.bean.MovicBeloneType" />
         </set>
     </class>
 </hibernate-mapping>

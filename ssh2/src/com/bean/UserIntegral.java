@@ -1,71 +1,58 @@
 package com.bean;
 
-
-
 /**
  * UserIntegral entity. @author MyEclipse Persistence Tools
  */
 
-public class UserIntegral  implements java.io.Serializable {
+public class UserIntegral implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private Integer uintegralOid;
+	private UserInfo userInfo;
+	private Integer userScore;
 
-     private Integer uintegralOid;
-     private UserInfo userInfo;
-     private Integer userScore;
+	// Constructors
 
-
-    // Constructors
-
-    /** default constructor */
-    public UserIntegral() {
-    }
+	/** default constructor */
+	public UserIntegral() {
+	}
 
 	/** minimal constructor */
-    public UserIntegral(Integer userScore) {
-        this.userScore = userScore;
-    }
-    
-    /** full constructor */
-    public UserIntegral(UserInfo userInfo, Integer userScore) {
-        this.userInfo = userInfo;
-        this.userScore = userScore;
-    }
+	public UserIntegral(Integer userScore) {
+		this.userScore = userScore;
+	}
 
-   
-    // Property accessors
+	/** full constructor */
+	public UserIntegral(UserInfo userInfo, Integer userScore) {
+		this.userInfo = userInfo;
+		this.userScore = userScore;
+	}
 
-    public Integer getUintegralOid() {
-        return this.uintegralOid;
-    }
-    
-    public void setUintegralOid(Integer uintegralOid) {
-        this.uintegralOid = uintegralOid;
-    }
+	// Property accessors
 
-    public UserInfo getUserInfo() {
-        return this.userInfo;
-    }
-    
-    public void setUserInfo(UserInfo userInfo) {
-        this.userInfo = userInfo;
-    }
+	public Integer getUintegralOid() {
+		return this.uintegralOid;
+	}
 
-    public Integer getUserScore() {
-        return this.userScore;
-    }
-    
-    public void setUserScore(Integer userScore) {
-        this.userScore = userScore;
-    }
-   
+	public void setUintegralOid(Integer uintegralOid) {
+		this.uintegralOid = uintegralOid;
+	}
 
+	public UserInfo getUserInfo() {
+		return this.userInfo;
+	}
 
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
 
+	public Integer getUserScore() {
+		return this.userScore;
+	}
 
-
-
-
+	public void setUserScore(Integer userScore) {
+		this.userScore = userScore;
+	}
 
 }

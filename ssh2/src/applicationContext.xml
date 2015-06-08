@@ -44,7 +44,9 @@
 				<value>com/bean/MovicArea.hbm.xml</value>
 				<value>com/bean/MovicComments.hbm.xml</value>
 				<value>com/bean/UserInfo.hbm.xml</value>
-				<value>com/bean/MovicPicture.hbm.xml</value></list>
+				<value>com/bean/MovicPicture.hbm.xml</value>
+				<value>com/bean/MovicBeloneArea.hbm.xml</value>
+				<value>com/bean/MovicBeloneType.hbm.xml</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -67,5 +69,9 @@
 	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
 	<!-- 配置aop类 -->
 	
-	
+	<!-- 电影管理有关的bean配置   梁泽民配置 开始-->
+	<bean id="movicManagementDao" class="com.dao.imp.MovicManagementDaoImp"></bean>
+	<bean id="movicManagementServer" class="com.server.imp.MovicManagementServerImp"></bean>
+	<bean id="movicManagementAction" class="com.action.MovicManagementAction"></bean>
+	<!-- 电影管理有关的bean配置   梁泽民配置 结束-->
 	</beans>

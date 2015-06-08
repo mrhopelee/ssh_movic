@@ -1,67 +1,53 @@
 package com.bean;
 
-
-
 /**
  * MovicDownload entity. @author MyEclipse Persistence Tools
  */
 
-public class MovicDownload  implements java.io.Serializable {
+public class MovicDownload implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private Integer mdOid;
+	private MovicInfo movicInfo;
+	private String filePath;
 
-     private Integer mdOid;
-     private MovicInfo movicInfo;
-     private String filePath;
+	// Constructors
 
+	/** default constructor */
+	public MovicDownload() {
+	}
 
-    // Constructors
+	/** full constructor */
+	public MovicDownload(MovicInfo movicInfo, String filePath) {
+		this.movicInfo = movicInfo;
+		this.filePath = filePath;
+	}
 
-    /** default constructor */
-    public MovicDownload() {
-    }
+	// Property accessors
 
-    
-    /** full constructor */
-    public MovicDownload(MovicInfo movicInfo, String filePath) {
-        this.movicInfo = movicInfo;
-        this.filePath = filePath;
-    }
+	public Integer getMdOid() {
+		return this.mdOid;
+	}
 
-   
-    // Property accessors
+	public void setMdOid(Integer mdOid) {
+		this.mdOid = mdOid;
+	}
 
-    public Integer getMdOid() {
-        return this.mdOid;
-    }
-    
-    public void setMdOid(Integer mdOid) {
-        this.mdOid = mdOid;
-    }
+	public MovicInfo getMovicInfo() {
+		return this.movicInfo;
+	}
 
-    public MovicInfo getMovicInfo() {
-        return this.movicInfo;
-    }
-    
-    public void setMovicInfo(MovicInfo movicInfo) {
-        this.movicInfo = movicInfo;
-    }
+	public void setMovicInfo(MovicInfo movicInfo) {
+		this.movicInfo = movicInfo;
+	}
 
-    public String getFilePath() {
-        return this.filePath;
-    }
-    
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-   
+	public String getFilePath() {
+		return this.filePath;
+	}
 
-
-
-
-
-
-
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
 
 }

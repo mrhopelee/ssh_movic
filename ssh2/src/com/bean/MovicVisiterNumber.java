@@ -1,67 +1,53 @@
 package com.bean;
 
-
-
 /**
  * MovicVisiterNumber entity. @author MyEclipse Persistence Tools
  */
 
-public class MovicVisiterNumber  implements java.io.Serializable {
+public class MovicVisiterNumber implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private Integer mvnOid;
+	private MovicInfo movicInfo;
+	private Integer visiterNumber;
 
-     private Integer mvnOid;
-     private MovicInfo movicInfo;
-     private Integer visiterNumber;
+	// Constructors
 
+	/** default constructor */
+	public MovicVisiterNumber() {
+	}
 
-    // Constructors
+	/** full constructor */
+	public MovicVisiterNumber(MovicInfo movicInfo, Integer visiterNumber) {
+		this.movicInfo = movicInfo;
+		this.visiterNumber = visiterNumber;
+	}
 
-    /** default constructor */
-    public MovicVisiterNumber() {
-    }
+	// Property accessors
 
-    
-    /** full constructor */
-    public MovicVisiterNumber(MovicInfo movicInfo, Integer visiterNumber) {
-        this.movicInfo = movicInfo;
-        this.visiterNumber = visiterNumber;
-    }
+	public Integer getMvnOid() {
+		return this.mvnOid;
+	}
 
-   
-    // Property accessors
+	public void setMvnOid(Integer mvnOid) {
+		this.mvnOid = mvnOid;
+	}
 
-    public Integer getMvnOid() {
-        return this.mvnOid;
-    }
-    
-    public void setMvnOid(Integer mvnOid) {
-        this.mvnOid = mvnOid;
-    }
+	public MovicInfo getMovicInfo() {
+		return this.movicInfo;
+	}
 
-    public MovicInfo getMovicInfo() {
-        return this.movicInfo;
-    }
-    
-    public void setMovicInfo(MovicInfo movicInfo) {
-        this.movicInfo = movicInfo;
-    }
+	public void setMovicInfo(MovicInfo movicInfo) {
+		this.movicInfo = movicInfo;
+	}
 
-    public Integer getVisiterNumber() {
-        return this.visiterNumber;
-    }
-    
-    public void setVisiterNumber(Integer visiterNumber) {
-        this.visiterNumber = visiterNumber;
-    }
-   
+	public Integer getVisiterNumber() {
+		return this.visiterNumber;
+	}
 
-
-
-
-
-
-
+	public void setVisiterNumber(Integer visiterNumber) {
+		this.visiterNumber = visiterNumber;
+	}
 
 }

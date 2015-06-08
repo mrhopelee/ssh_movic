@@ -3,71 +3,59 @@ package com.bean;
 import java.util.HashSet;
 import java.util.Set;
 
-
 /**
  * MovicType entity. @author MyEclipse Persistence Tools
  */
 
-public class MovicType  implements java.io.Serializable {
+public class MovicType implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private Integer mtOid;
+	private String type;
+	private Set movicBeloneTypes = new HashSet(0);
 
-     private Integer mtOid;
-     private String tyoe;
-     private Set movicInfos = new HashSet(0);
+	// Constructors
 
-
-    // Constructors
-
-    /** default constructor */
-    public MovicType() {
-    }
+	/** default constructor */
+	public MovicType() {
+	}
 
 	/** minimal constructor */
-    public MovicType(String tyoe) {
-        this.tyoe = tyoe;
-    }
-    
-    /** full constructor */
-    public MovicType(String tyoe, Set movicInfos) {
-        this.tyoe = tyoe;
-        this.movicInfos = movicInfos;
-    }
+	public MovicType(String type) {
+		this.type = type;
+	}
 
-   
-    // Property accessors
+	/** full constructor */
+	public MovicType(String type, Set movicBeloneTypes) {
+		this.type = type;
+		this.movicBeloneTypes = movicBeloneTypes;
+	}
 
-    public Integer getMtOid() {
-        return this.mtOid;
-    }
-    
-    public void setMtOid(Integer mtOid) {
-        this.mtOid = mtOid;
-    }
+	// Property accessors
 
-    public String getTyoe() {
-        return this.tyoe;
-    }
-    
-    public void setTyoe(String tyoe) {
-        this.tyoe = tyoe;
-    }
+	public Integer getMtOid() {
+		return this.mtOid;
+	}
 
-    public Set getMovicInfos() {
-        return this.movicInfos;
-    }
-    
-    public void setMovicInfos(Set movicInfos) {
-        this.movicInfos = movicInfos;
-    }
-   
+	public void setMtOid(Integer mtOid) {
+		this.mtOid = mtOid;
+	}
 
+	public String getType() {
+		return this.type;
+	}
 
+	public void setType(String type) {
+		this.type = type;
+	}
 
+	public Set getMovicBeloneTypes() {
+		return this.movicBeloneTypes;
+	}
 
-
-
-
+	public void setMovicBeloneTypes(Set movicBeloneTypes) {
+		this.movicBeloneTypes = movicBeloneTypes;
+	}
 
 }
