@@ -8,7 +8,7 @@ public class MovicBeloneType implements java.io.Serializable {
 
 	// Fields
 
-	private Integer mbaOid;
+	private Integer mbtOid;
 	private MovicInfo movicInfo;
 	private MovicType movicType;
 
@@ -26,12 +26,12 @@ public class MovicBeloneType implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getMbaOid() {
-		return this.mbaOid;
+	public Integer getMbtOid() {
+		return this.mbtOid;
 	}
 
-	public void setMbaOid(Integer mbaOid) {
-		this.mbaOid = mbaOid;
+	public void setMbtOid(Integer mbtOid) {
+		this.mbtOid = mbtOid;
 	}
 
 	public MovicInfo getMovicInfo() {

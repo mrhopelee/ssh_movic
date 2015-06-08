@@ -21,12 +21,12 @@ public class MovicInfo implements java.io.Serializable {
 	private String movicIntroduction;
 	private String movicPost;
 	private Set movicPictures = new HashSet(0);
-	private Set movicDownloads = new HashSet(0);
-	private Set userScoreMovics = new HashSet(0);
-	private Set movicBeloneTypes = new HashSet(0);
-	private Set movicBeloneAreas = new HashSet(0);
 	private Set movicVisiterNumbers = new HashSet(0);
+	private Set movicBeloneTypes = new HashSet(0);
+	private Set movicDownloads = new HashSet(0);
 	private Set movicCommentses = new HashSet(0);
+	private Set movicBeloneAreas = new HashSet(0);
+	private Set userScoreMovics = new HashSet(0);
 
 	// Constructors
 
@@ -38,8 +38,8 @@ public class MovicInfo implements java.io.Serializable {
 	public MovicInfo(String movicName, String movicActor, String movicDirector,
 			Double movicImdbScore, Date movicPlayDate,
 			String movicIntroduction, String movicPost, Set movicPictures,
-			Set movicDownloads, Set userScoreMovics, Set movicBeloneTypes,
-			Set movicBeloneAreas, Set movicVisiterNumbers, Set movicCommentses) {
+			Set movicVisiterNumbers, Set movicBeloneTypes, Set movicDownloads,
+			Set movicCommentses, Set movicBeloneAreas, Set userScoreMovics) {
 		this.movicName = movicName;
 		this.movicActor = movicActor;
 		this.movicDirector = movicDirector;
@@ -48,12 +48,12 @@ public class MovicInfo implements java.io.Serializable {
 		this.movicIntroduction = movicIntroduction;
 		this.movicPost = movicPost;
 		this.movicPictures = movicPictures;
-		this.movicDownloads = movicDownloads;
-		this.userScoreMovics = userScoreMovics;
-		this.movicBeloneTypes = movicBeloneTypes;
-		this.movicBeloneAreas = movicBeloneAreas;
 		this.movicVisiterNumbers = movicVisiterNumbers;
+		this.movicBeloneTypes = movicBeloneTypes;
+		this.movicDownloads = movicDownloads;
 		this.movicCommentses = movicCommentses;
+		this.movicBeloneAreas = movicBeloneAreas;
+		this.userScoreMovics = userScoreMovics;
 	}
 
 	// Property accessors
@@ -130,20 +130,12 @@ public class MovicInfo implements java.io.Serializable {
 		this.movicPictures = movicPictures;
 	}
 
-	public Set getMovicDownloads() {
-		return this.movicDownloads;
+	public Set getMovicVisiterNumbers() {
+		return this.movicVisiterNumbers;
 	}
 
-	public void setMovicDownloads(Set movicDownloads) {
-		this.movicDownloads = movicDownloads;
-	}
-
-	public Set getUserScoreMovics() {
-		return this.userScoreMovics;
-	}
-
-	public void setUserScoreMovics(Set userScoreMovics) {
-		this.userScoreMovics = userScoreMovics;
+	public void setMovicVisiterNumbers(Set movicVisiterNumbers) {
+		this.movicVisiterNumbers = movicVisiterNumbers;
 	}
 
 	public Set getMovicBeloneTypes() {
@@ -154,20 +146,12 @@ public class MovicInfo implements java.io.Serializable {
 		this.movicBeloneTypes = movicBeloneTypes;
 	}
 
-	public Set getMovicBeloneAreas() {
-		return this.movicBeloneAreas;
+	public Set getMovicDownloads() {
+		return this.movicDownloads;
 	}
 
-	public void setMovicBeloneAreas(Set movicBeloneAreas) {
-		this.movicBeloneAreas = movicBeloneAreas;
-	}
-
-	public Set getMovicVisiterNumbers() {
-		return this.movicVisiterNumbers;
-	}
-
-	public void setMovicVisiterNumbers(Set movicVisiterNumbers) {
-		this.movicVisiterNumbers = movicVisiterNumbers;
+	public void setMovicDownloads(Set movicDownloads) {
+		this.movicDownloads = movicDownloads;
 	}
 
 	public Set getMovicCommentses() {
@@ -176,6 +160,22 @@ public class MovicInfo implements java.io.Serializable {
 
 	public void setMovicCommentses(Set movicCommentses) {
 		this.movicCommentses = movicCommentses;
+	}
+
+	public Set getMovicBeloneAreas() {
+		return this.movicBeloneAreas;
+	}
+
+	public void setMovicBeloneAreas(Set movicBeloneAreas) {
+		this.movicBeloneAreas = movicBeloneAreas;
+	}
+
+	public Set getUserScoreMovics() {
+		return this.userScoreMovics;
+	}
+
+	public void setUserScoreMovics(Set userScoreMovics) {
+		this.userScoreMovics = userScoreMovics;
 	}
 
 }

@@ -20,9 +20,9 @@ public class UserInfo implements java.io.Serializable {
 	private String userLogo;
 	private String userEmail;
 	private Set userScoreMovics = new HashSet(0);
-	private Set userIntegrals = new HashSet(0);
-	private Set userSignIns = new HashSet(0);
 	private Set movicCommentses = new HashSet(0);
+	private Set userSignIns = new HashSet(0);
+	private Set userIntegrals = new HashSet(0);
 
 	// Constructors
 
@@ -42,8 +42,8 @@ public class UserInfo implements java.io.Serializable {
 	/** full constructor */
 	public UserInfo(UserType userType, String userName, String userPassword,
 			String userDisplayName, String userSex, String userLogo,
-			String userEmail, Set userScoreMovics, Set userIntegrals,
-			Set userSignIns, Set movicCommentses) {
+			String userEmail, Set userScoreMovics, Set movicCommentses,
+			Set userSignIns, Set userIntegrals) {
 		this.userType = userType;
 		this.userName = userName;
 		this.userPassword = userPassword;
@@ -52,9 +52,9 @@ public class UserInfo implements java.io.Serializable {
 		this.userLogo = userLogo;
 		this.userEmail = userEmail;
 		this.userScoreMovics = userScoreMovics;
-		this.userIntegrals = userIntegrals;
-		this.userSignIns = userSignIns;
 		this.movicCommentses = movicCommentses;
+		this.userSignIns = userSignIns;
+		this.userIntegrals = userIntegrals;
 	}
 
 	// Property accessors
@@ -131,12 +131,12 @@ public class UserInfo implements java.io.Serializable {
 		this.userScoreMovics = userScoreMovics;
 	}
 
-	public Set getUserIntegrals() {
-		return this.userIntegrals;
+	public Set getMovicCommentses() {
+		return this.movicCommentses;
 	}
 
-	public void setUserIntegrals(Set userIntegrals) {
-		this.userIntegrals = userIntegrals;
+	public void setMovicCommentses(Set movicCommentses) {
+		this.movicCommentses = movicCommentses;
 	}
 
 	public Set getUserSignIns() {
@@ -147,12 +147,12 @@ public class UserInfo implements java.io.Serializable {
 		this.userSignIns = userSignIns;
 	}
 
-	public Set getMovicCommentses() {
-		return this.movicCommentses;
+	public Set getUserIntegrals() {
+		return this.userIntegrals;
 	}
 
-	public void setMovicCommentses(Set movicCommentses) {
-		this.movicCommentses = movicCommentses;
+	public void setUserIntegrals(Set userIntegrals) {
+		this.userIntegrals = userIntegrals;
 	}
 
 }
