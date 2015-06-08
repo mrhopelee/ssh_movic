@@ -7,6 +7,14 @@
     <action name="login" class="login" method="check">
     <result name="success">/index.jsp</result>
     </action>
-    <!-- don't move ! -->
-    </package>
+    
+    <!-- 梁泽民配置的action 开始-->
+    <!-- 跳转到添加电影页面 -->
+    <action name="goToAddMovicPageAction" class="movicManagementAction" method="goToAddMovicPage">
+   	<result name="success">/addMovic.jsp</result>
+    </action>
+    
+    
+    <!-- 梁泽民配置的action 结束-->
+</package>
 </struts>    
