@@ -2,11 +2,23 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
  "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-
+	<constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
-
+		
 		<!--李灏 don't move ! begin -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
+			<result name="success">/movic_type.jsp</result>
+			<result name="input">/movic_type.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="deletemovictype" class="movicTypeAction"
+			method="deleteMovicType">
+			<result name="success">/movic_type.jsp</result>
+			<result name="input">/movic_type.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updatemovictype" class="movicTypeAction"
+			method="updateMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -15,10 +27,8 @@
 			method="movictypeSetSession">
 			<result name="success">/movic_type.jsp</result>
 		</action>
-		<action name="updatemovictype" class="movicTypeAction"
-			method="updateMovicType">
-			<result name="success">/movic_type.jsp</result>
-		</action>
+		
+		
 		<!--李灏 don't move ! end -->
 		<action name="login" class="login" method="check">
 			<result name="success">/index.jsp</result>

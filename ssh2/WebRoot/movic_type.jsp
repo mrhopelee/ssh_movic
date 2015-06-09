@@ -7,36 +7,45 @@
 <title>首页</title>
 
 
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+
 </head>
 
 <body>
-	<s:action name="movictypesetsession" flush="false" namespace="/">
-	</s:action>
+	<s:action name="movictypesetsession" flush="false" namespace="/"></s:action>
+
 	<s:iterator value="#session.movictypelist" status="mt">
-	
-	<%-- ID: <s:property value="mtOid" /> --%>
+		<%-- ID: <s:property value="mtOid" /> --%>
 	类型<s:property value="(#mt.count)" />: <s:property value="type" />
-	
+
 		<s:if test="#mt.count%3==0">
-			<br/>
+			<br />
 		</s:if>
 	</s:iterator>
-	电影类型增加
-	<br />
+
+	<p>电影类型增加</p>
 	<s:form action="insertmovictype" namespace="/">
-		<s:fielderror fieldName="type"></s:fielderror>
-		<s:textfield name="movictype.type" label="电影类型" ></s:textfield>
-		<s:submit value="添加"></s:submit>
-	</s:form>
-	<br /> 
-	电影类型修改
-	<br />
-	<s:form action="updatemovictype" namespace="/">
+		<s:fielderror fieldName="insertmt"></s:fielderror>
 		<s:textfield name="movictype.type" label="电影类型"></s:textfield>
 		<s:submit value="添加"></s:submit>
 	</s:form>
-	<br />
+	<p>电影类型修改</p>
+	<s:form action="updatemovictype" namespace="/">
+		<s:fielderror fieldName="updatemt"></s:fielderror>
+		<s:select name="movictype.type" label="电影类型" labelposition="left"
+			list="#session.movictypelist.{type}"
+			value="#session.movictypelist.{type}"></s:select>
+		<s:textfield name="updateType" label="修改为"></s:textfield>
+		<s:submit value="修改"></s:submit>
+	</s:form>
+	<p>电影类型删除</p>
+	<s:form action="deletemovictype" namespace="/">
+		<s:fielderror fieldName="deletemt"></s:fielderror>
+		<s:select name="movictype.type" label="电影类型" labelposition="left"
+			list="#session.movictypelist.{type}"
+			value="#session.movictypelist.{type}"></s:select>
+		<s:submit value="删除"></s:submit>
+	</s:form>
+
 </body>
 </html>
