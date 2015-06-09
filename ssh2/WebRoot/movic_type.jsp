@@ -30,9 +30,10 @@
 		<s:textfield name="movictype.type" label="电影类型" ></s:textfield>
 		<s:submit value="添加"></s:submit>
 	</s:form>
-	<br /> 电影类型修改
+	<br /> 
+	电影类型修改
 	<br />
-	<s:form action="insertmovictype" namespace="/">
+	<s:form action="updatemovictype" namespace="/">
 		<s:textfield name="movictype.type" label="电影类型"></s:textfield>
 		<s:submit value="添加"></s:submit>
 	</s:form>
