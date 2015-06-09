@@ -137,6 +137,13 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 		
 		return true;
 	}
+
+
+
+	public List getAllMovic() {
+		
+		return sessionFactory.getCurrentSession().createQuery("from MovicInfo order by movicOid").list();
+	}
 	
 
 }
