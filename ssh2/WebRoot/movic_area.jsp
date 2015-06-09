@@ -46,7 +46,7 @@
 		<s:select name="movicarea.areaName" label="电影地区" labelposition="left"
 			list="#session.movicarealist.{areaName}"
 			value="#session.movicarealist.{areaName}"></s:select>
-		<s:submit value="删除"></s:submit>
+		<s:submit onclick="return window.confirm('你确定删除这一电影类型吗吗？')" value="删除"></s:submit>
 	</s:form>
 
 </body>

@@ -44,7 +44,8 @@
 		<s:select name="movictype.type" label="电影类型" labelposition="left"
 			list="#session.movictypelist.{type}"
 			value="#session.movictypelist.{type}"></s:select>
-		<s:submit value="删除"></s:submit>
+		<s:submit onclick="return window.confirm('你确定删除这一电影类型吗吗？')" value="删除"></s:submit>
+		<!-- <input type="submit" onclick="return window.confirm('你确定删除吗？')" value="删除"></input> -->
 	</s:form>
 
 </body>

@@ -76,9 +76,9 @@
 	
 	<!-- 电影类型有关的bean配置   李灏配置 开始-->
 	<bean id="movicTypeDao" class="com.dao.imp.MovicTypeDaoImp"></bean>
-	<bean id="movicTypeServer" class="com.server.imp.MovicTypeServerImp"></bean>
+	<bean id="movicTypeServer" class="com.server.imp.MovicTypeServerImp" scope="prototype"></bean>
 	<bean id="movicTypeAction" class="com.action.MovicTypeAction"></bean>
 	<bean id="movicAreaDao" class="com.dao.imp.MovicAreaDaoImp"></bean>
-	<bean id="movicAreaServer" class="com.server.imp.MovicAreaServerImp"></bean>
+	<bean id="movicAreaServer" class="com.server.imp.MovicAreaServerImp" scope="prototype"></bean>
 	<bean id="movicAreaAction" class="com.action.MovicAreaAction"></bean>
 	</beans>
