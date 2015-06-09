@@ -16,9 +16,7 @@
 			<result name="success">/movic_type.jsp</result>
 		</action>
 		<!--李灏 don't move ! end -->
-	<action name="login" class="login" method="check">
-    <result name="success">/index.jsp</result>
-    </action>
+	
     
     <!-- 梁泽民配置的action 开始-->
     <!-- 跳转到添加电影页面 -->
@@ -34,6 +32,10 @@
     
     <!-- getAllMovic 获取所有电影信息列表 -->
     <action name="getAllMovicDAction" class="movicManagementAction" method="getAllMovic">
+   	<result name="success">/deleteMovic.jsp</result>
+    </action>
+    <!-- deleteMovic 删除电影 根据电影id  deleteMovicAction-->
+    <action name="deleteMovicAction" class="movicManagementAction" method="deleteMovic">
    	<result name="success">/deleteMovic.jsp</result>
     </action>
     

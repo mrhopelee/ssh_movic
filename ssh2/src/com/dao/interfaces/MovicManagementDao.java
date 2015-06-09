@@ -3,6 +3,7 @@ package com.dao.interfaces;
 import java.util.List;
 
 import com.bean.MovicInfo;
+import com.bean.Paging;
 
 public interface MovicManagementDao {
 	public int addMovic(MovicInfo movic);
@@ -14,5 +15,7 @@ public interface MovicManagementDao {
 	public boolean addMovicArea(int movic_oid,int area_oid);//添加电影地区记录
 	public int searchMovicOidByMovicName(String movic_name);
 	public boolean addMovicVister(int movic_oid);//添加一条电影访问次数记录
-	public List getAllMovic();
+	public List getAllMovic(Paging p);
+	public int getMovicPaging();//获取分页信息
+	public boolean deleteMovic(MovicInfo movic);//删除电影
 }

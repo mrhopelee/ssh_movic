@@ -90,6 +90,7 @@
     
     
     
+    
     <select name="mt[1]">
     <option value="-1">无</option>
     <s:iterator value="movicType" id="mt">
