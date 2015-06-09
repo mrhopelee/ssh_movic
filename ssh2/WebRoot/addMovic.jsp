@@ -83,8 +83,8 @@
     <td>电影类型</td>
     <td> 
     <s:select name="mt[0]" list="movicType" listKey="mtOid" listValue="type" ></s:select>
-   	<s:select name="mt[1]" list="movicType" listKey="mtOid" listValue="type" headerKey="-1" headerValue="无" value="无"></s:select>
-   	<s:select name="mt[2]" list="movicType" listKey="mtOid" listValue="type" headerKey="-1" headerValue="无" value="无"></s:select>
+   	<s:select name="mt[1]" list="movicType" listKey="mtOid" listValue="type" ></s:select>
+   	<s:select name="mt[2]" list="movicType" listKey="mtOid" listValue="type"></s:select>
     </td>
     
     </tr>
@@ -94,7 +94,7 @@
     
     <td>
     <s:select name="ma[0]" list="movicArea" listKey="areaOid" listValue="areaName" ></s:select>
-    <s:select name="ma[1]" list="movicArea" listKey="areaOid" listValue="areaName" headerKey="-1" headerValue="无" value="无"></s:select>
+    <s:select name="ma[1]" list="movicArea" listKey="areaOid" listValue="areaName" ></s:select>
     </td>
     </tr>
     
