@@ -3,8 +3,20 @@
  "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 
- <package name="default" namespace="/" extends="struts-default">
-    <action name="login" class="login" method="check">
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<!--李灏 don't move ! begin -->
+		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
+			<result name="success">/movic_type.jsp</result>
+			<result name="input">/movic_type.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="movictypesetsession" class="movicTypeAction"
+			method="movictypeSetSession">
+			<result name="success">/movic_type.jsp</result>
+		</action>
+		<!--李灏 don't move ! end -->
+	<action name="login" class="login" method="check">
     <result name="success">/index.jsp</result>
     </action>
     
