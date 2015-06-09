@@ -81,31 +81,10 @@
     <!-- 获取出电影类型列表 -->
     <tr>
     <td>电影类型</td>
-    <td>
-    <select name="mt[0]">
-    <s:iterator value="movicType" id="mt">
-    <option value='<s:property value="#mt.mtOid"/>'><s:property value="#mt.type" /></option>
-    </s:iterator>
-    </select>
-    
-    
-    
-    
-    <select name="mt[1]">
-    <option value="-1">无</option>
-    <s:iterator value="movicType" id="mt">
-    <option value='<s:property value="#mt.mtOid"/>'><s:property value="#mt.type" /></option>
-    </s:iterator>
-    </select>
-    
-    
-   
-    <select name="mt[2]">
-    <option value="-1">无</option>
-    <s:iterator value="movicType" id="mt">
-    <option value='<s:property value="#mt.mtOid"/>'><s:property value="#mt.type" /></option>
-    </s:iterator>
-    </select>
+    <td> 
+    <s:select name="mt[0]" list="movicType" listKey="mtOid" listValue="type" ></s:select>
+   	<s:select name="mt[1]" list="movicType" listKey="mtOid" listValue="type" headerKey="-1" headerValue="无" value="无"></s:select>
+   	<s:select name="mt[2]" list="movicType" listKey="mtOid" listValue="type" headerKey="-1" headerValue="无" value="无"></s:select>
     </td>
     
     </tr>
@@ -114,20 +93,8 @@
     <td>电影地区</td>
     
     <td>
-    <select name="ma[0]">
-    <s:iterator value="movicArea" id="ma">
-    <option value='<s:property value="#ma.areaOid"/>'><s:property value="#ma.areaName" /></option>
-    </s:iterator>
-    </select>
-    
-    
-
-    <select name="ma[1]">
-    <option value="-1">无</option>
-    <s:iterator value="movicArea" id="ma">
-    <option value='<s:property value="#ma.areaOid"/>'><s:property value="#ma.areaName" /></option>
-    </s:iterator>
-    </select>
+    <s:select name="ma[0]" list="movicArea" listKey="areaOid" listValue="areaName" ></s:select>
+    <s:select name="ma[1]" list="movicArea" listKey="areaOid" listValue="areaName" headerKey="-1" headerValue="无" value="无"></s:select>
     </td>
     </tr>
     
@@ -135,6 +102,7 @@
     </table>
     </form>
     </div>
+    
   </body>
   
 </html>

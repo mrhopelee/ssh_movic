@@ -2,7 +2,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
  "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-
+<constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
 		
 		<!--李灏 don't move ! begin -->
@@ -38,6 +38,14 @@
     <action name="deleteMovicAction" class="movicManagementAction" method="deleteMovic">
    	<result name="success">/deleteMovic.jsp</result>
     </action>
+    
+     <!-- getAllMovic 获取所有电影信息列表 -->
+    <action name="getAllMovicUAction" class="movicManagementAction" method="getAllMovic">
+   	<result name="success">/updateMovic.jsp</result>
+    </action>
+    
+    <!-- showUpdateMovicAction 显示将要更新的电影的所有信息 -->
+    
     
     <!-- 梁泽民配置的action 结束-->
 </package>
