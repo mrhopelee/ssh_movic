@@ -4,21 +4,19 @@
 <struts>
 	<constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
-		
+
 		<!--李灏 don't move ! begin -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="deletemovictype" class="movicTypeAction"
-			method="deleteMovicType">
+		<action name="deletemovictype" class="movicTypeAction" method="deleteMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="updatemovictype" class="movicTypeAction"
-			method="updateMovicType">
+		<action name="updatemovictype" class="movicTypeAction" method="updateMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -27,8 +25,29 @@
 			method="movictypeSetSession">
 			<result name="success">/movic_type.jsp</result>
 		</action>
-		
-		
+
+
+
+		<action name="insertmovicarea" class="movicAreaAction" method="insertMovicArea">
+			<result name="success">/movic_area.jsp</result>
+			<result name="input">/movic_area.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="deletemovicarea" class="movicAreaAction" method="deleteMovicArea">
+			<result name="success">/movic_area.jsp</result>
+			<result name="input">/movic_area.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updatemovicarea" class="movicAreaAction" method="updateMovicArea">
+			<result name="success">/movic_area.jsp</result>
+			<result name="input">/movic_area.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="movicareasetsession" class="movicAreaAction"
+			method="movicareaSetSession">
+			<result name="success">/movic_area.jsp</result>
+		</action>
+
 		<!--李灏 don't move ! end -->
 		<action name="login" class="login" method="check">
 			<result name="success">/index.jsp</result>
@@ -48,9 +67,10 @@
 			<result name="input">/addMovic.jsp</result>
 		</action>
 		<!-- getAllMovic 获取所有电影信息列表 -->
-    	<action name="getAllMovicDAction" class="movicManagementAction" method="getAllMovic">
-   		<result name="success">/deleteMovic.jsp</result>
-    	</action>
+		<action name="getAllMovicDAction" class="movicManagementAction"
+			method="getAllMovic">
+			<result name="success">/deleteMovic.jsp</result>
+		</action>
 		<!-- 梁泽民配置的action 结束 -->
 	</package>
 </struts>    

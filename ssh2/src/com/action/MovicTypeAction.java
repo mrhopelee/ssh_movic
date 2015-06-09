@@ -18,11 +18,12 @@ public class MovicTypeAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Resource
-	MovicTypeServer movictypeserver;
+	MovicTypeServer movictypeServer;
 	MovicType movictype;
 	String updateType;
 	HttpServletRequest request = null;
 	HttpSession hs = null;
+	MovicType newmovictype = null;
 
 	/*
 	 * 
@@ -36,10 +37,9 @@ public class MovicTypeAction extends ActionSupport {
 	}
 
 	public String insertMovicType() {
-		MovicType newmovictype;
 		movictype.setMtOid(null);
 		try {
-			newmovictype = movictypeserver.insertMovicTypeService(movictype);
+			newmovictype = movictypeServer.insertMovicTypeService(movictype);
 		} catch (Exception e) {
 			System.out.println(e + "insertMovicType function");
 			addFieldError("insertmt", "无法添加，已存在此类型");
@@ -59,12 +59,12 @@ public class MovicTypeAction extends ActionSupport {
 		try {
 			String whereSql = "from MovicType as mt where mt.type=" + "'"
 					+ movictype.getType() + "'";
-			List<MovicType> list = (List<MovicType>) movictypeserver
+			List<MovicType> list = (List<MovicType>) movictypeServer
 					.searchMovicTypeService(whereSql);
 			movictype.setMtOid(list.get(0).getMtOid());
-			movictypeserver.deleteMovicTypeService(movictype);
+			movictypeServer.deleteMovicTypeService(movictype);
 		} catch (Exception e) {
-			System.out.println(e + "updateMovicType function");
+			System.out.println(e + "deleteMovicType function");
 			addFieldError("deletemt", "删除失败");
 			return "error";
 		} finally {
@@ -93,16 +93,14 @@ public class MovicTypeAction extends ActionSupport {
 	}
 
 	public String updateMovicType() {
-		MovicType newmovictype;
 		try {
-			System.out.println(movictype.getType());
 			String whereSql = "from MovicType as mt where mt.type=" + "'"
 					+ movictype.getType() + "'";
-			List<MovicType> list = (List<MovicType>) movictypeserver
+			List<MovicType> list = (List<MovicType>) movictypeServer
 					.searchMovicTypeService(whereSql);
 			movictype.setMtOid(list.get(0).getMtOid());
 			movictype.setType(updateType);
-			newmovictype = movictypeserver.updateMovicTypeService(movictype);
+			newmovictype = movictypeServer.updateMovicTypeService(movictype);
 		} catch (Exception e) {
 			System.out.println(e + "updateMovicType function");
 			addFieldError("updatemt", "更新失败");
@@ -123,16 +121,16 @@ public class MovicTypeAction extends ActionSupport {
 		hs.removeAttribute("movictypelist");
 		String whereSql = "from MovicType as mt order by mt.type desc";
 		hs.setAttribute("movictypelist",
-				movictypeserver.searchMovicTypeService(whereSql));
+				movictypeServer.searchMovicTypeService(whereSql));
 		return "success";
 	}
 
-	public MovicTypeServer getMovictypeserver() {
-		return movictypeserver;
+	public MovicTypeServer getMovictypeServer() {
+		return movictypeServer;
 	}
 
-	public void setMovictypeserver(MovicTypeServer movictypeserver) {
-		this.movictypeserver = movictypeserver;
+	public void setMovictypeServer(MovicTypeServer movictypeServer) {
+		this.movictypeServer = movictypeServer;
 	}
 
 	public MovicType getMovictype() {

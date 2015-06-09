@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>首页</title>
+<title>电影类型</title>
 
 
 <link rel="stylesheet" type="text/css" href="css/normalize.css">

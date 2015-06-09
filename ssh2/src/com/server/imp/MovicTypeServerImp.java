@@ -22,7 +22,7 @@ import com.server.interfaces.MovicTypeServer;
 @Transactional
 public class MovicTypeServerImp implements MovicTypeServer {
 	@Resource
-	MovicTypeDao movictypeDao;
+	private MovicTypeDao movictypeDao;
 
 	public MovicType insertMovicTypeService(MovicType movictype) {
 		/* try { */
