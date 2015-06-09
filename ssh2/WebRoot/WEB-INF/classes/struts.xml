@@ -37,7 +37,10 @@
 			<result name="success">/adminFunction.jsp</result>
 			<result name="input">/addMovic.jsp</result>
 		</action>
-
+		<!-- getAllMovic 获取所有电影信息列表 -->
+    	<action name="getAllMovicDAction" class="movicManagementAction" method="getAllMovic">
+   		<result name="success">/deleteMovic.jsp</result>
+    	</action>
 		<!-- 梁泽民配置的action 结束 -->
 	</package>
 </struts>    

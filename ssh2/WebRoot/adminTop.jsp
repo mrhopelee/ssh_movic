@@ -6,8 +6,9 @@
 <td><form action=""><input type="submit" value="电影地区添加"></form></td>
 <td><form action=""><input type="submit" value="电影地区删除"></form></td>
 <td><form action="goToAddMovicPageAction"><input type="submit" value="电影添加"></form></td>
-<td><form action=""><input type="submit" value="电影删除"></form></td>
+<td><form action="getAllMovicDAction"><input type="submit" value="电影删除"></form></td>
 <td><form action=""><input type="submit" value="电影修改"></form></td>
+<td><form action=""><input type="submit" value="更新电影海报"></form></td>
 <td><form action=""><input type="submit" value="电影图册维护"></form></td>
 </tr>
 </table>

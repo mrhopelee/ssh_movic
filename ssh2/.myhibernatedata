@@ -1,5 +1,9 @@
 #MyEclipse Hibernate Properties
+<<<<<<< HEAD
 #Tue Jun 09 10:43:10 CST 2015
+=======
+#Tue Jun 09 10:24:23 CST 2015
+>>>>>>> branch 'dev' of https://github.com/mrhopelee/ssh_movic.git
 genBasicCompId=false
 sessionFactoryName=
 profile=

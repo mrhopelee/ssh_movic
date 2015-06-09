@@ -16,6 +16,7 @@ public class MovicManagementAction extends ActionSupport {
 	 * 
 	 * 
 	 * */
+	private List<MovicInfo> movicInfo;//这是用来保存获取的所有电影信息
 	private List<MovicType> movicType;
 	private List<MovicArea> movicArea;
 	private MovicInfo movic;
@@ -26,6 +27,15 @@ public class MovicManagementAction extends ActionSupport {
 	
 	@Resource
 	private MovicManagementServer movicManagementServer;
+
+	
+	public List<MovicInfo> getMovicInfo() {
+		return movicInfo;
+	}
+
+	public void setMovicInfo(List<MovicInfo> movicInfo) {
+		this.movicInfo = movicInfo;
+	}
 
 	public MovicManagementServer getMovicManagementServer() {
 		return movicManagementServer;
@@ -146,6 +156,14 @@ public class MovicManagementAction extends ActionSupport {
 		}
 		movicManagementServer.addMovicVister(movic_oid);
 	
+		return "success";
+	}
+	
+	//该方法用来获取所有电影的信息
+	public String getAllMovic()
+	{
+		movicManagementServer.getAllMovic();
+		
 		return "success";
 	}
 	

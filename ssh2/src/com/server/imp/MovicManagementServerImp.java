@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bean.MovicInfo;
@@ -74,6 +75,14 @@ public class MovicManagementServerImp implements MovicManagementServer {
 	public boolean addMovicVister(int movic_oid) {
 		
 		return movicManagementDao.addMovicVister(movic_oid);
+	}
+
+
+	//获取所有电影信息 并分页
+	public List getAllMovic() {
+		// TODO Auto-generated method stub
+		               
+		return movicManagementDao.getAllMovic();
 	}
 
 	

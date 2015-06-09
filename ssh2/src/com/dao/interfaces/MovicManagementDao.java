@@ -14,4 +14,5 @@ public interface MovicManagementDao {
 	public boolean addMovicArea(int movic_oid,int area_oid);//添加电影地区记录
 	public int searchMovicOidByMovicName(String movic_name);
 	public boolean addMovicVister(int movic_oid);//添加一条电影访问次数记录
+	public List getAllMovic();
 }
