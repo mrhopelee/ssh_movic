@@ -63,10 +63,17 @@ public class MovicManagementServerImp implements MovicManagementServer {
 	}
 
 
-	@Override
+
 	public int searchMovicOidByMovicName(String movic_name) {
 		
 		return movicManagementDao.searchMovicOidByMovicName(movic_name);
+	}
+
+
+
+	public boolean addMovicVister(int movic_oid) {
+		
+		return movicManagementDao.addMovicVister(movic_oid);
 	}
 
 	
