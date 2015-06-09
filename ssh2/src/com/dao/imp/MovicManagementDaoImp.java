@@ -11,6 +11,7 @@ import com.bean.MovicBeloneArea;
 import com.bean.MovicBeloneType;
 import com.bean.MovicInfo;
 import com.bean.MovicType;
+import com.bean.MovicVisiterNumber;
 import com.dao.interfaces.MovicManagementDao;
 
 public class MovicManagementDaoImp implements MovicManagementDao {
@@ -120,6 +121,21 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 		sessionFactory.getCurrentSession().flush();
 	MovicInfo mid= (MovicInfo) sessionFactory.getCurrentSession().createQuery("from MovicInfo where movicName=?").setString(0,movic_name).list().get(0);
 	return mid.getMovicOid();
+	}
+
+
+
+	public boolean addMovicVister(int movic_oid) {
+		MovicVisiterNumber mvn=new MovicVisiterNumber();
+		MovicInfo mi=new MovicInfo();
+		mi.setMovicOid(movic_oid);
+		
+		mvn.setMovicInfo(mi);
+		mvn.setVisiterNumber(0);
+		
+		sessionFactory.getCurrentSession().save(mvn);
+		
+		return true;
 	}
 	
 

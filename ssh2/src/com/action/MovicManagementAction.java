@@ -13,6 +13,8 @@ import com.server.interfaces.MovicManagementServer;
 public class MovicManagementAction extends ActionSupport {
 	/*这个类完成一下工作
 	 * 1.添加电影 并 添加电影类型和电影地区记录
+	 * 
+	 * 
 	 * */
 	private List<MovicType> movicType;
 	private List<MovicArea> movicArea;
@@ -101,6 +103,7 @@ public class MovicManagementAction extends ActionSupport {
 		//1.保存电影信息记录 并 返回电影id
 		//2.添加电影类型记录
 		//3.添加电影地区记录
+		//4.添加电影访问记录
 		/*System.out.println(movic.getMovicName());
 		System.out.println(movic.getMovicActor());
 		System.out.println(movic.getMovicDirector());
@@ -141,6 +144,7 @@ public class MovicManagementAction extends ActionSupport {
 				movicManagementServer.addMovicArea(movic_oid,ma[i]);
 			}
 		}
+		movicManagementServer.addMovicVister(movic_oid);
 	
 		return "success";
 	}
