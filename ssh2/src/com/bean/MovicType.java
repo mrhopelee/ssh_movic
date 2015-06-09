@@ -11,9 +11,13 @@ public class MovicType implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer mtOid;
 	private String type;
-	private Set movicBeloneTypes = new HashSet(0);
+	private Set<?> movicBeloneTypes = new HashSet<Object>(0);
 
 	// Constructors
 
@@ -27,7 +31,7 @@ public class MovicType implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public MovicType(String type, Set movicBeloneTypes) {
+	public MovicType(String type, Set<?> movicBeloneTypes) {
 		this.type = type;
 		this.movicBeloneTypes = movicBeloneTypes;
 	}
@@ -50,11 +54,11 @@ public class MovicType implements java.io.Serializable {
 		this.type = type;
 	}
 
-	public Set getMovicBeloneTypes() {
+	public Set<?> getMovicBeloneTypes() {
 		return this.movicBeloneTypes;
 	}
 
-	public void setMovicBeloneTypes(Set movicBeloneTypes) {
+	public void setMovicBeloneTypes(Set<?> movicBeloneTypes) {
 		this.movicBeloneTypes = movicBeloneTypes;
 	}
 

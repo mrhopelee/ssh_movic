@@ -11,10 +11,43 @@
 			<result name="input">/movic_type.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="deletemovictype" class="movicTypeAction" method="deleteMovicType">
+			<result name="success">/movic_type.jsp</result>
+			<result name="input">/movic_type.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updatemovictype" class="movicTypeAction" method="updateMovicType">
+			<result name="success">/movic_type.jsp</result>
+			<result name="input">/movic_type.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		<action name="movictypesetsession" class="movicTypeAction"
 			method="movictypeSetSession">
 			<result name="success">/movic_type.jsp</result>
 		</action>
+
+
+
+		<action name="insertmovicarea" class="movicAreaAction" method="insertMovicArea">
+			<result name="success">/movic_area.jsp</result>
+			<result name="input">/movic_area.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="deletemovicarea" class="movicAreaAction" method="deleteMovicArea">
+			<result name="success">/movic_area.jsp</result>
+			<result name="input">/movic_area.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updatemovicarea" class="movicAreaAction" method="updateMovicArea">
+			<result name="success">/movic_area.jsp</result>
+			<result name="input">/movic_area.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="movicareasetsession" class="movicAreaAction"
+			method="movicareaSetSession">
+			<result name="success">/movic_area.jsp</result>
+		</action>
+
 		<!--李灏 don't move ! end -->
 	
     

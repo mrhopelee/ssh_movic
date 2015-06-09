@@ -3,8 +3,8 @@
 <table>
 <caption>电影管理功能</caption>
 <tr>
-<td><form ><input type="submit" value="电影地区添加"></form></td>
-<td><form ><input type="submit" value="电影地区删除"></form></td>
+<td><form action="movic_area.jsp" ><input type="submit" value="电影地区维护"></form></td>
+<td><form action="movic_type.jsp"><input type="submit" value="电影类型维护"></form></td>
 <td><form action="goToAddMovicPageAction"><input type="submit" value="电影添加"></form></td>
 <td>
 <form action="getAllMovicDAction"><input type="submit" value="电影删除">
