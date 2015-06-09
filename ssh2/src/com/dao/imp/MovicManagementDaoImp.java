@@ -12,6 +12,7 @@ import com.bean.MovicBeloneType;
 import com.bean.MovicInfo;
 import com.bean.MovicType;
 import com.bean.MovicVisiterNumber;
+import com.bean.Paging;
 import com.dao.interfaces.MovicManagementDao;
 
 public class MovicManagementDaoImp implements MovicManagementDao {
@@ -140,9 +141,31 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 
 
 
-	public List getAllMovic() {
+	public List getAllMovic(Paging p) {
+		int begin=(p.getPageNow()-1)*p.getPageSize();
+		int end=p.getPageSize();
+		//System.out.println("begin"+begin+"  end"+end);
 		
-		return sessionFactory.getCurrentSession().createQuery("from MovicInfo order by movicOid").list();
+		return sessionFactory.getCurrentSession().createQuery("from MovicInfo order by movicOid").setFirstResult(begin).setMaxResults(end).list();
+	}
+
+
+
+	public int getMovicPaging() {
+	
+	
+		return sessionFactory.getCurrentSession().createQuery("from MovicInfo").list().size();
+
+		
+	}
+
+
+
+	public boolean deleteMovic(MovicInfo movic) {
+		
+		MovicInfo m=(MovicInfo) sessionFactory.getCurrentSession().load(MovicInfo.class, movic.getMovicOid());
+		sessionFactory.getCurrentSession().delete(m);
+		return true;
 	}
 	
 

@@ -31,47 +31,47 @@
         <property name="movicPost" type="java.lang.String">
             <column name="movic_post" length="100" />
         </property>
-        <set name="movicPictures" inverse="true">
+        <set name="movicPictures" inverse="true" cascade="delete">
             <key>
                 <column name="movic_oid" />
             </key>
             <one-to-many class="com.bean.MovicPicture" />
         </set>
-        <set name="movicVisiterNumbers" inverse="true">
+        <set name="movicVisiterNumbers" inverse="true" cascade="delete" >
             <key>
                 <column name="movic_oid" unique="true" />
             </key>
             <one-to-many class="com.bean.MovicVisiterNumber" />
         </set>
-        <set name="movicBeloneTypes" inverse="true">
+        <set name="movicBeloneTypes" inverse="true" cascade="delete">
             <key>
                 <column name="movic_oid" />
             </key>
             <one-to-many class="com.bean.MovicBeloneType" />
         </set>
-        <set name="movicDownloads" inverse="true">
+        <set name="movicDownloads" inverse="true" cascade="delete">
             <key>
                 <column name="movic_oid" />
             </key>
             <one-to-many class="com.bean.MovicDownload" />
         </set>
-        <set name="movicCommentses" inverse="true">
+        <set name="movicCommentses" inverse="true" cascade="delete">
             <key>
                 <column name="movic_oid" />
             </key>
             <one-to-many class="com.bean.MovicComments" />
         </set>
-        <set name="movicBeloneAreas" inverse="true">
+        <set name="movicBeloneAreas" inverse="true" cascade="delete">
             <key>
                 <column name="movic_oid" />
             </key>
             <one-to-many class="com.bean.MovicBeloneArea" />
         </set>
-        <set name="userScoreMovics" inverse="true">
+        <set name="userScoreMovics" inverse="true" cascade="delete">
             <key>
                 <column name="movic_oid" />
             </key>
-            <one-to-many class="com.bean.UserScoreMovic" />
+            <one-to-many class="com.bean.UserScoreMovic"   />
         </set>
     </class>
 </hibernate-mapping>
