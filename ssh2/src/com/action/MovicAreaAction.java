@@ -26,6 +26,14 @@ public class MovicAreaAction extends ActionSupport {
 	HttpSession hs = null;
 	MovicArea newmovicarea = null;
 
+	public void validateInsertMovicArea() {
+		this.clearFieldErrors();
+		if ((movicarea.getAreaName()).equals("")) {
+			addFieldError("insertma", "validate request: 地区不能为空");
+		}
+		super.validate();
+	}
+
 	public String insertMovicArea() {
 
 		movicarea.setAreaOid(null);
@@ -47,21 +55,41 @@ public class MovicAreaAction extends ActionSupport {
 	}
 
 	public String deleteMovicArea() {
+		System.out.println("deleteMovicArea");
 		try {
 			String whereSql = "from MovicArea as ma where ma.areaName=" + "'"
 					+ movicarea.getAreaName() + "'";
 			List<MovicArea> list = (List<MovicArea>) movicareaServer
 					.searchMovicAreaService(whereSql);
-			movicarea.setAreaOid(list.get(0).getAreaOid());
+			movicarea = list.get(0);
 			movicareaServer.deleteMovicAreaService(movicarea);
 		} catch (Exception e) {
 			System.out.println(e + "deleteMovicType function");
-			addFieldError("deletemt", "删除失败");
+			addFieldError("deletema", "删除失败");
 			return "error";
 		} finally {
 			movicarea = null;
 		}
 		return "success";
+	}
+
+	@SuppressWarnings("unchecked")
+	public void validateUpdateMovicArea() {
+		this.clearFieldErrors();
+		if (updateArea.equals("")) {
+			addFieldError("updatema", "validate request: 请输入地区");
+		} else {
+			request = ServletActionContext.getRequest();
+			hs = request.getSession(true);
+			List<MovicArea> list = (List<MovicArea>) hs
+					.getAttribute("movicarealist");
+			for (int i = 0; i < list.size(); i++) {
+				if ((list.get(i).getAreaName()).equals(updateArea)) {
+					addFieldError("updatema", "validate request: 无法修改，已存在此地区");
+				}
+			}
+		}
+		super.validate();
 	}
 
 	public String updateMovicArea() {

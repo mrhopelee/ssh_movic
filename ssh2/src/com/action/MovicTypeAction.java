@@ -37,6 +37,7 @@ public class MovicTypeAction extends ActionSupport {
 	}
 
 	public String insertMovicType() {
+		System.out.println("insertMovicType");
 		movictype.setMtOid(null);
 		try {
 			newmovictype = movictypeServer.insertMovicTypeService(movictype);
@@ -56,12 +57,13 @@ public class MovicTypeAction extends ActionSupport {
 	}
 
 	public String deleteMovicType() {
+		System.out.println("deleteMovicType");
 		try {
 			String whereSql = "from MovicType as mt where mt.type=" + "'"
 					+ movictype.getType() + "'";
 			List<MovicType> list = (List<MovicType>) movictypeServer
 					.searchMovicTypeService(whereSql);
-			movictype.setMtOid(list.get(0).getMtOid());
+			movictype = list.get(0);
 			movictypeServer.deleteMovicTypeService(movictype);
 		} catch (Exception e) {
 			System.out.println(e + "deleteMovicType function");
@@ -93,6 +95,7 @@ public class MovicTypeAction extends ActionSupport {
 	}
 
 	public String updateMovicType() {
+		System.out.println("updateMovicType");
 		try {
 			String whereSql = "from MovicType as mt where mt.type=" + "'"
 					+ movictype.getType() + "'";
