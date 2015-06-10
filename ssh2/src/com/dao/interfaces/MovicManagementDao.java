@@ -18,4 +18,8 @@ public interface MovicManagementDao {
 	public List getAllMovic(Paging p);
 	public int getMovicPaging();//获取分页信息
 	public boolean deleteMovic(MovicInfo movic);//删除电影
+	public MovicInfo getMovicByOid(int movicOid);//通过电影id获取电影信息
+	//通过电影id获取 电影类型 和 电影地区的持久化类 并更新
+		public boolean updateMovicTypesByMovicOid(int movicOid,int[]types);
+		public boolean updateMovicAreasByMovicOid(int movicOid,int[]areas);
 }

@@ -59,8 +59,9 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 
 
 	public boolean updateMovic(MovicInfo movic) {
+		sessionFactory.getCurrentSession().saveOrUpdate(movic);
 	
-		return false;
+		return true;
 	}
 
 
@@ -68,14 +69,14 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 	public List getMovicType() {
 
 		
-		return sessionFactory.getCurrentSession().createQuery("from MovicType").list();
+		return sessionFactory.getCurrentSession().createQuery("from MovicType order by mtOid").list();
 	}
 
 
 	@Override
 	public List getMovicArea() {
 		
-		return sessionFactory.getCurrentSession().createQuery("from MovicArea").list();
+		return sessionFactory.getCurrentSession().createQuery("from MovicArea order by areaOid").list();
 	}
 
 
@@ -165,6 +166,53 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 		
 		MovicInfo m=(MovicInfo) sessionFactory.getCurrentSession().load(MovicInfo.class, movic.getMovicOid());
 		sessionFactory.getCurrentSession().delete(m);
+		return true;
+	}
+
+
+
+	public MovicInfo getMovicByOid(int movicOid) {
+		
+		return (MovicInfo) sessionFactory.getCurrentSession().createQuery("from MovicInfo where movicOid=?").setInteger(0, movicOid).uniqueResult();
+	}
+
+
+	@Override
+	public boolean updateMovicTypesByMovicOid(int movicOid, int[] types) {
+		
+		List<MovicBeloneType> l=sessionFactory.getCurrentSession().createQuery("from MovicBeloneType where movicInfo.movicOid=?").setInteger(0,movicOid).list();
+		int i;
+		for(i=0;i<3;i++)
+		{
+			MovicBeloneType mbt=l.get(i);
+			MovicType mt=new MovicType();
+			mt.setMtOid(types[i]);
+			mbt.setMovicType(mt);
+			
+			sessionFactory.getCurrentSession().saveOrUpdate(mbt);
+		}
+		
+		
+		return true;
+	}
+
+
+	@Override
+	public boolean updateMovicAreasByMovicOid(int movicOid, int[] areas) {
+		
+		List<MovicBeloneArea> l=sessionFactory.getCurrentSession().createQuery("from MovicBeloneArea where movicInfo.movicOid=?").setInteger(0,movicOid).list();
+		int i;
+		for(i=0;i<2;i++)
+		{
+			MovicBeloneArea mba=l.get(i);
+			
+			MovicArea ma=new MovicArea();
+			ma.setAreaOid(areas[i]);
+			mba.setMovicArea(ma);
+			
+			sessionFactory.getCurrentSession().saveOrUpdate(mba);
+		}
+		
 		return true;
 	}
 	

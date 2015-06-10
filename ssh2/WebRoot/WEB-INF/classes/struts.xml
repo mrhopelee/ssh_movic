@@ -78,7 +78,14 @@
     </action>
     
     <!-- showUpdateMovicAction 显示将要更新的电影的所有信息 -->
+    <action name="showUpdateMovicAction" class="movicManagementAction" method="showUpdateMovic">
+   	<result name="success">/updateMovicDetail.jsp</result>
+    </action>
     
+    <!-- updateMovicAction 更新指定电影信息 -->
+    <action name="updateMovicAction" class="movicManagementAction" method="updateMovic">
+   	<result name="success">/adminFunction.jsp</result>
+    </action>
     
     <!-- 梁泽民配置的action 结束-->
 </package>

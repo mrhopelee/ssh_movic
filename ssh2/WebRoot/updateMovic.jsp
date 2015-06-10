@@ -13,7 +13,7 @@
     <s:iterator value="movicInfo" id="m">
     <tr>
     <td><s:property value="#m.movicName"/></td>
-    <td><s:date name="#m.movicPlayDate" format="yyyy/mm/yy"/></td>
+    <td><s:date name="#m.movicPlayDate" format="yyyy/MM/dd"/></td>
     <td><img src="<s:property value="#m.movicPost"/>" alt="无法显示"></td>
     <td>
     <form action="showUpdateMovicAction"><input type="submit" value="修改">

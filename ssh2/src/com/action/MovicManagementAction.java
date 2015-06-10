@@ -144,18 +144,14 @@ public class MovicManagementAction extends ActionSupport {
 		int i;
 		for(i=0;i<3;i++)
 		{
-			if(mt[i]>=0)
-			{
+			
 				movicManagementServer.addMovicType(movic_oid, mt[i]);
-			}
+		
 		}
 		
 		for(i=0;i<2;i++)
 		{
-			if(ma[i]>=0)
-			{
 				movicManagementServer.addMovicArea(movic_oid,ma[i]);
-			}
 		}
 		movicManagementServer.addMovicVister(movic_oid);
 	
@@ -192,5 +188,26 @@ public class MovicManagementAction extends ActionSupport {
 		return "success";
 	}
 	
+	public String showUpdateMovic()
+	{
+		//获取电影类型 和地区列表
+		movicType= movicManagementServer.getMovicType();
+		movicArea= movicManagementServer.getMovicArea();
+		movic=movicManagementServer.getMovicByOid(movic.getMovicOid());
+		
+		return "success";
+	}
+	
+	public String updateMovic()
+	{
+		movic.setMovicImdbScore(new Double(score[0]+"."+score[1]));
+		movicManagementServer.updateMovic(movic);
+		//首先更新电影信息
+		//将电影id传去dao层 dao 层获取相关的电影类型记录，再逐条更新
+		
+		movicManagementServer.updateMovicTypesByMovicOid(movic.getMovicOid(),mt);
+		movicManagementServer.updateMovicAreasByMovicOid(movic.getMovicOid(),ma);
+		return "success";
+	}
 
 }

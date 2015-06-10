@@ -33,7 +33,7 @@ public class MovicManagementServerImp implements MovicManagementServer {
 
 	public boolean updateMovic(MovicInfo movic) {
 	
-		return false;
+		return movicManagementDao.updateMovic(movic);
 	}
 
 
@@ -98,6 +98,27 @@ public class MovicManagementServerImp implements MovicManagementServer {
 	public boolean deleteMovic(MovicInfo movic) {
 		
 		return movicManagementDao.deleteMovic(movic);
+	}
+
+
+	
+	public MovicInfo getMovicByOid(int movicOid) {
+		
+		return movicManagementDao.getMovicByOid(movicOid);
+	}
+
+
+	@Override
+	public boolean updateMovicTypesByMovicOid(int movicOid, int[] types) {
+		
+		return movicManagementDao.updateMovicTypesByMovicOid(movicOid, types);
+	}
+
+
+	@Override
+	public boolean updateMovicAreasByMovicOid(int movicOid, int[] areas) {
+		// TODO Auto-generated method stub
+		return movicManagementDao.updateMovicAreasByMovicOid(movicOid, areas);
 	}
 
 	
