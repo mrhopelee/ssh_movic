@@ -2,11 +2,21 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
  "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-
+<constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
 
-		<!--李灏 don't move ! begin -->
+				<!--李灏 don't move ! begin -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
+			<result name="success">/movic_type.jsp</result>
+			<result name="input">/movic_type.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="deletemovictype" class="movicTypeAction" method="deleteMovicType">
+			<result name="success">/movic_type.jsp</result>
+			<result name="input">/movic_type.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updatemovictype" class="movicTypeAction" method="updateMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -15,32 +25,69 @@
 			method="movictypeSetSession">
 			<result name="success">/movic_type.jsp</result>
 		</action>
+
+
+
+		<action name="insertmovicarea" class="movicAreaAction" method="insertMovicArea">
+			<result name="success">/movic_area.jsp</result>
+			<result name="input">/movic_area.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="deletemovicarea" class="movicAreaAction" method="deleteMovicArea">
+			<result name="success">/movic_area.jsp</result>
+			<result name="input">/movic_area.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="updatemovicarea" class="movicAreaAction" method="updateMovicArea">
+			<result name="success">/movic_area.jsp</result>
+			<result name="input">/movic_area.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="movicareasetsession" class="movicAreaAction"
+			method="movicareaSetSession">
+			<result name="success">/movic_area.jsp</result>
+		</action>
+
 		<!--李灏 don't move ! end -->
-		<action name="login" class="login" method="check">
-			<result name="success">/index.jsp</result>
-		</action>
-
-		<!-- 梁泽民配置的action 开始 -->
-		<!-- 跳转到添加电影页面 -->
-		<action name="goToAddMovicPageAction" class="movicManagementAction"
-			method="goToAddMovicPage">
-			<result name="success">/addMovic.jsp</result>
-		</action>
-
-		<!-- addMovic 添加电影的action -->
-		<action name="addMovicAction" class="movicManagementAction"
-			method="addMovic">
-			<result name="success">/adminFunction.jsp</result>
-			<result name="input">/addMovic.jsp</result>
-		</action>
-
-		<!-- getAllMovic 获取所有电影信息列表 -->
-		<action name="getAllMovicDAction" class="movicManagementAction"
-			method="getAllMovic">
-			<result name="success">/deleteMovic.jsp</result>
-		</action>
-		<!-- 梁泽民配置的action 结束 -->
-
+	
+    
+    <!-- 梁泽民配置的action 开始-->
+    <!-- 跳转到添加电影页面 -->
+    <action name="goToAddMovicPageAction" class="movicManagementAction" method="goToAddMovicPage">
+   	<result name="success">/addMovic.jsp</result>
+    </action>
+    
+    <!-- addMovic 添加电影的action -->
+    <action name="addMovicAction" class="movicManagementAction" method="addMovic">
+   	<result name="success">/adminFunction.jsp</result>
+   	<result name="input">/addMovic.jsp</result>
+    </action>
+    
+    <!-- getAllMovic 获取所有电影信息列表 -->
+    <action name="getAllMovicDAction" class="movicManagementAction" method="getAllMovic">
+   	<result name="success">/deleteMovic.jsp</result>
+    </action>
+    <!-- deleteMovic 删除电影 根据电影id  deleteMovicAction-->
+    <action name="deleteMovicAction" class="movicManagementAction" method="deleteMovic">
+   	<result name="success">/deleteMovic.jsp</result>
+    </action>
+    
+     <!-- getAllMovic 获取所有电影信息列表 -->
+    <action name="getAllMovicUAction" class="movicManagementAction" method="getAllMovic">
+   	<result name="success">/updateMovic.jsp</result>
+    </action>
+    
+    <!-- showUpdateMovicAction 显示将要更新的电影的所有信息 -->
+    <action name="showUpdateMovicAction" class="movicManagementAction" method="showUpdateMovic">
+   	<result name="success">/updateMovicDetail.jsp</result>
+    </action>
+    
+    <!-- updateMovicAction 更新指定电影信息 -->
+    <action name="updateMovicAction" class="movicManagementAction" method="updateMovic">
+   	<result name="success">/adminFunction.jsp</result>
+    </action>
+    
+    <!-- 梁泽民配置的action 结束-->
 <!-- ===============================@HuangLongChang============================== -->
 		<!-- 黄隆昌配置的action 开始 -->
 		

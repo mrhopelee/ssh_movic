@@ -3,25 +3,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>删除电影</title>
-
-
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
+    <title>更新电影列表</title>
+	<!-- 获取所有的电影信息列表 -->
   </head>
   
   <body>
-    <a href="adminFunction.jsp">返回管理页面</a><br>
+   <a href="adminFunction.jsp">返回管理页面</a><br>
     <table border="1">
     <s:iterator value="movicInfo" id="m">
     <tr>
     <td><s:property value="#m.movicName"/></td>
-    <td><s:date name="#m.movicPlayDate" format="yyyy/MM/yy"/></td>
+    <td><s:date name="#m.movicPlayDate" format="yyyy/MM/dd"/></td>
     <td><img src="<s:property value="#m.movicPost"/>" alt="无法显示"></td>
     <td>
-    <form action="deleteMovicAction"><input type="submit" value="删除">
+    <form action="showUpdateMovicAction"><input type="submit" value="修改">
     <input type="hidden" name="movic.movicOid" value='<s:property value="#m.movicOid"/>'>
     </form>
     </td>
@@ -58,6 +53,5 @@
 	
 	</tr>
 	</table>
-
   </body>
 </html>

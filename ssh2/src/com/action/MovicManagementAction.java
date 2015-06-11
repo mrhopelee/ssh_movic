@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import com.bean.MovicArea;
 import com.bean.MovicInfo;
 import com.bean.MovicType;
+import com.bean.Paging;
 import com.opensymphony.xwork2.ActionSupport;
 import com.server.interfaces.MovicManagementServer;
 
@@ -24,6 +25,8 @@ public class MovicManagementAction extends ActionSupport {
 	private int []mt=new int[3];//传值过来的电影类型
 	private int []ma=new int[2];//传值过来的电影地区
 	private int []score=new int[2];//传值过来的电影评分
+	
+	private Paging paging;
 	
 	@Resource
 	private MovicManagementServer movicManagementServer;
@@ -98,6 +101,15 @@ public class MovicManagementAction extends ActionSupport {
 		this.score = score;
 	}
 
+	
+	public Paging getPaging() {
+		return paging;
+	}
+
+	public void setPaging(Paging paging) {
+		this.paging = paging;
+	}
+
 	public String goToAddMovicPage()
 	{
 		//获取电影类型 和电影地区 并传到添加电影页面上
@@ -114,20 +126,11 @@ public class MovicManagementAction extends ActionSupport {
 		//2.添加电影类型记录
 		//3.添加电影地区记录
 		//4.添加电影访问记录
-		/*System.out.println(movic.getMovicName());
-		System.out.println(movic.getMovicActor());
-		System.out.println(movic.getMovicDirector());
-		System.out.println(movic.getMovicIntroduction());
-		System.out.println(movic.getMovicPlayDate());
 		
-		System.out.println(mt[0]);
-		System.out.println(mt[1]);
-		System.out.println(mt[2]);
-		System.out.println(ma[0]);
-		System.out.println(ma[1]);*/
-		
+		//设置电影评分 设置电影海报
 		movic.setMovicImdbScore(new Double(score[0]+"."+score[1]));
-		//System.out.println(movic.getMovicImdbScore());
+		movic.setMovicPost("null");
+		
 		int movic_oid=movicManagementServer.addMovic(movic);
 		
 		if(movic_oid==0)
@@ -141,31 +144,70 @@ public class MovicManagementAction extends ActionSupport {
 		int i;
 		for(i=0;i<3;i++)
 		{
-			if(mt[i]>=0)
-			{
+			
 				movicManagementServer.addMovicType(movic_oid, mt[i]);
-			}
+		
 		}
 		
 		for(i=0;i<2;i++)
 		{
-			if(ma[i]>=0)
-			{
 				movicManagementServer.addMovicArea(movic_oid,ma[i]);
-			}
 		}
 		movicManagementServer.addMovicVister(movic_oid);
 	
 		return "success";
 	}
 	
+	//该方法用来获取分页信息
+	private void getMovicPaging()
+	{
+		paging.setRowCount(movicManagementServer.getMovicPaging());
+		paging.setPageSize(10);//设置一页有多少条记录
+		paging.sumPageCount();
+		paging.checkPageNow();
+		
+	}
+	
 	//该方法用来获取所有电影的信息
 	public String getAllMovic()
 	{
-		movicManagementServer.getAllMovic();
+		getMovicPaging();
+		//System.out.println(paging.getPageCount()+" "+paging.getRowCount());
+		
+		movicInfo=movicManagementServer.getAllMovic(paging);
+		//System.out.println(movicInfo.size());
 		
 		return "success";
 	}
 	
+	public String deleteMovic()
+	{
+		System.out.println("movic_id="+movic.getMovicOid());
+		movicManagementServer.deleteMovic(movic);
+		this.getAllMovic();
+		return "success";
+	}
+	
+	public String showUpdateMovic()
+	{
+		//获取电影类型 和地区列表
+		movicType= movicManagementServer.getMovicType();
+		movicArea= movicManagementServer.getMovicArea();
+		movic=movicManagementServer.getMovicByOid(movic.getMovicOid());
+		
+		return "success";
+	}
+	
+	public String updateMovic()
+	{
+		movic.setMovicImdbScore(new Double(score[0]+"."+score[1]));
+		movicManagementServer.updateMovic(movic);
+		//首先更新电影信息
+		//将电影id传去dao层 dao 层获取相关的电影类型记录，再逐条更新
+		
+		movicManagementServer.updateMovicTypesByMovicOid(movic.getMovicOid(),mt);
+		movicManagementServer.updateMovicAreasByMovicOid(movic.getMovicOid(),ma);
+		return "success";
+	}
 
 }

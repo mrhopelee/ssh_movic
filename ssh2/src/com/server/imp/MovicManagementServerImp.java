@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bean.MovicInfo;
+import com.bean.Paging;
 import com.dao.interfaces.MovicManagementDao;
 import com.server.interfaces.MovicManagementServer;
 
@@ -32,7 +33,7 @@ public class MovicManagementServerImp implements MovicManagementServer {
 
 	public boolean updateMovic(MovicInfo movic) {
 	
-		return false;
+		return movicManagementDao.updateMovic(movic);
 	}
 
 
@@ -79,10 +80,45 @@ public class MovicManagementServerImp implements MovicManagementServer {
 
 
 	//获取所有电影信息 并分页
-	public List getAllMovic() {
+	public List getAllMovic(Paging p) {
 		// TODO Auto-generated method stub
 		               
-		return movicManagementDao.getAllMovic();
+		return movicManagementDao.getAllMovic(p);
+	}
+
+
+	//获取分页信息
+	public int getMovicPaging() {
+		// TODO Auto-generated method stub
+		return movicManagementDao.getMovicPaging();
+	}
+
+
+
+	public boolean deleteMovic(MovicInfo movic) {
+		
+		return movicManagementDao.deleteMovic(movic);
+	}
+
+
+	
+	public MovicInfo getMovicByOid(int movicOid) {
+		
+		return movicManagementDao.getMovicByOid(movicOid);
+	}
+
+
+	@Override
+	public boolean updateMovicTypesByMovicOid(int movicOid, int[] types) {
+		
+		return movicManagementDao.updateMovicTypesByMovicOid(movicOid, types);
+	}
+
+
+	@Override
+	public boolean updateMovicAreasByMovicOid(int movicOid, int[] areas) {
+		// TODO Auto-generated method stub
+		return movicManagementDao.updateMovicAreasByMovicOid(movicOid, areas);
 	}
 
 	

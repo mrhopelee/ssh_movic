@@ -43,6 +43,18 @@ public class Paging {
 			pageCount=rowCount/pageSize+1;
 		}
 	}
+	public void checkPageNow()
+	{
+		if(pageNow<=0)
+		{
+			pageNow=1;
+		}
+		
+		if(pageNow>pageCount)
+		{
+			pageNow=pageCount;
+		}
+	}
 	
 
 }
