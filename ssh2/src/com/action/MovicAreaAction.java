@@ -20,11 +20,11 @@ public class MovicAreaAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	@Resource
 	private MovicAreaServer movicareaServer;
-	MovicArea movicarea;
-	String updateArea;
-	HttpServletRequest request = null;
-	HttpSession hs = null;
-	MovicArea newmovicarea = null;
+	private MovicArea movicarea;
+	private String updateArea;
+	private HttpServletRequest request = null;
+	private HttpSession hs = null;
+	private MovicArea newmovicarea = null;
 
 	public void validateInsertMovicArea() {
 		this.clearFieldErrors();
@@ -76,7 +76,9 @@ public class MovicAreaAction extends ActionSupport {
 	@SuppressWarnings("unchecked")
 	public void validateUpdateMovicArea() {
 		this.clearFieldErrors();
-		if (updateArea.equals("")) {
+		if (movicarea.getAreaName().endsWith(" ")) {
+			addFieldError("updatema", "validate request: 请选择地区");
+		} else if (updateArea.equals("")) {
 			addFieldError("updatema", "validate request: 请输入地区");
 		} else {
 			request = ServletActionContext.getRequest();
@@ -116,10 +118,10 @@ public class MovicAreaAction extends ActionSupport {
 	}
 
 	public String movicareaSetSession() {
-
+		//System.out.println("area");
 		request = ServletActionContext.getRequest();
 		hs = request.getSession(true);
-		hs.removeAttribute("movictypelist");
+		hs.removeAttribute("movicarealist");
 		String whereSql = "from MovicArea as ma order by ma.areaName desc";
 		hs.setAttribute("movicarealist",
 				movicareaServer.searchMovicAreaService(whereSql));

@@ -18,12 +18,12 @@ public class MovicTypeAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Resource
-	MovicTypeServer movictypeServer;
-	MovicType movictype;
-	String updateType;
-	HttpServletRequest request = null;
-	HttpSession hs = null;
-	MovicType newmovictype = null;
+	private MovicTypeServer movictypeServer;
+	private MovicType movictype;
+	private String updateType;
+	private HttpServletRequest request = null;
+	private HttpSession hs = null;
+	private MovicType newmovictype = null;
 
 	/*
 	 * 
@@ -78,7 +78,9 @@ public class MovicTypeAction extends ActionSupport {
 	@SuppressWarnings("unchecked")
 	public void validateUpdateMovicType() {
 		this.clearFieldErrors();
-		if (updateType.equals("")) {
+		if (movictype.getType().endsWith(" ")) {
+			addFieldError("updatemt", "validate request: 请选择类型");
+		} else if (updateType.equals("")) {
 			addFieldError("updatemt", "validate request: 请输入类型");
 		} else {
 			request = ServletActionContext.getRequest();
@@ -119,6 +121,7 @@ public class MovicTypeAction extends ActionSupport {
 	}
 
 	public String movictypeSetSession() {
+		//System.out.println("type");
 		request = ServletActionContext.getRequest();
 		hs = request.getSession(true);
 		hs.removeAttribute("movictypelist");
