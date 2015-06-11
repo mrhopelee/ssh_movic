@@ -39,26 +39,26 @@ public class UserManageAction extends ActionSupport {
 	public void test() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		//System.out.printf("userOid=======" + userOid);
-		System.out.printf("½øÈëUserManageAction Test·½·¨");
+		System.out.printf("è¿›å…¥UserManageAction Testæ–¹æ³•");
 		user = userManageService.getUserById(21);
 		if (user == null) {
-			System.out.println("Êı¾İÎª¿Õ");
+			System.out.println("æ•°æ®ä¸ºç©º");
 		}
 		request.getSession(true).setAttribute("user", user);//
 	}
 	
 	public String updateUserMessage() {
 		System.out.println("=============================");
-		System.out.println("½øÈëÓÃ»§¸üĞÂ¸öÈËĞÅÏ¢Action");
+		System.out.println("è¿›å…¥ç”¨æˆ·æ›´æ–°ä¸ªäººä¿¡æ¯Action");
 		if (userSex.equals("1")) {
-			userSex= "ÄĞ";
+			userSex= "ç”·";
 		} else {
-			userSex= "Å®";
+			userSex= "å¥³";
 		}
 		boolean i = false;
 		i=userManageService.updateUserMessage(userName,userDisplayName,userSex,userEmail);
 		 if (i==true) {
-				System.out.println("ĞŞ¸Ä¸öÈËĞÅÏ¢³É¹¦");
+				System.out.println("ä¿®æ”¹ä¸ªäººä¿¡æ¯æˆåŠŸ");
 			}
 		return "success";
 
@@ -67,11 +67,11 @@ public class UserManageAction extends ActionSupport {
 	public String updateUserPassword() {
 
 		System.out.println("=============================");
-		System.out.println("½øÈë¸üĞÂÃÜÂëAction");
+		System.out.println("è¿›å…¥æ›´æ–°å¯†ç Action");
 		boolean i = false;
 		 i=userManageService.updateUserPassword(userName,userPassword);
 		 if (i == true) {
-				System.out.println("ĞŞ¸ÄÃÜÂë³É¹¦");
+				System.out.println("ä¿®æ”¹å¯†ç æˆåŠŸ");
 			}
 		return "success";
 
@@ -80,34 +80,34 @@ public class UserManageAction extends ActionSupport {
 	public String updateType() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		System.out.printf("userOid=======" + userOid);
-		System.out.printf("½øÈëUserManageAction updateType·½·¨");
+		System.out.printf("è¿›å…¥UserManageAction updateTypeæ–¹æ³•");
 		user = userManageService.getUserById(userOid);
 		if (user == null) {
-			System.out.println("Êı¾İÎª¿Õ");
+			System.out.println("æ•°æ®ä¸ºç©º");
 		}
 		request.getSession(true).setAttribute("updateTypeUser", user);//
-		// ½«µÇÂ¼ÓÃ»§´æ´¢ÖÁSessionÖĞ
+		// å°†ç™»å½•ç”¨æˆ·å­˜å‚¨è‡³Sessionä¸­
 		return "success";
 
 	}
 
 	public String updateTypePage() {
 		System.out.printf("userOid=======" + userOid);
-		System.out.printf("½øÈëUserManageAction updateTypePage´¦Àí·½·¨");
+		System.out.printf("è¿›å…¥UserManageAction updateTypePageå¤„ç†æ–¹æ³•");
 		if (userManageService.editUserType(userName, Integer.parseInt(type)) == true) {
-			System.out.println("ĞŞ¸ÄÈ¨ÏŞ³É¹¦");
+			System.out.println("ä¿®æ”¹æƒé™æˆåŠŸ");
 		}
 		return "success";
 	}
 
 	public String deleteUser() {
-		System.out.printf("½øÈëUserManageAction updateType·½·¨");
+		System.out.printf("è¿›å…¥UserManageAction updateTypeæ–¹æ³•");
 		System.out.printf("userOid=======" + userOid);
 		boolean i = false;
 		i = userManageService.deleteUserById(userOid);
 
 		if (i == true) {
-			System.out.println("É¾³ı³É¹¦");
+			System.out.println("åˆ é™¤æˆåŠŸ");
 		}
 
 		return "success";
@@ -116,13 +116,13 @@ public class UserManageAction extends ActionSupport {
 	public String allUser() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 
-		System.out.printf("½øÈëUserManageAction allUser·½·¨");
+		System.out.printf("è¿›å…¥UserManageAction allUseræ–¹æ³•");
 		ArrayList<UserInfo> allUser = (ArrayList<UserInfo>) userManageService
 				.AllUser();
 		if (allUser == null) {
-			System.out.println("Êı¾İÎª¿Õ");
+			System.out.println("æ•°æ®ä¸ºç©º");
 		}
-		request.getSession(true).setAttribute("allUser", allUser);// ½«µÇÂ¼ÓÃ»§´æ´¢ÖÁSessionÖĞ
+		request.getSession(true).setAttribute("allUser", allUser);// å°†ç™»å½•ç”¨æˆ·å­˜å‚¨è‡³Sessionä¸­
 		return "success";
 	}
 	
@@ -238,7 +238,7 @@ public class UserManageAction extends ActionSupport {
 	
 	public void validateUpdateTypePage() {
 
-		System.out.println("½øÈëĞŞ¸ÄÓÃ»§È¨ÏŞĞ£Ñé·½·¨");
+		System.out.println("è¿›å…¥ä¿®æ”¹ç”¨æˆ·æƒé™æ ¡éªŒæ–¹æ³•");
 		this.clearErrors();
 		if (type.trim().equals("")) {
 			this.addFieldError("type", "Not null");
@@ -256,16 +256,16 @@ public class UserManageAction extends ActionSupport {
 
 	public void validateUpdateUserMessage() {
 
-		System.out.println("½øÈëĞŞ¸ÄÓÃ»§ĞÅÏ¢Ğ£Ñé·½·¨");
+		System.out.println("è¿›å…¥ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯æ ¡éªŒæ–¹æ³•");
 		this.clearErrors();
 		/*if (!(userDisplayName.trim().equals(""))
 				&& !Pattern.matches("\\w{5,12}", userDisplayName.trim())) {
-			this.addFieldError("userDisplayName", "ÄúÊäÈëÓÃ»§Ãû±ØĞëÊÇ×ÖÄ¸ºÍÊı×Ö£¬ÇÒ³¤¶È±ØĞëÊÇ5µ½12Î»Ö®¼ä£¡");
+			this.addFieldError("userDisplayName", "æ‚¨è¾“å…¥ç”¨æˆ·åå¿…é¡»æ˜¯å­—æ¯å’Œæ•°å­—ï¼Œä¸”é•¿åº¦å¿…é¡»æ˜¯5åˆ°12ä½ä¹‹é—´ï¼");
 		}*/
-		// Èç¹ûÃÜÂë²»Îª¿Õ£¬ÇÒ²»Æ¥Åä³¤¶ÈÎª4¡«25µÄ×ÖÄ¸ºÍÊı×Ö×é³ÉµÄ×Ö·û´®
+		// å¦‚æœå¯†ç ä¸ä¸ºç©ºï¼Œä¸”ä¸åŒ¹é…é•¿åº¦ä¸º4ï½25çš„å­—æ¯å’Œæ•°å­—ç»„æˆçš„å­—ç¬¦ä¸²
 		if (!userEmail.trim()
 				.matches("^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$")) {
-			this.addFieldError("userEmail", "ÓÊÏä²»ÊÇÒ»¸öºÏ·¨ÓÊÏä£¡");
+			this.addFieldError("userEmail", "é‚®ç®±ä¸æ˜¯ä¸€ä¸ªåˆæ³•é‚®ç®±ï¼");
 		}
 	}
 	
@@ -273,28 +273,28 @@ public class UserManageAction extends ActionSupport {
 	
 	public void validateUpdateUserPassword() {
 
-		System.out.println("½øÈëĞŞ¸ÄÓÃ»§ÃÜÂëĞ£Ñé·½·¨");
+		System.out.println("è¿›å…¥ä¿®æ”¹ç”¨æˆ·å¯†ç æ ¡éªŒæ–¹æ³•");
 		this.clearErrors();
 		if (userPassword.trim().equals("")) {
-			this.addFieldError("password", "ÃÜÂë²»ÄÜÎª¿Õ");
+			this.addFieldError("password", "å¯†ç ä¸èƒ½ä¸ºç©º");
 
 		}
 		if (rePassword.trim().equals("")) {
-			this.addFieldError("rePassword", "ÖØ¸´ÃÜÂë²»ÄÜÎª¿Õ");
+			this.addFieldError("rePassword", "é‡å¤å¯†ç ä¸èƒ½ä¸ºç©º");
 
 		}
-		// Èç¹ûÃÜÂë²»Îª¿Õ£¬ÇÒ²»Æ¥Åä³¤¶ÈÎª4¡«25µÄ×ÖÄ¸ºÍÊı×Ö×é³ÉµÄ×Ö·û´®¡£
+		// å¦‚æœå¯†ç ä¸ä¸ºç©ºï¼Œä¸”ä¸åŒ¹é…é•¿åº¦ä¸º4ï½25çš„å­—æ¯å’Œæ•°å­—ç»„æˆçš„å­—ç¬¦ä¸²ã€‚
 		if (!(userPassword.trim().equals(""))
 				&& !Pattern.matches("\\w{5,15}", userPassword.trim())) {
-			this.addFieldError("password", "ÄúÊäÈëÃÜÂë±ØĞëÊÇ×ÖÄ¸ºÍÊı×Ö£¬ÇÒ³¤¶È±ØĞëÊÇ5µ½15Ö®¼ä£¡");
+			this.addFieldError("password", "æ‚¨è¾“å…¥å¯†ç å¿…é¡»æ˜¯å­—æ¯å’Œæ•°å­—ï¼Œä¸”é•¿åº¦å¿…é¡»æ˜¯5åˆ°15ä¹‹é—´ï¼");
 		}
 		if (!(rePassword.trim().equals(""))
 				&& !Pattern.matches("\\w{5,15}", rePassword.trim())) {
-			this.addFieldError("rePassword", "ÄúÊäÈëÃÜÂë±ØĞëÊÇ×ÖÄ¸ºÍÊı×Ö£¬ÇÒ³¤¶È±ØĞëÊÇ5µ½15Ö®¼ä£¡");
+			this.addFieldError("rePassword", "æ‚¨è¾“å…¥å¯†ç å¿…é¡»æ˜¯å­—æ¯å’Œæ•°å­—ï¼Œä¸”é•¿åº¦å¿…é¡»æ˜¯5åˆ°15ä¹‹é—´ï¼");
 		}
 
 		if (!(userPassword.trim().equals(rePassword.trim()))) {
-			this.addFieldError("rePassword", "Á½´ÎÊäÈëµÄÃÜÂë²»Ò»ÖÂ");
+			this.addFieldError("rePassword", "ä¸¤æ¬¡è¾“å…¥çš„å¯†ç ä¸ä¸€è‡´");
 		}
 
 	}

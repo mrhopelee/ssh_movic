@@ -23,30 +23,30 @@ public class UserManageDaoImp implements UserManageDao {
 	@Override
 	public boolean editUserType(String name, int type) {
 		// TODO Auto-generated method stub
-		System.out.println("½øÈëUserManageDao-editUserType·½·¨");
+		System.out.println("è¿›å…¥UserManageDao-editUserTypeæ–¹æ³•");
 		try {
 			UserInfo user = getUserByName(name);
 			System.out
-					.println("-----µ±Ç°type=" + user.getUserType().getRemarks());
+					.println("-----å½“å‰type=" + user.getUserType().getRemarks());
 			user.getUserType().setValue(type);
 			switch (type) {
 			case 1:
-				user.getUserType().setRemarks("ÆÕÍ¨ÓÃ»§");
+				user.getUserType().setRemarks("æ™®é€šç”¨æˆ·");
 				break;
 			case 2:
-				user.getUserType().setRemarks("»áÔ±ÓÃ»§");
+				user.getUserType().setRemarks("ä¼šå‘˜ç”¨æˆ·");
 				break;
 			case 3:
-				user.getUserType().setRemarks("ÆÕÍ¨¹ÜÀíÔ±");
+				user.getUserType().setRemarks("æ™®é€šç®¡ç†å‘˜");
 				break;
 			case 4:
-				user.getUserType().setRemarks("¸ß¼¶¹ÜÀíÔ±");
+				user.getUserType().setRemarks("é«˜çº§ç®¡ç†å‘˜");
 				break;
 
 			}
 			sessionFactory.getCurrentSession().update(user);
 		} catch (Exception e) {
-			System.out.println("¸üĞÂÊı¾İ³ö´í£º" + e);
+			System.out.println("æ›´æ–°æ•°æ®å‡ºé”™ï¼š" + e);
 			return false;
 		}
 		return true;
@@ -55,13 +55,13 @@ public class UserManageDaoImp implements UserManageDao {
 	@Override
 	public boolean updateUserPassword(String userName, String userPassword) {
 		// TODO Auto-generated method stub
-		System.out.println("½øÈëUserManageDao-updateUserPassword·½·¨");
+		System.out.println("è¿›å…¥UserManageDao-updateUserPasswordæ–¹æ³•");
 		try {
 			UserInfo user = getUserByName(userName);
 			user.setUserPassword(userPassword);
 			sessionFactory.getCurrentSession().update(user);
 		} catch (Exception e) {
-			System.out.println("¸üĞÂÃÜÂë³ö´í£º" + e);
+			System.out.println("æ›´æ–°å¯†ç å‡ºé”™ï¼š" + e);
 			return false;
 		}
 		return true;
@@ -71,7 +71,7 @@ public class UserManageDaoImp implements UserManageDao {
 	public boolean updateUserMessage(String userName, String userDisplayName,
 			String userSex, String userEmail) {
 		// TODO Auto-generated method stub
-		System.out.println("½øÈëUserManageDao-updateUserMessage·½·¨");
+		System.out.println("è¿›å…¥UserManageDao-updateUserMessageæ–¹æ³•");
 		try {
 			UserInfo user = getUserByName(userName);
 			user.setUserDisplayName(userDisplayName);
@@ -79,7 +79,7 @@ public class UserManageDaoImp implements UserManageDao {
 			user.setUserSex(userSex);
 			sessionFactory.getCurrentSession().update(user);
 		} catch (Exception e) {
-			System.out.println("¸üĞÂ¸öÈËĞÅÏ¢³ö´í£º" + e);
+			System.out.println("æ›´æ–°ä¸ªäººä¿¡æ¯å‡ºé”™ï¼š" + e);
 			return false;
 		}
 		return true;
@@ -88,13 +88,13 @@ public class UserManageDaoImp implements UserManageDao {
 	@Override
 	public boolean deleteUserById(int userId) {
 		// TODO Auto-generated method stub
-		System.out.println("½øÈëÉ¾³ıÓÃ»§DAO");
+		System.out.println("è¿›å…¥åˆ é™¤ç”¨æˆ·DAO");
 		try {
 			UserInfo user = (UserInfo) sessionFactory.getCurrentSession().load(
 					UserInfo.class, userId);
 			sessionFactory.getCurrentSession().delete(user);
 		} catch (Exception e) {
-			System.out.println("É¾³ıÊı¾İ³ö´í£º" + e);
+			System.out.println("åˆ é™¤æ•°æ®å‡ºé”™ï¼š" + e);
 			return false;
 		}
 
@@ -104,11 +104,11 @@ public class UserManageDaoImp implements UserManageDao {
 	@Override
 	public ArrayList AllUser() {
 		// TODO Auto-generated method stub
-		System.out.println("½øÈëUserManageDao-AllUser·½·¨");
+		System.out.println("è¿›å…¥UserManageDao-AllUseræ–¹æ³•");
 		Query query = sessionFactory.getCurrentSession().createQuery(
 				"from UserInfo");
 		if (query.list() != null) {
-			System.out.println("½øÈëUserManageDao-AllUser·½·¨£¬	½á¹û²»Îª¿Õ");
+			System.out.println("è¿›å…¥UserManageDao-AllUseræ–¹æ³•ï¼Œ	ç»“æœä¸ä¸ºç©º");
 		}
 		return (ArrayList<UserInfo>) query.list();
 
@@ -118,11 +118,11 @@ public class UserManageDaoImp implements UserManageDao {
 	@Override
 	public UserInfo getUserByName(String name) {
 		// TODO Auto-generated method stub
-		System.out.println("½øÈëUserManageDao-getUserByName·½·¨");
+		System.out.println("è¿›å…¥UserManageDao-getUserByNameæ–¹æ³•");
 		Query query = sessionFactory.getCurrentSession().createQuery(
 				"from UserInfo where userName='" + name + "'");
 		if (query.uniqueResult() != null) {
-			System.out.println("µ÷ÓÃ¸ù¾İÓÃ»§Name²éÓÃ»§£¬ÓĞ½á¹û");
+			System.out.println("è°ƒç”¨æ ¹æ®ç”¨æˆ·NameæŸ¥ç”¨æˆ·ï¼Œæœ‰ç»“æœ");
 			UserInfo user = (UserInfo) query.uniqueResult();
 			return user;
 		} else
@@ -132,11 +132,11 @@ public class UserManageDaoImp implements UserManageDao {
 	@Override
 	public UserInfo getUserById(int id) {
 		// TODO Auto-generated method stub
-		System.out.println("½øÈëUserManageDao-getUserById·½·¨");
+		System.out.println("è¿›å…¥UserManageDao-getUserByIdæ–¹æ³•");
 		Query query = sessionFactory.getCurrentSession().createQuery(
 				"from UserInfo where userOid='" + id + "'");
 		if (query.uniqueResult() != null) {
-			System.out.println("µ÷ÓÃ¸ù¾İÓÃ»§id²éÓÃ»§£¬ÓĞ½á¹û");
+			System.out.println("è°ƒç”¨æ ¹æ®ç”¨æˆ·idæŸ¥ç”¨æˆ·ï¼Œæœ‰ç»“æœ");
 			UserInfo user = (UserInfo) query.uniqueResult();
 			return user;
 		} else
