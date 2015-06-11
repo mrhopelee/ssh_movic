@@ -16,7 +16,6 @@
 <input type="hidden" value="1" name="paging.pageNow">
 </form>
 </td>
-<td><form ><input type="submit" value="电影图册维护"></form></td>
 </tr>
 </table>
 </div>
