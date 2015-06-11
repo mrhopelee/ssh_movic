@@ -87,6 +87,16 @@
    	<result name="success">/adminFunction.jsp</result>
     </action>
     
+    <!-- showMovicPostAction 获取并显示电影名和海报-->
+    <action name="showMovicPostAction" class="movicManagementAction" method="showMovicPost">
+   	<result name="success">/updateMovicPost.jsp</result>
+    </action>
+    
+    <!-- postUploadAction 实现文件上传-->
+    <action name="postUploadAction" class="movicManagementAction" method="postUpload">
+   	<result name="success">/updateMovicPost.jsp</result>
+   	<result name="input">/updateMovicPost.jsp</result>
+    </action>
     <!-- 梁泽民配置的action 结束-->
 </package>
 </struts>    

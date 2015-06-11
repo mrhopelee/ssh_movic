@@ -24,5 +24,8 @@ public interface MovicManagementServer {
 	public boolean updateMovicTypesByMovicOid(int movicOid,int[]types);
 	public boolean updateMovicAreasByMovicOid(int movicOid,int[]areas);
 	
+	//更新电影海报
+	public boolean updateMovicPost(MovicInfo movic);
+	
 	
 }

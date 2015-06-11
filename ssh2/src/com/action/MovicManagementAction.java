@@ -1,8 +1,13 @@
 package com.action;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 
 import com.bean.MovicArea;
 import com.bean.MovicInfo;
@@ -30,6 +35,11 @@ public class MovicManagementAction extends ActionSupport {
 	
 	@Resource
 	private MovicManagementServer movicManagementServer;
+	
+	//文件上传的3个东西
+	 private File upload;  
+	 private String uploadContentType;  
+	 private String uploadFileName;  
 
 	
 	public List<MovicInfo> getMovicInfo() {
@@ -108,6 +118,34 @@ public class MovicManagementAction extends ActionSupport {
 
 	public void setPaging(Paging paging) {
 		this.paging = paging;
+	}
+	
+	
+
+	public File getUpload() {
+		return upload;
+	}
+
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
+	
+
+	public String getUploadContentType() {
+		return uploadContentType;
+	}
+
+	public void setUploadContentType(String uploadContentType) {
+		this.uploadContentType = uploadContentType;
+	}
+
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
 	}
 
 	public String goToAddMovicPage()
@@ -209,5 +247,102 @@ public class MovicManagementAction extends ActionSupport {
 		movicManagementServer.updateMovicAreasByMovicOid(movic.getMovicOid(),ma);
 		return "success";
 	}
+	
+	public String showMovicPost()
+	{
+		movic=movicManagementServer.getMovicByOid(movic.getMovicOid());
+		return "success";
+	}
+	
+	public String postUpload()
+	{
+		String path = ServletActionContext.getServletContext().getRealPath("/movic_picture/"+movic.getMovicOid()); 
+		
+		File file = new File(path);
+		
+		if(!file.exists())//生成文件夹
+		{
+			file.mkdirs();
+		}
+		
+		//获取上传文件
+		try {
+			
+			FileUtils.copyFile(upload, new File(file,uploadFileName));
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//删除旧海报文件
+		
+		
+		
+		MovicInfo m=movicManagementServer.getMovicByOid(movic.getMovicOid());
+		
+		
+	
+		
+		delFile(movic.getMovicPost());
+		//更新完成 放的是相对路径名
+		movic.setMovicPost("movic_picture/"+movic.getMovicOid()+"/"+uploadFileName);
+		movicManagementServer.updateMovicPost(movic);
+		
+		showMovicPost();
+	
+		
+		return "success";
+	}
+
+	
+	public void validatePostUpload() {
+		try
+		{
+			if(!upload.exists()||upload==null)
+			{
+				addFieldError("upload","文件不能为空");
+			}
+			if(!checkFileTypes())
+			{
+				addFieldError("upload","该文件类型不是（jpg/jpeg/png/gif）类型");
+			}
+		}
+		catch(Exception e)
+		{
+			addFieldError("upload","文件不能为空");
+		}
+		
+		
+	
+	}
+	public boolean checkFileTypes()
+	{
+		//image/pjpeg image/bmp image/gif image/x-png
+		//image/jpeg image/bmp image/gif image/png
+		String []filetype={"image/pjpeg","image/bmp","image/gif","image/jpeg","image/png","image/x-png"};
+		
+		
+		for(String ft:filetype)
+		{
+			if(uploadContentType.equals(ft))
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	//删除旧的海报
+	private boolean delFile(String fileName){
+		String re=ServletActionContext.getServletContext().getRealPath("");
+		System.out.println(re+fileName);
+		File file=new File(re+fileName);  
+        if(file.exists()){  
+            return file.delete();  
+        }  
+        return false;  
+    }  
+
 
 }

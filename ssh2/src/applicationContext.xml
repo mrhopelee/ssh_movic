@@ -72,7 +72,7 @@
 	<!-- 电影管理有关的bean配置   梁泽民配置 开始-->
 	<bean id="movicManagementDao" class="com.dao.imp.MovicManagementDaoImp"></bean>
 	<bean id="movicManagementServer" class="com.server.imp.MovicManagementServerImp"></bean>
-	<bean id="movicManagementAction" class="com.action.MovicManagementAction"></bean>
+	<bean id="movicManagementAction" class="com.action.MovicManagementAction" scope="prototype"></bean>
 	
 	<!-- 电影类型有关的bean配置   李灏配置 开始-->
 	<bean id="movicTypeDao" class="com.dao.imp.MovicTypeDaoImp"></bean>
