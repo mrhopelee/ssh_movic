@@ -4,7 +4,7 @@
 <struts>
 
 	<package name="default" namespace="/" extends="struts-default">
-		
+
 		<!--李灏 don't move ! begin -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
 			<result name="success">/movic_type.jsp</result>
@@ -16,27 +16,79 @@
 			<result name="success">/movic_type.jsp</result>
 		</action>
 		<!--李灏 don't move ! end -->
-	<action name="login" class="login" method="check">
-    <result name="success">/index.jsp</result>
-    </action>
-    
-    <!-- 梁泽民配置的action 开始-->
-    <!-- 跳转到添加电影页面 -->
-    <action name="goToAddMovicPageAction" class="movicManagementAction" method="goToAddMovicPage">
-   	<result name="success">/addMovic.jsp</result>
-    </action>
-    
-    <!-- addMovic 添加电影的action -->
-    <action name="addMovicAction" class="movicManagementAction" method="addMovic">
-   	<result name="success">/adminFunction.jsp</result>
-   	<result name="input">/addMovic.jsp</result>
-    </action>
-    
-    <!-- getAllMovic 获取所有电影信息列表 -->
-    <action name="getAllMovicDAction" class="movicManagementAction" method="getAllMovic">
-   	<result name="success">/deleteMovic.jsp</result>
-    </action>
-    
-    <!-- 梁泽民配置的action 结束-->
-</package>
+		<action name="login" class="login" method="check">
+			<result name="success">/index.jsp</result>
+		</action>
+
+		<!-- 梁泽民配置的action 开始 -->
+		<!-- 跳转到添加电影页面 -->
+		<action name="goToAddMovicPageAction" class="movicManagementAction"
+			method="goToAddMovicPage">
+			<result name="success">/addMovic.jsp</result>
+		</action>
+
+		<!-- addMovic 添加电影的action -->
+		<action name="addMovicAction" class="movicManagementAction"
+			method="addMovic">
+			<result name="success">/adminFunction.jsp</result>
+			<result name="input">/addMovic.jsp</result>
+		</action>
+
+		<!-- getAllMovic 获取所有电影信息列表 -->
+		<action name="getAllMovicDAction" class="movicManagementAction"
+			method="getAllMovic">
+			<result name="success">/deleteMovic.jsp</result>
+		</action>
+		<!-- 梁泽民配置的action 结束 -->
+
+<!-- ===============================@HuangLongChang============================== -->
+		<!-- 黄隆昌配置的action 开始 -->
+		
+		<!-- 用户修改页面修改用户个人信息-->
+		<action name="test" class="UserManageAction" method="test">
+		</action>
+		
+		
+		
+		<!-- 用户修改页面修改用户个人信息-->
+		<action name="updateUserPassword" class="UserManageAction" method="updateUserPassword">
+			<result name="success">/index.jsp</result>
+			<result name="input">/updateUserPassword.jsp</result>
+		</action>
+
+		<!-- 用户修改页面修改用户个人信息-->
+		<action name="updateUserMessage" class="UserManageAction" method="updateUserMessage">
+			<result name="success">/index.jsp</result>
+			<result name="input">/updateUserMessage.jsp</result>
+		</action>
+		
+		<!-- 管理员用户管理页面查询所有用户 -->
+		<action name="allUser" class="UserManageAction" method="allUser">
+			<result name="success">/userManage.jsp</result>
+		</action>
+
+		<!-- 管理员用户管理页面删除用户 -->
+		<action name="deleteUser" class="UserManageAction" method="deleteUser">
+			<result name="success">/userManage.jsp</result>
+		</action>
+
+		<!-- 管理员用户管理页面修改用户权限 -->
+		<action name="updateType" class="UserManageAction" method="updateType">
+			<result name="success">/updateUserType.jsp</result>
+		</action>
+
+
+		<!-- 管理员用户管理页面修改用户权限 -->
+		<action name="updateTypePage" class="UserManageAction" method="updateTypePage">
+			<result name="success">/userManage.jsp</result>
+			<result name="input">/updateUserType.jsp</result>
+		</action>
+		
+		
+		<!-- 黄隆昌配置的action 结束 -->
+
+<!-- ===============================@HuangLongChang============================== -->
+
+
+	</package>
 </struts>    
