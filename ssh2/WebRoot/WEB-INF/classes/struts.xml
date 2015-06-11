@@ -5,7 +5,7 @@
 <constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
 		
-		<!--李灏 don't move ! begin -->
+						<!--李灏 don't move ! begin -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
@@ -84,8 +84,95 @@
     </action>
     
     <!-- showUpdateMovicAction 显示将要更新的电影的所有信息 -->
+    <action name="showUpdateMovicAction" class="movicManagementAction" method="showUpdateMovic">
+   	<result name="success">/updateMovicDetail.jsp</result>
+    </action>
     
+    <!-- updateMovicAction 更新指定电影信息 -->
+    <action name="updateMovicAction" class="movicManagementAction" method="updateMovic">
+   	<result name="success">/adminFunction.jsp</result>
+    </action>
     
+    <!-- showMovicPostAction 获取并显示电影名和海报-->
+    <action name="showMovicPostAction" class="movicManagementAction" method="showMovicPost">
+   	<result name="success">/updateMovicPost.jsp</result>
+    </action>
+    
+    <!-- postUploadAction 实现文件上传-->
+    <action name="postUploadAction" class="movicManagementAction" method="postUpload">
+   	<result name="success">/updateMovicPost.jsp</result>
+   	<result name="input">/updateMovicPost.jsp</result>
+    </action>
     <!-- 梁泽民配置的action 结束-->
+<!-- ===============================@HuangLongChang============================== -->
+		<!-- 黄隆昌配置的action 开始 -->
+		
+		<!-- 用户修改页面修改用户个人信息-->
+		<action name="test" class="UserManageAction" method="test">
+		</action>
+		
+		
+		
+		<!-- 用户修改页面修改用户个人信息-->
+		<action name="updateUserPassword" class="UserManageAction" method="updateUserPassword">
+			<result name="success">/index.jsp</result>
+			<result name="input">/updateUserPassword.jsp</result>
+		</action>
+
+		<!-- 用户修改页面修改用户个人信息-->
+		<action name="updateUserMessage" class="UserManageAction" method="updateUserMessage">
+			<result name="success">/index.jsp</result>
+			<result name="input">/updateUserMessage.jsp</result>
+		</action>
+		
+		<!-- 管理员用户管理页面查询所有用户 -->
+		<action name="allUser" class="UserManageAction" method="allUser">
+			<result name="success">/userManage.jsp</result>
+		</action>
+
+		<!-- 管理员用户管理页面删除用户 -->
+		<action name="deleteUser" class="UserManageAction" method="deleteUser">
+			<result name="success">/userManage.jsp</result>
+		</action>
+
+		<!-- 管理员用户管理页面修改用户权限 -->
+		<action name="updateType" class="UserManageAction" method="updateType">
+			<result name="success">/updateUserType.jsp</result>
+		</action>
+
+
+		<!-- 管理员用户管理页面修改用户权限 -->
+		<action name="updateTypePage" class="UserManageAction" method="updateTypePage">
+			<result name="success">/userManage.jsp</result>
+			<result name="input">/updateUserType.jsp</result>
+		</action>
+		
+		
+		<!-- 黄隆昌配置的action 结束 -->
+
+<!-- ===============================@HuangLongChang============================== -->
+
+
+    
+    <!-- 陈浩贤     -->
+    <!-- 跳转电影详情页面 -->
+    <action name="scanMovieAction" class="showMovieDetailAction">
+    	<result name="success">/movieDetailPage.jsp</result>
+    </action>
+    <!-- 评论管理的action -->
+    <action name="commentsManage" class="commentsManageAction">
+    	<result type="redirectAction">
+    		<param name="actionName">commentsManage</param>
+    	</result>
+    	<result name="clist">/comments_list.jsp</result>
+    </action>
+    <!-- /陈浩贤      -->
+    
+    
+    
+    
+    
+    
+    
 </package>
 </struts>    

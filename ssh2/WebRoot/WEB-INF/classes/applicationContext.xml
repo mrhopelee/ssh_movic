@@ -69,11 +69,16 @@
 	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
 	<!-- 配置aop类 -->
 	
+	<!-- 用户管理有关的bean配置   黄隆昌配置 开始-->
+	<bean id="UserManageDao" class="com.dao.imp.UserManageDaoImp"></bean>
+	<bean id="UserManageServer" class="com.server.imp.UserManageServerImp"></bean>
+	<bean id="UserManageAction" class="com.action.UserManageAction"></bean>
+	<!-- 电影管理有关的bean配置   黄隆昌配置 结束-->
 	<!-- 电影管理有关的bean配置   梁泽民配置 开始-->
 	<bean id="movicManagementDao" class="com.dao.imp.MovicManagementDaoImp"></bean>
 	<bean id="movicManagementServer" class="com.server.imp.MovicManagementServerImp"></bean>
-	<bean id="movicManagementAction" class="com.action.MovicManagementAction"></bean>
-	
+	<bean id="movicManagementAction" class="com.action.MovicManagementAction" scope="prototype"></bean>
+	<!-- 电影管理有关的bean配置   梁泽民配置 结束-->
 	<!-- 电影类型有关的bean配置   李灏配置 开始-->
 	<bean id="movicTypeDao" class="com.dao.imp.MovicTypeDaoImp"></bean>
 	<bean id="movicTypeServer" class="com.server.imp.MovicTypeServerImp" scope="prototype"></bean>
@@ -81,8 +86,19 @@
 	<bean id="movicAreaDao" class="com.dao.imp.MovicAreaDaoImp"></bean>
 	<bean id="movicAreaServer" class="com.server.imp.MovicAreaServerImp" scope="prototype"></bean>
 	<bean id="movicAreaAction" class="com.action.MovicAreaAction"></bean>
-	
 	<bean id="movicIatDao" class="com.dao.imp.MovicIatDaoImp"></bean>
 	<bean id="movicIatServer" class="com.server.imp.MovicIatServerImp"></bean>
 	<bean id="movicIatAction" class="com.action.MovicIatAction"></bean>
+	<!-- 电影类型有关的bean配置   李灏配置 结束-->
+	<!-- 陈浩贤 -->
+	<!-- 配置action -->
+	<bean id="showMovieDetailAction" class="com.action.ShowMovieDetailAction"></bean>
+	<bean id="commentsManageAction" class="com.action.CommentsManageAction"></bean>
+	<!-- 配置service -->
+	<bean id="findCommentsService" class="com.server.imp.FindCommentsService"></bean>	
+	<bean id="commentsManageService" class="com.server.imp.CommentsManageService"></bean>
+	<!-- 配置dao -->
+	<bean id="findCommentsDao" class="com.dao.imp.FindCommentsDao"></bean>
+	<bean id="commentsManageDao" class="com.dao.imp.CommentsManageDao"></bean>
+	<!-- /陈浩贤 -->
 	</beans>

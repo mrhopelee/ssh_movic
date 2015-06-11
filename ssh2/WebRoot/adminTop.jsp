@@ -16,8 +16,6 @@
 <input type="hidden" value="1" name="paging.pageNow">
 </form>
 </td>
-<td><form ><input type="submit" value="更新电影海报"></form></td>
-<td><form ><input type="submit" value="电影图册维护"></form></td>
 </tr>
 </table>
 </div>
@@ -26,7 +24,7 @@
 <table >
 <caption>用户管理功能</caption>
 <tr>
-<td><form ><input type="submit" value="用户删除"></form></td>
+<td><form action="userManage.jsp"><input type="submit" value="用户管理"></form></td>
 </tr>
 </table>
 </div>
@@ -45,7 +43,7 @@
 <table>
 <caption>评论管理功能</caption>
 <tr>
-<td><form ><input type="submit" value="删除评论"></form></td>
+<td><form action="commentsManage.action"><input type="submit" value="删除评论"></form></td>
 </tr>
 </table>
 </div>

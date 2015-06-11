@@ -37,7 +37,7 @@
     </tr>
     
     <tr><sx:datetimepicker name="movic.movicPlayDate" label="上映日期"
-					displayFormat="yyyy-M-dd" value="%{'today'}" />
+					displayFormat="yyyy-MM-dd" value="%{'today'}" />
 
 					</tr>
     

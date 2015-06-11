@@ -43,7 +43,7 @@
             </key>
             <one-to-many class="com.bean.MovicVisiterNumber" />
         </set>
-        <set name="movicBeloneTypes" inverse="true" cascade="delete">
+        <set name="movicBeloneTypes" inverse="true" cascade="delete" lazy="false">
             <key>
                 <column name="movic_oid" />
             </key>
@@ -61,7 +61,7 @@
             </key>
             <one-to-many class="com.bean.MovicComments" />
         </set>
-        <set name="movicBeloneAreas" inverse="true" cascade="delete">
+        <set name="movicBeloneAreas" inverse="true" cascade="delete" lazy="false">
             <key>
                 <column name="movic_oid" />
             </key>

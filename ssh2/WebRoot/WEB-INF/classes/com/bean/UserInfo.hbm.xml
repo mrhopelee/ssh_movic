@@ -10,7 +10,7 @@
             <column name="user_oid" />
             <generator class="native" />
         </id>
-        <many-to-one name="userType" class="com.bean.UserType" fetch="select">
+        <many-to-one name="userType" class="com.bean.UserType" fetch="select"  lazy="false">
             <column name="user_type" />
         </many-to-one>
         <property name="userName" type="java.lang.String">
@@ -31,25 +31,25 @@
         <property name="userEmail" type="java.lang.String">
             <column name="user_email" length="50" not-null="true" unique="true" />
         </property>
-        <set name="userScoreMovics" inverse="true">
+        <set name="userScoreMovics" inverse="true" cascade="delete" >
             <key>
                 <column name="user_oid" />
             </key>
             <one-to-many class="com.bean.UserScoreMovic" />
         </set>
-        <set name="movicCommentses" inverse="true">
+        <set name="movicCommentses" inverse="true" cascade="delete">
             <key>
                 <column name="user_oid" />
             </key>
             <one-to-many class="com.bean.MovicComments" />
         </set>
-        <set name="userSignIns" inverse="true">
+        <set name="userSignIns" inverse="true" cascade="delete">
             <key>
                 <column name="user_oid" />
             </key>
             <one-to-many class="com.bean.UserSignIn" />
         </set>
-        <set name="userIntegrals" inverse="true">
+        <set name="userIntegrals" inverse="true" cascade="delete">
             <key>
                 <column name="user_oid" unique="true" />
             </key>
