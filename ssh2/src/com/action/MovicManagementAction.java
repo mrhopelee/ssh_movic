@@ -222,6 +222,8 @@ public class MovicManagementAction extends ActionSupport {
 	{
 		System.out.println("movic_id="+movic.getMovicOid());
 		movicManagementServer.deleteMovic(movic);
+		paging=new Paging();
+		paging.setPageNow(1);
 		this.getAllMovic();
 		return "success";
 	}
@@ -279,11 +281,7 @@ public class MovicManagementAction extends ActionSupport {
 		
 		
 		MovicInfo m=movicManagementServer.getMovicByOid(movic.getMovicOid());
-		
-		
-	
-		
-		delFile(movic.getMovicPost());
+		delFile(m.getMovicPost());
 		//更新完成 放的是相对路径名
 		movic.setMovicPost("movic_picture/"+movic.getMovicOid()+"/"+uploadFileName);
 		movicManagementServer.updateMovicPost(movic);
@@ -310,6 +308,8 @@ public class MovicManagementAction extends ActionSupport {
 		catch(Exception e)
 		{
 			addFieldError("upload","文件不能为空");
+			showMovicPost();
+			
 		}
 		
 		
@@ -336,7 +336,7 @@ public class MovicManagementAction extends ActionSupport {
 	//删除旧的海报
 	private boolean delFile(String fileName){
 		String re=ServletActionContext.getServletContext().getRealPath("");
-		System.out.println(re+fileName);
+		System.out.println("删除文件路径："+re+fileName);
 		File file=new File(re+fileName);  
         if(file.exists()){  
             return file.delete();  
