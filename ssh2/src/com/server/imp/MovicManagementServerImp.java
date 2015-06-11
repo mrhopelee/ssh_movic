@@ -121,6 +121,13 @@ public class MovicManagementServerImp implements MovicManagementServer {
 		return movicManagementDao.updateMovicAreasByMovicOid(movicOid, areas);
 	}
 
+
+	@Override
+	public boolean updateMovicPost(MovicInfo movic) {
+		
+		return movicManagementDao.updateMovicPost(movic);
+	}
+
 	
 	
 }
