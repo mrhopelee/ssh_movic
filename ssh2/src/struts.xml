@@ -4,8 +4,8 @@
 <struts>
 <constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
-
-				<!--李灏 don't move ! begin -->
+		
+						<!--李灏 don't move ! begin -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
@@ -27,7 +27,6 @@
 		</action>
 
 
-
 		<action name="insertmovicarea" class="movicAreaAction" method="insertMovicArea">
 			<result name="success">/movic_area.jsp</result>
 			<result name="input">/movic_area.jsp</result>
@@ -46,6 +45,13 @@
 		<action name="movicareasetsession" class="movicAreaAction"
 			method="movicareaSetSession">
 			<result name="success">/movic_area.jsp</result>
+		</action>
+		
+		
+		<action name="moviciatsetsession" class="movicIatAction"
+			method="moviciatAllSetSession">
+			<result name="success">/movic_iat.jsp</result>
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<!--李灏 don't move ! end -->
@@ -86,14 +92,36 @@
     <action name="updateMovicAction" class="movicManagementAction" method="updateMovic">
    	<result name="success">/adminFunction.jsp</result>
     </action>
- 
+    
+    <!-- showMovicPostAction 获取并显示电影名和海报-->
+    <action name="showMovicPostAction" class="movicManagementAction" method="showMovicPost">
+   	<result name="success">/updateMovicPost.jsp</result>
+    </action>
+    
+    <!-- postUploadAction 实现文件上传-->
+    <action name="postUploadAction" class="movicManagementAction" method="postUpload">
+   	<result name="success">/updateMovicPost.jsp</result>
+   	<result name="input">/updateMovicPost.jsp</result>
+    </action>
+    
+    <!-- showMovicPicture 通过电影Oid 获取与该电影相关的电影图册 -->
+    <action name="showMovicPictureAction" class="movicPictureAction" method="showMovicPicture">
+    <result name="success">/showMovicPicture.jsp</result>
+    </action>
+    
+    <!-- pictureUploadAction 电影图片上传 -->
+    <action name="pictureUploadAction" class="movicPictureAction" method="pictureUpload">
+    <result name="success">/showMovicPicture.jsp</result>
+    </action>
+    
+    <!-- 删除电影图片 deletePictureAction -->
+    <action name="deletePictureAction" class="movicPictureAction" method="deletePicture">
+    <result name="success">/showMovicPicture.jsp</result>
+    </action>
+    
+    
+    
     <!-- 梁泽民配置的action 结束-->
-    
-    
-    
-    
-    
-    
 <!-- ===============================@HuangLongChang============================== -->
 		<!-- 黄隆昌配置的action 开始 -->
 		
@@ -113,7 +141,6 @@
 			<result name="error">/ccError.jsp</result>
 		</action>
 		
-	
 		<!-- 用户修改页面修改用户密码-->
 		<action name="updateUserPassword" class="UserManageAction" method="updateUserPassword">
 			<result name="success">/index.jsp</result>
@@ -154,5 +181,30 @@
 <!-- ===============================@HuangLongChang============================== -->
 
 
-	</package>
-</struts>    
+    
+    <!-- 陈浩贤     -->
+    <!-- 跳转电影详情页面 -->
+    <action name="scanMovieAction" class="showMovieDetailAction">
+    	<result name="success">/movieDetailPage.jsp</result>
+    </action>
+    <!-- 评论管理的action -->
+    <action name="commentsManage" class="commentsManageAction">
+    	<result type="redirectAction">
+    		<param name="actionName">commentsManage</param>
+    	</result>
+    	<result name="clist">/comments_list.jsp</result>
+    </action>
+    <!-- 查看电影所有评论的action -->
+    <action name="scanCommentsAction" class="scanAllCommentsAction">
+    	<result name="success">/scanAllComments.jsp</result>
+    </action>
+    <!-- /陈浩贤      -->
+    
+    
+    
+    
+    
+    
+    
+</package>
+</struts>   

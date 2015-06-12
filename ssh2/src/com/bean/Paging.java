@@ -7,6 +7,12 @@ public class Paging {
 	private int pageNow=1;//记录现在是第几页
 	private int pageSize=20;//记录每一页游多少条记录
 	
+	
+	
+	public String toString() {
+		return "Paging [pageCount=" + pageCount + ", rowCount=" + rowCount
+				+ ", pageNow=" + pageNow + ", pageSize=" + pageSize + "]";
+	}
 	public int getPageCount() {
 		return pageCount;
 	}

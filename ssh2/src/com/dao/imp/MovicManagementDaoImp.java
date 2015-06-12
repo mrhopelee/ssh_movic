@@ -215,6 +215,17 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 		
 		return true;
 	}
+
+
+
+	public boolean updateMovicPost(MovicInfo movic) {
+		MovicInfo m=(MovicInfo) sessionFactory.getCurrentSession().get(MovicInfo.class, movic.getMovicOid());
+		m.setMovicPost(movic.getMovicPost());
+		
+		sessionFactory.getCurrentSession().saveOrUpdate(m);
+		
+		return false;
+	}
 	
 
 }
