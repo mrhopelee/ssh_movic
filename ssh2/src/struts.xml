@@ -119,6 +119,13 @@
     <result name="success">/showMovicPicture.jsp</result>
     </action>
     
+    <!-- 用户登录验证 userAction userLogin  根据用户类型跳转到 不同页面-->
+    <action name="userLoginAction" class="userAction" method="userLogin" >
+    <result name="success">/index.jsp</result>
+    <result name="input">/userLogin.jsp</result>
+    <result name="admin">/adminFunction.jsp</result>
+    </action>
+    
     
     
     <!-- 梁泽民配置的action 结束-->

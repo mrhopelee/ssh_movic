@@ -5,14 +5,14 @@
   <link rel="stylesheet" type="text/css" href="css/userFunction.css">
   </head>
   <%
-  	if(request.getSession().getAttribute("userinfo")==null)
+  	if(request.getSession().getAttribute("user")==null)
   	{
   	//登录 注册
   	%>
   	
  
   	<div class="top">
-  	<form class="topform" action="userLogin.jsp">
+  	<form class="topform" action="index.jsp">
   	<input type="submit" value="首页" class="btn btn-info">
   	</form>
   	<form class="topform" action="userLogin.jsp">
@@ -28,7 +28,7 @@
   	{
   	  %>
   	    <div class="top">
-  	    <form class="topform" action="userLogin.jsp">
+  	    <form class="topform" action="index.jsp">
   		<input type="submit" value="首页" class="btn btn-info">
   		</form>
 	  	<form class="topform">
