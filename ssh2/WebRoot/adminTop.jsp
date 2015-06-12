@@ -43,7 +43,7 @@
 <table>
 <caption>评论管理功能</caption>
 <tr>
-<td><form ><input type="submit" value="删除评论"></form></td>
+<td><form action="commentsManage.action"><input type="submit" value="删除评论"></form></td>
 </tr>
 </table>
 </div>

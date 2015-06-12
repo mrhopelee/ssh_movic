@@ -4,8 +4,8 @@
 <struts>
 <constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
-
-				<!--李灏 don't move ! begin -->
+		
+						<!--李灏 don't move ! begin -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
@@ -27,7 +27,6 @@
 		</action>
 
 
-
 		<action name="insertmovicarea" class="movicAreaAction" method="insertMovicArea">
 			<result name="success">/movic_area.jsp</result>
 			<result name="input">/movic_area.jsp</result>
@@ -46,6 +45,13 @@
 		<action name="movicareasetsession" class="movicAreaAction"
 			method="movicareaSetSession">
 			<result name="success">/movic_area.jsp</result>
+		</action>
+		
+		
+		<action name="moviciatsetsession" class="movicIatAction"
+			method="moviciatAllSetSession">
+			<result name="success">/movic_iat.jsp</result>
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<!--李灏 don't move ! end -->
@@ -165,5 +171,26 @@
 <!-- ===============================@HuangLongChang============================== -->
 
 
-	</package>
+    
+    <!-- 陈浩贤     -->
+    <!-- 跳转电影详情页面 -->
+    <action name="scanMovieAction" class="showMovieDetailAction">
+    	<result name="success">/movieDetailPage.jsp</result>
+    </action>
+    <!-- 评论管理的action -->
+    <action name="commentsManage" class="commentsManageAction">
+    	<result type="redirectAction">
+    		<param name="actionName">commentsManage</param>
+    	</result>
+    	<result name="clist">/comments_list.jsp</result>
+    </action>
+    <!-- /陈浩贤      -->
+    
+    
+    
+    
+    
+    
+    
+</package>
 </struts>    

@@ -10,10 +10,10 @@
             <column name="mc_oid" />
             <generator class="native" />
         </id>
-        <many-to-one name="userInfo" class="com.bean.UserInfo" fetch="select">
+        <many-to-one name="userInfo" class="com.bean.UserInfo" fetch="select" lazy="false">
             <column name="user_oid" />
         </many-to-one>
-        <many-to-one name="movicInfo" class="com.bean.MovicInfo" fetch="select">
+        <many-to-one name="movicInfo" class="com.bean.MovicInfo" fetch="select" lazy="false">
             <column name="movic_oid" />
         </many-to-one>
         <property name="commentsDate" type="java.sql.Timestamp">
