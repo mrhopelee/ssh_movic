@@ -184,6 +184,10 @@
     	</result>
     	<result name="clist">/comments_list.jsp</result>
     </action>
+    <!-- 查看电影所有评论的action -->
+    <action name="scanCommentsAction" class="scanAllCommentsAction">
+    	<result name="success">/scanAllComments.jsp</result>
+    </action>
     <!-- /陈浩贤      -->
     
     

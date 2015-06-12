@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>电影详情页面</title>
+    <title>查看所有评论</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,33 +24,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <hr>
-    <s:if test="#request.partCommentsList.size()!=0">
+  <h1 align="center">所有评论~~~~~~~~~~~~~~~</h1>
+  <hr size=20">
+    <s:if test="#request.allList.size()!=0">
 	   	<table border="0" align="center">
 	   		<tr>
       			<td width="300px"><div align="center">评论日期</div></td>
       			<td width="100px"><div align="center">评论用户</div></td>
       			<td width="300px"><div align="center">评论内容</div></td>
       		</tr>
-	   		<s:iterator value="#request.partCommentsList" var="mComments">
+	   		<s:iterator value="#request.allList" var="mComments">
 	   			<tr>
-		   			<td width="300px" align="center"><s:property value="#mComments.commentsDate" /></td>
-		   			<td width="100px" align="center"><s:property value="#mComments.userInfo.userName" /></td>
-		   			<td width="300px" align="center"><s:property value="#mComments.commentsInfo" /></td>
+		   			<td width="300px" align="center" ><s:property value="#mComments.commentsDate" /></td>
+		   			<td width="100px" align="center" ><s:property value="#mComments.userInfo.userName" /></td>
+		   			<td width="300px" align="center" ><s:property value="#mComments.commentsInfo" /></td>
+		   			
 	   			</tr>
+	   			<tr><td colspan='3'> <hr size="10"> </td></tr>
+	   			
 	   		</s:iterator>
-	   		<tr><td>...</td></tr>
-	   		<tr>
-	   			<td align="center">
-	   				<form action="scanCommentsAction">
-	   					<input type="submit" value="更多评论">
-    					<input type="hidden" name="id" value='<s:property value="#request.nowMovieId"/>'>
-	   				</form>
-	   			</td>
-	   		</tr>
 	   	</table>
    	</s:if>
    	<s:else>暂无数据</s:else>
-   	<hr>
   </body>
 </html>

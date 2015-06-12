@@ -11,7 +11,7 @@ import com.bean.MovicComments;
 import com.dao.interfaces.FindCommentsDaoInter;
 
 /**
- *@authar Ёб╨фом
+ *@authar О©╫б╨О©╫О©╫О©╫
  *
  **/
 
@@ -31,19 +31,33 @@ public class FindCommentsDao implements FindCommentsDaoInter {
 	public List<MovicComments> findPartComments(int id) {
 		
 		List<MovicComments> list = null;
-		String hql = "from MovicComments where movicInfo.movicOid="+id+"order by commentsDate";
+		String hql = "from MovicComments where movicInfo.movicOid="+id+"order by mcOid";
+		//String hql = "from MovicComments order by mcOid";
 		try {
 			Query query = sessionFactory.getCurrentSession().createQuery(hql);
 			query.setFirstResult(0);
-			query.setMaxResults(5);
+			query.setMaxResults(3);
 			list = query.list();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally{
-			sessionFactory.close();
 		}
 
 		return list;
+	}
+
+	@Override
+	public List<MovicComments> selectAllComments(Integer id) {
+		List<MovicComments> allList = null;
+		
+		String hql = "from MovicComments where movicInfo.movicOid="+id+"order by mcOid";
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			allList = query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return allList;
 	}
 
 }

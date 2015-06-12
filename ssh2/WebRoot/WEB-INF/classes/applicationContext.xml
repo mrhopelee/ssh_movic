@@ -100,6 +100,7 @@
 	<!-- 配置action -->
 	<bean id="showMovieDetailAction" class="com.action.ShowMovieDetailAction"></bean>
 	<bean id="commentsManageAction" class="com.action.CommentsManageAction"></bean>
+	<bean id="scanAllCommentsAction" class="com.action.ScanAllCommentsAction"></bean>
 	<!-- 配置service -->
 	<bean id="findCommentsService" class="com.server.imp.FindCommentsService"></bean>	
 	<bean id="commentsManageService" class="com.server.imp.CommentsManageService"></bean>
