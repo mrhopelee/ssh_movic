@@ -11,7 +11,7 @@ import com.dao.interfaces.FindCommentsDaoInter;
 import com.server.interfaces.FindCommentsServiceInter;
 
 /**
- *@authar Ёб╨фом
+ *@authar О©╫б╨О©╫О©╫О©╫
  *
  **/
 @Transactional
@@ -37,6 +37,14 @@ public class FindCommentsService implements FindCommentsServiceInter {
 	public List<MovicComments> findPartComments(int id) {
 		// TODO Auto-generated method stub
 		return findCommentsDao.findPartComments(id);
+	}
+
+
+
+	@Override
+	public List<MovicComments> selectAllComments(Integer id) {
+		// TODO Auto-generated method stub
+		return findCommentsDao.selectAllComments(id);
 	}
 
 }
