@@ -96,7 +96,7 @@
 	<bean id="movicIatAction" class="com.action.MovicIatAction"></bean>
 	<!-- 电影类型有关的bean配置   李灏配置 结束-->
 	
-	<!-- 陈浩贤 -->
+<!-- 陈浩贤 -->
 	<!-- 配置action -->
 	<bean id="showMovieDetailAction" class="com.action.ShowMovieDetailAction"></bean>
 	<bean id="commentsManageAction" class="com.action.CommentsManageAction"></bean>
@@ -104,8 +104,10 @@
 	<!-- 配置service -->
 	<bean id="findCommentsService" class="com.server.imp.FindCommentsService"></bean>	
 	<bean id="commentsManageService" class="com.server.imp.CommentsManageService"></bean>
+	<bean id="countUserByScoreService" class="com.server.imp.CountUserByScoreService"></bean>
 	<!-- 配置dao -->
 	<bean id="findCommentsDao" class="com.dao.imp.FindCommentsDao"></bean>
 	<bean id="commentsManageDao" class="com.dao.imp.CommentsManageDao"></bean>
-	<!-- /陈浩贤 -->
+	<bean id="countUserByScoreDao" class="com.dao.imp.CountUserByScoreDao"></bean>
+<!-- /陈浩贤 -->
 	</beans>
