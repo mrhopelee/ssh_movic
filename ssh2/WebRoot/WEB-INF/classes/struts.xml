@@ -27,7 +27,6 @@
 		</action>
 
 
-
 		<action name="insertmovicarea" class="movicAreaAction" method="insertMovicArea">
 			<result name="success">/movic_area.jsp</result>
 			<result name="input">/movic_area.jsp</result>
@@ -46,6 +45,13 @@
 		<action name="movicareasetsession" class="movicAreaAction"
 			method="movicareaSetSession">
 			<result name="success">/movic_area.jsp</result>
+		</action>
+		
+		
+		<action name="moviciatsetsession" class="movicIatAction"
+			method="moviciatAllSetSession">
+			<result name="success">/movic_iat.jsp</result>
+			<result name="error">/error.jsp</result>
 		</action>
 
 		<!--李灏 don't move ! end -->
@@ -97,6 +103,24 @@
    	<result name="success">/updateMovicPost.jsp</result>
    	<result name="input">/updateMovicPost.jsp</result>
     </action>
+    
+    <!-- showMovicPicture 通过电影Oid 获取与该电影相关的电影图册 -->
+    <action name="showMovicPictureAction" class="movicPictureAction" method="showMovicPicture">
+    <result name="success">/showMovicPicture.jsp</result>
+    </action>
+    
+    <!-- pictureUploadAction 电影图片上传 -->
+    <action name="pictureUploadAction" class="movicPictureAction" method="pictureUpload">
+    <result name="success">/showMovicPicture.jsp</result>
+    </action>
+    
+    <!-- 删除电影图片 deletePictureAction -->
+    <action name="deletePictureAction" class="movicPictureAction" method="deletePicture">
+    <result name="success">/showMovicPicture.jsp</result>
+    </action>
+    
+    
+    
     <!-- 梁泽民配置的action 结束-->
 <!-- ===============================@HuangLongChang============================== -->
 		<!-- 黄隆昌配置的action 开始 -->

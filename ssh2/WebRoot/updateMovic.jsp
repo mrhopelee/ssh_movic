@@ -14,7 +14,7 @@
     <tr>
     <td><s:property value="#m.movicName"/></td>
     <td><s:date name="#m.movicPlayDate" format="yyyy/MM/dd"/></td>
-    <td><img width="200px" src="<s:property value="#m.movicPost"/>" alt="无法显示"></td>
+    <td><img width="200px" height="200px" src="<s:property value="#m.movicPost"/>" alt="无法显示"></td>
     <td>
     <form action="showUpdateMovicAction"><input type="submit" value="修改">
     <input type="hidden" name="movic.movicOid" value='<s:property value="#m.movicOid"/>'>
@@ -23,6 +23,12 @@
     <td>
     <form action="showMovicPostAction"><input type="submit" value="更新海报">
     <input type="hidden" name="movic.movicOid" value='<s:property value="#m.movicOid"/>'>
+    </form>
+    </td>
+    
+    <td>
+    <form action="showMovicPictureAction"><input type="submit" value="管理电影图册">
+    <input type="hidden" name="movicOid" value='<s:property value="#m.movicOid"/>'>
     </form>
     </td>
     </tr>
