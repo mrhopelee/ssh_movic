@@ -122,7 +122,7 @@ table.altrowstable td {
 			</tr>
 			<tr>
 				<td>当前用户积分 ：</td>
-				<td><%=%></td>
+				<td><%= ((UserIntegral)(user1.getUserIntegrals().iterator().next())).getUserScore()  %></td>
 			</tr>
 			
 			<tr>

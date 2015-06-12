@@ -50,4 +50,15 @@ public class UserDaoImp implements UserDao {
 		return u;
 	}
 
+
+
+
+	@Override
+	public boolean updateUserLogo(UserInfo user) {
+		UserInfo u=(UserInfo) sessionFactory.getCurrentSession().load(UserInfo.class, user.getUserOid());
+		u.setUserLogo(user.getUserLogo());
+		
+		return false;
+	}
+
 }

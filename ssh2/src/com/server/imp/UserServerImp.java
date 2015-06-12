@@ -37,4 +37,11 @@ public class UserServerImp implements UserServer {
 		return userDao.getUserInfo(userName);
 	}
 
+
+	@Override
+	public boolean updateUserLogo(UserInfo user) {
+		
+		return userDao.updateUserLogo(user);
+	}
+
 }

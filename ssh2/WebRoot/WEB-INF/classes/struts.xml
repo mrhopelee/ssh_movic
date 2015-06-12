@@ -126,6 +126,16 @@
     <result name="admin">/adminFunction.jsp</result>
     </action>
     
+    <!-- userLogout 用户退出 -->
+    <action name="userLogoutAction" class="userAction" method="userLogout" >
+    <result name="success">/index.jsp</result>
+    </action>
+    
+    <!-- updateUserLogoAction 更新用户头像 -->
+    <action name="updateUserLogoAction" class="userAction" method="updateUserLogo" >
+    <result name="success">/index.jsp</result>
+    <result name="input">/updateUserLogo.jsp</result>
+    </action>
     
     
     <!-- 梁泽民配置的action 结束-->

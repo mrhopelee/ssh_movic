@@ -31,19 +31,19 @@
   	    <form class="topform" action="index.jsp">
   		<input type="submit" value="首页" class="btn btn-info">
   		</form>
-	  	<form class="topform">
+	  	<form class="topform" action="updateUserLogo.jsp">
 	  	<input type="submit" value="更新头像" class="btn btn-primary">
 	  	</form>
-	  	<form class="topform" >
+	  	<form class="topform" action="updateUserPassword.jsp">
 	  	<input type="submit" value="修改密码" class="btn btn-primary">
 	  	</form>
-	  	<form class="topform" >
+	  	<form class="topform" action="updateUserMessage.jsp">
 	  	<input type="submit" value="修改个人信息" class="btn btn-primary">
 	  	</form>
-	  	<form class="topform" >
+	  	<form class="topform" action="signBoard.jsp">
 	  	<input type="submit" value="每日签到" class="btn btn-primary">
 	  	</form>
-	  	<form class="topform" >
+	  	<form class="topform" action="userLogoutAction">
 	  	<input type="submit" value="退出" class="btn btn-danger">
 	  	</form>
 	  	</div>
