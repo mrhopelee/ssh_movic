@@ -3,18 +3,18 @@
 <%@page import="com.bean.*"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%
-String path = request.getContextPath();
+	String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'signBoard.jsp' starting page</title>
-    
-	<script type="text/javascript">
+<head>
+<base href="<%=basePath%>">
+
+<title>My JSP 'signBoard.jsp' starting page</title>
+
+<script type="text/javascript">
 	function altRows(id) {
 		if (document.getElementsByTagName) {
 
@@ -75,7 +75,7 @@ table.altrowstable td {
 
 <body>
 
-<br>
+	<br>
 	<p align="center" color="gray">
 		<font size=" 3" color="gray">--------------------Welcome--------------------</font>
 	</p>
@@ -84,31 +84,31 @@ table.altrowstable td {
 	<br>
 	<hr color="gray" size="3">
 	<br>
-<%-- 	<s:action name="test" flush="true" namespace="/"></s:action> --%>
+	<%-- <s:action name="test" flush="true" namespace="/"></s:action> --%>
 	<%
 		session = request.getSession();
 		UserInfo user1 = (UserInfo) session.getAttribute("user");
 	%>
 
-	<form id="form1" name="form1" method="post" action="updateUserMessage">
+	<form id="form1" name="form1" method="post" action="signBoard" >
 		<table align="center" class="altrowstable" id="alternatecolor">
 			<tr>
 				<p align="center" color="gray">
-					<font size=" 3" color="gray">--------------------Sign
-						Board Page--------------------</font>
+					<font size=" 3" color="gray">--------------------Sign Board
+						Page--------------------</font>
 				</p>
 			</tr>
 			<br>
 			<tr>
 				<td>用户：</td>
 				<td><input name="userName" type="text"
-					value="<%=user1.getUserName()%>" id="userName" readonly="readonly"/></td>
+					value="<%=user1.getUserName()%>" id="userName" readonly="readonly" /></td>
 			</tr>
 			<tr>
 				<td>用户名：</td>
 				<td><%=user1.getUserDisplayName()%></td>
 			</tr>
-					<tr>
+			<tr>
 				<td>性别：</td>
 				<td><%=user1.getUserSex()%></td>
 			</tr>
@@ -120,19 +120,31 @@ table.altrowstable td {
 				<td>当前用户类型 ：</td>
 				<td>(<%=user1.getUserType().getValue()%>)<%=user1.getUserType().getRemarks()%></td>
 			</tr>
+			<%
+				Iterator<UserIntegral> it = user1.getUserIntegrals().iterator();
+				UserIntegral ui = null;
+				while (it.hasNext())
+
+				{
+					ui = (UserIntegral) it.next();
+					System.out.println(ui.getUintegralOid());
+					System.out.println(ui.getUserInfo().getUserOid());
+					System.out.println(ui.getUserScore());
+
+				}
+			%>
 			<tr>
 				<td>当前用户积分 ：</td>
-				<td><%=%></td>
+				<td><%=ui.getUserScore()%></td>
 			</tr>
-			
+
 			<tr>
 				<td><input type="submit" name="submit" value="每日签到" />
-				<td><input type="submit" name="Submit" value="返回上一层 "
-					onclick="history.back()" /></td>
+				<td><a href="index.jsp">返回主页</a></td>
 			</tr>
 
 		</table>
 	</form>
 
-	</body>
+</body>
 </html>

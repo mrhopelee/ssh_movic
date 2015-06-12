@@ -86,8 +86,14 @@
     <action name="updateMovicAction" class="movicManagementAction" method="updateMovic">
    	<result name="success">/adminFunction.jsp</result>
     </action>
-    
+ 
     <!-- 梁泽民配置的action 结束-->
+    
+    
+    
+    
+    
+    
 <!-- ===============================@HuangLongChang============================== -->
 		<!-- 黄隆昌配置的action 开始 -->
 		
@@ -95,9 +101,20 @@
 		<action name="test" class="UserManageAction" method="test">
 		</action>
 		
-		
-		
 		<!-- 用户修改页面修改用户个人信息-->
+		<action name="upgradeToVip" class="IntegralManageAction" method="upgradeToVip">
+		<result name="success">/success.jsp</result>
+		<result name="input">/upgradeToVip.jsp</result>
+		</action>
+		
+		<!-- 用户签到页面 -->
+		<action name="signBoard" class="IntegralManageAction" method="signBoard">
+			<result name="success">/success.jsp</result>
+			<result name="error">/ccError.jsp</result>
+		</action>
+		
+	
+		<!-- 用户修改页面修改用户密码-->
 		<action name="updateUserPassword" class="UserManageAction" method="updateUserPassword">
 			<result name="success">/index.jsp</result>
 			<result name="input">/updateUserPassword.jsp</result>

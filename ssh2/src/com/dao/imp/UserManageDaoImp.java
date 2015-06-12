@@ -52,6 +52,14 @@ public class UserManageDaoImp implements UserManageDao {
 		return true;
 	}
 
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
 	@Override
 	public boolean updateUserPassword(String userName, String userPassword) {
 		// TODO Auto-generated method stub

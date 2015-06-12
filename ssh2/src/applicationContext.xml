@@ -69,9 +69,14 @@
 	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
 	<!-- 配置aop类 -->
 	
-	<!-- 用户管理有关的bean配置   梁泽民配置 开始-->
+	<!-- 积分管理有关的bean配置   黄隆昌配置 开始-->
+	<bean id="IntegralManageDao" class="com.dao.imp.IntegralManageDaoImp"></bean>
+	<bean id="IntegralManageService" class="com.server.imp.IntegralManageServerImp"></bean>
+	<bean id="IntegralManageAction" class="com.action.IntegralManageAction"></bean>
+	
+	<!-- 用户管理有关的bean配置   黄隆昌配置 开始-->
 	<bean id="UserManageDao" class="com.dao.imp.UserManageDaoImp"></bean>
-	<bean id="UserManageServer" class="com.server.imp.UserManageServerImp"></bean>
+	<bean id="UserManageService" class="com.server.imp.UserManageServerImp"></bean>
 	<bean id="UserManageAction" class="com.action.UserManageAction"></bean>
 	
 	<!-- 电影管理有关的bean配置   梁泽民配置 开始-->
