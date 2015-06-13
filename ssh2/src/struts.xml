@@ -2,10 +2,9 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
  "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<constant name="struts.ui.theme" value="simple" />
+<constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
-
-		<!--李灏 don't move ! begin -->
+<!--李灏 don't move ! begin -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
@@ -65,87 +64,94 @@
 		</action>
 
 		<!--李灏 don't move ! end -->
-
-
-		<!-- 梁泽民配置的action 开始 -->
-		<!-- 跳转到添加电影页面 -->
-		<action name="goToAddMovicPageAction" class="movicManagementAction"
-			method="goToAddMovicPage">
-			<result name="success">/addMovic.jsp</result>
-		</action>
-
-		<!-- addMovic 添加电影的action -->
-		<action name="addMovicAction" class="movicManagementAction"
-			method="addMovic">
-			<result name="success">/adminFunction.jsp</result>
-			<result name="input">/addMovic.jsp</result>
-		</action>
-
-		<!-- getAllMovic 获取所有电影信息列表 -->
-		<action name="getAllMovicDAction" class="movicManagementAction"
-			method="getAllMovic">
-			<result name="success">/deleteMovic.jsp</result>
-		</action>
-		<!-- deleteMovic 删除电影 根据电影id deleteMovicAction -->
-		<action name="deleteMovicAction" class="movicManagementAction"
-			method="deleteMovic">
-			<result name="success">/deleteMovic.jsp</result>
-		</action>
-
-		<!-- getAllMovic 获取所有电影信息列表 -->
-		<action name="getAllMovicUAction" class="movicManagementAction"
-			method="getAllMovic">
-			<result name="success">/updateMovic.jsp</result>
-		</action>
-
-		<!-- showUpdateMovicAction 显示将要更新的电影的所有信息 -->
-		<action name="showUpdateMovicAction" class="movicManagementAction"
-			method="showUpdateMovic">
-			<result name="success">/updateMovicDetail.jsp</result>
-		</action>
-
-		<!-- updateMovicAction 更新指定电影信息 -->
-		<action name="updateMovicAction" class="movicManagementAction"
-			method="updateMovic">
-			<result name="success">/adminFunction.jsp</result>
-		</action>
-
-		<!-- showMovicPostAction 获取并显示电影名和海报 -->
-		<action name="showMovicPostAction" class="movicManagementAction"
-			method="showMovicPost">
-			<result name="success">/updateMovicPost.jsp</result>
-		</action>
-
-		<!-- postUploadAction 实现文件上传 -->
-		<action name="postUploadAction" class="movicManagementAction"
-			method="postUpload">
-			<result name="success">/updateMovicPost.jsp</result>
-			<result name="input">/updateMovicPost.jsp</result>
-		</action>
-		<!-- 梁泽民配置的action 结束 -->
-		<!-- ===============================@HuangLongChang============================== -->
+	
+    
+    <!-- 梁泽民配置的action 开始-->
+    <!-- 跳转到添加电影页面 -->
+    <action name="goToAddMovicPageAction" class="movicManagementAction" method="goToAddMovicPage">
+   	<result name="success">/addMovic.jsp</result>
+    </action>
+    
+    <!-- addMovic 添加电影的action -->
+    <action name="addMovicAction" class="movicManagementAction" method="addMovic">
+   	<result name="success">/adminFunction.jsp</result>
+   	<result name="input">/addMovic.jsp</result>
+    </action>
+    
+    <!-- getAllMovic 获取所有电影信息列表 -->
+    <action name="getAllMovicDAction" class="movicManagementAction" method="getAllMovic">
+   	<result name="success">/deleteMovic.jsp</result>
+    </action>
+    <!-- deleteMovic 删除电影 根据电影id  deleteMovicAction-->
+    <action name="deleteMovicAction" class="movicManagementAction" method="deleteMovic">
+   	<result name="success">/deleteMovic.jsp</result>
+    </action>
+    
+     <!-- getAllMovic 获取所有电影信息列表 -->
+    <action name="getAllMovicUAction" class="movicManagementAction" method="getAllMovic">
+   	<result name="success">/updateMovic.jsp</result>
+    </action>
+    
+    <!-- showUpdateMovicAction 显示将要更新的电影的所有信息 -->
+    <action name="showUpdateMovicAction" class="movicManagementAction" method="showUpdateMovic">
+   	<result name="success">/updateMovicDetail.jsp</result>
+    </action>
+    
+    <!-- updateMovicAction 更新指定电影信息 -->
+    <action name="updateMovicAction" class="movicManagementAction" method="updateMovic">
+   	<result name="success">/adminFunction.jsp</result>
+    </action>
+    
+    <!-- showMovicPostAction 获取并显示电影名和海报-->
+    <action name="showMovicPostAction" class="movicManagementAction" method="showMovicPost">
+   	<result name="success">/updateMovicPost.jsp</result>
+    </action>
+    
+    <!-- postUploadAction 实现文件上传-->
+    <action name="postUploadAction" class="movicManagementAction" method="postUpload">
+   	<result name="success">/updateMovicPost.jsp</result>
+   	<result name="input">/updateMovicPost.jsp</result>
+    </action>
+    
+    <!-- showMovicPicture 通过电影Oid 获取与该电影相关的电影图册 -->
+    <action name="showMovicPictureAction" class="movicPictureAction" method="showMovicPicture">
+    <result name="success">/showMovicPicture.jsp</result>
+    </action>
+    
+    <!-- pictureUploadAction 电影图片上传 -->
+    <action name="pictureUploadAction" class="movicPictureAction" method="pictureUpload">
+    <result name="success">/showMovicPicture.jsp</result>
+    </action>
+    
+    <!-- 删除电影图片 deletePictureAction -->
+    <action name="deletePictureAction" class="movicPictureAction" method="deletePicture">
+    <result name="success">/showMovicPicture.jsp</result>
+    </action>
+    
+    
+    
+    <!-- 梁泽民配置的action 结束-->
+<!-- ===============================@HuangLongChang============================== -->
 		<!-- 黄隆昌配置的action 开始 -->
-
-		<!-- 用户修改页面修改用户个人信息 -->
+		
+		<!-- 用户修改页面修改用户个人信息-->
 		<action name="test" class="UserManageAction" method="test">
 		</action>
-
-
-
-		<!-- 用户修改页面修改用户个人信息 -->
-		<action name="updateUserPassword" class="UserManageAction"
-			method="updateUserPassword">
+		
+		
+		
+		<!-- 用户修改页面修改用户个人信息-->
+		<action name="updateUserPassword" class="UserManageAction" method="updateUserPassword">
 			<result name="success">/index.jsp</result>
 			<result name="input">/updateUserPassword.jsp</result>
 		</action>
 
-		<!-- 用户修改页面修改用户个人信息 -->
-		<action name="updateUserMessage" class="UserManageAction"
-			method="updateUserMessage">
+		<!-- 用户修改页面修改用户个人信息-->
+		<action name="updateUserMessage" class="UserManageAction" method="updateUserMessage">
 			<result name="success">/index.jsp</result>
 			<result name="input">/updateUserMessage.jsp</result>
 		</action>
-
+		
 		<!-- 管理员用户管理页面查询所有用户 -->
 		<action name="allUser" class="UserManageAction" method="allUser">
 			<result name="success">/userManage.jsp</result>
@@ -167,33 +173,37 @@
 			<result name="success">/userManage.jsp</result>
 			<result name="input">/updateUserType.jsp</result>
 		</action>
-
-
+		
+		
 		<!-- 黄隆昌配置的action 结束 -->
 
-		<!-- ===============================@HuangLongChang============================== -->
+<!-- ===============================@HuangLongChang============================== -->
 
 
-
-		<!-- 陈浩贤 -->
-		<!-- 跳转电影详情页面 -->
-		<action name="scanMovieAction" class="showMovieDetailAction">
-			<result name="success">/movieDetailPage.jsp</result>
-		</action>
-		<!-- 评论管理的action -->
-		<action name="commentsManage" class="commentsManageAction">
-			<result type="redirectAction">
-				<param name="actionName">commentsManage</param>
-			</result>
-			<result name="clist">/comments_list.jsp</result>
-		</action>
-		<!-- /陈浩贤 -->
-
-
-
-
-
-
-
-	</package>
+    
+    <!-- 陈浩贤     -->
+    <!-- 跳转电影详情页面 -->
+    <action name="scanMovieAction" class="showMovieDetailAction">
+    	<result name="success">/movieDetailPage.jsp</result>
+    </action>
+    <!-- 评论管理的action -->
+    <action name="commentsManage" class="commentsManageAction">
+    	<result type="redirectAction">
+    		<param name="actionName">commentsManage</param>
+    	</result>
+    	<result name="clist">/comments_list.jsp</result>
+    </action>
+    <!-- 查看电影所有评论的action -->
+    <action name="scanCommentsAction" class="scanAllCommentsAction">
+    	<result name="success">/scanAllComments.jsp</result>
+    </action>
+    <!-- /陈浩贤      -->
+    
+    
+    
+    
+    
+    
+    
+</package>
 </struts>    

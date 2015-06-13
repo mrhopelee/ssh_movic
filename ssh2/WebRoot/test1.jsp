@@ -24,6 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   	<a href="scanMovieAction.action?movicOid=0">查看电影信息</a>
+   	<!--  <a href="scanMovieAction.action?movicOid=0">查看电影信息</a>-->
+		<form action="scanMovieAction">
+			<input type="submit" value="电影详情">
+			<input type="hidden" name="id" value='0'>
+		</form>
   </body>
 </html>
