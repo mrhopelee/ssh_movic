@@ -48,8 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<s:else>暂无数据</s:else>
    	<h2 align="center">
    		<form action="scanMovieAction">
-			<input type="submit" value="更多评论">
-			<input type="hidden" name="id" value='<s:property value="#request.nowMovieId"/>'>
+			<input type="submit" value="返回">
+			<input type="hidden" name="id" value='<s:property value="#session.nowMovieId"/>'>
 		</form>
    	</h2>
   </body>

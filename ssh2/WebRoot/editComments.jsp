@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
                 
-    <form  method="POST" name="lzform" action=""/></div>
+    <form  method="POST" name="lzform" action="" >
         <table align="center">
             <tr>
                 <td>评价:
@@ -72,6 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <tr>
                 <td>
                     <br/>
+                    <input type="hidden" name="id" value='<s:property value="#request.nowMovieId"/>'>
                     <input name="rev_submit" type="submit" value="好了，添加评论"/>&nbsp;&nbsp;&nbsp;
                 </td>
             </tr>

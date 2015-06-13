@@ -136,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   			<td align="center" colspan='3'>
 	   				<form action="scanCommentsAction">
 	   					<input type="submit" value="更多评论">
-    					<input type="hidden" name="id" value='<s:property value="#request.nowMovieId"/>'>
+    					<input type="hidden" name="id" value='<s:property value="#session.nowMovieId"/>'>
 	   				</form>
 	   			</td>
 	   		</tr>

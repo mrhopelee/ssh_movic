@@ -55,8 +55,8 @@ public class ShowMovieDetailAction extends ActionSupport {
 		//HttpServletRequest request = ServletActionContext.getRequest();
 		list = findCommentsService.findPartComments(id);
 		request.setAttribute("partCommentsList", list);
-		request.setAttribute("nowMovieId", id);
-		//request.getSession().setAttribute("nowMovieId", id);
+		//request.setAttribute("nowMovieId", id);
+		request.getSession().setAttribute("nowMovieId", id);
 		//=================显示3条评论  ---结束===================
 		
 		
