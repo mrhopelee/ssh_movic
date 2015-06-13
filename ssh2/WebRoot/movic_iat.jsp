@@ -8,43 +8,69 @@
 
 
 <link rel="stylesheet" type="text/css" href="css/normalize.css">
-
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="javascript/movic_iat.js"></script>
 </head>
 
 <body>
 	<s:action name="movicareasetsession" flush="false" namespace="/"></s:action>
 	<s:action name="movictypesetsession" flush="false" namespace="/"></s:action>
+
+	地区:
 	<p>
-		地区:
+		<%-- <s:a href="javascript:iatsubmit();"> --%>
+		<s:a href="moviciatsetat?movicarea.areaName=不限">
+			不限
+		</s:a>
 		<s:iterator value="#session.movicarealist" status="ma">
-			<s:a href="moviciatsetsession?paging.pageNow=%{#abc.count}">
-					<s:property value="areaName" />
+			<s:a href="moviciatsetat?movicarea.areaName=%{areaName}">
+				<s:property value="areaName" />
 			</s:a>
-			
-			<s:if test="#ma.count%5==0">
+
+			<%-- <s:url id="idUrl" action="moviciatmixsetsession">
+				<s:param name="movicarea.areaName" value="%{areaName}"></s:param>
+			</s:url>
+			<s:a href="%{idUrl}"><s:property value="areaName" /></s:a> --%>
+
+			<s:if test="(#ma.count+1)%20==0">
 				<br />
 			</s:if>
 		</s:iterator>
 	</p>
 
+
+	类型:
 	<p>
-		类型:
+		<s:a href="moviciatsetat?movictype.type=不限">
+			不限
+		</s:a>
 		<s:iterator value="#session.movictypelist" status="mt">
-			<s:property value="type" />
-			<s:if test="#mt.count%5==0">
+			<s:a href="moviciatsetat?movictype.type=%{type}">
+				<s:property value="type" />
+			</s:a>
+			<s:if test="#mt.count%20==0">
 				<br />
 			</s:if>
 		</s:iterator>
 	</p>
-	<s:action name="moviciatsetsession" flush="false" namespace="/"></s:action>
-
+	<%-- <s:if test="#session.moviciatlist[0].movicOid!=null">
+		<s:property value="#session.moviciatlist[0].movicOid" />
+	</s:if>
+	<s:else>
+		<s:if test="#session.moviciatlist.size==null">
+		<s:property value="222" />
+		<s:action name="moviciatmixsetsession" flush="false" namespace="/"></s:action>
+		<s:property value="#session.moviciatlist[0].movicOid" />
+		</s:if>
+	</s:else> --%>
+	<s:action name="moviciatmixsetsession" flush="false" namespace="/"></s:action>
 	<s:iterator value="#session.moviciatlist" status="miat">
 		<p>
+			<s:property value="movicOid" />
 			<s:property value="movicName" />
-			<s:property value="movicDirector" />
-			<s:property value="movicActor" />
 			<s:property value="movicImdbScore" />
-			<s:date name="movicPlayDate" format="yyyy-MM-dd"/>
+			<s:date name="movicPlayDate" format="yyyy-MM-dd" />
+			<s:property value="movicPost" />
 		</p>
 	</s:iterator>
 
@@ -70,12 +96,13 @@
 	<s:bean name="org.apache.struts2.util.Counter" id="counter">
 		<s:param name="first" value="1" />
 		<s:param name="last" value="%{#session.moviciatpaging.pageCount}" />
+
 		<s:iterator status="abc">
 			<s:if test="#session.moviciatpaging.pageNow==#abc.count">
 				<s:property />
 			</s:if>
 			<s:else>
-				<s:a href="moviciatsetsession?paging.pageNow=%{#abc.count}">
+				<s:a href="moviciatmixsetsession?paging.pageNow=%{#abc.count}">
 					<s:property />
 				</s:a>
 			</s:else>

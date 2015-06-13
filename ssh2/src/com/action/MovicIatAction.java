@@ -42,30 +42,96 @@ public class MovicIatAction {
 		return paging;
 	}
 
-	public String moviciatAllSetSession() {
-		String whereSql = "from MovicInfo order by movicPlayDate desc";
-		return moviciatSetSession(whereSql);
+	/*
+	 * public String moviciatAllSetSession() { String whereSql =
+	 * "SELECT mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost "
+	 * + "FROM MovicInfo as mi ORDER BY mi.movicPlayDate desc"; return
+	 * moviciatSetSession(whereSql); }
+	 */
+	public String moviciatsetAT() {
+		request = ServletActionContext.getRequest();
+		hs = request.getSession(true);
+		if (movicarea == null) {
+			movicarea = new MovicArea();
+		}
+		if (movicarea.getAreaName() == null
+				|| movicarea.getAreaName().equals("不限")) {
+			movicarea.setAreaName("");
+			hs.removeAttribute("mastr");
+			hs.setAttribute("mastr", movicarea.getAreaName());
+		}
+		if (hs.getAttribute("mastr").equals(movicarea.getAreaName())) {
+		} else {
+			hs.removeAttribute("mastr");
+			hs.setAttribute("mastr", movicarea.getAreaName());
+		}
+
+		if (movictype == null) {
+			movictype = new MovicType();
+		}
+		if (movictype.getType() == null || movictype.getType().equals("不限")) {
+			movictype.setType("");
+			hs.removeAttribute("mtstr");
+			hs.setAttribute("mtstr", movictype.getType());
+		}
+		if (hs.getAttribute("mtstr").equals(movictype.getType())) {
+		} else {
+			hs.removeAttribute("mtstr");
+			hs.setAttribute("mtstr", movictype.getType());
+		}
+		/*
+		 * System.out.println(hs.getAttribute("mastr").toString() + " and " +
+		 * hs.getAttribute("mtstr").toString());
+		 */
+
+		return "success";
 	}
-	
-	public String moviciatMixSetSession(){
-		String whereSql = "from MovicInfo order by movicPlayDate desc";
+
+	public String moviciatMixSetSession() {
+		request = ServletActionContext.getRequest();
+		hs = request.getSession(true);
+		if (hs.getAttribute("mtstr") == null) {
+			hs.setAttribute("mtstr", "");
+		}
+		if (hs.getAttribute("mastr") == null) {
+			hs.setAttribute("mastr", "");
+		}
+
+		String whereSql = "SELECT mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost"
+				+ " FROM MovicInfo as mi,"
+				+ " MovicBeloneArea as mba,"
+				+ " MovicBeloneType as mbt,"
+				+ " MovicArea as ma,"
+				+ " MovicType as mt"
+				+ " WHERE mba.movicInfo.movicOid  = mi.movicOid"
+				+ " AND mba.movicArea.areaOid = ma.areaOid"
+				+ " AND mbt.movicInfo.movicOid = mi.movicOid"
+				+ " AND mbt.movicType.mtOid = mt.mtOid"
+				+ " AND mt.type LIKE "
+				+ "'%"
+				+ hs.getAttribute("mtstr").toString()
+				+ "%'"
+				+ " AND ma.areaName LIKE "
+				+ "'%"
+				+ hs.getAttribute("mastr").toString()
+				+ "%'"
+				+ " GROUP BY mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost"
+				+ " ORDER BY mi.movicPlayDate desc";
+
 		return moviciatSetSession(whereSql);
-		/*select MovicInfo.movic_name, MovicInfo.movic_play_date, MovicInfo.movic_director
-		From MovicInfo,MovicBeloneArea,MovicBeloneType,MovicType,MovicArea
-		where MovicBeloneArea.movic_oid=MovicInfo.movic_oid 
-			and MovicBeloneArea.area_oid=MovicArea.area_oid
-			and MovicBeloneType.movic_oid=MovicInfo.movic_oid
-			and MovicBeloneType.type_oid=MovicType.mt_oid
-			and MovicType.type like '奇幻'
-			and MovicArea.area_name like '%'
-			group by MovicInfo.movic_name, MovicInfo.movic_play_date, MovicInfo.movic_director
-			order by MovicInfo.movic_play_date desc*/
+
 	}
 
 	public String moviciatSetSession(String whereSql) {
 		Paging newpaging = getMovicPaging(whereSql);
-		List<MovicInfo> mi = (List<MovicInfo>) movicIatServer
-				.searchMovicInfoService(whereSql, newpaging);
+		List<MovicInfo> mi;
+		if (newpaging.getPageCount() > 0) {
+			mi = (List<MovicInfo>) movicIatServer
+					.searchMovicInfoService(whereSql, newpaging);
+		} else {
+			mi = null;
+		}
+		/* System.out.println(mi.get(0).getMovicImdbScore()); */
 		request = ServletActionContext.getRequest();
 		hs = request.getSession(true);
 		hs.removeAttribute("moviciatlist");
