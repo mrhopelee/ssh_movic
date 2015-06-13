@@ -86,7 +86,7 @@ table.altrowstable td {
 		</p>
 	<hr color="gray" size="3">
 	<br>
-	<s:action name="test" flush="true" namespace="/"></s:action>
+<%-- 	<s:action name="test" flush="true" namespace="/"></s:action> --%>
 	<%
 		session = request.getSession(true);
 		UserInfo user1 = (UserInfo) session.getAttribute("user");
