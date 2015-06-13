@@ -4,13 +4,14 @@
 <html>
   <head>
     <title>更新用户头像</title>
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   </head>
   
   <body>
     <s:include value="userFunction.jsp"></s:include>
     <div>
     <s:property value="#session.user.userDisplayName"/>
-    <img alt="无法显示" src='<s:property value="#session.user.userLogo"/>'>
+    <img width="200px" height="200px" alt="无法显示" src='<s:property value="#session.user.userLogo"/>' class="img-circle">
     
     <s:form action="updateUserLogoAction" enctype="multipart/form-data" method="post">
     <s:file name="upload" label="选择上传文件" ></s:file>

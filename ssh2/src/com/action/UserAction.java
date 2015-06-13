@@ -200,4 +200,11 @@ public class UserAction extends ActionSupport {
         return false;  
     } 
 	
+	public String userRigister()
+	{
+		System.out.println(" "+user.getUserName()+" "+user.getUserPassword()+" "+user.getUserSex()+" "+user.getUserEmail()+" "+user.getUserDisplayName());
+		
+		return "success";
+	}
+	
 }

@@ -137,6 +137,11 @@
     <result name="input">/updateUserLogo.jsp</result>
     </action>
     
+    <!-- userRigisterAction 用户注册 -->
+    <action name="userRigisterAction" class="userAction" method="userRigister" >
+    <result name="success">/index.jsp</result>
+    <result name="input">/userRegister.jsp</result>
+    </action>
     
     <!-- 梁泽民配置的action 结束-->
 <!-- ===============================@HuangLongChang============================== -->

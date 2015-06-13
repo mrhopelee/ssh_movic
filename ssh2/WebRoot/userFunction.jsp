@@ -18,7 +18,7 @@
   	<form class="topform" action="userLogin.jsp">
   	<input type="submit" value="登录" class="btn btn-primary">
   	</form>
-  	<form class="topform" >
+  	<form class="topform" action="userRegister.jsp">
   	<input type="submit" value="注册" class="btn btn-primary">
   	</form>
   	</div>
