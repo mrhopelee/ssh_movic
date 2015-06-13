@@ -1,6 +1,9 @@
 package com.action;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.bean.UserInfo;
 import com.opensymphony.xwork2.ActionSupport;
@@ -37,6 +40,11 @@ public class IntegralManageAction extends ActionSupport {
 		if (integralManageService.addIntegral(user,-999)== true) {
 			System.out.println("恭喜你，，积分---999点");
 		}
+		//更新httpsession 中的user信息
+		HttpSession session= ServletActionContext.getRequest().getSession();
+		user = userManageService.getUserByName(userName);
+		session.setAttribute("user",user);
+		
 		return "success";
 		
 	}
@@ -51,8 +59,8 @@ public class IntegralManageAction extends ActionSupport {
 		UserInfo user = new UserInfo();
 		user = userManageService.getUserByName(userName);
 
-if(user.getUserType().getValue()==2){
-	this.addFieldError("score", "您已经是尊贵会员了喔亲!");
+		if(user.getUserType().getValue()==2){
+			this.addFieldError("score", "您已经是尊贵会员了喔亲!");
 			}
 		
 	}
@@ -70,6 +78,10 @@ if(user.getUserType().getValue()==2){
 			if (i == true) {
 				i=integralManageService.addIntegral(user,10);
 				System.out.println("恭喜你，签到成功，积分增加10点");
+				//更新httpsession 中的user信息
+				HttpSession session= ServletActionContext.getRequest().getSession();
+				user = userManageService.getUserByName(userName);
+				session.setAttribute("user",user);
 			}
 			return "success";
 		} 
