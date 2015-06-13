@@ -46,5 +46,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   	</table>
    	</s:if>
    	<s:else>暂无数据</s:else>
+   	<h2 align="center">
+   		<form action="scanMovieAction">
+			<input type="submit" value="返回">
+			<input type="hidden" name="id" value='<s:property value="#session.nowMovieId"/>'>
+		</form>
+   	</h2>
   </body>
 </html>

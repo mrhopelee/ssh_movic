@@ -120,7 +120,7 @@ UserInfo user=(UserInfo)session.getAttribute("user");
       </label></td>
       <td><label>
       
-        <input type="button" name="Submit2"onclick="javascript:history.back(1);" value="Back" />
+ <a href="index.jsp">返回主页</a>
       </label></td>
     </tr>
 </table>

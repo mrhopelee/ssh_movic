@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
 
-import com.bean.MovicInfo;
 import com.bean.Paging;
 import com.dao.interfaces.MovicIatDao;
 
@@ -17,15 +16,22 @@ public class MovicIatDaoImp implements MovicIatDao {
 	public int getMovicPaging(String whereSql) {
 		return sessionFactory.getCurrentSession().createQuery(whereSql).list()
 				.size();
+		/*return sessionFactory.getCurrentSession().createSQLQuery(whereSql).list()
+				.size();*/
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<MovicInfo> searchMovicInfoDao(String whereSql, Paging paging) {
-		int begin = (paging.getPageNow() - 1) * paging.getPageSize();
-		int end = paging.getPageSize();
-		return (List<MovicInfo>) sessionFactory.getCurrentSession()
-				.createQuery(whereSql).setFirstResult(begin).setMaxResults(end)
-				.list();
+	public List<?> searchMovicInfoDao(String whereSql, Paging paging) {
+
+			int begin = (paging.getPageNow() - 1) * paging.getPageSize();
+			int end = paging.getPageSize();
+			
+			 return sessionFactory.getCurrentSession()
+			 .createQuery(whereSql).setFirstResult(begin).setMaxResults(end)
+			 .list();
+		 
+		/*return sessionFactory.getCurrentSession().createSQLQuery(whereSql)
+				.addEntity(MovicInfo.class).setFirstResult(begin)
+				.setMaxResults(end).list();*/
 	}
 
 }

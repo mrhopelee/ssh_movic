@@ -26,6 +26,9 @@ public class MovicAreaAction extends ActionSupport {
 	private HttpSession hs = null;
 	private MovicArea newmovicarea = null;
 
+	/*
+	 * 增加地区验证，增加地区
+	 */
 	public void validateInsertMovicArea() {
 		this.clearFieldErrors();
 		if ((movicarea.getAreaName()).equals("")) {
@@ -54,6 +57,9 @@ public class MovicAreaAction extends ActionSupport {
 		}
 	}
 
+	/*
+	 * 删除地区
+	 */
 	public String deleteMovicArea() {
 		System.out.println("deleteMovicArea");
 		try {
@@ -73,6 +79,9 @@ public class MovicAreaAction extends ActionSupport {
 		return "success";
 	}
 
+	/*
+	 * 修改地区验证，修改地区
+	 */
 	@SuppressWarnings("unchecked")
 	public void validateUpdateMovicArea() {
 		this.clearFieldErrors();
@@ -117,8 +126,11 @@ public class MovicAreaAction extends ActionSupport {
 		}
 	}
 
+	/*
+	 * 获取所有地区
+	 */
 	public String movicareaSetSession() {
-		//System.out.println("area");
+		// System.out.println("area");
 		request = ServletActionContext.getRequest();
 		hs = request.getSession(true);
 		hs.removeAttribute("movicarealist");

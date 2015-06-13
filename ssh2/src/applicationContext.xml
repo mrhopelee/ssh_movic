@@ -68,11 +68,16 @@
 	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
 	<!-- 配置aop类 -->
 	
+	<!-- 积分管理有关的bean配置   黄隆昌配置 开始-->
+	<bean id="IntegralManageDao" class="com.dao.imp.IntegralManageDaoImp"></bean>
+	<bean id="IntegralManageService" class="com.server.imp.IntegralManageServerImp"></bean>
+	<bean id="IntegralManageAction" class="com.action.IntegralManageAction"></bean>
+	
 	<!-- 用户管理有关的bean配置   黄隆昌配置 开始-->
 	<bean id="UserManageDao" class="com.dao.imp.UserManageDaoImp"></bean>
-	<bean id="UserManageServer" class="com.server.imp.UserManageServerImp"></bean>
+	<bean id="UserManageService" class="com.server.imp.UserManageServerImp"></bean>
 	<bean id="UserManageAction" class="com.action.UserManageAction"></bean>
-	<!-- 电影管理有关的bean配置   黄隆昌配置 结束-->
+	
 	
 	<!-- 电影管理有关的bean配置   梁泽民配置 开始-->
 	<bean id="movicManagementDao" class="com.dao.imp.MovicManagementDaoImp"></bean>
@@ -101,7 +106,7 @@
 	<bean id="movicIatAction" class="com.action.MovicIatAction"></bean>
 	<!-- 电影类型有关的bean配置   李灏配置 结束-->
 	
-	<!-- 陈浩贤 -->
+<!-- 陈浩贤 -->
 	<!-- 配置action -->
 	<bean id="showMovieDetailAction" class="com.action.ShowMovieDetailAction"></bean>
 	<bean id="commentsManageAction" class="com.action.CommentsManageAction"></bean>
@@ -109,8 +114,15 @@
 	<!-- 配置service -->
 	<bean id="findCommentsService" class="com.server.imp.FindCommentsService"></bean>	
 	<bean id="commentsManageService" class="com.server.imp.CommentsManageService"></bean>
+	<bean id="countUserByScoreService" class="com.server.imp.CountUserByScoreService"></bean>
 	<!-- 配置dao -->
 	<bean id="findCommentsDao" class="com.dao.imp.FindCommentsDao"></bean>
 	<bean id="commentsManageDao" class="com.dao.imp.CommentsManageDao"></bean>
-	<!-- /陈浩贤 -->
+	<bean id="countUserByScoreDao" class="com.dao.imp.CountUserByScoreDao"></bean>
+<!-- /陈浩贤 -->
 	</beans>
+
+
+	
+	
+	
