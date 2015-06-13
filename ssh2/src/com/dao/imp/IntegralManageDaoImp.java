@@ -48,7 +48,7 @@ public class IntegralManageDaoImp implements IntegralManageDao {
 		try {
 		UserIntegral ui=getUserIntegralByUser(user);
 		ui.setUserInfo(user);
-		ui.setUserScore(ui.getUserScore()+10);
+		ui.setUserScore(ui.getUserScore()+integral);
 		System.out.println(ui.getUserScore());
 		System.out.println(ui.getUserInfo().getUserName());
 	/*	if(getUserIntegralByUser(user)!=null){

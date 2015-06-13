@@ -27,9 +27,15 @@ public class IntegralManageAction extends ActionSupport {
 		System.out.println("=============================");
 		System.out.println("进入积分管理页面Action-----升级会员");
 		boolean i = false;
+		UserInfo user = new UserInfo();
+		user = userManageService.getUserByName(userName);
 		
 		if (userManageService.editUserType(userName,2) == true) {
 			System.out.println("修改权限成功");
+		}
+	
+		if (integralManageService.addIntegral(user,-999)== true) {
+			System.out.println("恭喜你，，积分---999点");
 		}
 		return "success";
 		
@@ -39,10 +45,16 @@ public class IntegralManageAction extends ActionSupport {
 		System.out.println("进入修改用户升级VIP校验方法");
 		this.clearErrors();
 		int i=Integer.parseInt(userScore);
-		/*if (i<999) {
+		if (i<999) {
 			this.addFieldError("score", "积分够999分才可升级为尊贵会员喔亲!");
-		}*/
-		this.addFieldError("score", "积分够999分才可升级为尊贵会员喔亲!");
+		}
+		UserInfo user = new UserInfo();
+		user = userManageService.getUserByName(userName);
+
+if(user.getUserType().getValue()==2){
+	this.addFieldError("score", "您已经是尊贵会员了喔亲!");
+			}
+		
 	}
 	
 	public String signBoard() {
