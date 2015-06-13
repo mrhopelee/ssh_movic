@@ -202,9 +202,52 @@ public class UserAction extends ActionSupport {
 	
 	public String userRigister()
 	{
-		System.out.println(" "+user.getUserName()+" "+user.getUserPassword()+" "+user.getUserSex()+" "+user.getUserEmail()+" "+user.getUserDisplayName());
+		//System.out.println(" "+user.getUserName()+" "+user.getUserPassword()+" "+user.getUserSex()+" "+user.getUserEmail()+" "+user.getUserDisplayName());
+		MD5Util md5=new MD5Util();
+		user.setUserPassword(md5.getMD5(user.getUserPassword().getBytes()));
+		int userid=0;
+		
+		try
+		{
+		 userid=userServer.rigisterUser(user);
+		}
+		catch (Exception e)
+		{
+			addFieldError("username","用户名或昵称以存在");
+			return "input";
+		}
+		
+		
+			
+		
+	
+		user=userServer.getUser(userid);
+		userServer.addUserIntegral(user);
+		
+		HttpSession session= ServletActionContext.getRequest().getSession();
+		session.setAttribute("user", user);
 		
 		return "success";
 	}
+
+
+	public void validateUserRigister() {
+		//用户信息验证
+		//用户名6-15位
+		if(user.getUserName().length()<=5||user.getUserName().length()>=16)
+		{
+			addFieldError("username", "用户名长度必须为6-15位");
+		}
+		if(user.getUserPassword().length()<=5||user.getUserPassword().length()>=16)
+		{
+			addFieldError("userpassword", "密码长度必须为6-15位");
+		}
+		
+		
+		
+		
+		
+	}
+	
 	
 }

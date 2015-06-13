@@ -9,12 +9,13 @@
   
   <body>
     <div style="margin: 0 auto; width: 250px;">
-    <s:fielderror></s:fielderror>
-    <form action="userRigisterAction" >
+    <form action="userRigisterAction" method="post">
+    <s:fielderror fieldName="username"></s:fielderror>
     <label for="exampleInputName2">用户名</label>
     <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入用户名" required="required" name="user.userName">
     <label for="exampleInputName2">显示名（昵称）</label>
     <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入显示名（昵称）" required="required" name="user.userDisplayName">
+    <s:fielderror fieldName="userpassowrd"></s:fielderror>
     <label for="exampleInputPassword1">密码</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" required="required" name="user.userPassword">
     <label for="exampleInputEmail1">电子邮件</label>

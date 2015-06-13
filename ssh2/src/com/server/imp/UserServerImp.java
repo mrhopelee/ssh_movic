@@ -44,4 +44,29 @@ public class UserServerImp implements UserServer {
 		return userDao.updateUserLogo(user);
 	}
 
+
+	//添加用户的同时 添加一条用户积分记录
+	public int rigisterUser(UserInfo user) {
+		
+		return userDao.rigisterUser(user);
+		
+	}
+
+
+	
+	public UserInfo getUser(int userid) {
+		
+		return userDao.getUser(userid);
+	}
+
+
+	@Override
+	public boolean addUserIntegral(UserInfo user) {
+		
+		return userDao.addUserIntegral(user);
+	}
+
+
+	
+
 }
