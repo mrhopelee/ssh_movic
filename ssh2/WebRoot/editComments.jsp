@@ -53,26 +53,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
                 
-    <form  method="POST" name="lzform" action="" >
+    <form  method="POST" name="lzform" action="subCommentsAction" >
         <table align="center">
             <tr>
                 <td>评价:
-                        <label><input type="radio" name="rev_rating" value="1"  />很差</label>
-                        <label><input type="radio" name="rev_rating" value="2"  />较差</label>
-                        <label><input type="radio" name="rev_rating" value="3"  />还行</label>
-                        <label><input type="radio" name="rev_rating" value="4"  />推荐</label>
-                        <label><input type="radio" name="rev_rating" value="5"  />力荐</label>
+                        <label><input type="radio" name="score" value="1"  />很差</label>
+                        <label><input type="radio" name="score" value="2"  />较差</label>
+                        <label><input type="radio" name="score" value="3"  />还行</label>
+                        <label><input type="radio" name="score" value="4"  />推荐</label>
+                        <label><input type="radio" name="score" value="5"  />力荐</label>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <textarea  name="rev_text" style="width:448px;height:337px"></textarea>
+                    <textarea  name="comments_text" style="width:448px;height:337px"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>
                     <br/>
-                    <input type="hidden" name="id" value='<s:property value="#request.nowMovieId"/>'>
+                    <input >
+                    <input type="hidden" name="nowMovieId" value='<s:property value="#session.nowMovieId"/>'>
+                    <input type="hidden" name="nowUserId" value='<s:property value="#session.nowUserId"/>'>
+
                     <input name="rev_submit" type="submit" value="好了，添加评论"/>&nbsp;&nbsp;&nbsp;
                 </td>
             </tr>

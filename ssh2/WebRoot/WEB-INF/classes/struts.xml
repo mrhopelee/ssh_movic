@@ -188,6 +188,11 @@
     <action name="scanCommentsAction" class="scanAllCommentsAction">
     	<result name="success">/scanAllComments.jsp</result>
     </action>
+    <!-- 提交评论的action -->
+    <action name="subCommentsAction" class="submitCommentsAction">
+    	<result name="success" >/movieDetailPage.jsp</result>
+    	<result name="input">/editComments.jsp</result>
+    </action>
     <!-- /陈浩贤      -->
     
     

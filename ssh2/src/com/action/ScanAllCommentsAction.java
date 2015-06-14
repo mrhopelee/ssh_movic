@@ -28,7 +28,9 @@ public class ScanAllCommentsAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
+		
 		HttpServletRequest request = ServletActionContext.getRequest();
+		
 		List<MovicComments> allList = findCommentsService.selectAllComments(id);
 		request.setAttribute("allList", allList);
 		//request.setAttribute("nowMovieId", id);

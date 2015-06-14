@@ -28,6 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form action="scanMovieAction">
 			<input type="submit" value="电影详情">
 			<input type="hidden" name="id" value='0'>
+			<input type="hidden" name="userId" value='0'>
 		</form>
   </body>
 </html>

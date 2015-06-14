@@ -101,13 +101,16 @@
 	<bean id="showMovieDetailAction" class="com.action.ShowMovieDetailAction"></bean>
 	<bean id="commentsManageAction" class="com.action.CommentsManageAction"></bean>
 	<bean id="scanAllCommentsAction" class="com.action.ScanAllCommentsAction"></bean>
+	<bean id="submitCommentsAction" class="com.action.SubmitCommentsAction"></bean>
 	<!-- 配置service -->
 	<bean id="findCommentsService" class="com.server.imp.FindCommentsService"></bean>	
 	<bean id="commentsManageService" class="com.server.imp.CommentsManageService"></bean>
 	<bean id="countUserByScoreService" class="com.server.imp.CountUserByScoreService"></bean>
+	<bean id="submitCommentsService" class="com.server.imp.SubmitCommentsService"></bean>
 	<!-- 配置dao -->
 	<bean id="findCommentsDao" class="com.dao.imp.FindCommentsDao"></bean>
 	<bean id="commentsManageDao" class="com.dao.imp.CommentsManageDao"></bean>
 	<bean id="countUserByScoreDao" class="com.dao.imp.CountUserByScoreDao"></bean>
+	<bean id="submitCommentsDao" class="com.dao.imp.SubmitCommentsDao"></bean>
 <!-- /陈浩贤 -->
 	</beans>
