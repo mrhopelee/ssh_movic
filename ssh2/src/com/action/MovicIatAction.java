@@ -20,6 +20,7 @@ public class MovicIatAction {
 	private MovicInfo movicinfo;
 	private MovicArea movicarea;
 	private MovicType movictype;
+	String sort = "movicPlayDate";
 	private Paging paging;
 	private HttpServletRequest request = null;
 	private HttpSession hs = null;
@@ -86,6 +87,14 @@ public class MovicIatAction {
 
 		return "success";
 	}
+	
+	public String moviciatsetSort(){
+		request = ServletActionContext.getRequest();
+		hs = request.getSession(true);
+		hs.removeAttribute("moviciatsort");
+		hs.setAttribute("moviciatsort",this.sort);
+		return "success";
+	}
 
 	/*
 	 * 设置whereSql moviciatMixSetSession()方法
@@ -101,7 +110,10 @@ public class MovicIatAction {
 		if (hs.getAttribute("mastr") == null) {
 			hs.setAttribute("mastr", "");
 		}
-
+		if(hs.getAttribute("moviciatsort") == null){
+			hs.setAttribute("moviciatsort", "movicPlayDate");
+		}
+		
 		String whereSql = "SELECT mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost"
 				+ " FROM MovicInfo as mi,"
 				+ " MovicBeloneArea as mba,"
@@ -121,7 +133,7 @@ public class MovicIatAction {
 				+ hs.getAttribute("mastr").toString()
 				+ "%'"
 				+ " GROUP BY mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost"
-				+ " ORDER BY mi.movicPlayDate desc";
+				+ " ORDER BY mi."+hs.getAttribute("moviciatsort").toString()+" desc";
 
 		return moviciatSetSession(whereSql);
 
@@ -182,6 +194,14 @@ public class MovicIatAction {
 
 	public void setMovictype(MovicType movictype) {
 		this.movictype = movictype;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 
 	public Paging getPaging() {

@@ -53,17 +53,15 @@
 			</s:if>
 		</s:iterator>
 	</p>
-	<%-- <s:if test="#session.moviciatlist[0].movicOid!=null">
-		<s:property value="#session.moviciatlist[0].movicOid" />
-	</s:if>
-	<s:else>
-		<s:if test="#session.moviciatlist.size==null">
-		<s:property value="222" />
-		<s:action name="moviciatmixsetsession" flush="false" namespace="/"></s:action>
-		<s:property value="#session.moviciatlist[0].movicOid" />
-		</s:if>
-	</s:else> --%>
+	
 	<s:action name="moviciatmixsetsession" flush="false" namespace="/"></s:action>
+	排序:
+	<p>
+		<s:form action="moviciatsetsort">
+			<s:radio name="sort" list="#{'movicPlayDate':'最新电影','movicImdbScore':'高分电影'}" value="#session.moviciatsort" onclick="submit()"></s:radio>
+		</s:form>
+	</p>
+	<!-- 电影信息 -->
 	<s:iterator value="#session.moviciatlist" status="miat">
 		<p>
 			<s:property value="movicOid" />

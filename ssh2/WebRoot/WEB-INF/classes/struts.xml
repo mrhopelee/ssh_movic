@@ -62,6 +62,11 @@
 			<result name="success">/movic_iat.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<!-- 设置排序（时间或评分） -->
+		<action name="moviciatsetsort" class="movicIatAction" method="moviciatsetSort">
+			<result name="success">/movic_iat.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		<!-- 根据电影地区、电影类型查询电影信息 -->
 		<action name="moviciatmixsetsession" class="movicIatAction"
 			method="moviciatMixSetSession">
