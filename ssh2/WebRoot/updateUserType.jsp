@@ -141,8 +141,7 @@ table.altrowstable td {
 			</tr>
 			<tr>
 				<td><input type="submit" name="submit" value="提交" />
-				<td><input type="submit" name="Submit" value="返回上一层 "
-					onclick="history.back()" /></td>
+				<td><a href="userManage.jsp">返回管理用户界面</a></td>
 			</tr>
 			<tr>
 				<input type="hidden" name="userName"

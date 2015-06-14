@@ -17,7 +17,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-	success
-	<a href="index.jsp">主页</a>
+	<p align="center" color="gray">
+	<hr color="gray" size="3">
+	<br>
+	<font size=" 6" color="gray">--------------------Congratulation,Success!!!--------------------</font>
+	<br>	<br>	<br>
+		<font size=" 5" color="gray" >--------------------<a href="index.jsp">Click here Back To Index</a>--------------------</font>
+	
+	</p>
+	<br>
+	<br>
+	<hr color="gray" size="3">
+	<br>
+	
 </body>
 </html>
