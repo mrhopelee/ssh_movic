@@ -9,11 +9,18 @@ import java.util.Set;
 
 public class MovicArea implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8726282777549035466L;
+	/**
+	 * 
+	 */
 	// Fields
 
 	private Integer areaOid;
 	private String areaName;
-	private Set movicBeloneAreas = new HashSet(0);
+	private Set<?> movicBeloneAreas = new HashSet<Object>(0);
 
 	// Constructors
 
@@ -27,7 +34,7 @@ public class MovicArea implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public MovicArea(String areaName, Set movicBeloneAreas) {
+	public MovicArea(String areaName, Set<?> movicBeloneAreas) {
 		this.areaName = areaName;
 		this.movicBeloneAreas = movicBeloneAreas;
 	}
@@ -50,11 +57,11 @@ public class MovicArea implements java.io.Serializable {
 		this.areaName = areaName;
 	}
 
-	public Set getMovicBeloneAreas() {
+	public Set<?> getMovicBeloneAreas() {
 		return this.movicBeloneAreas;
 	}
 
-	public void setMovicBeloneAreas(Set movicBeloneAreas) {
+	public void setMovicBeloneAreas(Set<?> movicBeloneAreas) {
 		this.movicBeloneAreas = movicBeloneAreas;
 	}
 

@@ -2,62 +2,81 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
  "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
-		
-						<!--李灏 don't move ! begin -->
+		<!--李灏 don't move ! begin -->
+
+		<!-- 增加电影类型 -->
 		<action name="insertmovictype" class="movicTypeAction" method="insertMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<!-- 删除电影类型 -->
 		<action name="deletemovictype" class="movicTypeAction" method="deleteMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<!-- 修改电影类型 -->
 		<action name="updatemovictype" class="movicTypeAction" method="updateMovicType">
 			<result name="success">/movic_type.jsp</result>
 			<result name="input">/movic_type.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<!-- 获取所有电影类型 -->
 		<action name="movictypesetsession" class="movicTypeAction"
 			method="movictypeSetSession">
 			<result name="success">/movic_type.jsp</result>
 		</action>
 
-
+		<!-- 增加电影地区 -->
 		<action name="insertmovicarea" class="movicAreaAction" method="insertMovicArea">
 			<result name="success">/movic_area.jsp</result>
 			<result name="input">/movic_area.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<!-- 删除电影地区 -->
 		<action name="deletemovicarea" class="movicAreaAction" method="deleteMovicArea">
 			<result name="success">/movic_area.jsp</result>
 			<result name="input">/movic_area.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<!-- 修改电影地区 -->
 		<action name="updatemovicarea" class="movicAreaAction" method="updateMovicArea">
 			<result name="success">/movic_area.jsp</result>
 			<result name="input">/movic_area.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<!-- 获取所有电影地区 -->
 		<action name="movicareasetsession" class="movicAreaAction"
 			method="movicareaSetSession">
 			<result name="success">/movic_area.jsp</result>
 		</action>
-		
-		
-		<action name="moviciatsetsession" class="movicIatAction"
-			method="moviciatAllSetSession">
+
+		<!--<action name="moviciatallsetsession" class="movicIatAction" method="moviciatAllSetSession"> 
+			<result name="success">/movic_iat.jsp</result> <result name="error">/error.jsp</result> 
+			</action> -->
+		<!-- 设置电影地区、电影类型 -->
+		<action name="moviciatsetat" class="movicIatAction" method="moviciatsetAT">
+			<result name="success">/movic_iat.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<!-- 设置排序（时间或评分） -->
+		<action name="moviciatsetsort" class="movicIatAction" method="moviciatsetSort">
+			<result name="success">/movic_iat.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<!-- 根据电影地区、电影类型查询电影信息 -->
+		<action name="moviciatmixsetsession" class="movicIatAction"
+			method="moviciatMixSetSession">
 			<result name="success">/movic_iat.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
 		<!--李灏 don't move ! end -->
-	
-    
-    <!-- 梁泽民配置的action 开始-->
+
+		 <!-- 梁泽民配置的action 开始-->
     <!-- 跳转到添加电影页面 -->
     <action name="goToAddMovicPageAction" class="movicManagementAction" method="goToAddMovicPage">
    	<result name="success">/addMovic.jsp</result>
@@ -119,19 +138,51 @@
     <result name="success">/showMovicPicture.jsp</result>
     </action>
     
+    <!-- 用户登录验证 userAction userLogin  根据用户类型跳转到 不同页面-->
+    <action name="userLoginAction" class="userAction" method="userLogin" >
+    <result name="success">/index.jsp</result>
+    <result name="input">/userLogin.jsp</result>
+    <result name="admin">/adminFunction.jsp</result>
+    </action>
     
+    <!-- userLogout 用户退出 -->
+    <action name="userLogoutAction" class="userAction" method="userLogout" >
+    <result name="success">/index.jsp</result>
+    </action>
+    
+    <!-- updateUserLogoAction 更新用户头像 -->
+    <action name="updateUserLogoAction" class="userAction" method="updateUserLogo" >
+    <result name="success">/index.jsp</result>
+    <result name="input">/updateUserLogo.jsp</result>
+    </action>
+    
+    <!-- userRigisterAction 用户注册 -->
+    <action name="userRigisterAction" class="userAction" method="userRigister" >
+    <result name="success">/index.jsp</result>
+    <result name="input">/userRegister.jsp</result>
+    </action>
     
     <!-- 梁泽民配置的action 结束-->
-<!-- ===============================@HuangLongChang============================== -->
+	<!-- ===============================@HuangLongChang============================== -->
 		<!-- 黄隆昌配置的action 开始 -->
 		
 		<!-- 用户修改页面修改用户个人信息-->
 		<action name="test" class="UserManageAction" method="test">
 		</action>
 		
-		
-		
 		<!-- 用户修改页面修改用户个人信息-->
+		<action name="upgradeToVip" class="IntegralManageAction" method="upgradeToVip">
+		<result name="success">/success.jsp</result>
+		<result name="input">/upgradeToVip.jsp</result>
+		</action>
+		
+		<!-- 用户签到页面 -->
+		<action name="signBoard" class="IntegralManageAction" method="signBoard">
+			<result name="success">/success.jsp</result>
+			<result name="error">/ccError.jsp</result>
+		</action>
+		
+		<!-- 用户修改页面修改用户密码-->
 		<action name="updateUserPassword" class="UserManageAction" method="updateUserPassword">
 			<result name="success">/index.jsp</result>
 			<result name="input">/updateUserPassword.jsp</result>
@@ -169,10 +220,10 @@
 		<!-- 黄隆昌配置的action 结束 -->
 
 <!-- ===============================@HuangLongChang============================== -->
+	
 
 
-    
-    <!-- 陈浩贤     -->
+		 <!-- 陈浩贤     -->
     <!-- 跳转电影详情页面 -->
     <action name="scanMovieAction" class="showMovieDetailAction">
     	<result name="success">/movieDetailPage.jsp</result>
@@ -194,12 +245,5 @@
     	<result name="input">/editComments.jsp</result>
     </action>
     <!-- /陈浩贤      -->
-    
-    
-    
-    
-    
-    
-    
-</package>
+	</package>
 </struts>    

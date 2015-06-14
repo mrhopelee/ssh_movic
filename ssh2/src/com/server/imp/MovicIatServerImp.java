@@ -1,5 +1,8 @@
 package com.server.imp;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,6 +19,7 @@ import com.server.interfaces.MovicIatServer;
 public class MovicIatServerImp implements MovicIatServer {
 	@Resource
 	private MovicIatDao movicIatDao;
+	
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED, readOnly = true)
 	public int getMovicPaging(String whereSql) {
@@ -24,7 +28,30 @@ public class MovicIatServerImp implements MovicIatServer {
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED, readOnly = true)
 	public List<MovicInfo> searchMovicInfoService(String whereSql, Paging paging) {
-		return movicIatDao.searchMovicInfoDao(whereSql, paging);
+		List<?> list = movicIatDao.searchMovicInfoDao(whereSql, paging);
+		List<MovicInfo> milist =new ArrayList<MovicInfo>();
+		
+		for(int i=0;i<list.size();i++)
+		{
+			Object[] o= (Object[]) list.get(i);
+			//System.out.println(o[0].toString()+o[1].toString()+o[2].toString()+o[3].toString()+o[4].toString());
+			MovicInfo m=new MovicInfo();
+			m.setMovicOid(new Integer(o[0].toString()));
+			m.setMovicName(o[1].toString());
+			m.setMovicImdbScore(Double.valueOf(o[2].toString()));
+			java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd ");
+			try {
+				m.setMovicPlayDate(formatter.parse(o[3].toString()));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			m.setMovicPost(o[4].toString());
+			//System.out.println(m.getMovicOid()+m.getMovicName()+m.getMovicImdbScore()+m.getMovicPlayDate()+m.getMovicPost());
+			milist.add(m);
+		}
+		
+		
+		return milist;
 	}
 
 }

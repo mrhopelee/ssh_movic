@@ -26,7 +26,7 @@ public class MovicTypeAction extends ActionSupport {
 	private MovicType newmovictype = null;
 
 	/*
-	 * 
+	 * 增加类型验证，增加类型
 	 */
 	public void validateInsertMovicType() {
 		this.clearFieldErrors();
@@ -56,6 +56,9 @@ public class MovicTypeAction extends ActionSupport {
 		}
 	}
 
+	/*
+	 * 删除类型
+	 */
 	public String deleteMovicType() {
 		System.out.println("deleteMovicType");
 		try {
@@ -75,6 +78,9 @@ public class MovicTypeAction extends ActionSupport {
 		return "success";
 	}
 
+	/*
+	 * 修改类型验证，修改类型
+	 */
 	@SuppressWarnings("unchecked")
 	public void validateUpdateMovicType() {
 		this.clearFieldErrors();
@@ -120,8 +126,11 @@ public class MovicTypeAction extends ActionSupport {
 		}
 	}
 
+	/*
+	 * 获取所有类型
+	 */
 	public String movictypeSetSession() {
-		//System.out.println("type");
+		// System.out.println("type");
 		request = ServletActionContext.getRequest();
 		hs = request.getSession(true);
 		hs.removeAttribute("movictypelist");
