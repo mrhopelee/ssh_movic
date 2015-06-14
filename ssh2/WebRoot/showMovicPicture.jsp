@@ -5,11 +5,13 @@
 <html>
   <head>
     <title>电影海报维护</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   </head>
   
   <body>
     <a href="adminFunction.jsp">返回管理页面</a><br>
-    <table>
+    <div style="width: 980px;margin: 0 auto;">
+    <table class="table table-bordered">
     <s:iterator value="movicPictureList" id="l" status="s">
     <tr>
     <td>编号：</td>
@@ -32,6 +34,6 @@
     <input type="hidden" name="movicOid" value='<s:property value="movicOid"/>'>
     <s:submit value="上传"></s:submit>
     </s:form>
-    
+    </div>
   </body>
 </html>

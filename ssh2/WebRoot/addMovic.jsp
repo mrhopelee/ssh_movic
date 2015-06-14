@@ -6,45 +6,43 @@
   <head>
     <title>添加电影</title>
     <sx:head extraLocales="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	
   </head>
   
   <body>
     <a href="adminFunction.jsp">返回管理页面</a><br>
    	<s:fielderror></s:fielderror>
-    <!-- 	private String movicName;
-	private String movicActor;
-	private String movicDirector;
-	private Double movicImdbScore;
-	private Date movicPlayDate;
-	private String movicIntroduction; -->
-	<div style="margin: 0 auto">
+	<div style="margin: 0 auto; width: 980px;">
+	
     <form action="addMovicAction" method="post">
-    <table border="1" >
+    <table class="table table-bordered" >
     <tr>
     <td>电影名</td>
-    <td colspan="3"><input type="text" required="required" name="movic.movicName"></td>
+    <td ><input type="text" required="required" name="movic.movicName"></td>
     </tr>
     
     <tr>
     <td>导演</td>
-    <td colspan="3"><input type="text" required="required" name="movic.movicDirector"></td>
+    <td ><input type="text" required="required" name="movic.movicDirector"></td>
     </tr>
     
     <tr>
     <td>演员</td>
-    <td colspan="3"><input type="text" required="required" name="movic.movicActor"></td>
+    <td ><input type="text" required="required" name="movic.movicActor"></td>
     </tr>
     
-    <tr><sx:datetimepicker name="movic.movicPlayDate" label="上映日期"
-					displayFormat="yyyy-MM-dd" value="%{'today'}" />
-
-					</tr>
+    <tr>
+   	<td colspan="2">
+   	上映时间
+    <sx:datetimepicker name="movic.movicPlayDate" displayFormat="yyyy-MM-dd" value="%{'today'}" />
+	</td>
+	</tr>
     
   
     <tr>
     <td>评分</td>
-    <td colspan="3">
+    <td>
     <select name="score[0]">
     <option value="0">0</option>
     <option value="1">1</option>
@@ -75,7 +73,7 @@
     
     <tr>
     <td>简介</td>
-    <td colspan="3"><textarea rows="10" cols="40" required="required" name="movic.movicIntroduction"></textarea></td>
+    <td><textarea rows="5" cols="80" required="required" name="movic.movicIntroduction"></textarea></td>
     </tr>
     
     <!-- 获取出电影类型列表 -->
@@ -98,7 +96,7 @@
     </td>
     </tr>
     
-    <tr><td><input type="submit" value="添加"></td><td colspan="3"><input type="reset" value="重置"></td></tr>
+    <tr><td><input type="submit" value="添加"></td><td ><input type="reset" value="重置"></td></tr>
     </table>
     </form>
     </div>

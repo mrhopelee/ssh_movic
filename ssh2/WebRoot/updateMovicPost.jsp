@@ -7,13 +7,15 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
   </head>
   
   <body>
   <!-- 根据电影id显示电影海报 并提供上传海报选项 -->
   <a href="adminFunction.jsp">返回管理页面</a><br>
-  <table>
+  <div style="width: 980px;margin: 0 auto;">
+    <table class="table table-bordered">
   <tr><td>电影名</td><td><s:property value="movic.movicName"/></td></tr>
   <tr><td>电影编号</td><td><s:property value="movic.movicOid"/></td></tr>
   <tr><td>电影海报</td><td><img height="200px" alt="无法显示" src="<s:property value="movic.movicPost"/>"></td></tr>
@@ -24,5 +26,6 @@
     <s:hidden name="movic.movicOid" value="%{movic.movicOid}"></s:hidden>
     <s:submit value="上传"></s:submit>
     </s:form>
+    </div>
   </body>
 </html>
