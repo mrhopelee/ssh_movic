@@ -7,14 +7,23 @@
 <title>电影IAT</title>
 
 
-<link rel="stylesheet" type="text/css" href="css/normalize.css">
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/3.3.4bootstrap.min.css">
+<script src="javascript/2.1.4jquery.js"></script>
+<script src="javascript/3.3.4bootstrap.min.js"></script>
 <script src="javascript/movic_iat.js"></script>
 </head>
 
 <body>
 	<s:action name="movicareasetsession" flush="false" namespace="/"></s:action>
 	<s:action name="movictypesetsession" flush="false" namespace="/"></s:action>
+	<s:action name="moviciatmixsetsession" flush="false" namespace="/"></s:action>
+
+	<s:form action="moviciatsetsearch" namespace="/">
+		<s:textfield name="search" value="%{#session.moviciatsearch}"
+			placeholder="电影">
+		</s:textfield>
+		<s:submit value="搜索"></s:submit>
+	</s:form>
 
 	地区:
 	<p>
@@ -38,7 +47,6 @@
 		</s:iterator>
 	</p>
 
-
 	类型:
 	<p>
 		<s:a href="moviciatsetat?movictype.type=不限">
@@ -53,32 +61,25 @@
 			</s:if>
 		</s:iterator>
 	</p>
-	
-	<s:action name="moviciatmixsetsession" flush="false" namespace="/"></s:action>
+
 	排序:
 	<p>
-		<s:form action="moviciatsetsort">
-			<s:radio name="sort" list="#{'movicPlayDate':'最新电影','movicImdbScore':'高分电影'}" value="#session.moviciatsort" onclick="submit()"></s:radio>
+		<s:form action="moviciatsetsort" namespace="/">
+			<s:radio name="sort"
+				list="#{'movicPlayDate':'最新电影','movicImdbScore':'高分电影'}"
+				value="#session.moviciatsort" onclick="submit()"></s:radio>
 		</s:form>
 	</p>
+
 	<!-- 电影信息 -->
 	<s:iterator value="#session.moviciatlist" status="miat">
 		<p>
-			<s:property value="movicOid" />
-			<s:property value="movicName" />
+			<s:a href="scanMovieAction?id=%{movicOid}"><s:property value="movicName" /></s:a>			
 			<s:property value="movicImdbScore" />
 			<s:date name="movicPlayDate" format="yyyy-MM-dd" />
 			<s:property value="movicPost" />
 		</p>
 	</s:iterator>
-
-	<%-- <s:iterator value="#session.moviciatpaging" status="pagingt">
-		<s:property value="pageCount" />
-		<s:property value="rowCount" />
-		<s:property value="pageNow" />
-		<s:property value="pageSize" />
-	</s:iterator> 
-	<s:select list="#session.moviciatpaging"></s:select>--%>
 
 	<p>
 		一共有
@@ -91,11 +92,67 @@
 		<s:property value="%{#session.moviciatpaging.pageNow}" />
 		页
 	</p>
-	<s:bean name="org.apache.struts2.util.Counter" id="counter">
+
+	<s:if test="#session.moviciatpaging.pageNow>4">
+		<s:a
+				href="moviciatmixsetsession?paging.pageNow=1">
+				首页 ...
+			</s:a>
+	</s:if>
+	<s:iterator begin="1" end="2" step="1" status="a">
+		<s:if
+			test="%{#session.moviciatpaging.pageCount-#session.moviciatpaging.pageNow-#a.index<1}">
+			<s:a
+				href="moviciatmixsetsession?paging.pageNow=%{#session.moviciatpaging.pageNow+#a.index-5}">
+				<s:property value="%{#session.moviciatpaging.pageNow+#a.index-5}" />
+			</s:a>
+		</s:if>
+	</s:iterator>
+
+	<s:iterator begin="1" end="3" step="1" status="a">
+
+		<s:if test="%{#session.moviciatpaging.pageNow+#a.index-3>0}">
+			<s:a
+				href="moviciatmixsetsession?paging.pageNow=%{#session.moviciatpaging.pageNow+#a.index-3}">
+				<s:property value="%{#session.moviciatpaging.pageNow+#a.index-3}" />
+			</s:a>
+		</s:if>
+	</s:iterator>
+
+	<s:property value="#session.moviciatpaging.pageNow" />
+
+	<s:iterator begin="1" end="2" step="1" status="a">
+
+		<s:if
+			test="%{#session.moviciatpaging.pageNow+#a.index+1<=#session.moviciatpaging.pageCount}">
+			<s:a
+				href="moviciatmixsetsession?paging.pageNow=%{#session.moviciatpaging.pageNow+#a.index+1}">
+				<s:property value="%{#session.moviciatpaging.pageNow+#a.index+1}" />
+			</s:a>
+		</s:if>
+	</s:iterator>
+
+	<s:iterator begin="1" end="3" step="1" status="a">
+		<s:if test="%{#session.moviciatpaging.pageNow-1+#a.index<3}">
+			<s:a
+				href="moviciatmixsetsession?paging.pageNow=%{#session.moviciatpaging.pageNow+#a.index+3}">
+				<s:property value="%{#session.moviciatpaging.pageNow+#a.index+3}" />
+			</s:a>
+		</s:if>
+	</s:iterator>
+	
+	<s:if test="#session.moviciatpaging.pageCount-#session.moviciatpaging.pageNow>2">
+		<s:a
+				href="moviciatmixsetsession?paging.pageNow=1">
+				... 尾页
+			</s:a>
+	</s:if>
+	<%-- <s:bean name="org.apache.struts2.util.Counter" id="counter">
 		<s:param name="first" value="1" />
 		<s:param name="last" value="%{#session.moviciatpaging.pageCount}" />
 
-		<s:iterator status="abc">
+
+		<s:iterator begin="" status="abc">
 			<s:if test="#session.moviciatpaging.pageNow==#abc.count">
 				<s:property />
 			</s:if>
@@ -104,8 +161,7 @@
 					<s:property />
 				</s:a>
 			</s:else>
-
 		</s:iterator>
-	</s:bean>
+	</s:bean> --%>
 </body>
 </html>
