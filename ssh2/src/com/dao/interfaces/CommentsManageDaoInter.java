@@ -14,4 +14,8 @@ public interface CommentsManageDaoInter {
 	public List<MovicComments> selectList();
 
 	public void deleteComments(Integer mcOid);
+
+	public List<MovicComments> selectUserCommentsByUserId(Integer userOid);
+
+	public void delCommentsByUserId(Integer userOid);
 }
