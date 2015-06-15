@@ -162,6 +162,24 @@
     <result name="input">/userRegister.jsp</result>
     </action>
     
+    <!--movicDownloadAction 获取电影下载文件列表 -->
+    <action name="showMovicDownloadAction" class="movicDownloadAction" method="showMovicDownload">
+    <result name="success">/showMovicDownload.jsp</result>
+    </action>
+    
+    <!-- movicDownloadDeleteAction 删除该电影下载文件 -->
+    <action name="movicDownloadDeleteAction" class="movicDownloadAction" method="movicDownloadDelete">
+    <result name="success">/showMovicDownload.jsp</result>
+    </action>
+    
+    <!-- movicFileUpload 上传电影下载文件  -->
+    <action name="movicFileUploadAction" class="movicDownloadAction" method="movicFileUpload">
+    <result name="success">/showMovicDownload.jsp</result>
+    <result name="input">/showMovicDownload.jsp</result>
+    </action>
+    
+    <!--  -->
+    
     <!-- 梁泽民配置的action 结束-->
 	<!-- ===============================@HuangLongChang============================== -->
 		<!-- 黄隆昌配置的action 开始 -->

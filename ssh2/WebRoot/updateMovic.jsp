@@ -33,6 +33,12 @@
     <input type="hidden" name="movicOid" value='<s:property value="#m.movicOid"/>'>
     </form>
     </td>
+    
+    <td>
+    <form action="showMovicDownloadAction" method="post"><input type="submit" value="管理电影下载">
+    <input type="hidden" name="movicOid" value='<s:property value="#m.movicOid"/>'>
+    </form>
+    </td>
     </tr>
     </s:iterator>
     </table>
