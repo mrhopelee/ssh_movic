@@ -28,14 +28,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <s:if test="#request.clist.size()!=0">
       	<table border="0" align="center">
       		<tr>
-      			<td width="20px" ><div align="center">id</div></td>
+      			<td width="100px" ><div align="center">评论人</div></td>
       			<td width="300px"><div align="center">评论日期</div></td>
       			<td width="300px"><div align="center">评论内容</div></td>
       			<td width="100px"><div align="center">操作</div></td>
       		</tr>
       		<s:iterator value="#request.clist" var="mComments">
       			<tr>
-      				<td width="20px"><div align="center"><s:property value="#mComments.mcOid"/></div></td>
+      				<td width="100px"><div align="center"><s:property value="#mComments.userInfo.userName"/></div></td>
       				<td width="300px"><div align="center"><s:property value="#mComments.commentsDate"/></div></td>
       				<td width="300px"><div align="center"><s:property value="#mComments.commentsInfo"/></div></td>
       				<!-- <td width="100px"><div align="center"><a href="commentsManage!delComments.action?mComments.mcOid=<s:property value="#mComments.mcOid"/>">删除</a></div></td> -->

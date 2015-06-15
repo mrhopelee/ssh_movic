@@ -51,14 +51,14 @@ public class CommentsManageDao implements CommentsManageDaoInter {
 	@Override
 	public List<MovicComments> selectUserCommentsByUserId(Integer userOid) {
 		List<MovicComments> userCommList = null;
-		String hql = "from MovicComments where userInfo.userOid="+userOid;
+		String hql = "from MovicComments where userInfo.userOid="+userOid+"order by mcOid";
 		try {
 			Query query = sessionFactory.getCurrentSession().createQuery(hql);
 			userCommList = query.list();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return userCommList;
 	}
 	
 	

@@ -49,7 +49,7 @@
 	  	<form class="topform" action="userLogoutAction">
 	  	<input type="submit" value="退出" class="btn btn-danger">
 	  	</form>
-	  	<form class="topform" action="commentsManage!getUserComments.action">
+	  	<form class="topform" action="findUserComments">
 	  		<input type="submit" value="查看我的评论" class="btn btn-primary">
 	  	</form>
 	  	
