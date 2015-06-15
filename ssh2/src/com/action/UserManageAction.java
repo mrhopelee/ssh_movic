@@ -78,6 +78,7 @@ public class UserManageAction extends ActionSupport {
 	}
 
 	public String updateType() {
+		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		System.out.printf("userOid=======" + userOid);
 		System.out.printf("进入UserManageAction updateType方法");
@@ -94,6 +95,7 @@ public class UserManageAction extends ActionSupport {
 	public String updateTypePage() {
 		System.out.printf("userOid=======" + userOid);
 		System.out.printf("进入UserManageAction updateTypePage处理方法");
+		
 		if (userManageService.editUserType(userName, Integer.parseInt(type)) == true) {
 			System.out.println("修改权限成功");
 		}

@@ -28,8 +28,10 @@ public class UserManageDaoImp implements UserManageDao {
 			UserInfo user = getUserByName(name);
 			System.out
 					.println("-----当前type=" + user.getUserType().getRemarks());
-			user.getUserType().setValue(type);
-			switch (type) {
+			
+			//user.getUserType().setValue(type);
+			
+			/*switch (type) {
 			case 1:
 				user.getUserType().setRemarks("普通用户");
 				break;
@@ -43,7 +45,18 @@ public class UserManageDaoImp implements UserManageDao {
 				user.getUserType().setRemarks("高级管理员");
 				break;
 
+			}*/
+			UserType ut=new UserType();
+			switch(type)
+			{
+			case 1:ut.setUtOid(type-1);user.setUserType(ut); ;break;
+			case 2:ut.setUtOid(type-1);user.setUserType(ut); ;break;
+			case 3:ut.setUtOid(type-1);user.setUserType(ut); ;break;
+			case 4:ut.setUtOid(type-1);user.setUserType(ut); ;break;
+			
 			}
+			
+			
 			sessionFactory.getCurrentSession().update(user);
 		} catch (Exception e) {
 			System.out.println("更新数据出错：" + e);

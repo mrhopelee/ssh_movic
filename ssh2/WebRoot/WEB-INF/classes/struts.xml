@@ -140,9 +140,9 @@
     
     <!-- 用户登录验证 userAction userLogin  根据用户类型跳转到 不同页面-->
     <action name="userLoginAction" class="userAction" method="userLogin" >
-    <result name="success">/index.jsp</result>
+    <result name="success" type="redirect">/index.jsp</result>
     <result name="input">/userLogin.jsp</result>
-    <result name="admin">/adminFunction.jsp</result>
+    <result name="admin" type="redirect">/adminFunction.jsp</result>
     </action>
     
     <!-- userLogout 用户退出 -->
