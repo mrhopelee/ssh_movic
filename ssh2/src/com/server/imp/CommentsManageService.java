@@ -21,6 +21,12 @@ public class CommentsManageService implements CommentsManageServiceInter {
 	@Resource
 	private CommentsManageDaoInter commentsManageDao;
 
+	
+	
+	/**
+	 * 查找所有评论
+	 * @return List
+	 */
 	@Override
 	public List<MovicComments> selectList() {
 		// TODO Auto-generated method stub
@@ -34,6 +40,29 @@ public class CommentsManageService implements CommentsManageServiceInter {
 		
 	}
 
+	
+	/**
+	 * 查找当前用户评论
+	 * @return List
+	 */
+	@Override
+	public List<MovicComments> getComments(Integer userOid) {
+		
+		return commentsManageDao.selectUserCommentsByUserId(userOid);
+	}
+
+
+	/**
+	 * 用户删除自己的评论
+	 * 
+	 */
+	@Override
+	public void delCommentsByUser(Integer userOid) {
+		commentsManageDao.delCommentsByUserId(userOid);
+		
+	}
+
+
 
 	public CommentsManageDaoInter getCommentsManageDao() {
 		return commentsManageDao;
@@ -43,6 +72,11 @@ public class CommentsManageService implements CommentsManageServiceInter {
 		this.commentsManageDao = commentsManageDao;
 	}
 
+
+
+	
+
+	
 	
 	
 }

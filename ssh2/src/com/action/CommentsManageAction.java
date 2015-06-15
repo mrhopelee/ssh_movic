@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 
 import com.bean.MovicComments;
+import com.bean.UserInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.server.interfaces.CommentsManageServiceInter;
 
@@ -68,6 +69,21 @@ public class CommentsManageAction extends ActionSupport {
 		//System.out.println(id);
 		commentsManageService.delectComments(id);
 		return SUCCESS;
+	}
+	
+	public String getUserComments(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");  //获取当前用户
+		List<MovicComments> uCommList = commentsManageService.getComments(user.getUserOid());    //获取当前用户的评论
+		request.setAttribute("uCommList", uCommList);
+		return "ok";
+	}
+	
+	public String delUserComments(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");  //获取当前用户
+		commentsManageService.delCommentsByUser(user.getUserOid());
+		return "delete";
 	}
 
 	

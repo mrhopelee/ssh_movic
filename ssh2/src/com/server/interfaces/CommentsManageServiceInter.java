@@ -15,4 +15,8 @@ public interface CommentsManageServiceInter {
 
 	public void delectComments(Integer mcOid);
 
+	public List<MovicComments> getComments(Integer userOid);
+
+	public void delCommentsByUser(Integer userOid);
+
 }
