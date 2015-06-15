@@ -1,5 +1,6 @@
 package com.action;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,11 +10,17 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.bean.MovicArea;
+import com.bean.MovicBeloneArea;
+import com.bean.MovicBeloneType;
 import com.bean.MovicComments;
+import com.bean.MovicInfo;
+import com.bean.MovicType;
 import com.bean.UserInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.server.interfaces.CountUserByScoreServiceInter;
 import com.server.interfaces.FindCommentsServiceInter;
+import com.server.interfaces.MovicManagementServer;
 
 
 public class ShowMovieDetailAction extends ActionSupport {
@@ -32,7 +39,11 @@ public class ShowMovieDetailAction extends ActionSupport {
 	private int id;   //电影ID
 	@Resource 
 	private CountUserByScoreServiceInter countUserByScoreService; 
-	
+	@Resource
+	private MovicManagementServer movicManagementServer;
+	private MovicInfo movic;
+	private List<MovicType> mt;
+	private List<MovicArea> ma;
 	
 
 	@Override
@@ -59,6 +70,10 @@ public class ShowMovieDetailAction extends ActionSupport {
 		request.getSession().setAttribute("userCountByScore", score);
 		
 		//=================星星用户评价区 ----结束============
+		movic=movicManagementServer.getMovicByOid(id);
+		//获取电影类型
+		
+		
 		
 		
 		return SUCCESS;
@@ -93,5 +108,54 @@ public class ShowMovieDetailAction extends ActionSupport {
 		this.countUserByScoreService = countUserByScoreService;
 	}
 
+
+
+	public MovicManagementServer getMovicManagementServer() {
+		return movicManagementServer;
+	}
+
+
+
+	public void setMovicManagementServer(MovicManagementServer movicManagementServer) {
+		this.movicManagementServer = movicManagementServer;
+	}
+
+
+
+	public MovicInfo getMovic() {
+		return movic;
+	}
+
+
+
+	public void setMovic(MovicInfo movic) {
+		this.movic = movic;
+	}
+
+
+
+	public List<MovicType> getMt() {
+		return mt;
+	}
+
+
+
+	public void setMt(List<MovicType> mt) {
+		this.mt = mt;
+	}
+
+
+
+	public List<MovicArea> getMa() {
+		return ma;
+	}
+
+
+
+	public void setMa(List<MovicArea> ma) {
+		this.ma = ma;
+	}
+	
+	
 
 }

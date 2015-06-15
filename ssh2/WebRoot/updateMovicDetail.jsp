@@ -108,6 +108,7 @@
     
     <tr><td><input type="submit" value="修改"></td><td><input type="reset" value="重置"></td></tr>
     </table>
+    <input type="hidden" value='<s:property value="movic.movicPost" />' name="movic.movicPost">
     </form>
     </div>
   </body>

@@ -11,16 +11,61 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>电影详情页面</title>
-    
-	
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-	
-
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   </head>
   
   <body>
+  <!-- 电影显示区域  --------------------------------->
+  <div style="margin: 0 auto;width: 980px;">
+  <table class="table table-bordered">
+  <tr> 
+  <td>
+  <img alt="无法显示" src='<s:property value="movic.movicPost"/>' width="300px" height="300px">
+  </td>
+  <td>
+  
+  <table class="table table-bordered">
+  <tr><td>电影名：</td><td><s:property value="movic.movicName"/></td></tr>
+  <tr><td>导演：</td><td><s:property value="movic.movicDirector"/></td></tr>
+  <tr><td>演员：</td><td width="500px"><s:property value="movic.movicActor"/></td></tr>
+  <tr><td>上映日期:</td><td><s:date format="yyyy-MM-dd" name="movic.movicPlayDate"></s:date></td></tr>
+  <tr><td>电影类型：</td>
+  <td>
+   <s:iterator value="movic.movicBeloneTypes" id="mbt">
+    <s:property value="#mbt.movicType.type"/>
+    </s:iterator>
+
+  </td>
+  </tr>
+   <tr><td>电影地区：</td>
+  <td>
+   <s:iterator  value="movic.movicBeloneAreas" id="mba">
+    <s:property value="#mba.movicArea.areaName"/>
+    </s:iterator>
+
+  </td>
+  </tr>
+  <tr><td>评分：</td><td><s:property value="movic.movicImdbScore"/></td></tr>
+  
+  <tr><td>访问次数：</td>
+  <td>
+   <s:iterator  value="movic.movicVisiterNumbers" id="mv">
+    <s:property value="#mv.visiterNumber"/>
+    </s:iterator>
+
+  </td>
+  </tr>
+  
+  </table>
+  
+  </td>
+   </tr>
+  </table>
+  
+  </div>
+  
+  
+   <!-- 电影显示区域 --------------------------------->
   
 	  
   <!-- ==============================显示用户评价区    ( 开始)========================================== -->
