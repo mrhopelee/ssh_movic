@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 
 import com.bean.MovicComments;
+import com.bean.UserInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.server.interfaces.SubmitCommentsServiceInter;
 
@@ -21,7 +22,7 @@ public class SubmitCommentsAction extends ActionSupport {
 	private int score;    //用户评分
 	private String comments_text;   //用户评论内容
 	private int nowMoiveId;    //当前电影ID
-	private int nowUserId;      //当前用户ID
+	//private int nowUserId;      //当前用户ID
 	
 
 	
@@ -30,14 +31,21 @@ public class SubmitCommentsAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		//MovicComments mComments = new MovicComments();
-		//HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletRequest request = ServletActionContext.getRequest();
 		//nowMoiveId=(int) request.getSession().getAttribute("nowMoiveId"); 
 		//nowUserId = (int) request.getSession().getAttribute("nowUserId");
+		if(request.getSession().getAttribute("user")==null){
+			this.addFieldError("tt","请登录");
+			return INPUT;
+		}
 		
-		if(submitCommentsService.checkUser(nowUserId)) {
-			submitCommentsService.submitExecptScore(nowMoiveId, nowUserId, score, comments_text);
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("user");
+		
+		
+		if(submitCommentsService.checkUser(userInfo.getUserOid())) {
+			submitCommentsService.submitExecptScore(nowMoiveId, userInfo.getUserOid(), score, comments_text);
 		}else{
-			submitCommentsService.submitComments(nowMoiveId, nowUserId, score, comments_text);		
+			submitCommentsService.submitComments(nowMoiveId, userInfo.getUserOid(), score, comments_text);		
 		}
 		return SUCCESS;		
 	}
@@ -79,19 +87,6 @@ public class SubmitCommentsAction extends ActionSupport {
 		this.nowMoiveId = nowMoiveId;
 	}
 
-
-
-
-	public int getNowUserId() {
-		return nowUserId;
-	}
-
-
-
-
-	public void setNowUserId(int nowUserId) {
-		this.nowUserId = nowUserId;
-	}
 
 
 }

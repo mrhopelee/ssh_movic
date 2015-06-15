@@ -37,7 +37,6 @@ public class ShowMovieDetailAction extends ActionSupport {
 	private FindCommentsServiceInter findCommentsService;   
 	private MovicComments mComments;
 	private int id;   //电影ID
-	private int userId;   //用户ID
 	@Resource 
 	private CountUserByScoreServiceInter countUserByScoreService; 
 	
@@ -58,7 +57,7 @@ public class ShowMovieDetailAction extends ActionSupport {
 		request.getSession().setAttribute("partCommentsList", list);
 		//request.setAttribute("nowMovieId", id);
 		request.getSession().setAttribute("nowMovieId", id);
-		request.getSession().setAttribute("nowUserId", userId);
+		//request.getSession().setAttribute("nowUserId", userId);
 		//=================显示3条评论  ---结束===================
 		
 		
@@ -105,11 +104,6 @@ public class ShowMovieDetailAction extends ActionSupport {
 			CountUserByScoreServiceInter countUserByScoreService) {
 		this.countUserByScoreService = countUserByScoreService;
 	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+
 
 }

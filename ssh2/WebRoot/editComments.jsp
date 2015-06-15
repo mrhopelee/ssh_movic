@@ -52,12 +52,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-                
+            <s:fielderror>
+            </s:fielderror>    
     <form  method="POST" name="lzform" action="subCommentsAction" >
         <table align="center">
             <tr>
                 <td>评价:
-                        <label><input type="radio" name="score" value="1"  />很差</label>
+                        <label><input type="radio" name="score" value="1"  checked="checked"/>很差</label>
                         <label><input type="radio" name="score" value="2"  />较差</label>
                         <label><input type="radio" name="score" value="3"  />还行</label>
                         <label><input type="radio" name="score" value="4"  />推荐</label>
@@ -66,15 +67,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </tr>
             <tr>
                 <td>
-                    <textarea  name="comments_text" style="width:448px;height:337px"></textarea>
+                    <textarea required="required" name="comments_text" style="width:448px;height:337px"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>
                     <br/>
-                    <input >
                     <input type="hidden" name="nowMovieId" value='<s:property value="#session.nowMovieId"/>'>
-                    <input type="hidden" name="nowUserId" value='<s:property value="#session.nowUserId"/>'>
+                    <!--  <input type="hidden" name="nowUserId" value='<s:property value="#session.nowUserId"/>'> -->
 
                     <input name="rev_submit" type="submit" value="好了，添加评论"/>&nbsp;&nbsp;&nbsp;
                     <a href="movieDetailPage.jsp">取消</a>
