@@ -74,15 +74,18 @@ public class CommentsManageAction extends ActionSupport {
 	public String getUserComments(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		UserInfo user = (UserInfo) request.getSession().getAttribute("user");  //获取当前用户
+		//List<MovicComments> uCommList = commentsManageService.getComments(0); 
 		List<MovicComments> uCommList = commentsManageService.getComments(user.getUserOid());    //获取当前用户的评论
+
 		request.setAttribute("uCommList", uCommList);
 		return "ok";
 	}
 	
 	public String delUserComments(){
-		HttpServletRequest request = ServletActionContext.getRequest();
-		UserInfo user = (UserInfo) request.getSession().getAttribute("user");  //获取当前用户
-		commentsManageService.delCommentsByUser(user.getUserOid());
+		//HttpServletRequest request = ServletActionContext.getRequest();
+		//UserInfo user = (UserInfo) request.getSession().getAttribute("user");  //获取当前用户
+		//commentsManageService.delCommentsByUser(0);
+		commentsManageService.delectComments(id);
 		return "delete";
 	}
 

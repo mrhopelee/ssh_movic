@@ -36,13 +36,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       		<s:iterator value="#request.uCommList" var="mComments">
       			<tr>
       				<td width="20px"><div align="center"><s:property value="#mComments.commentsDate"/></div></td>
-      				<td width="300px"><div align="center"><s:property value="#mComments.userInfo.userName"/></div></td>
+      				<td width="300px"><div align="center"><s:property value="#mComments.userInfo.userDisplayName"/></div></td>
       				<td width="300px"><div align="center"><s:property value="#mComments.commentsInfo"/></div></td>
       				<!-- <td width="100px"><div align="center"><a href="commentsManage!delComments.action?mComments.mcOid=<s:property value="#mComments.mcOid"/>">删除</a></div></td> -->
       				<td>
       					<div align="center">
     						<form action="commentsManage!delUserComments.action">
     							<input type="submit" value="删除">
+    							<input type="hidden" name="id" value='<s:property value="#mComments.mcOid"/>'>
     						</form>
     					</div>	
    					</td>

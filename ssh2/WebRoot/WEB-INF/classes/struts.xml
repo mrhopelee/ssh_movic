@@ -231,20 +231,22 @@
     
     <!-- 评论管理的action -->
     <action name="commentsManage" class="commentsManageAction">
-    	<result type="redirectAction">
+    	<result  type="redirectAction">
     		<param name="actionName">commentsManage</param>
     	</result>
     	
     	<result name="clist">/comments_list.jsp</result>
     	
     	<result name="delete"   type="redirectAction">
-    		<param name="actionName">commentsManage</param>
+    		<param name="actionName">findUserComments</param>
     	</result>
     	
+    	
+	
+    </action>
+    
+    <action name="findUserComments" class="commentsManageAction" method="getUserComments">
     	<result name="ok">/userCommnets_list.jsp</result>
-    	
-    	
-    	
     </action>
     
     <!-- 查看电影所有评论的action -->
