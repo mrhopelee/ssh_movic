@@ -42,14 +42,17 @@
 	  	</form>
 	  	<form class="topform" action="signBoard.jsp">
 	  	<input type="submit" value="每日签到" class="btn btn-primary">
-	  	</form>
-	  	
+	  	</form>	
 	  	<form class="topform" action="upgradeToVip.jsp">
 	  	<input type="submit" value="升级会员" class="btn btn-primary">
 	  	</form>
 	  	<form class="topform" action="userLogoutAction">
 	  	<input type="submit" value="退出" class="btn btn-danger">
 	  	</form>
+	  	<form class="topform" action="findUserComments">
+	  		<input type="submit" value="查看我的评论" class="btn btn-primary">
+	  	</form>
+	  	
 	  	</div>
 
   	  <%

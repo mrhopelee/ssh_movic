@@ -24,12 +24,14 @@ public class ScanAllCommentsAction extends ActionSupport {
 	private FindCommentsServiceInter findCommentsService;
 	
 	private MovicComments mComments;
-	private int id;
+
 
 	@Override
 	public String execute() throws Exception {
+		
 		HttpServletRequest request = ServletActionContext.getRequest();
-		List<MovicComments> allList = findCommentsService.selectAllComments(id);
+		
+		List<MovicComments> allList = findCommentsService.selectAllComments((int)request.getSession().getAttribute("nowMovieId"));
 		request.setAttribute("allList", allList);
 		//request.setAttribute("nowMovieId", id);
 		return SUCCESS ;
@@ -55,13 +57,4 @@ public class ScanAllCommentsAction extends ActionSupport {
 	public void setmComments(MovicComments mComments) {
 		this.mComments = mComments;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	
-
 }

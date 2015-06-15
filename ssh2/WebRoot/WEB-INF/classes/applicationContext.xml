@@ -92,6 +92,10 @@
 	<bean id="userServer" class="com.server.imp.UserServerImp"></bean>
 	<bean id="userDao" class="com.dao.imp.UserDaoImp"></bean>
 	
+	<bean id="movicDownloadAction" class="com.action.MovicDownloadAction" scope="prototype"></bean>
+	<bean id="movicDownloadServer" class="com.server.imp.MovicDownloadServerImp"></bean>
+	<bean id="movicDownloadDao" class="com.dao.imp.MovicDownloadDaoImp"></bean>
+	
 <!-- 电影管理有关的bean配置   梁泽民配置 结束-->
 
 	<!-- 电影类型有关的bean配置   李灏配置 开始-->
@@ -111,14 +115,17 @@
 	<bean id="showMovieDetailAction" class="com.action.ShowMovieDetailAction"></bean>
 	<bean id="commentsManageAction" class="com.action.CommentsManageAction"></bean>
 	<bean id="scanAllCommentsAction" class="com.action.ScanAllCommentsAction"></bean>
+	<bean id="submitCommentsAction" class="com.action.SubmitCommentsAction"></bean>
 	<!-- 配置service -->
 	<bean id="findCommentsService" class="com.server.imp.FindCommentsService"></bean>	
 	<bean id="commentsManageService" class="com.server.imp.CommentsManageService"></bean>
 	<bean id="countUserByScoreService" class="com.server.imp.CountUserByScoreService"></bean>
+	<bean id="submitCommentsService" class="com.server.imp.SubmitCommentsService"></bean>
 	<!-- 配置dao -->
 	<bean id="findCommentsDao" class="com.dao.imp.FindCommentsDao"></bean>
 	<bean id="commentsManageDao" class="com.dao.imp.CommentsManageDao"></bean>
 	<bean id="countUserByScoreDao" class="com.dao.imp.CountUserByScoreDao"></bean>
+	<bean id="submitCommentsDao" class="com.dao.imp.SubmitCommentsDao"></bean>
 <!-- /陈浩贤 -->
 	</beans>
 

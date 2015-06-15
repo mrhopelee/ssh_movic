@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>comments_list</title>
+    <title>My JSP 'userCommnets_list.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,24 +24,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    您当前位置：<a href="adminTop.jsp">管理员主页</a>--评论管理
-      <s:if test="#request.clist.size()!=0">
+    您当前位置：<a href="userFunction.jsp">个人主页</a>--查看我的评论
+      <s:if test="#request.uCommList.size()!=0">
       	<table border="0" align="center">
       		<tr>
-      			<td width="100px" ><div align="center">评论人</div></td>
-      			<td width="300px"><div align="center">评论日期</div></td>
+      			<td width="300px"><div align="center">评论时间</div></td>
+      			<td width="300px"><div align="center">用户名</div></td>
       			<td width="300px"><div align="center">评论内容</div></td>
       			<td width="100px"><div align="center">操作</div></td>
       		</tr>
-      		<s:iterator value="#request.clist" var="mComments">
+      		<s:iterator value="#request.uCommList" var="mComments">
       			<tr>
-      				<td width="100px"><div align="center"><s:property value="#mComments.userInfo.userName"/></div></td>
-      				<td width="300px"><div align="center"><s:property value="#mComments.commentsDate"/></div></td>
+      				<td width="20px"><div align="center"><s:property value="#mComments.commentsDate"/></div></td>
+      				<td width="300px"><div align="center"><s:property value="#mComments.userInfo.userDisplayName"/></div></td>
       				<td width="300px"><div align="center"><s:property value="#mComments.commentsInfo"/></div></td>
       				<!-- <td width="100px"><div align="center"><a href="commentsManage!delComments.action?mComments.mcOid=<s:property value="#mComments.mcOid"/>">删除</a></div></td> -->
       				<td>
       					<div align="center">
-    						<form action="commentsManage!delComments.action">
+    						<form action="commentsManage!delUserComments.action">
     							<input type="submit" value="删除">
     							<input type="hidden" name="id" value='<s:property value="#mComments.mcOid"/>'>
     						</form>

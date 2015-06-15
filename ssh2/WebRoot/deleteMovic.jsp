@@ -4,22 +4,19 @@
 <html>
   <head>
     <title>删除电影</title>
-
-
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
   </head>
   
   <body>
     <a href="adminFunction.jsp">返回管理页面</a><br>
-    <table border="1">
+    <div style="width: 980px;margin: 0 auto;">
+    <table class="table table-bordered">
     <s:iterator value="movicInfo" id="m">
     <tr>
     <td><s:property value="#m.movicName"/></td>
     <td><s:date name="#m.movicPlayDate" format="yyyy/MM/yy"/></td>
-    <td><img src="<s:property value="#m.movicPost"/>" alt="无法显示"></td>
+    <td><img src="<s:property value="#m.movicPost"/>" alt="无法显示" width="100px" height="100"></td>
     <td>
     <form action="deleteMovicAction"><input type="submit" value="删除">
     <input type="hidden" name="movic.movicOid" value='<s:property value="#m.movicOid"/>'>
@@ -54,10 +51,9 @@
 	<input type="hidden" value="<s:property value="paging.pageNow+1"/>" name="paging.pageNow">
 	</s:form>
 	</td>
-	
-	
+
 	</tr>
 	</table>
-
+	</div>
   </body>
 </html>

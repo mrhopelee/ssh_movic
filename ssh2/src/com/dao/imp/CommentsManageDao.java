@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.bean.MovicComments;
@@ -47,6 +48,32 @@ public class CommentsManageDao implements CommentsManageDaoInter {
 		
 	}
 	
+	@Override
+	public List<MovicComments> selectUserCommentsByUserId(Integer userOid) {
+		List<MovicComments> userCommList = null;
+		String hql = "from MovicComments where userInfo.userOid="+userOid+"order by mcOid";
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			userCommList = query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return userCommList;
+	}
+	
+	
+
+	@Override
+	public void delCommentsByUserId(Integer userOid) {
+		
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			MovicComments mComments = (MovicComments) session.load(MovicComments.class, userOid);
+			session.delete(mComments);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	
 	
@@ -58,6 +85,9 @@ public class CommentsManageDao implements CommentsManageDaoInter {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+
+
+	
 
 
 
