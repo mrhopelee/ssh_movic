@@ -4,30 +4,32 @@
 <html>
   <head>
     <title>更新电影列表</title>
+     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<!-- 获取所有的电影信息列表 -->
   </head>
   
   <body>
    <a href="adminFunction.jsp">返回管理页面</a><br>
-    <table border="1">
+   <div style="width: 980px;margin: 0 auto;">
+    <table class="table table-bordered">
     <s:iterator value="movicInfo" id="m">
     <tr>
     <td><s:property value="#m.movicName"/></td>
     <td><s:date name="#m.movicPlayDate" format="yyyy/MM/dd"/></td>
-    <td><img width="200px" height="200px" src="<s:property value="#m.movicPost"/>" alt="无法显示"></td>
+    <td><img width="100px" height="100px" src="<s:property value="#m.movicPost"/>" alt="无法显示"></td>
     <td>
-    <form action="showUpdateMovicAction"><input type="submit" value="修改">
+    <form action="showUpdateMovicAction" method="post"><input type="submit" value="修改">
     <input type="hidden" name="movic.movicOid" value='<s:property value="#m.movicOid"/>'>
     </form>
     </td>
     <td>
-    <form action="showMovicPostAction"><input type="submit" value="更新海报">
+    <form action="showMovicPostAction" method="post"><input type="submit" value="更新海报">
     <input type="hidden" name="movic.movicOid" value='<s:property value="#m.movicOid"/>'>
     </form>
     </td>
     
     <td>
-    <form action="showMovicPictureAction"><input type="submit" value="管理电影图册">
+    <form action="showMovicPictureAction" method="post"><input type="submit" value="管理电影图册">
     <input type="hidden" name="movicOid" value='<s:property value="#m.movicOid"/>'>
     </form>
     </td>
@@ -44,19 +46,19 @@
 	<tr>
 	
 	<td>
-	<s:form action="getAllMovicDAction" namespace="/"><input type="submit" value="<s:property value="paging.pageNow-1"/>">
+	<s:form action="getAllMovicUAction" namespace="/"><input type="submit" value="<s:property value="paging.pageNow-1"/>">
 	<input type="hidden" value="<s:property value="paging.pageNow-1"/>" name="paging.pageNow">
 	</s:form>
 	</td>
 	
 	<td>
-	<s:form action="getAllMovicDAction" namespace="/"><input type="submit" value="<s:property value="paging.pageNow"/>">
+	<s:form action="getAllMovicUAction" namespace="/"><input type="submit" value="<s:property value="paging.pageNow"/>">
 	<input type="hidden" value="<s:property value="paging.pageNow"/>" name="paging.pageNow">
 	</s:form>
 	</td>
 	
 	<td>
-	<s:form action="getAllMovicDAction" namespace="/"><input type="submit" value="<s:property value="paging.pageNow+1"/>">
+	<s:form action="getAllMovicUAction" namespace="/"><input type="submit" value="<s:property value="paging.pageNow+1"/>">
 	<input type="hidden" value="<s:property value="paging.pageNow+1"/>" name="paging.pageNow">
 	</s:form>
 	</td>
@@ -64,5 +66,6 @@
 	
 	</tr>
 	</table>
+	</div>
   </body>
 </html>
