@@ -11,10 +11,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>电影详情页面</title>
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
   </head>
   
   <body>
+
   <s:include value="userFunction.jsp"></s:include>
   <!-- 电影显示区域  --------------------------------->
   <div style="margin: 0 auto;width: 980px;">
@@ -76,32 +79,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
    <!-- 电影显示区域 --------------------------------->
+
   
 	  
   <!-- ==============================显示用户评价区    ( 开始)========================================== -->
+  <%
+  	
+  	int[] average = new int[5];
+  	
+  	//获得平均值
+  	//for(int i=0;i<5;i++){
+  		
+  	//}
+   %>
             
   <table>
   	<tr>
   		<td><img alt="" src="images/star5.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[4]"/>人觉得5分力荐!</td>
+  		<td>：<s:property value="#session.userCountByScore[4]"/>人觉得力荐!</td>
   	</tr>
   	<tr>
   		<td><img alt="" src="images/star4.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[3]"/>人觉得 4分推荐!</td>
+  		<td>：<s:property value="#session.userCountByScore[3]"/>人觉得推荐!</td>
   	</tr>
   	<tr>
   		<td><img alt="" src="images/star3.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[2]"/>人觉得 3分还行!</td>
+  		<td>：<s:property value="#session.userCountByScore[2]"/>人觉得还行!</td>
   	</tr>
   	<tr>
   		<td><img alt="" src="images/star2.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[1]"/>人觉得 2分较差!</td>
+  		<td>：<s:property value="#session.userCountByScore[1]"/>人觉得较差!</td>
   	</tr>
   	<tr>
   		<td><img alt="" src="images/star1.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[0]"/>人觉得1分很差!</td>
+  		<td>：<s:property value="#session.userCountByScore[0]"/>人觉得很差!</td>
   	</tr>
+ 
   </table>
+  
   
   <!-- ==============================显示用户评价区     (结束)========================================== -->  
   
