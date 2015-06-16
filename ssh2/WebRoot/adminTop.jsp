@@ -1,8 +1,36 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,com.bean.*" pageEncoding="UTF-8"%>
   <head>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/adminfunction.css">
   </head>
+ 
+ <%! UserInfo user; %>
+  <%
+ 
+  
+  if(request.getSession().getAttribute("user")==null)
+  {
+  	response.sendRedirect("index.jsp");
+  	return ;
+  }
+  
+  user=(UserInfo) request.getSession().getAttribute("user");
+  
+  if(user.getUserType().getValue()<3)
+  {
+  	response.sendRedirect("index.jsp");
+  	return ;
+  }
+  
+   %>
+	
+	<%if(user.getUserType().getValue()>=3)
+	{
+	%>
+	
+	
+
+ 
 <div class="function">
 <table class="table table-bordered">
 <caption>电影管理功能</caption>
@@ -24,6 +52,14 @@
 </table>
 </div>
 
+<%
+	}
+ %>
+ 
+ <%if(user.getUserType().getValue()==4)
+	{
+	%>
+
 <div class="function">
 <table class="table table-bordered" >
 <caption>用户管理功能</caption>
@@ -33,7 +69,7 @@
 </table>
 </div>
 
-<div class="function">
+<!--  <div class="function">
 <table class="table table-bordered">
 <caption>广告管理功能</caption>
 <tr>
@@ -41,7 +77,7 @@
 <td><form ><input type="submit" value="设置广告位置" class="btn btn-info"></form></td>
 </tr>
 </table>
-</div>
+</div>-->
 
 <div class="function">
 <table class="table table-bordered">
@@ -51,4 +87,6 @@
 </tr>
 </table>
 </div>
- 
+ <%
+	}
+ %>
