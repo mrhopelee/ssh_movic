@@ -226,6 +226,15 @@ public class MovicManagementDaoImp implements MovicManagementDao {
 		
 		return false;
 	}
+
+
+
+	public boolean addMovicVisiterNumber(int movicOid) {
+		MovicVisiterNumber mvn=(MovicVisiterNumber) sessionFactory.getCurrentSession().createQuery("from MovicVisiterNumber where movicInfo.movicOid=?").setInteger(0,movicOid).uniqueResult();
+		mvn=(MovicVisiterNumber) sessionFactory.getCurrentSession().load(MovicVisiterNumber.class ,mvn.getMvnOid());
+		mvn.setVisiterNumber(mvn.getVisiterNumber()+1);
+		return true;
+	}
 	
 
 }
