@@ -66,17 +66,17 @@
   }
   
    %>
-	
+	<ul id="circularMenu">
 	<%if(user.getUserType().getValue()>=3)
 	{
 	%>
-	<ul id="circularMenu">
+	
 		<li class="home"><a href="movic_area.jsp"><b>电影地区维护<br /><span>点击进入管理</span></b></a></li>
 		<li class="upload"><a href="movic_type.jsp"><b>电影类型维护<br /><span>点击进入管理</span></b></a></li>
 		<li class="email"><a href="getAllMovicDAction?paging.pageNow=1"><b>电影删除<br /><span>删除你不想要的电影^.^</span></b></a></li>
-		<li class="shop"><a href="goToAddMovicPageAction"><b>电影添加<br /><span>点击进入管理</span></b></a></li>
+		<li class="chat"><a href="goToAddMovicPageAction"><b>电影添加<br /><span>点击进入管理</span></b></a></li>
 		<!--<li class="delivery"><a href="#"><b>DELIVERY<br /><span>track your deliveries</span></b></a></li>-->
-		<li class="search"><a href="getAllMovicUAction?paging.pageNow=1"><b>电影修改<br /><span>点击进入管理</span></b></a></li>
+		<li class="address"><a href="getAllMovicUAction?paging.pageNow=1"><b>电影修改<br /><span>点击进入管理</span></b></a></li>
 		 
 		<%
 		}
@@ -85,13 +85,14 @@
 	{
 	%>
 	
-		<li class="chat"><a href="userManage.jsp"><b>用户管理功能<br /><span>点击进入管理</span></b></a></li>
-		<li class="address"><a href="commentsManage.action"><b>评论管理功能<br /><span>删除评论</span></b></a></li>
-	</ul>
-	<br /><br />
+		<li class="shop"><a href="userManage.jsp"><b>用户管理功能<br /><span>点击进入管理</span></b></a></li>
+		<li class="search"><a href="commentsManage.action"><b>评论管理功能<br /><span>删除评论</span></b></a></li>
+	
 	 <%
 		}
 	 %>
+	 </ul>
+	<br /><br />
 <!-- ==========================/试验效果================== -->
   </body>
 </html>
