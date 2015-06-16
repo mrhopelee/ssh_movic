@@ -1,6 +1,7 @@
 package com.action;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -165,8 +166,8 @@ public class MovicDownloadAction extends ActionSupport{
 	
 	public void validateMovicFileUpload() {
 		//上传的不是种子文件 则报错 application/zip application/x-rar-compressed
-		System.out.println();
-		if(!uploadContentType.equals("application/zip")&&!uploadContentType.equals("application/x-rar-compressed"))
+		System.out.println(uploadContentType+"文件类型");
+		if(!uploadContentType.equals("application/octet-stream"))
 		{
 			addFieldError("upload", "文件类型必须为zip/rar文件");
 			this.showMovicDownload();
@@ -207,8 +208,9 @@ public class MovicDownloadAction extends ActionSupport{
 	public InputStream getInputStream()throws Exception {
 		downLoadFile=getDownloadFileName();
 		
-		inputStream=ServletActionContext.getServletContext().getResourceAsStream(downLoadFile);
-	
+		inputStream=new FileInputStream(ServletActionContext.getServletContext().getRealPath("")+"movic_download\0\123.rar");
+		
+		System.out.println("filename="+ServletActionContext.getServletContext().getRealPath("")+"movic_download\0\123.rar");
 		return inputStream;
 		
 	}
@@ -221,7 +223,8 @@ public class MovicDownloadAction extends ActionSupport{
 		
 		try
 		{
-			downFileName=new String(downFileName.getBytes(),"ISO8859-1");
+			downFileName=new String(downFileName.getBytes("UTF-8"),"ISO8859-1");
+		
 		}
 		catch(Exception e)
 		{
@@ -232,7 +235,7 @@ public class MovicDownloadAction extends ActionSupport{
 	}
 	public String downLoadFile()
 	{
-		System.out.println(movicOid+"  "+downLoadFile);
+		
 		try {
 			getInputStream();
 		} catch (Exception e) {
@@ -242,6 +245,9 @@ public class MovicDownloadAction extends ActionSupport{
 		
 		return "success";
 	}
+	public InputStream getImageStream(){  
+	    return inputStream;   
+	} 
 
 	
 
