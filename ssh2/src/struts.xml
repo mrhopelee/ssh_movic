@@ -57,6 +57,11 @@
 		<!--<action name="moviciatallsetsession" class="movicIatAction" method="moviciatAllSetSession"> 
 			<result name="success">/movic_iat.jsp</result> <result name="error">/error.jsp</result> 
 			</action> -->
+		<!-- 设置电影名称，用于搜索 -->
+		<action name="moviciatsetsearch" class="movicIatAction" method="moviciatsetSearch">
+			<result name="success">/movic_iat.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>	
 		<!-- 设置电影地区、电影类型 -->
 		<action name="moviciatsetat" class="movicIatAction" method="moviciatsetAT">
 			<result name="success">/movic_iat.jsp</result>

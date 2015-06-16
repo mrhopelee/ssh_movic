@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+.thumbnail > img{
+	width: 220px;
+	height: 300px;
+}
+.iatmargin2{
+	margin:2px 0px;
+}
+.iatmargin30{
+	margin-top:20px;
+	margin-bottom:20px
+}
+.iatpadding{
+	padding:10px 20px;
+	display: inline-block;
+}
+h3{
+	display: inline;
+}
+
+
