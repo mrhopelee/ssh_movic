@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
   </head>
   
@@ -24,29 +24,66 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
 	  
   <!-- ==============================显示用户评价区    ( 开始)========================================== -->
+  <%
+  	
+  	int[] average = new int[5];
+  	
+  	//获得平均值
+  	//for(int i=0;i<5;i++){
+  		
+  	//}
+   %>
             
   <table>
   	<tr>
   		<td><img alt="" src="images/star5.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[4]"/>人觉得5分力荐!</td>
+  		<td>：<s:property value="#session.userCountByScore[4]"/>人觉得力荐!</td>
   	</tr>
   	<tr>
   		<td><img alt="" src="images/star4.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[3]"/>人觉得 4分推荐!</td>
+  		<td>：<s:property value="#session.userCountByScore[3]"/>人觉得推荐!</td>
   	</tr>
   	<tr>
   		<td><img alt="" src="images/star3.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[2]"/>人觉得 3分还行!</td>
+  		<td>：<s:property value="#session.userCountByScore[2]"/>人觉得还行!</td>
   	</tr>
   	<tr>
   		<td><img alt="" src="images/star2.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[1]"/>人觉得 2分较差!</td>
+  		<td>：<s:property value="#session.userCountByScore[1]"/>人觉得较差!</td>
   	</tr>
   	<tr>
   		<td><img alt="" src="images/star1.png" height="30px" width="50px"></td>
-  		<td>：<s:property value="#session.userCountByScore[0]"/>人觉得1分很差!</td>
+  		<td>：<s:property value="#session.userCountByScore[0]"/>人觉得很差!</td>
   	</tr>
+ 
   </table>
+  
+  <div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    10%
+  </div>
+</div>
+  
+	<div class="progress">
+	<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+	<span class="sr-only">40% Complete (success)</span>
+	  </div>
+	</div>
+	<div class="progress">
+	  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+	<span class="sr-only">20% Complete</span>
+	  </div>
+	</div>
+	<div class="progress">
+	  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+	<span class="sr-only">60% Complete (warning)</span>
+	  </div>
+	</div>
+	<div class="progress">
+	  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+	<span class="sr-only">80% Complete (danger)</span>
+	  </div>
+	</div>
   
   <!-- ==============================显示用户评价区     (结束)========================================== -->  
   
