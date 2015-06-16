@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <!--  <input type="hidden" name="nowUserId" value='<s:property value="#session.nowUserId"/>'> -->
 
                     <input name="rev_submit" type="submit" value="好了，添加评论"/>&nbsp;&nbsp;&nbsp;
-                    <a href="movieDetailPage.jsp">取消</a>
+                    <a href="scanMovieAction?id=<s:property value="#session.nowMovieId" />">取消</a>
                 </td>
             </tr>
         </table>
