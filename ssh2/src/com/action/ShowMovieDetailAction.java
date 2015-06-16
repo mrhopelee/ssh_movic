@@ -33,6 +33,7 @@ public class ShowMovieDetailAction extends ActionSupport {
 	//记录评价为星星1到星星5各个级别的人数
 	int[] score = new int[5];
 	
+	
 	@Resource
 	private FindCommentsServiceInter findCommentsService;   
 	private MovicComments mComments;
@@ -64,7 +65,7 @@ public class ShowMovieDetailAction extends ActionSupport {
 		for(int i=0; i<5;i++){
 
 			score[i] = countUserByScoreService.countUserByScore(id,i+1);
-
+			
 		}
 		
 		request.getSession().setAttribute("userCountByScore", score);
@@ -72,10 +73,7 @@ public class ShowMovieDetailAction extends ActionSupport {
 		//=================星星用户评价区 ----结束============
 		movic=movicManagementServer.getMovicByOid(id);
 		//获取电影类型
-		
-		
-		
-		
+
 		return SUCCESS;
 		
 	}

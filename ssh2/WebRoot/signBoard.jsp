@@ -85,9 +85,10 @@ table.altrowstable td {
 	<hr color="gray" size="3">
 	<br>
 	
+	
 	<%
-		session = request.getSession();
-		UserInfo user1 = (UserInfo) session.getAttribute("user");
+		
+	UserInfo user1 = (UserInfo) request.getSession().getAttribute("user");
 	%>
 
 	<form id="form1" name="form1" method="post" action="signBoard" >

@@ -145,9 +145,9 @@
     
     <!-- 用户登录验证 userAction userLogin  根据用户类型跳转到 不同页面-->
     <action name="userLoginAction" class="userAction" method="userLogin" >
-    <result name="success">/index.jsp</result>
+    <result name="success" type="redirect">/index.jsp</result>
     <result name="input">/userLogin.jsp</result>
-    <result name="admin">/adminFunction.jsp</result>
+    <result name="admin" type="redirect">/adminFunction.jsp</result>
     </action>
     
     <!-- userLogout 用户退出 -->
@@ -183,8 +183,36 @@
     <result name="input">/showMovicDownload.jsp</result>
     </action>
     
-    <!--  -->
+    <!--  showDownloadList 获取电影下载列表-->
+    <action name="showDownloadListAction" class="movicDownloadAction" method="showDownloadList">
+    <result name="success" >/movicDownload.jsp</result>
+    <result name="input">/movicDownload.jsp</result>
+    </action>
     
+    <!-- downLoadFile 下载文件 -->
+    <action name="downLoadFileAction" class="movicDownloadAction" method="downLoadFile">
+    <result name="success" type="redirectAction">
+   	<param name="actionName">fileDownloadAction</param>
+   	<param name="fileName">${fileName}</param>
+   	</result>
+   	<result name="input">/movicDownload.jsp</result>
+    </action>
+    
+    <!-- 文件下载测试  -->
+    <action name="fileDownloadAction"  class="fileDownloadAction">
+    <result name="success" type="stream">   
+        <param name="contentType">application/zip,application/x-rar-compressed</param>   
+        <param name="inputName">inputStream</param>   
+        <param name="contentDisposition">attachment;filename="${downloadFileName}"</param> 
+        <param name="bufferSize">4096</param>   
+    </result>   
+    </action>
+    
+    <!-- 带参数的action配置
+    <result name="input" type="redirectAction">
+    <param name="actionName">scanMovieAction</param>
+    <param name="id">${movicOid}</param>
+    </result> -->
     <!-- 梁泽民配置的action 结束-->
 	<!-- ===============================@HuangLongChang============================== -->
 		<!-- 黄隆昌配置的action 开始 -->

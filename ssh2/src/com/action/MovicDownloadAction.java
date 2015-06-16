@@ -1,7 +1,10 @@
 package com.action;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,6 +14,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.bean.MovicDownload;
 import com.bean.MovicInfo;
+import com.bean.UserInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.server.interfaces.MovicDownloadServer;
 
@@ -24,10 +28,25 @@ public class MovicDownloadAction extends ActionSupport{
 	
 	private File upload;  
 	private String uploadContentType;  
-	private String uploadFileName; 
+	private String uploadFileName;
+	private int isok;
+
+	private String fileName;  
+
+	 
 	
-	
-	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public int getIsok() {
+		return isok;
+	}
+	public void setIsok(int isok) {
+		this.isok = isok;
+	}
 	public List<MovicDownload> getMdl() {
 		return mdl;
 	}
@@ -74,11 +93,10 @@ public class MovicDownloadAction extends ActionSupport{
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
 	}
+
 	//获取该电影所有的下载文件
 	public String showMovicDownload()
 	{
-		
-		
 		mdl=movicDownloadServer.getMovicDownloadByMovicOid(movicOid);
 		
 		return "success";
@@ -147,13 +165,61 @@ public class MovicDownloadAction extends ActionSupport{
 
 	
 	public void validateMovicFileUpload() {
-		//上传的不是种子文件 则报错 
+		//上传的不是种子文件 则报错 application/zip application/x-rar-compressed
+		System.out.println(uploadContentType+"文件类型");
 		if(!uploadContentType.equals("application/octet-stream"))
 		{
-			addFieldError("upload", "文件类型必须为种子文件");
+			addFieldError("upload", "文件类型必须为zip/rar文件");
 			this.showMovicDownload();
 		}
 	
+		
+	}
+	public String showDownloadList()
+	{
+		mdl=movicDownloadServer.getMovicDownloadByMovicOid(movicOid);
+		isok=1;
+		return "success";
+		
+		
+	}
+	public void validateShowDownloadList()
+	{
+		if(ServletActionContext.getRequest().getSession().getAttribute("user")==null)
+		{
+			ServletActionContext.getRequest().setAttribute("movicOid",movicOid);
+			isok=0;
+			addFieldError("a","您没有登录，无法下载电影");
+		}
+		else
+		{
+			UserInfo u=(UserInfo) ServletActionContext.getRequest().getSession().getAttribute("user");
+			if(u.getUserType().getValue()<2)
+			{
+				ServletActionContext.getRequest().setAttribute("movicOid",movicOid);
+				isok=0;
+				addFieldError("b","您不是会员，无法下载电影");
+			}
+		}
+
+		
+	}
+	public String downLoadFile()
+	{
+		//获取用户信息
+		UserInfo user=(UserInfo) ServletActionContext.getRequest().getSession().getAttribute("user");
+		//获取用户积分 如果积分少于10则不允许下载
+		if(!movicDownloadServer.isUserCanDownLoad(user.getUserOid()))
+		{
+			addFieldError("s","你没有足够的积分进行扣除");
+			return "input";
+		}
+		else
+		{
+			  fileName= "/"+movicDownloadServer.getMovicDownloadByOid(mdOid).getFilePath();
+			
+			return "success";
+		}
 		
 	}
 	
