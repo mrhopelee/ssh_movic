@@ -72,10 +72,7 @@ public class ShowMovieDetailAction extends ActionSupport {
 		//=================星星用户评价区 ----结束============
 		movic=movicManagementServer.getMovicByOid(id);
 		//获取电影类型
-		
-		
-		
-		
+
 		return SUCCESS;
 		
 	}

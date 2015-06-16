@@ -9,6 +9,7 @@
   </head>
   <body>
   <s:include value="userFunction.jsp"></s:include>
-
+	<a href="scanMovieAction?id=1">电影1</a>
+  
   </body>
 </html>

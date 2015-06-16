@@ -2,6 +2,7 @@ package com.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,6 +12,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.bean.MovicDownload;
 import com.bean.MovicInfo;
+import com.bean.UserInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.server.interfaces.MovicDownloadServer;
 
@@ -24,10 +26,25 @@ public class MovicDownloadAction extends ActionSupport{
 	
 	private File upload;  
 	private String uploadContentType;  
-	private String uploadFileName; 
+	private String uploadFileName;
+	private int isok;
+	private String downLoadFile;
+	
+	private InputStream inputStream;
 	
 	
-	
+	public String getDownLoadFile() {
+		return downLoadFile;
+	}
+	public void setDownLoadFile(String downLoadFile) {
+		this.downLoadFile = downLoadFile;
+	}
+	public int getIsok() {
+		return isok;
+	}
+	public void setIsok(int isok) {
+		this.isok = isok;
+	}
 	public List<MovicDownload> getMdl() {
 		return mdl;
 	}
@@ -147,16 +164,85 @@ public class MovicDownloadAction extends ActionSupport{
 
 	
 	public void validateMovicFileUpload() {
-		//上传的不是种子文件 则报错 
-		if(!uploadContentType.equals("application/octet-stream"))
+		//上传的不是种子文件 则报错 application/zip application/x-rar-compressed
+		System.out.println();
+		if(!uploadContentType.equals("application/zip")&&!uploadContentType.equals("application/x-rar-compressed"))
 		{
-			addFieldError("upload", "文件类型必须为种子文件");
+			addFieldError("upload", "文件类型必须为zip/rar文件");
 			this.showMovicDownload();
 		}
 	
 		
 	}
+	public String showDownloadList()
+	{
+		mdl=movicDownloadServer.getMovicDownloadByMovicOid(movicOid);
+		isok=1;
+		return "success";
+		
+		
+	}
+	public void validateShowDownloadList()
+	{
+		if(ServletActionContext.getRequest().getSession().getAttribute("user")==null)
+		{
+			ServletActionContext.getRequest().setAttribute("movicOid",movicOid);
+			isok=0;
+			addFieldError("a","您没有登录，无法下载电影");
+		}
+		else
+		{
+			UserInfo u=(UserInfo) ServletActionContext.getRequest().getSession().getAttribute("user");
+			if(u.getUserType().getValue()<2)
+			{
+				ServletActionContext.getRequest().setAttribute("movicOid",movicOid);
+				isok=0;
+				addFieldError("b","您不是会员，无法下载电影");
+			}
+		}
+
+		
+	}
 	
+	public InputStream getInputStream()throws Exception {
+		downLoadFile=getDownloadFileName();
+		
+		inputStream=ServletActionContext.getServletContext().getResourceAsStream(downLoadFile);
+	
+		return inputStream;
+		
+	}
+	public void setInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
+	public String getDownloadFileName()
+	{
+		String downFileName =downLoadFile.substring(7);
+		
+		try
+		{
+			downFileName=new String(downFileName.getBytes(),"ISO8859-1");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return downFileName;
+		
+	}
+	public String downLoadFile()
+	{
+		System.out.println(movicOid+"  "+downLoadFile);
+		try {
+			getInputStream();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "success";
+	}
+
 	
 
 }

@@ -15,6 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <s:include value="userFunction.jsp"></s:include>
   <!-- 电影显示区域  --------------------------------->
   <div style="margin: 0 auto;width: 980px;">
   <table class="table table-bordered">
@@ -60,8 +61,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   </td>
    </tr>
+   <tr>
+   <td>电影介绍：<s:property value="movic.movicIntroduction"/></td>
+   </tr>
+   <tr><td>
+   <s:actionerror/>
+   <form action="showDownloadListAction" method="post">
+   <input type="submit" value="下载电影">
+   <input type="hidden" value='<s:property value="movic.movicOid"/>' name="movicOid">
+   </form>
+   </td></tr>
   </table>
-  
   </div>
   
   

@@ -87,9 +87,10 @@ table.altrowstable td {
 	<hr color="gray" size="3">
 	<br>
 <%-- 	<s:action name="test" flush="true" namespace="/"></s:action> --%>
+<%! UserInfo user1;%>
 	<%
-		session = request.getSession(true);
-		UserInfo user1 = (UserInfo) session.getAttribute("user");
+		
+	user1 = (UserInfo) request.getSession().getAttribute("user");
 	%>
 
 	<form id="form1" name="form1" method="post" action="upgradeToVip" >
