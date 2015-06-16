@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div style="margin: 0 auto;width: 980px;">
   <table class="table table-bordered">
   <tr> 
-  <td>
+  <td width="300px;">
   <img alt="无法显示" src='<s:property value="movic.movicPost"/>' width="300px" height="300px">
   </td>
   <td>
@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </td>
    </tr>
    <tr>
-   <td>电影介绍：<s:property value="movic.movicIntroduction"/></td>
+   <td colspan="2">电影介绍：<s:property value="movic.movicIntroduction"/></td>
    </tr>
    <tr><td>
    <s:actionerror/>

@@ -96,6 +96,8 @@
 	<bean id="movicDownloadServer" class="com.server.imp.MovicDownloadServerImp"></bean>
 	<bean id="movicDownloadDao" class="com.dao.imp.MovicDownloadDaoImp"></bean>
 	
+	<bean id="fileDownloadAction" class="com.action.FileDownloadAction"></bean>
+	
 <!-- 电影管理有关的bean配置   梁泽民配置 结束-->
 
 	<!-- 电影类型有关的bean配置   李灏配置 开始-->
