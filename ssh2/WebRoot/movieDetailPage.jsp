@@ -17,7 +17,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-
   <s:include value="userFunction.jsp"></s:include>
   <!-- 电影显示区域  --------------------------------->
   <div style="margin: 0 auto;width: 980px;">
@@ -155,7 +154,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- ============================输写评论区 （开始） ===================================================== -->
    <h2 align="center">
-  	<a href="editComments.jsp">我也要评论！</a>
+  		<a href="editComments.jsp">我也要评论！</a>
   </h2>
 
  <!-- ============================输写评论区 （结束） ===================================================== --> 
