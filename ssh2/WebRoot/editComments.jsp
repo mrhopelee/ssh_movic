@@ -5,55 +5,30 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
+    <base href="http://localhost:8080/ssh2/">
     
     <title>发表评论</title>
     
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-	<style type="text/css">
-	
-		element.style {
-		}
-		body {
-			margin-top: 0;
-		}
-		body, td, th {
-			font: 12px Helvetica,Arial,sans-serif;
-			line-height: 1.62;
-		}
-		body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote {
-			margin: 0;
-			padding: 0;
-		}
-		user agent stylesheetbody {
-			display: block;
-			margin: 8px;
-		}
-		Inherited from html.ua-windows.ua-webkit
-		html {
-			color: #111;
-		}
-	</style>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link href="css/bootstrap1.css" rel='stylesheet' type='text/css' />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- start plugins -->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    
 
   </head>
   
   
   <body>
 
+<!--  
 
-
-            <s:fielderror>
-            </s:fielderror>    
+               
     <form  method="POST" name="lzform" action="subCommentsAction" >
         <table align="center">
             <tr>
@@ -73,16 +48,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <tr>
                 <td>
                     <br/>
-                    <input type="hidden" name="nowMovieId" value='<s:property value="#session.nowMovieId"/>'>
-                    <!--  <input type="hidden" name="nowUserId" value='<s:property value="#session.nowUserId"/>'> -->
+                    <input type="hidden" name="nowMovieId" value='0'>
+                    
 
                     <input name="rev_submit" type="submit" value="好了，添加评论"/>&nbsp;&nbsp;&nbsp;
-                    <a href="scanMovieAction?id=<s:property value="#session.nowMovieId" />">取消</a>
+                    <a href="scanMovieAction?id=0">取消</a>
                 </td>
             </tr>
         </table>
     </form>
+-->
 
+			<s:fielderror></s:fielderror>
+ 
+	           <form method="post" action="subCommentsAction" >
+	           <div align="center">
+	           <table align="center">
+            	<tr>
+                	<td style="color:#fff">评价:
+	           		<label><input type="radio" name="score" value="1"  checked="checked"/>很差</label>
+                    <label><input type="radio" name="score" value="2"  />较差</label>
+                    <label><input type="radio" name="score" value="3"  />还行</label>
+                    <label><input type="radio" name="score" value="4"  />推荐</label>
+                    <label><input type="radio" name="score" value="5"  />力荐</label>
+                    </td>
+           	 	</tr>
+           	 	</table>
+	           </div>
+				
+					<div class="text" align="center">
+		               <textarea required="required" name="comments_text"   placeholder="Message:"></textarea>
+		            </div>
+		            <div align="center" class="form-submit1">
+		         		<input type="submit" value="好了，添加评论"><br>
+		         		<a href="scanMovieAction?id=0">取消</a>
+			        </div>
+					<div class="clearfix"></div>
+	          	</form>
  
   </body>
 </html>
