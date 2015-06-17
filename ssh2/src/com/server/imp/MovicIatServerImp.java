@@ -23,16 +23,18 @@ public class MovicIatServerImp implements MovicIatServer {
 	@Transactional(propagation = Propagation.NOT_SUPPORTED, readOnly = true)
 	public String getWhereSql(String search, String type, String area,
 			String sort) {
-		String whereSql = "SELECT mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost"
+		String whereSql = "SELECT mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost, mvn.visiterNumber"
 				+ " FROM MovicInfo as mi,"
 				+ " MovicBeloneArea as mba,"
 				+ " MovicBeloneType as mbt,"
 				+ " MovicArea as ma,"
-				+ " MovicType as mt"
+				+ " MovicType as mt,"
+				+ " MovicVisiterNumber as mvn"
 				+ " WHERE mba.movicInfo.movicOid  = mi.movicOid"
 				+ " AND mba.movicArea.areaOid = ma.areaOid"
 				+ " AND mbt.movicInfo.movicOid = mi.movicOid"
 				+ " AND mbt.movicType.mtOid = mt.mtOid"
+				+ " AND mvn.movicInfo.movicOid = mi.movicOid"
 				+ " AND mi.movicName LIKE "
 				+ "'%"
 				+ search
@@ -45,8 +47,8 @@ public class MovicIatServerImp implements MovicIatServer {
 				+ "'%"
 				+ area
 				+ "%'"
-				+ " GROUP BY mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost"
-				+ " ORDER BY mi." + sort + " desc";
+				+ " GROUP BY mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost, mvn.visiterNumber"
+				+ " ORDER BY " + sort + " desc";
 		return whereSql;
 	}
 
@@ -75,6 +77,7 @@ public class MovicIatServerImp implements MovicIatServer {
 				e.printStackTrace();
 			}
 			m.setMovicPost(o[4].toString());
+			/*m.setMovicVisiterNumbers(new Integer(o[4].toString());*/
 			// System.out.println(m.getMovicOid()+m.getMovicName()+m.getMovicImdbScore()+m.getMovicPlayDate()+m.getMovicPost());
 			milist.add(m);
 		}

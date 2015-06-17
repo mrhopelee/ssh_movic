@@ -151,13 +151,16 @@
 					<form class="iatpadding8" action="moviciatsetsort" namespace="/">
 						<label class="radio-inline"><input type="radio"
 							onclick="submit();"
-							<s:if test="#session.moviciatsort.equals('movicPlayDate')">checked="checked"</s:if>
-							name="sort" id="sort1" value="movicPlayDate" /> 最新电影</label> <label
-							class="radio-inline"><input type="radio"
+							<s:if test="#session.moviciatsort.equals('mi.movicPlayDate')">checked="checked"</s:if>
+							name="sort" id="sort1" value="mi.movicPlayDate" /> 最新电影</label> 
+						<label class="radio-inline"><input type="radio"
 							onclick="submit();"
-							<s:if test="#session.moviciatsort.equals('movicImdbScore')">checked="checked"</s:if>
-							name="sort" id="sort2" value="movicImdbScore" /> 高分电影</label>
-
+							<s:if test="#session.moviciatsort.equals('mi.movicImdbScore')">checked="checked"</s:if>
+							name="sort" id="sort2" value="mi.movicImdbScore" /> 高分电影</label>
+						<label class="radio-inline"><input type="radio"
+							onclick="submit();"
+							<s:if test="#session.moviciatsort.equals('mvn.visiterNumber')">checked="checked"</s:if>
+							name="sort" id="sort3" value="mvn.visiterNumber" /> 热门电影</label>
 					</form>
 				</div>
 				<div class="col-sm-2 col-md-2 ">
