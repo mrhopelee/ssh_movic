@@ -17,13 +17,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<!-- Bootstrap Core CSS -->
+    <link href="css/comm_bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="css/comm_modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
   
   <body>
+  <!-- ==============   原来
   <h1 align="center">所有评论~~~~~~~~~~~~~~~</h1>
   <hr size=20">
     <s:if test="#request.allList.size()!=0">
@@ -52,5 +57,79 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="hidden" name="id" value='<s:property value="#session.nowMovieId"/>'>
 		</form>
    	</h2>
+   	-->
+   	<!-- ==========================优化==================================== -->
+   	
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">所有评论
+                    <small>ALL COMMENTS</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="scanMovieAction?id=<s:property value="#session.nowMovieId"/>">返回</a>
+                    </li>
+                    <li class="active">Scan All Comments</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Blog Post Row -->
+        
+        <div class="row">
+        <s:if test="#request.allList.size()!=0">
+        <s:iterator value="#request.allList" var="mComments">
+            <div class="col-md-1 text-center">
+                <p><img src="<s:property value="#mComments.userInfo.userLogo"/>">
+                </p>
+            </div>
+            <div class="col-md-5">
+                <img src="<s:property value="#mComments.movicInfo.movicPost"/>">
+            </div>
+            <div class="col-md-6">
+                <h3>
+                    <s:property value="#mComments.userInfo.userName" />
+                </h3>
+                <p>in <s:property value="#mComments.commentsDate" />
+                </p>
+                <p><s:property value="#mComments.commentsInfo" /></p>
+                            <hr>
+            </div>
+            
+            </s:iterator>
+
+   		</s:if>
+        <s:else>暂无数据</s:else> 
+        </div>
+      
+
+        <!-- Pager -->
+        <!-- ==============================================
+        <div class="row">
+            <ul class="pager">
+                <li class="previous"><a href="#">&larr; Older</a>
+                </li>
+                <li class="next"><a href="#">Newer &rarr;</a>
+                </li>
+            </ul>
+        </div>
+
+================================================================== -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/comm_jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/comm_bootstrap.min.js"></script>
+   	
+   	
+   	
   </body>
 </html>
