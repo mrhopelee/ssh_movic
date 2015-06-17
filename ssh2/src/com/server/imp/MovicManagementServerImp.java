@@ -128,6 +128,14 @@ public class MovicManagementServerImp implements MovicManagementServer {
 		return movicManagementDao.updateMovicPost(movic);
 	}
 
+
+	
+	public boolean addMovicVisiterNumber(int movicOid) {
+		
+		movicManagementDao.addMovicVisiterNumber(movicOid);
+		return true;
+	}
+
 	
 	
 }

@@ -10,7 +10,7 @@ public class befordaop {
 	@Before("execution(public * com.server.Loginserver.check(..))")
 	public void saybefore()
 	{
-		System.out.println("beforeÖ´ÐÐ");
+		System.out.println("beforeÖ´ï¿½ï¿½");
 	}
 
 }
