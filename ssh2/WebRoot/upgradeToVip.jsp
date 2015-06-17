@@ -13,67 +13,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>My JSP 'upgradeToVip.jsp' starting page</title>
-<script type="text/javascript">
-	function altRows(id) {
-		if (document.getElementsByTagName) {
+<link rel="stylesheet" type="text/css" href="css/3.3.4bootstrap.min.css">
+<link href="css/cc.css" rel="stylesheet" type="text/css" />
+<script src="javascript/2.1.4jquery.js"></script>
+<script src="javascript/3.3.4bootstrap.min.js"></script>
 
-			var table = document.getElementById(id);
-			var rows = table.getElementsByTagName("tr");
-
-			for (i = 0; i < rows.length; i++) {
-				if (i % 2 == 0) {
-					rows[i].className = "evenrowcolor";
-				} else {
-					rows[i].className = "oddrowcolor";
-				}
-			}
-		}
-	}
-
-	window.onload = function() {
-		altRows('alternatecolor');
-	}
-</script>
-
-
-<!-- CSS goes in the document HEAD or added to your external stylesheet -->
-<style type="text/css">
-table.altrowstable {
-	font-family: verdana, arial, sans-serif;
-	font-size: 11px;
-	color: #333333;
-	border-width: 1px;
-	border-color: #a9c6c9;
-	border-collapse: collapse;
-}
-
-table.altrowstable th {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #a9c6c9;
-}
-
-table.altrowstable td {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #a9c6c9;
-}
-
-.oddrowcolor {
-	background-color: #d4e3e5;
-}
-
-.evenrowcolor {
-	background-color: #c3dde0;
-}
-</style>
 
 </head>
 
 <body>
-
+<div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 	<br>
 	<p align="center" color="gray">
 		<font size=" 3" color="gray">--------------------Welcome--------------------</font><br><br>
@@ -92,26 +41,24 @@ table.altrowstable td {
 		
 	user1 = (UserInfo) request.getSession().getAttribute("user");
 	%>
-
-	<form id="form1" name="form1" method="post" action="upgradeToVip" >
-		<table align="center" class="altrowstable" id="alternatecolor">
-			<tr>
-				<p align="center" color="gray">
+	<p align="center" color="gray">
 					<font size=" 3" color="gray">--------------------Upgrade To Vip--------------------</font>
 				</p>
-			</tr>
+	<form id="form1" name="form1" method="post" action="upgradeToVip" >
+		<table class="table table-hover table-bordered " align="center" >
+
 			<br>
-			<tr>
+			<tr  align="center">
 				<td>用户：</td>
 				<td><input name="userName" type="text"
 					value="<%=user1.getUserName()%>" id="userName" readonly="readonly" /></td>
 			</tr>
-			<tr>
+			<tr  align="center">
 				<td>用户名：</td>
 				<td><%=user1.getUserDisplayName()%></td>
 			</tr>
 			
-			<tr>
+			<tr  align="center">
 				<td>当前用户类型 ：</td>
 				<td>(<%=user1.getUserType().getValue()%>)<%=user1.getUserType().getRemarks()%></td>
 			</tr>
@@ -128,20 +75,20 @@ table.altrowstable td {
 
 				}
 			%>
-			<tr>
+			<tr  align="center">
 				<td>当前用户积分 ：</td>
 				<td> <input name="userScore" type="text"
 					value="<%=ui.getUserScore()%>" id="userScore" readonly="readonly" />
 					<s:fielderror fieldName="score"/></td>
 			</tr>
 
-			<tr>
-				<td><input type="submit" name="submit" value="点击升级为VIP" />
+			<tr  align="center">
+				<td><input class="btn btn-default buttom1"  type="submit" name="submit" value="点击升级为VIP" />
 				<td><a href="index.jsp">返回主页</a></td>
 			</tr>
 
 		</table>
 	</form>
-
+</div>
 </body>
 </html>

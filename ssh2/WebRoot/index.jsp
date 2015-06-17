@@ -9,7 +9,7 @@
   </head>
   <body>
   <s:include value="userFunction.jsp"></s:include>
-	<a href="scanMovieAction?id=1">电影1</a>
-  
+	<a href="scanMovieAction?id=0">电影0</a>
+  	<a href="fileDownloadAction">下载</a>
   </body>
 </html>

@@ -25,4 +25,6 @@ public interface MovicManagementDao {
 		
 	//更新电影海报
 	public boolean updateMovicPost(MovicInfo movic);
+	//电影访问量+1
+	public boolean addMovicVisiterNumber(int movicOid);
 }

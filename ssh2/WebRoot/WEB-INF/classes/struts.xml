@@ -57,6 +57,11 @@
 		<!--<action name="moviciatallsetsession" class="movicIatAction" method="moviciatAllSetSession"> 
 			<result name="success">/movic_iat.jsp</result> <result name="error">/error.jsp</result> 
 			</action> -->
+		<!-- 设置电影名称，用于搜索 -->
+		<action name="moviciatsetsearch" class="movicIatAction" method="moviciatsetSearch">
+			<result name="success">/movic_iat.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>	
 		<!-- 设置电影地区、电影类型 -->
 		<action name="moviciatsetat" class="movicIatAction" method="moviciatsetAT">
 			<result name="success">/movic_iat.jsp</result>
@@ -186,14 +191,21 @@
     
     <!-- downLoadFile 下载文件 -->
     <action name="downLoadFileAction" class="movicDownloadAction" method="downLoadFile">
-    <result type="stream">
-    <param name="contentType">application/zip,application/x-rar-compressed</param>
-    <param name="inputName">${inputStream}</param>
-    <param name="contentDisposition">
-    attachment;filename="${downFileName}"
-    </param>
-    <param name="bufferSize">4096</param>
-    </result>
+    <result name="success" type="redirectAction">
+   	<param name="actionName">fileDownloadAction</param>
+   	<param name="fileName">${fileName}</param>
+   	</result>
+   	<result name="input">/movicDownload.jsp</result>
+    </action>
+    
+    <!-- 文件下载测试  -->
+    <action name="fileDownloadAction"  class="fileDownloadAction">
+    <result name="success" type="stream">   
+        <param name="contentType">application/zip,application/x-rar-compressed</param>   
+        <param name="inputName">inputStream</param>   
+        <param name="contentDisposition">attachment;filename="${downloadFileName}"</param> 
+        <param name="bufferSize">4096</param>   
+    </result>   
     </action>
     
     <!-- 带参数的action配置

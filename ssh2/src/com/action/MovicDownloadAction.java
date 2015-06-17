@@ -2,6 +2,7 @@ package com.action;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -29,16 +30,16 @@ public class MovicDownloadAction extends ActionSupport{
 	private String uploadContentType;  
 	private String uploadFileName;
 	private int isok;
-	private String downLoadFile;
+
+	private String fileName;  
+
+	 
 	
-	private InputStream inputStream;
-	
-	
-	public String getDownLoadFile() {
-		return downLoadFile;
+	public String getFileName() {
+		return fileName;
 	}
-	public void setDownLoadFile(String downLoadFile) {
-		this.downLoadFile = downLoadFile;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	public int getIsok() {
 		return isok;
@@ -92,11 +93,10 @@ public class MovicDownloadAction extends ActionSupport{
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
 	}
+
 	//获取该电影所有的下载文件
 	public String showMovicDownload()
 	{
-		
-		
 		mdl=movicDownloadServer.getMovicDownloadByMovicOid(movicOid);
 		
 		return "success";
@@ -204,51 +204,25 @@ public class MovicDownloadAction extends ActionSupport{
 
 		
 	}
-	
-	public InputStream getInputStream()throws Exception {
-		downLoadFile=getDownloadFileName();
-		
-		inputStream=new FileInputStream(ServletActionContext.getServletContext().getRealPath("")+"movic_download\0\123.rar");
-		
-		System.out.println("filename="+ServletActionContext.getServletContext().getRealPath("")+"movic_download\0\123.rar");
-		return inputStream;
-		
-	}
-	public void setInputStream(InputStream inputStream) {
-		this.inputStream = inputStream;
-	}
-	public String getDownloadFileName()
-	{
-		String downFileName =downLoadFile.substring(7);
-		
-		try
-		{
-			downFileName=new String(downFileName.getBytes("UTF-8"),"ISO8859-1");
-		
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		return downFileName;
-		
-	}
 	public String downLoadFile()
 	{
-		
-		try {
-			getInputStream();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		//获取用户信息
+		UserInfo user=(UserInfo) ServletActionContext.getRequest().getSession().getAttribute("user");
+		//获取用户积分 如果积分少于10则不允许下载
+		if(!movicDownloadServer.isUserCanDownLoad(user.getUserOid()))
+		{
+			addFieldError("s","你没有足够的积分进行扣除");
+			return "input";
+		}
+		else
+		{
+			  fileName= "/"+movicDownloadServer.getMovicDownloadByOid(mdOid).getFilePath();
+			
+			return "success";
 		}
 		
-		return "success";
 	}
-	public InputStream getImageStream(){  
-	    return inputStream;   
-	} 
-
+	
 	
 
 }

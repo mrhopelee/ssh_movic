@@ -21,32 +21,20 @@ public class MovicIatAction {
 	private MovicArea movicarea;
 	private MovicType movictype;
 	String sort = "movicPlayDate";
+	String search = "";
 	private Paging paging;
 	private HttpServletRequest request = null;
 	private HttpSession hs = null;
 
 	/*
-	 * 分页 getMovicPaging()方法 根据whereSql执行查询，得到结果总数count
-	 * 用结果总数count和setPageSize(int i)方法进行分页， 得到： 一共有paging.rowCount 部电影 每页
-	 * paging.pageSize部 分有paging.pageCount 页 并初始化paging.pageNow(当前页)在第1 页（或第0页）
-	 * 最后把paging对象存入httpsession
+	 * 设置搜索条件 moviciatsetSearch()方法 获取存入httpsession的search对象 根据用户点击的连接设置对应的搜索条件
 	 */
-	public Paging getMovicPaging(String whereSql) {
-		int count = movicIatServer.getMovicPaging(whereSql);
-		if (paging == null) {
-			paging = new Paging();
-		}
-
-		paging.setRowCount(count);
-		paging.setPageSize(5);// 设置每页 paging.pageSize部 电影
-		paging.sumPageCount();
-		paging.checkPageNow();
-
+	public String moviciatsetSearch() {
 		request = ServletActionContext.getRequest();
 		hs = request.getSession(true);
-		hs.removeAttribute("moviciatpaging");
-		hs.setAttribute("moviciatpaging", paging);
-		return paging;
+		hs.removeAttribute("moviciatsearch");
+		hs.setAttribute("moviciatsearch", this.search);
+		return "success";
 	}
 
 	/*
@@ -87,56 +75,71 @@ public class MovicIatAction {
 
 		return "success";
 	}
-	
-	public String moviciatsetSort(){
+
+	/*
+	 * 设置排序条件 moviciatsetSort()方法 获取存入httpsession的sort对象 根据用户点击的连接设置对应的排序条件
+	 */
+	public String moviciatsetSort() {
 		request = ServletActionContext.getRequest();
 		hs = request.getSession(true);
 		hs.removeAttribute("moviciatsort");
-		hs.setAttribute("moviciatsort",this.sort);
+		hs.setAttribute("moviciatsort", this.sort);
 		return "success";
 	}
 
 	/*
 	 * 设置whereSql moviciatMixSetSession()方法
-	 * 获取存入httpsession的movicarea对象和movictype对象
-	 * 动态改变whereSql语句，从而得到想要的查询结果(xx地区xx类型的电影) 后面还要增加按时间或按评分排序
+	 * 获取存入httpsession的search对象'sort对象'area对象和type对象 把上面四个对象传递给getWhereSql
+	 * Server动态改变whereSql语句， 从而得到想要的查询结果(xx地区xx类型的电影) 后面还要增加按时间或按评分排序
 	 */
 	public String moviciatMixSetSession() {
 		request = ServletActionContext.getRequest();
 		hs = request.getSession(true);
+		if (hs.getAttribute("moviciatsearch") == null) {
+			hs.setAttribute("moviciatsearch", "");
+		}
 		if (hs.getAttribute("mtstr") == null) {
 			hs.setAttribute("mtstr", "");
 		}
 		if (hs.getAttribute("mastr") == null) {
 			hs.setAttribute("mastr", "");
 		}
-		if(hs.getAttribute("moviciatsort") == null){
+		if (hs.getAttribute("moviciatsort") == null) {
 			hs.setAttribute("moviciatsort", "movicPlayDate");
 		}
-		
-		String whereSql = "SELECT mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost"
-				+ " FROM MovicInfo as mi,"
-				+ " MovicBeloneArea as mba,"
-				+ " MovicBeloneType as mbt,"
-				+ " MovicArea as ma,"
-				+ " MovicType as mt"
-				+ " WHERE mba.movicInfo.movicOid  = mi.movicOid"
-				+ " AND mba.movicArea.areaOid = ma.areaOid"
-				+ " AND mbt.movicInfo.movicOid = mi.movicOid"
-				+ " AND mbt.movicType.mtOid = mt.mtOid"
-				+ " AND mt.type LIKE "
-				+ "'%"
-				+ hs.getAttribute("mtstr").toString()
-				+ "%'"
-				+ " AND ma.areaName LIKE "
-				+ "'%"
-				+ hs.getAttribute("mastr").toString()
-				+ "%'"
-				+ " GROUP BY mi.movicOid, mi.movicName, mi.movicImdbScore, mi.movicPlayDate, mi.movicPost"
-				+ " ORDER BY mi."+hs.getAttribute("moviciatsort").toString()+" desc";
+
+		String whereSql = movicIatServer
+				.getWhereSql(hs.getAttribute("moviciatsearch").toString(), hs
+						.getAttribute("mtstr").toString(),
+						hs.getAttribute("mastr").toString(),
+						hs.getAttribute("moviciatsort").toString());
 
 		return moviciatSetSession(whereSql);
 
+	}
+
+	/*
+	 * 分页 getMovicPaging()方法 根据whereSql执行查询，得到结果总数count
+	 * 用结果总数count和setPageSize(int i)方法进行分页， 得到： 一共有paging.rowCount 部电影 每页
+	 * paging.pageSize部 分有paging.pageCount 页 并初始化paging.pageNow(当前页)在第1 页（或第0页）
+	 * 最后把paging对象存入httpsession
+	 */
+	public Paging getMovicPaging(String whereSql) {
+		int count = movicIatServer.getMovicPaging(whereSql);
+		if (paging == null) {
+			paging = new Paging();
+		}
+
+		paging.setRowCount(count);
+		paging.setPageSize(12);// 设置每页 paging.pageSize部 电影
+		paging.sumPageCount();
+		paging.checkPageNow();
+
+		request = ServletActionContext.getRequest();
+		hs = request.getSession(true);
+		hs.removeAttribute("moviciatpaging");
+		hs.setAttribute("moviciatpaging", paging);
+		return paging;
 	}
 
 	/*
@@ -178,6 +181,14 @@ public class MovicIatAction {
 
 	public void setMovicinfo(MovicInfo movicinfo) {
 		this.movicinfo = movicinfo;
+	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
 	}
 
 	public MovicArea getMovicarea() {

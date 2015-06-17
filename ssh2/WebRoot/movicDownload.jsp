@@ -20,10 +20,9 @@
    <tr>
    <td>资源<s:property value="#s.count"/></td>
    <td>
-   <form action="downLoadFileAction">
+   <form action="downLoadFileAction" method="post">
    <input type="submit" value="下载">
-   <input type="hidden" name="downLoadFile" value="<s:property value="#mdl.filePath"/>">
-   <input type="hidden" name="movicOid" value='<s:property value="movicOid"/>'>
+   <input type="hidden" name="mdOid" value='<s:property value="#mdl.mdOid"/>'>
    </form>
    </td>
    </tr>

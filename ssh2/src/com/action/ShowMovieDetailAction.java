@@ -71,9 +71,11 @@ public class ShowMovieDetailAction extends ActionSupport {
 		request.getSession().setAttribute("userCountByScore", score);
 		
 		//=================星星用户评价区 ----结束============
+		movicManagementServer.addMovicVisiterNumber(id);
 		movic=movicManagementServer.getMovicByOid(id);
 		//获取电影类型
-
+		//电影访问量+1
+		
 		return SUCCESS;
 		
 	}
