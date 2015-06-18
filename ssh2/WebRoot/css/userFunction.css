@@ -1,12 +1,10 @@
 @CHARSET "UTF-8";
-.top
-{
+
+.top {
 	width: 980px;
 	margin: 0 auto;
-	
 }
 
-.topform
-{
+.topform {
 	display: inline;
 }

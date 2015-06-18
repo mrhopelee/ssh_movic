@@ -29,7 +29,7 @@
 		<s:textfield name="movicarea.areaName" label="电影地区"></s:textfield>
 		<s:submit value="添加"></s:submit>
 	</s:form>
-	
+
 	<p>电影地区修改</p>
 	<s:form action="updatemovicarea" namespace="/">
 		<s:fielderror fieldName="updatema"></s:fielderror>
@@ -39,7 +39,7 @@
 		<s:textfield name="updateArea" label="修改为"></s:textfield>
 		<s:submit value="修改"></s:submit>
 	</s:form>
-	
+
 	<p>电影地区删除</p>
 	<s:form action="deletemovicarea" namespace="/">
 		<s:fielderror fieldName="deletema"></s:fielderror>

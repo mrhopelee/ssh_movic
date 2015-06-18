@@ -1,12 +1,12 @@
 @CHARSET "UTF-8";
-.top1
-{
+
+.top1 {
 	width: 980px;
-	background-color:#c8c8ff;
+	background-color: #c8c8ff;
 	margin: 0 auto;
 }
-.function
-{
+
+.function {
 	width: 980px;
 	margin: 0 auto;
 }
