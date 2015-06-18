@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body><s:include value="movic_nav.jsp"></s:include>
 <p align="center" color="gray">
 	<hr color="gray" size="3">
 	

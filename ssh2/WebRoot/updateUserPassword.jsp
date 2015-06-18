@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<br>
 	<hr color="gray" size="3">
 	<br>
-	
+	<s:include value="movic_nav.jsp"></s:include>
 <%-- <s:action name="test" flush="true" namespace="/"></s:action>	 --%>
 <%
 session=request.getSession();
