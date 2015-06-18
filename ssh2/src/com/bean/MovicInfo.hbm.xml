@@ -31,7 +31,7 @@
         <property name="movicPost" type="java.lang.String">
             <column name="movic_post" length="100" />
         </property>
-        <set name="movicPictures" inverse="true" cascade="delete">
+        <set name="movicPictures" inverse="true" cascade="delete" lazy="false">
             <key>
                 <column name="movic_oid" />
             </key>

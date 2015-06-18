@@ -1,21 +1,154 @@
 @CHARSET "UTF-8";
-.thumbnail > img{
+.input-group, .info2, .chinesefont, a{
+	font-family: "微软雅黑";
+}
+/* .logo{
+	font-family: "Ruthie", cursive;
+	font-size: 180px;
+	font-weight: 600;
+	color: #2c3e50;	
+} */
+/* 顶部导航 */
+.alltop{
+	position: fixed;
+	z-index: 2;
+	top:0px;
+	left:0px;
+}
+body{
+padding-top: 120px;
+	
+}
+.logo{
+	font-family: "Ruthie", cursive;
+	font-size: 60px;
+	font-weight: 600;
+	color: #2c3e50;	
+}
+.iatborderline{
+	border-bottom: 1px solid #DDD;
+	background-color: #F5F5F5;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.125) inset;
+}
+.iatsearch{
+	padding-top: 26px;
+	padding-bottom: 0px;
+}
+.iatsearch>form{
+  margin-bottom: 0em;
+}
+.iatnava{
+	line-height: 85px;
+	font-size: 16px;
+}
+.iatnava>a{
+	color: #2c3e50;
+}
+.iatnava>a:focus, .iatnava>a:hover {
+    color: #4078C0;
+    text-decoration: underline;
+}
+.iatuser{
+	padding-top: 21px;
+	padding-bottom: 22px;
+}
+.userhead{
+	width: 30px;
+	height: 30px;
+	padding:1px;
+	float:left;
+}
+.userhead>span{
+	float:right;
+}
+.thumbnail{
+	margin-bottom: 0px;
+	margin-top: 2px;
+}
+.iat_img {
 	width: 220px;
 	height: 300px;
 }
-.iatmargin2{
-	margin:2px 0px;
-}
-.iatmargin30{
-	margin-top:20px;
-	margin-bottom:20px
-}
-.iatpadding{
-	padding:10px 20px;
-	display: inline-block;
-}
-h3{
+
+/* h3 {
 	display: inline;
+} */
+
+.iatmargin2 {
+	margin: 2px 0px;
 }
 
+.iatmargin5 {
+	/* margin-top: 5px;
+	margin-bottom: 8px; */
+	border-bottom: 1px solid #DDD;
+}
+.iatmargin50 {
+	margin-top: 50px;
+	border-bottom: 1px solid #DDD;
+	margin-bottom: 30px;
+}
+a>.btn-default.active,a>.btn-default:hover,a>.btn-default:focus,a>.btn-default{
+	border-color: #fff;
+}
+a>.btn.active, a>.btn:active, a>.btn-default:focus {
+	color: #ffffff;
+	background-color: #5BC0DE;
+    background-image: none;
+    outline: 0px none;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.125) inset;
+}
 
+.iatpadding{
+	line-height:43px;
+	font-size: 16px;
+	color: #909090;
+	background-color: #ffffff;
+}
+.iatpadding2{
+	line-height:36px;
+	font-size: 16px;
+	color: #909090;
+	background-color: #ffffff;
+}
+.iatfont12{
+	font-size: 12px;
+	margin-left: 10px;
+}
+/* .iatpadding {
+	padding: 10px 20px;
+	display: inline-block;
+} */
+
+.info2 {
+	/* background-color: #6c3e50; */
+	/* background-color: #4C9ED9; */
+}
+.iatpadding8{
+	padding-top: 8px;
+}
+/* .radio-inline input[type="radio"] {
+	margin-top: 12px;
+}
+
+.radio-inline {
+	line-height: 38px;
+	font-family: "微软雅黑";
+} */
+
+.iatcenter {
+	margin: 30px auto;
+	text-align: center;
+}
+
+.iatcenter>a {
+	font-size: 20px;
+}
+
+.iatpagenow {
+	font-size: 35px;
+	font-family: "Ruthie", cursive, "微软雅黑";
+	font-weight: 800;
+	color: #2c3e50;
+	/* color:#3C763D; */
+}

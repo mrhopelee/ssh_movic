@@ -4,6 +4,13 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%! String []effect={"{\"effect\": \"cubeUp\", \"slices\": 5, \"delay\": 200, \"delayDir\": \"last-first\"}",
+"{\"effect\": \"cubeRight\", \"slices\": 5, \"delay\": 200, \"delayDir\": \"last-first\"}",
+"{\"effect\": \"cubeLeft\", \"slices\": 5, \"delay\": 200, \"delayDir\": \"last-first\"}",
+"{\"effect\": \"cubeDown\", \"slices\": 5, \"delay\": 200, \"delayDir\": \"last-first\"}"};
+int count=0;
+ %>
+ 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -18,7 +25,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<!-- 梁泽民加的css样式 开始-->
+	<link rel="stylesheet" href="css/reset1.css" />
+	<link rel="stylesheet" href="css/ccslider1.css" />
+	<link rel="stylesheet" href="css/style1.css" />
+ 	<style type="text/css">
+		#slider {
+			width: 980px;
+			height: 450px;
+			margin: 0 auto;
+		}
 
+		#slider .control-links {
+			margin-top: -15px;
+		}
+	</style>
+   <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/jquery-migrate-1.1.1.min.js"></script>
+	<script src="js/jquery.ccslider-3.0.2.min.js"></script>
+	<script>
+		$(function(){
+			$('#demo-nav').find('a').tooltip({effect: 'slide'});
+		});
+
+		$(window).load(function(){
+			$('#slider').ccslider({
+				_3dOptions: {
+					imageWidth: 900,
+					imageHeight: 350
+				}
+			});
+		});
+	</script>
+	<!-- 梁泽民加的css样式 结束-->
   </head>
   
   <body>
@@ -362,7 +402,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<hr>   
    	-->	
 <!-- ===========================/电影详情页面显示部分评论区  (结束)========================================== -->
-
+<!-- 电影海报-->
+ <div id="slider">
+     <s:iterator  value="movic.movicPictures" id="mp">
+     <img width="980px" src="<s:property value="#mp.picturePath"/>"  data-transition='<%=effect[count++%4] %>' />
+     </s:iterator>
+ </div>
 
   </body>
 </html>

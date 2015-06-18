@@ -11,12 +11,14 @@ import org.apache.struts2.ServletActionContext;
 import com.bean.MovicArea;
 import com.bean.MovicInfo;
 import com.bean.MovicType;
+import com.bean.MovicVisiterNumber;
 import com.bean.Paging;
 import com.server.interfaces.MovicIatServer;
 
 public class MovicIatAction {
 	@Resource
 	private MovicIatServer movicIatServer;
+	private MovicVisiterNumber movicvisiternumber;
 	private MovicInfo movicinfo;
 	private MovicArea movicarea;
 	private MovicType movictype;
@@ -105,7 +107,7 @@ public class MovicIatAction {
 			hs.setAttribute("mastr", "");
 		}
 		if (hs.getAttribute("moviciatsort") == null) {
-			hs.setAttribute("moviciatsort", "movicPlayDate");
+			hs.setAttribute("moviciatsort", "mi.movicPlayDate");
 		}
 
 		String whereSql = movicIatServer
@@ -131,7 +133,7 @@ public class MovicIatAction {
 		}
 
 		paging.setRowCount(count);
-		paging.setPageSize(12);// 设置每页 paging.pageSize部 电影
+		paging.setPageSize(1);// 设置每页 paging.pageSize部 电影
 		paging.sumPageCount();
 		paging.checkPageNow();
 
@@ -173,6 +175,14 @@ public class MovicIatAction {
 
 	public void setMovicIatServer(MovicIatServer movicIatServer) {
 		this.movicIatServer = movicIatServer;
+	}
+	
+	public MovicVisiterNumber getMovicvisiternumber() {
+		return movicvisiternumber;
+	}
+
+	public void setMovicvisiternumber(MovicVisiterNumber movicvisiternumber) {
+		this.movicvisiternumber = movicvisiternumber;
 	}
 
 	public MovicInfo getMovicinfo() {
