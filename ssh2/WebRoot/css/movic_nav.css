@@ -1,0 +1,124 @@
+@CHARSET "UTF-8";
+
+.input-group, .info2, .chinesefont, a {
+	font-family: "微软雅黑";
+}
+/* .logo{
+	font-family: "Ruthie", cursive;
+	font-size: 180px;
+	font-weight: 600;
+	color: #2c3e50;	
+} */
+/* 顶部导航开始 */
+body {
+	padding-top: 120px;
+}
+
+.alltop {
+	position: fixed;
+	z-index: 2;
+	top: 0px;
+	left: 0px;
+}
+
+.logo {
+	font-family: "Ruthie", cursive;
+	font-size: 60px;
+	font-weight: 600;
+	color: #2c3e50;
+}
+
+.iatborderline {
+	border-bottom: 1px solid #DDD;
+	background-color: #F5F5F5;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.125) inset;
+}
+
+.iatsearch {
+	padding-top: 26px;
+	padding-bottom: 26px;
+}
+
+.iatsearch>form {
+	margin-bottom: 0em;
+}
+
+.iatnava {
+	line-height: 85px;
+	font-size: 16px;
+	display: block;
+}
+
+.iatnava>a {
+	color: #2c3e50;
+}
+
+.iatnava>a:focus, .iatnava>a:hover {
+	color: #4078C0;
+	text-decoration: underline;
+}
+}
+
+.iatuser > a{
+	float: right;
+}
+.iatnavlink >a{
+	float: left;
+}
+a.list-group-item:focus, a.list-group-item:hover {
+    background-color: #E6E6E6;
+}
+.list-group-item {
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
+}
+
+
+.list-group-item{
+	padding: 0px 15px;
+}
+.list-group{
+    padding-left: 0px;
+    margin-bottom: 0px;
+    line-height: 42px; !important
+    
+}
+.iatuserhidden{
+	position: absolute;
+	left:100px;
+	top:0px;
+	display: none;
+	font-size: 12px;
+}
+.iatuser >.list-group-item{
+	float: left;
+}
+/* .iatuser:hover >a{
+	display: none;
+}  */
+.iatuser:hover >.iatuserhidden
+{
+	display: block;
+}
+/* .userhead {
+	width: auto;
+	height: 30px;
+	display: block;
+}
+*/
+.userhead{
+	position: relative;
+}
+
+.userimg{
+	/* display: inline-block; */
+}
+.userimg img {
+	width: 55px;
+	height: 50px;
+}
+
+.userimg span {
+	/* margin-left: 2px;
+	line-height: 30px; */
+}

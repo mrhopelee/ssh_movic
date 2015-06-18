@@ -133,7 +133,7 @@ public class MovicIatAction {
 		}
 
 		paging.setRowCount(count);
-		paging.setPageSize(1);// 设置每页 paging.pageSize部 电影
+		paging.setPageSize(2);// 设置每页 paging.pageSize部 电影
 		paging.sumPageCount();
 		paging.checkPageNow();
 
