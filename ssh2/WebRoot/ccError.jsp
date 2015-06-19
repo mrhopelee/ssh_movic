@@ -10,21 +10,19 @@
 
 </head>
 
-<body>
-	<p align="center" color="gray">
+<body><s:include value="movic_nav.jsp"></s:include>
+<p align="center" color="gray">
 	<hr color="gray" size="3">
-
-
-
+	
+	
+	
 	<%
 out.println("<script>alert('你今天已经签到过了,一天只能签到一次喔亲！！！');</script>");
 
 %>
 	<br>
 	<br>
-	<font size=" 5" color="gray">--------------------<a
-		href="index.jsp">Click here Back To Index</a>--------------------
-	</font>
+		<font size=" 5" color="gray">--------------------<a href="index.jsp">Click here Back To Index</a>--------------------</font>
 	<br>
 	<br>
 	<hr color="gray" size="3">

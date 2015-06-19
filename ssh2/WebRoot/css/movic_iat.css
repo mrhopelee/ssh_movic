@@ -8,17 +8,17 @@
 	font-size: 180px;
 	font-weight: 600;
 	color: #2c3e50;	
-} */
-/* 顶部导航 */
+} *//* 
+顶部导航开始
+body {
+	padding-top: 120px;
+}
+
 .alltop {
 	position: fixed;
 	z-index: 2;
 	top: 0px;
 	left: 0px;
-}
-
-body {
-	padding-top: 120px;
 }
 
 .logo {
@@ -36,7 +36,7 @@ body {
 
 .iatsearch {
 	padding-top: 26px;
-	padding-bottom: 0px;
+	padding-bottom: 26px;
 }
 
 .iatsearch>form {
@@ -46,6 +46,7 @@ body {
 .iatnava {
 	line-height: 85px;
 	font-size: 16px;
+	display: block;
 }
 
 .iatnava>a {
@@ -56,33 +57,78 @@ body {
 	color: #4078C0;
 	text-decoration: underline;
 }
-
-.iatuser {
-	padding-top: 21px;
-	padding-bottom: 22px;
 }
 
-.userhead {
-	width: 30px;
-	height: 30px;
-	padding: 1px;
-	float: left;
-}
-
-.userhead>span {
+.iatuser > a{
 	float: right;
 }
-
-.thumbnail {
-	margin-bottom: 0px;
-	margin-top: 2px;
+.iatnavlink >a{
+	float: left;
+}
+a.list-group-item:focus, a.list-group-item:hover {
+    background-color: #E6E6E6;
+}
+.list-group-item {
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
 }
 
-.iat_img {
+
+.list-group-item{
+	padding: 0px 15px;
+}
+.list-group{
+    padding-left: 0px;
+    margin-bottom: 0px;
+    line-height: 42px; !important
+    
+}
+.iatuserhidden{
+	position: absolute;
+	left:100px;
+	top:0px;
+	display: none;
+	font-size: 12px;
+}
+.iatuser:hover >a{
+	display: none;
+} 
+.iatuser:hover >.iatuserhidden
+{
+	display: block;
+}
+.userhead {
+	width: auto;
+	height: 30px;
+	display: block;
+}
+
+.userhead{
+	position: relative;
+}
+
+.userimg{
+	display: inline-block;
+}
+.userimg img {
+	width: 55px;
+	height: 50px;
+}
+
+.userimg span {
+	margin-left: 2px;
+	line-height: 30px;
+}
+
+顶部导航结束 */
+.thumbnail {
+	margin-bottom: 0px;
+}
+
+.iatmovicinfo>.thumbnail a>img, .iatmovicinfo>.thumbnail>img {
 	width: 220px;
 	height: 300px;
 }
-
 /* h3 {
 	display: inline;
 } */
@@ -132,6 +178,7 @@ a>.btn.active, a>.btn:active, a>.btn-default:focus {
 .iatfont12 {
 	font-size: 12px;
 	margin-left: 10px;
+	float: right;
 }
 /* .iatpadding {
 	padding: 10px 20px;
