@@ -319,8 +319,15 @@
     
 <!-- /陈浩贤      -->
     
-    
-    
-    
 	</package>
+	<package name="myajax" namespace="/" extends="json-default,struts-default">
+	<action name="getinfoAction" class="com.ajax.action.MyAjaxAction" method="getinfo">
+	<result type="json">
+	<param name="root">result</param>
+	</result>
+	</action>
+	
+	</package>
+ 
+	
 </struts>    
