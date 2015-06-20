@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<s:include value="movic_nav.jsp"></s:include>
 <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 	<br>
 	<p align="center" color="gray">
