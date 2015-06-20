@@ -136,7 +136,7 @@
 				<s:iterator value="#session.moviciatlist" status="miat">
 					<%-- <s:property value="movicPost" /> --%>
 
-					<div class="col-sm-3 col-md-3 iatmovicinfo">
+					<div id="iatmv<s:property value="%{movicOid}"/>" class="col-sm-3 col-md-3 iatmovicinfo">
 						<div class="thumbnail">
 							<s:a href="scanMovieAction?id=%{movicOid}">
 								<img class="" src='<s:property value="%{movicPost}"/>'

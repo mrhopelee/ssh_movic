@@ -81,7 +81,8 @@ a.list-group-item:focus, a.list-group-item:hover {
 }
 .list-group-item {
     background-color: #F5F5F5;
-    border: 1px solid #F5F5F5;
+    border: 0px solid #F5F5F5;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.125) inset;
 }
 
 
@@ -100,7 +101,9 @@ a.list-group-item:focus, a.list-group-item:hover {
 	top:0px;
 	display: none;
 	font-size: 12px;
-}
+	width:80px;
+}/* 
+.iatuserhidden */
 .iatuser >.list-group-item{
 	float: left;
 }
