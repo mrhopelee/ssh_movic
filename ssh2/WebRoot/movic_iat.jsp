@@ -105,7 +105,7 @@
 				<span class="iatpadding2">排序</span>
 
 			</div>
-			<div class="col-sm-9 col-md-9 ">
+			<div class="col-sm-8 col-md-8 ">
 
 				<form class="iatpadding8" action="moviciatsetsort" namespace="/">
 					<label class="radio-inline"><input type="radio"
@@ -122,7 +122,7 @@
 						name="sort" id="sort3" value="mvn.visiterNumber" /> 热门电影</label>
 				</form>
 			</div>
-			<div class="col-sm-2 col-md-2 ">
+			<div class="col-sm-3 col-md-3 ">
 				<span class="iatpadding2 iatfont12">一共有<s:property
 						value="%{#session.moviciatpaging.rowCount}" />个筛选结果
 				</span>

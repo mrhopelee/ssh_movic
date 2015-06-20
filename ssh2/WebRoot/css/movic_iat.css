@@ -178,6 +178,7 @@ a>.btn.active, a>.btn:active, a>.btn-default:focus {
 .iatfont12 {
 	font-size: 12px;
 	margin-left: 10px;
+	float: right;
 }
 /* .iatpadding {
 	padding: 10px 20px;
