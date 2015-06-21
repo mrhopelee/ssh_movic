@@ -75,34 +75,36 @@
         color: #dfdfdf;
 	} */
 
-	/*NEXT按钮div*/
-	#btn_prev{
-        margin-left: 249px;
-    }
-    #btn_next{
-        margin-left: 335px;
-    }
-	.music-buttons {
-        background-color: rgba(0,0,0, .4);
-        bottom: 100px;
-        height:50px;
-        left: 50%;
-        line-height:50px;
-        margin-left: 250px;
-        position: fixed;
-        text-align:center;
-        width:85px;
-        cursor: pointer;
-        
-	}
-    .music-buttons span{
-        display:block;
-        color:#fff;
-        font-family: Helvetica, Verdana, "微软雅黑", "黑体";
-	}
-    .music-buttons span:hover{
-        color:#fff;
-        background-color: #000;
-        text-decoration: underline;
-    }
-    
+/*NEXT按钮div*/
+#btn_prev {
+	margin-left: 249px;
+}
+
+#btn_next {
+	margin-left: 335px;
+}
+
+.music-buttons {
+	background-color: rgba(0, 0, 0, .4);
+	bottom: 100px;
+	height: 50px;
+	left: 50%;
+	line-height: 50px;
+	margin-left: 250px;
+	position: fixed;
+	text-align: center;
+	width: 85px;
+	cursor: pointer;
+}
+
+.music-buttons span {
+	display: block;
+	color: #fff;
+	font-family: Helvetica, Verdana, "微软雅黑", "黑体";
+}
+
+.music-buttons span:hover {
+	color: #fff;
+	background-color: #000;
+	text-decoration: underline;
+}

@@ -37,11 +37,11 @@ $(document)
 							img_num=b;
 							
 							remp0.css({
-								"border" : "8px solid #ddd",
+								"border" : "4px solid #ccc",
 								"cursor" : "pointer"
 							});
 							remp1.css({
-								"border" : "8px solid #4C9ED9",
+								"border" : "4px solid #4C9ED9",
 								"cursor" : "unset"
 							});
 							
@@ -84,11 +84,11 @@ $(document)
 							remp1 = rdiv.eq(img_num - 1);
 						}
 						remp0.css({
-							"border" : "8px solid #ddd",
+							"border" : "4px solid #ccc",
 							"cursor" : "pointer"
 						});
 						remp1.css({
-							"border" : "8px solid #4C9ED9",
+							"border" : "4px solid #4C9ED9",
 							"cursor" : "unset"
 						});
 						photoshowInit(photoshow, a, b);
@@ -133,11 +133,11 @@ $(document)
 						}
 						
 						remp0.css({
-							"border" : "8px solid #ddd",
+							"border" : "4px solid #ccc",
 							"cursor" : "pointer"
 						});
 						remp1.css({
-							"border" : "8px solid #4C9ED9",
+							"border" : "4px solid #4C9ED9",
 							"cursor" : "unset"
 						});
 						photoshowInit(photoshow, a, b);

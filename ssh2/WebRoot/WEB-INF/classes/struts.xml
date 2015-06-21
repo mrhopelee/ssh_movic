@@ -78,6 +78,12 @@
 			<result name="success">/movic_iat.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<!-- 首页“最近上映”电影信息 -->
+		<action name="moviciatIndexlistsetsession" class="movicIatAction"
+			method="moviciatIndexListSetSession">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 
 		<!--李灏 don't move ! end -->
 

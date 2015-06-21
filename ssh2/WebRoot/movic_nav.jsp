@@ -13,7 +13,7 @@
 				<div class="col-sm-4 col-md-4">myfilm</div>
 				<!-- <h2 class="logo">My Film</h2> -->
 				<div class="col-sm-8 col-md-8 iatsearch">
-					<s:form cssClass="input-group " action="moviciatsetsearch"
+					<s:form cssClass="input-group" action="moviciatsetsearch"
 						namespace="/">
 						<s:textfield cssClass="form-control" name="search"
 							value="%{#session.moviciatsearch}" placeholder="我的电影">

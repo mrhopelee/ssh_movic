@@ -34,4 +34,10 @@ public class MovicIatDaoImp implements MovicIatDao {
 				.setMaxResults(end).list();*/
 	}
 
+	public List<?> searchIndexMovicInfoDao(String whereSql) {
+		return sessionFactory.getCurrentSession()
+				 .createQuery(whereSql).setFirstResult(0).setMaxResults(6)
+				 .list();
+	}
+
 }

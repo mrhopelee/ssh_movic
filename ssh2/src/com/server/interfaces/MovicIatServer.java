@@ -12,5 +12,7 @@ public interface MovicIatServer {
 	public int getMovicPaging(String whereSql);// 获取分页信息
 
 	public List<MovicInfo> searchMovicInfoService(String whereSql, Paging paging);
+	
+	public List<MovicInfo> searchIndexMovicInfoService(String whereSql);
 
 }
