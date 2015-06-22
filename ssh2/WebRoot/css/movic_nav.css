@@ -68,7 +68,6 @@ body {
 	color: #4078C0;
 	text-decoration: underline;
 }
-}
 
 .iatuser > a{
 	float: right;
@@ -92,7 +91,7 @@ a.list-group-item:focus, a.list-group-item:hover {
 .list-group{
     padding-left: 0px;
     margin-bottom: 0px;
-    line-height: 42px; !important
+    line-height: 42px !important;
     
 }
 .iatuserhidden{

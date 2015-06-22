@@ -1,5 +1,5 @@
 /** 全局 */
-	*{margin:0px; 
+/* 	*{margin:0px; 
 	padding:0px;}
 	a{
         text-decoration:none;
@@ -25,7 +25,7 @@
         background-size: auto auto;
     }
 
-	/**精品介绍div */
+	*精品介绍div
 	.music-detail{
         background-color: rgba(0,0,0, .4);
         bottom: 100px;
@@ -52,7 +52,7 @@
     }
 	
 	
-	/*标题样式*/
+	标题样式
 	.music-title {
         line-height: 22px;
         margin-left: -3px;
@@ -61,7 +61,7 @@
         
 	}
 	
-	/*豆瓣评分样式*/
+	豆瓣评分样式
 	.revision-score {
         color: rgb(225,191,123);
         font-size: 13px;
@@ -70,10 +70,10 @@
         right: 30px;
 	}
 
-	/*歌曲类型样式*/
+	歌曲类型样式
 	.muted {
         color: #dfdfdf;
-	}
+	} */
 
 	/*NEXT按钮div*/
 	#btn_prev{
