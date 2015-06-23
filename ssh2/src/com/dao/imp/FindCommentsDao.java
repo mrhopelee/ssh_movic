@@ -60,4 +60,44 @@ public class FindCommentsDao implements FindCommentsDaoInter {
 		return allList;
 	}
 
+	@Override
+	public int getPageCount(int nowMovieId, int pageSize) {
+		int count = 0;
+		int pageCount = 0;
+		String hql = "select count(mcOid) from MovicComments where movicInfo.movicOid="+nowMovieId;
+		
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			long temp = (Long) query.uniqueResult();
+			count = (int) temp;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(count%pageSize == 0){
+			
+			pageCount = count/pageSize;
+		}else{
+			pageCount = count/pageSize+1;
+		}
+		return pageCount;
+	}
+
+	@Override
+	public List<MovicComments> selectListByMovieId(int nowMovieId, int pageNo,
+			int pageSize) {
+		List<MovicComments> list = null;
+		String hql = "from MovicComments where movicInfo.movicOid="+nowMovieId+"order by commentsDate desc";
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			query.setFirstResult(pageSize*(pageNo-1));
+			query.setMaxResults(pageSize);
+			list = query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 }

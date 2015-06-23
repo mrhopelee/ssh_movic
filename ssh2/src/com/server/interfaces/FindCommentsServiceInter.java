@@ -14,4 +14,9 @@ public interface FindCommentsServiceInter {
 
 	public List<MovicComments> selectAllComments(Integer id);
 
+	public int getPageCount(int nowMovieId, int pageSize);
+
+	public List<MovicComments> selectListByMovieId(int nowMovieId, int pageNo,
+			int pageSize, int pageCount);
+
 }

@@ -47,4 +47,27 @@ public class FindCommentsService implements FindCommentsServiceInter {
 		return findCommentsDao.selectAllComments(id);
 	}
 
+
+
+	@Override
+	public int getPageCount(int nowMovieId, int pageSize) {
+		
+		return findCommentsDao.getPageCount(nowMovieId,pageSize);
+	}
+
+
+
+	@Override
+	public List<MovicComments> selectListByMovieId(int nowMovieId, int pageNo,
+			int pageSize, int pageCount) {
+		if(pageNo<1){
+			pageNo = 1;	
+		}
+		else if(pageNo>pageCount){
+			pageNo = pageCount;	
+		}
+		
+		return findCommentsDao.selectListByMovieId(nowMovieId,pageNo,pageSize);
+	}
+
 }
