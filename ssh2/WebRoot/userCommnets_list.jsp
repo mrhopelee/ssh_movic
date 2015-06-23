@@ -20,11 +20,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+<link rel="stylesheet" type="text/css" href="bootstrap-3.3.4-dist/css/bootstrap.min.css">
+<script src="bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
-
 	您当前位置：
 	<a href="userFunction.jsp">个人主页</a>--查看我的评论
 	<s:if test="#request.uCommList.size()!=0">
@@ -49,10 +51,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- <td width="100px"><div align="center"><a href="commentsManage!delComments.action?mComments.mcOid=<s:property value="#mComments.mcOid"/>">删除</a></div></td> -->
 					<td>
 						<div align="center">
+						<!-- 
 							<form action="commentsManage!delUserComments.action">
-								<input type="submit" value="删除"> <input type="hidden"
+								<input type="submit" value="删除">
+								 <input type="hidden"
 									name="id" value='<s:property value="#mComments.mcOid"/>'>
 							</form>
+					
+						 -->
+						<a href="commentsManage!delUserComments.action?id=<s:property value="#mComments.mcOid"/>" >
+							<span class="glyphicon glyphicon-trash" aria-hidden="true" >
+							
+							</span>
+						</a> 
 						</div>
 					</td>
 				</tr>
