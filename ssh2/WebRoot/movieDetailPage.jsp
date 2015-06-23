@@ -270,6 +270,7 @@ int count=0;
 											<div class="clearfix"></div>
 										</li>
 									</s:iterator>
+									<span class="glyphicon glyphicon-option-horizontal" aria-hidden="true" ></span>
 								</s:if>
 
 								<s:else>暂无数据</s:else>
