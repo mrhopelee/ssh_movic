@@ -1,7 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
-
 <link rel="stylesheet" type="text/css" href="css/movic_nav.css">
 
 <body class="container-fluid">
@@ -28,21 +26,21 @@
 						class="list-group-item" href="index.jsp"> </a>
 				</div>
 				<s:if test="#session.user!=null">
-				<div class="col-xs-6 col-md-6 iatuser">
-					<a class="userimg list-group-item" href="usermanager.jsp"> <img
-						src="<s:property value="#session.user.userLogo"/>" alt="username" /><span>&nbsp;</span>
-					</a>
-					<div class="list-group iatuserhidden">
-						<a href="userFunction.jsp" class="list-group-item"> 个人中心 </a> <a
-							href="userLogoutAction" class="list-group-item"> 退出</a>
+					<div class="col-xs-6 col-md-6 iatuser">
+						<a class="userimg list-group-item" href="usermanager.jsp"> <img
+							src="<s:property value="#session.user.userLogo"/>" alt="username" /><span>&nbsp;</span>
+						</a>
+						<div class="list-group iatuserhidden">
+							<a href="userFunction.jsp" class="list-group-item"> 个人中心 </a> <a
+								href="userLogoutAction" class="list-group-item"> 退出</a>
+						</div>
 					</div>
-				</div>
 				</s:if>
 				<s:else>
-				<div class="col-xs-6 col-md-6 iatuser">
-					<a class="list-group-item" href="userLogin.jsp">登陆</a> <a
-						class="list-group-item" href="userRegister.jsp">注册</a>
-				</div>
+					<div class="col-xs-6 col-md-6 iatuser">
+						<a class="list-group-item" href="userLogin.jsp">登陆</a> <a
+							class="list-group-item" href="userRegister.jsp">注册</a>
+					</div>
 				</s:else>
 			</div>
 			<!-- <div class="col-xs-4 col-md-4" >

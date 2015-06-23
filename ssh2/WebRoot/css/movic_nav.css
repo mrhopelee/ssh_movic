@@ -13,23 +13,11 @@
 .input-group, .info2, .chinesefont, a {
 	font-family: "微软雅黑";
 }
-/* .logo{
-	font-family: "Ruthie", cursive;
-	font-size: 180px;
-	font-weight: 600;
-	color: #2c3e50;	
-} */
 /* 顶部导航开始 */
 body {
 	padding-top: 140px;
 }
 
-.alltop {
-	position: absolute;
-	z-index: 2;
-	top: 0px;
-	left: 0px;
-}
 
 .logo {
 	font-family: "Ruthie", cursive;

@@ -7,10 +7,10 @@
 <title>电影IAT</title>
 
 
-<link rel="stylesheet" type="text/css" href="css/3.3.4bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="bootstrap-3.3.4-dist/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/movic_iat.css">
 <script src="javascript/2.1.4jquery.js"></script>
-<script src="javascript/3.3.4bootstrap.min.js"></script>
+<script src="bootstrap-3.3.4-dist/js/bootstrap.js"></script>
 <script src="javascript/movic_iat.js"></script>
 </head>
 
