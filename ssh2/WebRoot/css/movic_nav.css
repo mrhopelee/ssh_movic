@@ -1,4 +1,12 @@
 @CHARSET "UTF-8";
+
+html{
+        overflow: scroll;
+        overflow-x: scroll;
+        overflow-y: scroll;
+        height:100%;
+        width:100%;
+    }
 @font-face {
     font-family: 'ruthieregular';
     src: url("../font-ruthie/ruthie-regular-webfont.eot");
