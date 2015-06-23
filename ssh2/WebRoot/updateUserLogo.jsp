@@ -11,8 +11,14 @@
 
 	<div>
 		<s:property value="#session.user.userDisplayName" />
+		<s:if test="#session.user.userLogo==null">
 		<img width="200px" height="200px" alt="无法显示"
+			src="img/user_large.jpg" class="img-circle">
+			</s:if>
+			<s:else>
+			<img width="200px" height="200px" alt="无法显示"
 			src='<s:property value="#session.user.userLogo"/>' class="img-circle">
+			</s:else>
 
 		<s:form action="updateUserLogoAction" enctype="multipart/form-data"
 			method="post">
