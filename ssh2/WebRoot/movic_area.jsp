@@ -12,6 +12,7 @@
 </head>
 
 <body>
+	<a href="adminFunction.jsp">返回管理页面</a><br/>
 	<s:action name="movicareasetsession" flush="false" namespace="/"></s:action>
 
 	<s:iterator value="#session.movicarealist" status="ma">

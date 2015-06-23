@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'upgradeToVip.jsp' starting page</title>
+    <title>会员升级</title>
 <link rel="stylesheet" type="text/css" href="css/3.3.4bootstrap.min.css">
 <link href="css/cc.css" rel="stylesheet" type="text/css" />
 <script src="javascript/2.1.4jquery.js"></script>
@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<s:include value="movic_nav.jsp"></s:include>
+
 <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 	<br>
 	<p align="center" color="gray">

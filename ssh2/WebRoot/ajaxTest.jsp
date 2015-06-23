@@ -49,6 +49,22 @@
     
  <table id="result">
  </table>
+ <input type="submit" value="新加页面" id="but2">
+ <div id="page">
+ </div>
+ <script type="text/javascript">
+ 	$("#but2").click(function(){
+ 	
+ 	$.ajax({data:null,dataType:"HTML",success:function(date){
+ 	$("#page").append(date);
+ 	
+ 	},type:"post",url:"index.jsp"})
+ 	
+ 	})
+ 
+ </script>
+
+
 
   </body>
 </html>

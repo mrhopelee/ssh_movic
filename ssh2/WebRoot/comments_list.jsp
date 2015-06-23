@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>comments_list</title>
+<title>评论维护</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	您当前位置：
-	<a href="adminTop.jsp">管理员主页</a>--评论管理
+	<a href="adminFunction.jsp">管理员主页</a>--评论管理
 	<s:if test="#request.clist.size()!=0">
 		<table border="0" align="center">
 			<tr>

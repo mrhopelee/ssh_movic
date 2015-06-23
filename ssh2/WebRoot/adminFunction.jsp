@@ -164,15 +164,8 @@
 </style>
 </head>
 
-
-<div class="top1">
-	<h1>网站头</h1>
-</div>
-
-
-
-
 <body>
+<s:include value="userFunction.jsp"></s:include>
 	<!-- =============================试验效果================== -->
 
 	<%! UserInfo user; %>

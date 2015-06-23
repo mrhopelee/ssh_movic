@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>My JSP 'updateUserMessage.jsp' starting page</title>
+<title>更新个人信息</title>
 <link rel="stylesheet" type="text/css" href="css/3.3.4bootstrap.min.css">
 <link href="css/cc.css" rel="stylesheet" type="text/css" />
 <script src="javascript/2.1.4jquery.js"></script>
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<s:include value="movic_nav.jsp"></s:include>
+
 <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 	<br>
 	<p align="center" color="gray">

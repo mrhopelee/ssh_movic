@@ -35,7 +35,7 @@
 						src="<s:property value="#session.user.userLogo"/>" alt="username" /><span>&nbsp;</span>
 					</a>
 					<div class="list-group iatuserhidden">
-						<a href="usermanager.jsp" class="list-group-item"> 个人中心 </a> <a
+						<a href="userFunction.jsp" class="list-group-item"> 个人中心 </a> <a
 							href="userLogoutAction" class="list-group-item"> 退出</a>
 					</div>
 				</div>
