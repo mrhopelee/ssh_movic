@@ -3,13 +3,11 @@
  * http://codecanyon.net/user/cosmocoder
 */
 
-
 /* Styles for slider div and images */
-
 .ccslider {
 	position: relative;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-touch-callout: none;	
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-touch-callout: none;
 }
 
 .slider-innerWrapper {
@@ -27,21 +25,20 @@
 	max-width: 100%;
 }
 
-
 /* Styles for next/prev and play/pause buttons */
 a.slider-nav {
-	position: absolute;	
+	position: absolute;
 	top: 50%;
-	z-index: 200;	
+	z-index: 200;
 	cursor: pointer;
-	display: none;	
+	display: none;
 }
 
-.slider-nav.prev {	
+.slider-nav.prev {
 	left: 0;
 }
 
-.slider-nav.next {	
+.slider-nav.next {
 	right: 0;
 }
 
@@ -49,11 +46,11 @@ a.slider-nav {
 	display: block;
 }
 
-.slider-timer {	
-	position: absolute;	
-	right: 20px;	
+.slider-timer {
+	position: absolute;
+	right: 20px;
 	top: 20px;
-	z-index: 200;	
+	z-index: 200;
 	cursor: pointer;
 	display: none;
 }
@@ -62,31 +59,29 @@ a.slider-nav {
 	display: block;
 }
 
-
-
 /* Styles for the control links */
 .control-links {
-    position: absolute;
-    z-index: 200;
-    list-style: none;
-    top: 100%;
-	margin-top: 30px;    
-    padding: 0;
+	position: absolute;
+	z-index: 200;
+	list-style: none;
+	top: 100%;
+	margin-top: 30px;
+	padding: 0;
 	min-width: 100%;
 	text-align: center;
 	line-height: 0;
 }
 
 .control-links li {
-    display: inline-block;
-    margin-left: 5px;
-    cursor: pointer;    
-    background: #969696;
-    width: 10px;
-    height: 11px;
-    line-height: 0;
+	display: inline-block;
+	margin-left: 5px;
+	cursor: pointer;
+	background: #969696;
+	width: 10px;
+	height: 11px;
+	line-height: 0;
 	zoom: 1;
-	*float: left;	/* for IE6, IE7 */
+	*float: left; /* for IE6, IE7 */
 }
 
 .control-links li:first-child {
@@ -94,7 +89,7 @@ a.slider-nav {
 }
 
 .control-links li.active {
-    background: #00b8e9;
+	background: #00b8e9;
 }
 
 .control-links li.linkThumb {
@@ -132,7 +127,6 @@ a.slider-nav {
 	margin-bottom: 100px;
 }
 
-
 /* Caption styles */
 .cc-caption {
 	display: none;
@@ -140,12 +134,12 @@ a.slider-nav {
 
 .slider-caption {
 	background: #000;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 101;
-    color: #fff;
-    padding: 10px;
-    font-size: 14px;
-    position: absolute;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 101;
+	color: #fff;
+	padding: 10px;
+	font-size: 14px;
+	position: absolute;
 	overflow: hidden;
 	display: none;
 }
@@ -153,29 +147,28 @@ a.slider-nav {
 .slider-caption.bottom {
 	left: 0;
 	right: 0;
-    bottom: 0;
+	bottom: 0;
 }
 
 .slider-caption.top {
 	left: 0;
 	right: 0;
-    top: 0;
+	top: 0;
 }
 
 .slider-caption.left {
 	left: 0;
 	top: 0;
-    bottom: 0;
+	bottom: 0;
 	width: 100px;
 }
 
 .slider-caption.right {
 	right: 0;
 	top: 0;
-    bottom: 0;
+	bottom: 0;
 	width: 100px;
 }
-
 
 /* Containers for custom HTML content */
 .cc-htmlwrapper {
@@ -187,7 +180,7 @@ a.slider-nav {
 	height: 100%;
 	overflow: hidden;
 	display: none;
-} 
+}
 
 .cc-html {
 	position: absolute;
@@ -198,10 +191,10 @@ a.slider-nav {
 	display: none;
 }
 
-.cc-html img {    /* This ensures that images inside custom html content are visible */
+.cc-html img {
+	/* This ensures that images inside custom html content are visible */
 	visibility: visible !important;
 }
-
 
 /* Styles for links placed on slide images */
 .slider-link {
@@ -212,7 +205,8 @@ a.slider-nav {
 	z-index: 100;
 	width: 100%;
 	height: 100%;
-	background: url(about:blank);  /* hack to fix a bug in IE, to make the anchor tag clickable. Can use any fake image url */
+	background: url(about:blank);
+	/* hack to fix a bug in IE, to make the anchor tag clickable. Can use any fake image url */
 }
 
 /* position the canvas elements for 3d effect */
@@ -221,7 +215,6 @@ a.slider-nav {
 	top: 0;
 	left: 0;
 }
-
 
 /* Styles for elements used in 2d animations */
 .wipe-div {
@@ -234,7 +227,6 @@ a.slider-nav {
 	-webkit-background-size: cover !important;
 	background-size: cover !important;
 }
-
 
 .split1-div, .split2-div {
 	position: absolute;

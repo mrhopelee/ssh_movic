@@ -129,6 +129,9 @@
 	<bean id="countUserByScoreDao" class="com.dao.imp.CountUserByScoreDao"></bean>
 	<bean id="submitCommentsDao" class="com.dao.imp.SubmitCommentsDao"></bean>
 <!-- /陈浩贤 -->
+<!-- ajax action -->
+<bean id="myAjaxAction" class="com.ajax.action.MyAjaxAction" scope="prototype"></bean>
+
 	</beans>
 
 

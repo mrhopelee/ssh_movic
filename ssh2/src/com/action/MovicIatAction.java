@@ -133,7 +133,7 @@ public class MovicIatAction {
 		}
 
 		paging.setRowCount(count);
-		paging.setPageSize(2);// 设置每页 paging.pageSize部 电影
+		paging.setPageSize(12);// 设置每页 paging.pageSize部 电影
 		paging.sumPageCount();
 		paging.checkPageNow();
 
@@ -169,6 +169,38 @@ public class MovicIatAction {
 		}
 	}
 
+	/* 首页的3个acion */
+	public String moviciatIndexListSetSession() {
+
+		List<MovicInfo> mi;
+		String whereSql;
+		request = ServletActionContext.getRequest();
+		hs = request.getSession(true);
+
+		whereSql = movicIatServer.getWhereSql("", "", "", "mi.movicPlayDate");
+		mi = movicIatServer.searchIndexMovicInfoService(whereSql);
+		hs.removeAttribute("movicnewlist");
+		hs.setAttribute("movicnewlist", mi);
+
+		whereSql = movicIatServer.getWhereSql("", "", "", "mi.movicImdbScore");
+		mi = movicIatServer.searchIndexMovicInfoService(whereSql);
+		hs.removeAttribute("movicscorelist");
+		hs.setAttribute("movicscorelist", mi);
+
+		whereSql = movicIatServer.getWhereSql("", "", "", "mvn.visiterNumber");
+		mi = movicIatServer.searchIndexMovicInfoService(whereSql);
+		hs.removeAttribute("movicvnlist");
+		hs.setAttribute("movicvnlist", mi);
+
+		if (hs.getAttribute("movicnewlist") != null
+				&& hs.getAttribute("movicscorelist") != null
+				&& hs.getAttribute("movicvnlist") != null) {
+			return "success";
+		} else {
+			return "error";
+		}
+	}
+
 	public MovicIatServer getMovicIatServer() {
 		return movicIatServer;
 	}
@@ -176,7 +208,7 @@ public class MovicIatAction {
 	public void setMovicIatServer(MovicIatServer movicIatServer) {
 		this.movicIatServer = movicIatServer;
 	}
-	
+
 	public MovicVisiterNumber getMovicvisiternumber() {
 		return movicvisiternumber;
 	}
