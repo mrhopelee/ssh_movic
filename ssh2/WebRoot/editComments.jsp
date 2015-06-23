@@ -60,7 +60,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </table>
     </form>
 -->
-<<<<<<< HEAD
 <br><br><br><br><br><br><br><br><br>
 			<s:fielderror></s:fielderror>
  
@@ -89,37 +88,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="clearfix"></div>
 	          	</form>
  
-  </body>
-=======
 
-	<s:fielderror></s:fielderror>
-
-	<form method="post" action="subCommentsAction">
-		<div align="center">
-			<table align="center">
-				<tr>
-					<td style="color:#fff">评价: <label><input type="radio"
-							name="score" value="1" checked="checked" />很差</label> <label><input
-							type="radio" name="score" value="2" />较差</label> <label><input
-							type="radio" name="score" value="3" />还行</label> <label><input
-							type="radio" name="score" value="4" />推荐</label> <label><input
-							type="radio" name="score" value="5" />力荐</label>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-		<div class="text" align="center">
-			<textarea required="required" name="comments_text"
-				placeholder="Message:"></textarea>
-		</div>
-		<div align="center" class="form-submit1">
-			<input type="submit" value="好了，添加评论"><br> <a
-				href="scanMovieAction?id=0">取消</a>
-		</div>
-		<div class="clearfix"></div>
-	</form>
 
 </body>
->>>>>>> branch 'dev' of https://github.com/mrhopelee/ssh_movic.git
+
 </html>
