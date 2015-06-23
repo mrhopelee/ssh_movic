@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
+	<s:include value="movic_nav.jsp"></s:include>
 	<!-- ==============   原来
   <h1 align="center">所有评论~~~~~~~~~~~~~~~</h1>
   <hr size=20">
@@ -85,20 +86,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="row">
 			<s:if test="#request.allList.size()!=0">
 				<s:iterator value="#request.allList" var="mComments">
-					<div class="col-md-1 text-center">
+					<!--  <div class="col-md-1 text-center">
 						<p>
-							<img src="<s:property value="#mComments.userInfo.userLogo"/>">
+							<img width="50px" height="50px" src="<s:property value="#mComments.userInfo.userLogo"/>">
 						</p>
 					</div>
 					<div class="col-md-5">
 						<img src="<s:property value="#mComments.movicInfo.movicPost"/>">
-					</div>
-					<div class="col-md-6">
+					</div>-->
+					<div class="col-md-12">
+					
 						<h3>
+						<img width="50px" height="50px" src="<s:property value="#mComments.userInfo.userLogo"/>">
 							<s:property value="#mComments.userInfo.userName" />
 						</h3>
 						<p>
-							in
+							IN
 							<s:property value="#mComments.commentsDate" />
 						</p>
 						<p>

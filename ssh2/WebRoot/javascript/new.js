@@ -164,7 +164,11 @@ function hiddenshadowfun(hiddenshadow){
 	});
 	setTimeout(function() {
 
+
+
+
 		hiddenshadow.css({
+
 			"display":"none"
 		});
 

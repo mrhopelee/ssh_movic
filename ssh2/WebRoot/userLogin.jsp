@@ -7,7 +7,9 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
 <body>
+
 	<div style="margin: 0 auto; width: 250px">
+	
 		<s:fielderror></s:fielderror>
 		<s:form action="userLoginAction" namespace="/">
 			<label for="exampleInputName2">用户名:</label>
@@ -19,6 +21,7 @@
 			<input type="submit" class="btn btn-success" value="登录">
 			<input type="reset" class="btn btn-warning" value="重置">
 		</s:form>
+		<a href="index.jsp">返回首页</a>
 	</div>
 </body>
 </html>
