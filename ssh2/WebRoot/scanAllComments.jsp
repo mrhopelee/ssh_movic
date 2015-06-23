@@ -115,17 +115,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 		<!-- Pager -->
-		<!-- ==============================================
+		<!-- =================================================== -->
         <div class="row">
             <ul class="pager">
-                <li class="previous"><a href="#">&larr; Older</a>
+                <li class="previous"><a href="scanCommentsAction.action?pageNo= <s:property value="pageNo-1"/> &nowMovieId= <s:property value="#session.nowMovieId"/> ">上一页</a>
                 </li>
-                <li class="next"><a href="#">Newer &rarr;</a>
+                <li class="next"><a href="scanCommentsAction.action?pageNo= <s:property value="pageNo+1"/> &nowMovieId= <s:property value="#session.nowMovieId"/> ">下一页</a>
                 </li>
             </ul>
         </div>
 
-================================================================== -->
+
 
 	</div>
 	<!-- /.container -->

@@ -269,9 +269,9 @@ int count=0;
 
 								<s:else>暂无数据</s:else>
 								<form action="scanCommentsAction">
+									<div align="center" class="form-submit1">
 									<input type="hidden" name="id"
 										value='<s:property value="#session.nowMovieId"/>'>
-									<div align="center" class="form-submit1">
 										<input type="submit" value="更多评论"><br>
 									</div>
 								</form>
