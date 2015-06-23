@@ -165,6 +165,7 @@
 </head>
 
 <body>
+<s:include value="userFunction.jsp"></s:include>
 	<!-- =============================试验效果================== -->
 
 	<%! UserInfo user; %>

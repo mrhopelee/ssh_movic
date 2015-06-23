@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -209,10 +210,13 @@ public class MovicManagementAction extends ActionSupport {
 	//该方法用来获取所有电影的信息
 	public String getAllMovic()
 	{
+		//获取电影分页类
 		getMovicPaging();
 		//System.out.println(paging.getPageCount()+" "+paging.getRowCount());
 		
 		movicInfo=movicManagementServer.getAllMovic(paging);
+		
+		ServletActionContext.getRequest().getSession().setAttribute("pagenow",paging.getPageNow());
 		//System.out.println(movicInfo.size());
 		
 		return "success";
