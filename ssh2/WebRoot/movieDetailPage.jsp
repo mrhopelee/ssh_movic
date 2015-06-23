@@ -287,10 +287,9 @@ int count=0;
 								</div>
 						</div>		
 					</div>
-					
 					<!--  ====================右边图册区 在这里添加=======================================-->
 
-
+					
 					<div class="col-md-3">
 						<div class="movie_img">
 							<div class="grid_2">
@@ -298,10 +297,10 @@ int count=0;
 								<div class="caption1">
 									<ul class="list_5 list_7">
 										<li><i class="icon5"> </i>
-										<p>3,548</p></li>
+										<p></p></li>
 									</ul>
 									<i class="icon4 icon6 icon7"> </i>
-									<p class="m_3">Guardians of the Galaxy</p>
+									<p class="m_3"></p>
 								</div>
 							</div>
 						</div>
@@ -310,10 +309,10 @@ int count=0;
 							<div class="caption1">
 								<ul class="list_3 list_7">
 									<li><i class="icon5"> </i>
-									<p>3,548</p></li>
+									<p></p></li>
 								</ul>
 								<i class="icon4 icon7"> </i>
-								<p class="m_3">Guardians of the Galaxy</p>
+								<p class="m_3"></p>
 							</div>
 						</div>
 						<div class="grid_2 col_1">
@@ -321,10 +320,10 @@ int count=0;
 							<div class="caption1">
 								<ul class="list_3 list_7">
 									<li><i class="icon5"> </i>
-									<p>3,548</p></li>
+									<p></p></li>
 								</ul>
 								<i class="icon4 icon7"> </i>
-								<p class="m_3">Guardians of the Galaxy</p>
+								<p class="m_3"></p>
 							</div>
 						</div>
 					</div>
@@ -344,6 +343,7 @@ int count=0;
 
 
 	<!-- =======================可以插入广告 ，友情连接，也可以不要============== -->
+<!--
 	<div class="container">
 		<footer id="footer">
 		<div id="footer-3d">
@@ -401,6 +401,7 @@ int count=0;
 		</div>
 		</footer>
 	</div>
+	-->
 
 
 
@@ -440,7 +441,7 @@ int count=0;
 
 
 	<!-- ===========================电影详情页面显示部分评论区  (开始)========================================== -->
-	<!--  
+<!-- 
   <hr>
     <s:if test="#session.partCommentsList.size()!=0">
 	   	<table border="0" align="center">
@@ -469,15 +470,17 @@ int count=0;
    	</s:if>
    	<s:else>暂无数据</s:else>
    	<hr>   
-   	-->
+ -->
 	<!-- ===========================/电影详情页面显示部分评论区  (结束)========================================== -->
 	<!-- 电影海报-->
+ 
 	<div id="slider">
 		<s:iterator value="movic.movicPictures" id="mp">
 			<img width="980px" src="<s:property value="#mp.picturePath"/>"
 				data-transition='<%=effect[count++%4] %>' />
 		</s:iterator>
 	</div>
+
 
 </body>
 </html>
