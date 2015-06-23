@@ -15,7 +15,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'updateUserType.jsp' starting page</title>
+<title>修改用户权限</title>
 <link rel="stylesheet" type="text/css" href="css/3.3.4bootstrap.min.css">
 <link href="css/cc.css" rel="stylesheet" type="text/css" />
 <script src="javascript/2.1.4jquery.js"></script>

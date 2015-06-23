@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'userCommnets_list.jsp' starting page</title>
+<title>我的评论管理</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
+
 	您当前位置：
 	<a href="userFunction.jsp">个人主页</a>--查看我的评论
 	<s:if test="#request.uCommList.size()!=0">

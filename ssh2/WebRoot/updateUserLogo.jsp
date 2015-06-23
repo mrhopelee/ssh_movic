@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<s:include value="userFunction.jsp"></s:include>
+
 	<div>
 		<s:property value="#session.user.userDisplayName" />
 		<img width="200px" height="200px" alt="无法显示"
