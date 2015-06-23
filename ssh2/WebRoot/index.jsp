@@ -7,16 +7,16 @@
 <!-- 使用bootstrap 的css样式 -->
 <title>首页</title>
 
-<link rel="stylesheet" type="text/css" href="css/3.3.4bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="bootstrap-3.3.4-dist/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/new.css">
 <link rel="stylesheet" type="text/css" href="css/indexlist.css">
 <script src="javascript/2.1.4jquery.js"></script>
-<script src="javascript/3.3.4bootstrap.min.js"></script>
+<script src="bootstrap-3.3.4-dist/js/bootstrap.js"></script>
 <script src="javascript/new.js"></script>
 </head>
 <body>
 	<%-- <s:include value="userFunction.jsp"></s:include> --%>
-	<s:include value="movic_nav.jsp"></s:include>
+	
 	<div
 		class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 ">
 		<div class="hiddenshadow"></div>
@@ -117,6 +117,7 @@
 		</div>
 	</div>
 	
-	<s:include value="movic_bottom.jsp"></s:include>
 </body>
+<s:include value="movic_nav.jsp"></s:include>
+<s:include value="movic_bottom.jsp"></s:include>
 </html>

@@ -1,10 +1,17 @@
 @CHARSET "UTF-8";
 
-.top {
-	width: 980px;
-	margin: 0 auto;
+
+.userfun_nav{
+	float:left;
+	padding: 50px;
+	border-right: 1px solid #eee;
+}
+.userfun_nav input{
+	display: block;
+	margin:15px auto;
+	width: 100%;
 }
 
-.topform {
-	display: inline;
+.userfun_page {
+	overflow: auto;
 }

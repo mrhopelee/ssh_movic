@@ -19,7 +19,7 @@
 	<s:action name="movictypesetsession" flush="false" namespace="/"></s:action>
 	<s:action name="moviciatmixsetsession" flush="false" namespace="/"></s:action>
 	
-	<s:include value="movic_nav.jsp"></s:include>
+	
 	
 	<div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 ">
 
@@ -336,6 +336,8 @@
 		</s:if>
 	</s:else> --%>
 	<%--  --%>
-	<s:include value="movic_bottom.jsp"></s:include>
+	
 </body>
+<s:include value="movic_nav.jsp"></s:include>
+<s:include value="movic_bottom.jsp"></s:include>
 </html>
