@@ -49,16 +49,33 @@
 <a href="userLogoutAction" target="showframe">退出</a>
 -->
   <div class="top">
+  
+  		
 	
 		<form class="topform" action="index.jsp">
 		<input type="submit" value="首页" class="btn btn-info" >
 	    </form>
+	    
+	    <s:if test="#session.user.userType.value>=3">
+  		<form class="topform" action="adminFunction.jsp">
+		<input type="submit" value="管理中心" class="btn btn-info" id="b7" >
+	    </form>
+	    <script type="text/javascript">
+		$("#b7").click(function(){
+		$.ajax({data:null,dataType:"HTML",success:function(date){
+ 		$("#page").html("");
+ 		$("#admin").html(date);
+ 		},type:"post",url:"adminFunction.jsp"})
+		})
+		</script>
+  		</s:if>
 	    
 		<input type="submit" value="更新头像" class="btn btn-primary" id="b1">
 		<script type="text/javascript">
 		$("#b1").click(function(){
 		$.ajax({data:null,dataType:"HTML",success:function(date){
  		$("#page").html(date);
+ 		$("#admin").html("");
  		},type:"post",url:"updateUserLogo.jsp"})
 		})
 		</script>
@@ -68,6 +85,7 @@
 		$("#b2").click(function(){
 		$.ajax({data:null,dataType:"HTML",success:function(date){
  		$("#page").html(date);
+ 		$("#admin").html("");
  		},type:"post",url:"updateUserPassword.jsp"})
 		})
 		</script>
@@ -77,6 +95,7 @@
 		$("#b3").click(function(){
 		$.ajax({data:null,dataType:"HTML",success:function(date){
  		$("#page").html(date);
+ 		$("#admin").html("");
  		},type:"post",url:"updateUserMessage.jsp"})
 		})
 		</script>
@@ -87,6 +106,7 @@
 		$("#b4").click(function(){
 		$.ajax({data:null,dataType:"HTML",success:function(date){
  		$("#page").html(date);
+ 		$("#admin").html("");
  		},type:"post",url:"signBoard.jsp"})
 		})
 		</script>
@@ -97,6 +117,7 @@
 		$("#b5").click(function(){
 		$.ajax({data:null,dataType:"HTML",success:function(date){
  		$("#page").html(date);
+ 		$("#admin").html("");
  		},type:"post",url:"upgradeToVip.jsp"})
 		})
 		</script>
@@ -107,6 +128,7 @@
 		$("#b6").click(function(){
 		$.ajax({data:null,dataType:"HTML",success:function(date){
  		$("#page").html(date);
+ 		$("#admin").html("");
  		},type:"post",url:"findUserComments"})
 		})
 		</script>
