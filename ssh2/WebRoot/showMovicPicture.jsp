@@ -15,13 +15,15 @@
 		<table class="table table-bordered">
 			<s:iterator value="movicPictureList" id="l" status="s">
 				<tr>
-					<td>编号：</td>
-					<td><s:property value="#s.count" /></td>
+					<td>编号：<s:property value="#s.count" /></td>
+					
 
-					<td><img width="200px" height="200px" alt="无法显示"
+					<td><img width="400px" height="200px" alt="无法显示"
 						src='<s:property value="#l.picturePath"/>'></td>
 					<td><s:form action="deletePictureAction" method="post"
 							namespace="/">
+							<input type="hidden" name="movicOid"
+							value='<s:property value="movicOid"/>'>
 							<input type="hidden" value='<s:property value="mpOid"/>'
 								name="nowPicture.mpOid">
 							<input type="hidden" value='<s:property value="#l.picturePath"/>'

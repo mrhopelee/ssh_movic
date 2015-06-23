@@ -6,17 +6,19 @@
 <head>
 <!-- 使用bootstrap 的css样式 -->
 <title>首页</title>
+
+<link rel="stylesheet" type="text/css" href="css/3.3.4bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/new.css">
 <link rel="stylesheet" type="text/css" href="css/indexlist.css">
-<!-- <link rel="stylesheet" type="text/css" href="css/index_layout.css">  -->
 <script src="javascript/2.1.4jquery.js"></script>
+<script src="javascript/3.3.4bootstrap.min.js"></script>
 <script src="javascript/new.js"></script>
 </head>
 <body>
 	<%-- <s:include value="userFunction.jsp"></s:include> --%>
 	<s:include value="movic_nav.jsp"></s:include>
 	<div
-		class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 thumbnail">
+		class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 ">
 		<div class="hiddenshadow"></div>
 		<div id="photoshow" class="">
 			<a class="photoshow_a" title="1" href="javascript:return(0);"
@@ -49,7 +51,7 @@
 		<s:action name="moviciatIndexlistsetsession" flush="false"
 			namespace="/"></s:action>
 
-		<div class="col-sm-12 col-md-12 ">
+		<div class="col-sm-12 col-md-12 indexdb">
 			<h2 class="listh2">最近上映</h2>
 			<s:iterator value="#session.movicnewlist" status="mnew">
 				<%-- <s:property value="movicPost" /> 
@@ -70,7 +72,7 @@
 			</s:iterator>
 		</div>
 
-		<div class="col-sm-12 col-md-12 ">
+		<div class="col-sm-12 col-md-12 indexdb">
 			<h2 class="listh2">经典高分</h2>
 			<s:iterator value="#session.movicscorelist" status="ms">
 				<%-- <s:property value="movicPost" /> 
@@ -92,7 +94,7 @@
 			</s:iterator>
 		</div>
 
-		<div class="col-sm-12 col-md-12 ">
+		<div class="col-sm-12 col-md-12 indexdb">
 			<h2 class="listh2">热门精选</h2>
 			<s:iterator value="#session.movicvnlist" status="mvn">
 				<%-- <s:property value="movicPost" /> 
@@ -114,5 +116,7 @@
 			</s:iterator>
 		</div>
 	</div>
+	
+	<s:include value="movic_bottom.jsp"></s:include>
 </body>
 </html>
