@@ -336,5 +336,6 @@
 		</s:if>
 	</s:else> --%>
 	<%--  --%>
+	<s:include value="movic_bottom.jsp"></s:include>
 </body>
 </html>

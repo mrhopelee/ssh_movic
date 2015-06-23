@@ -124,7 +124,9 @@ a.list-group-item:focus, a.list-group-item:hover {
 .thumbnail {
 	margin-bottom: 0px;
 }
-
+.iatmovicinfo{
+	margin-bottom:30px;
+}
 .iatmovicinfo>.thumbnail a>img, .iatmovicinfo>.thumbnail>img {
 	width: 100%;
 	height: 300px; 
@@ -202,8 +204,9 @@ a>.btn.active, a>.btn:active, a>.btn-default:focus {
 	font-family: "微软雅黑";
 } */
 .iatcenter {
-	margin: 30px auto;
+	margin: 0px auto;
 	text-align: center;
+	/* border-bottom: 1px solid #EEE; */
 }
 
 .iatcenter>a {

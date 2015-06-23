@@ -1,10 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<link rel="stylesheet" type="text/css" href="css/3.3.4bootstrap.min.css">
+
 <link rel="stylesheet" type="text/css" href="css/movic_nav.css">
-<script src="javascript/2.1.4jquery.js"></script>
-<script src="javascript/3.3.4bootstrap.min.js"></script>
 
 <body class="container-fluid">
 	<div class="row">
