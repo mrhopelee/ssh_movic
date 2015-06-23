@@ -32,7 +32,7 @@
 				<s:if test="#session.user!=null">
 				<div class="col-xs-6 col-md-6 iatuser">
 					<a class="userimg list-group-item" href="usermanager.jsp"> <img
-						src="movic_picture/14.jpg" alt="username" /><span>&nbsp;</span>
+						src="<s:property value="#session.user.userLogo"/>" alt="username" /><span>&nbsp;</span>
 					</a>
 					<div class="list-group iatuserhidden">
 						<a href="usermanager.jsp" class="list-group-item"> 个人中心 </a> <a
