@@ -164,11 +164,15 @@ function hiddenshadowfun(hiddenshadow){
 	});
 	setTimeout(function() {
 
-		　　hiddenshadow.css({
+
+
+
+		hiddenshadow.css({
+
 			"display":"none"
 		});
 
-		　　}, 1000);
+		}, 1000);
 }
 function photoshowInit(photoshow, a, b) {
 	for (var index = photoshow.length; index > 0; index--) {

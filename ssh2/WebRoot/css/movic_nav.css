@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 @font-face {
     font-family: 'ruthieregular';
-    src: url('../font-ruthie/ruthie-regular-webfont.eot');
+    src: url("../font-ruthie/ruthie-regular-webfont.eot");
     src: url('../font-ruthie/ruthie-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('../font-ruthie/ruthie-regular-webfont.woff2') format('woff2'),
          url('../font-ruthie/ruthie-regular-webfont.woff') format('woff'),

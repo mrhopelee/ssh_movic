@@ -21,7 +21,7 @@
 						width="100px" height="100"></td>
 					<td>
 						<form action="deleteMovicAction">
-							<input type="submit" value="删除"> <input type="hidden"
+							<input type="submit" value="删除" class="btn btn-default"> <input type="hidden"
 								name="movic.movicOid" value='<s:property value="#m.movicOid"/>'>
 						</form>
 					</td>
@@ -29,7 +29,7 @@
 			</s:iterator>
 		</table>
 
-
+	<!--  
 		<table>
 			<tr>
 				<td>一共：<s:property value="paging.pageCount" />页
@@ -62,6 +62,57 @@
 					</s:form></td>
 
 			</tr>
+		</table>
+		-->
+		<table>
+		<tr>
+		<s:if test="paging.pageNow-2>0">
+		<td>
+		<form action="getAllMovicDAction">
+		<input type="submit" value="<s:property value="paging.pageNow-2"/>" class="btn btn-default">
+		<input type="hidden" value="<s:property value="paging.pageNow-2"/>"name="paging.pageNow">
+		</form>
+		</td>
+		</s:if>
+		
+		<s:if test="paging.pageNow-1>0">
+		<td>
+		<form action="getAllMovicDAction">
+		<input type="submit" value="<s:property value="paging.pageNow-1"/>" class="btn btn-default">
+		<input type="hidden" value="<s:property value="paging.pageNow-1"/>"name="paging.pageNow">
+		</form>
+		</td>
+		</s:if>
+		
+		<td>
+		<form action="getAllMovicDAction">
+		<input type="submit" value="<s:property value="paging.pageNow"/>" class="btn btn-default active">
+		<input type="hidden" value="<s:property value="paging.pageNow"/>"name="paging.pageNow">
+		</form>
+		</td>
+		
+		<s:if test="paging.pageNow+1<=paging.pageCount">
+		<td>
+		<form action="getAllMovicDAction">
+		<input type="submit" value="<s:property value="paging.pageNow+1"/>" class="btn btn-default">
+		<input type="hidden" value="<s:property value="paging.pageNow+1"/>"name="paging.pageNow">
+		</form>
+		</td>
+		</s:if>
+		
+		<s:if test="paging.pageNow+2<=paging.pageCount">
+		<td>
+		<form action="getAllMovicDAction">
+		<input type="submit" value="<s:property value="paging.pageNow+2"/>" class="btn btn-default">
+		<input type="hidden" value="<s:property value="paging.pageNow+2"/>"name="paging.pageNow">
+		</form>
+		</td>
+		</s:if>
+		
+		
+		
+		</tr>
+		
 		</table>
 	</div>
 </body>

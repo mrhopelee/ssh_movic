@@ -29,6 +29,7 @@
 			<input type="submit" value="注册" class="btn btn-primary"> <input
 				type="reset" value="重置" class="btn btn-warning">
 		</form>
+			<a href="index.jsp">返回首页</a>
 	</div>
 </body>
 </html>

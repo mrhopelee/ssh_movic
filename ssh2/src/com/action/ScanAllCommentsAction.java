@@ -24,23 +24,34 @@ public class ScanAllCommentsAction extends ActionSupport {
 	private FindCommentsServiceInter findCommentsService;
 	
 	private MovicComments mComments;
+	private int pageNo = 1;   //页码
+	private int pageSize = 6; // 每页显示评论数
+	private int pageCount ;    //总页数
 
 
 	@Override
 	public String execute() throws Exception {
 		
-		HttpServletRequest request = ServletActionContext.getRequest();
 		
-		List<MovicComments> allList = findCommentsService.selectAllComments((int)request.getSession().getAttribute("nowMovieId"));
+		HttpServletRequest request = ServletActionContext.getRequest();
+		int nowMovieId = (int)request.getSession().getAttribute("nowMovieId");
+		//获得总页数
+		pageCount = findCommentsService.getPageCount(nowMovieId,pageSize);
+		//
+		List<MovicComments> allList = findCommentsService.selectListByMovieId(nowMovieId,pageNo,pageSize,pageCount);
+		
+		
+		/**
+		 * 
+		List<MovicComments> allList = findCommentsService.selectAllComments(nowMovieId);	
+		*/
 		request.setAttribute("allList", allList);
+
 		//request.setAttribute("nowMovieId", id);
 		return SUCCESS ;
 	}
 
-	
-	
-	
-	
+
 	
 	public FindCommentsServiceInter getFindCommentsService() {
 		return findCommentsService;
@@ -56,5 +67,23 @@ public class ScanAllCommentsAction extends ActionSupport {
 
 	public void setmComments(MovicComments mComments) {
 		this.mComments = mComments;
+	}
+	public int getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+	public int getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+	public int getPageCount() {
+		return pageCount;
+	}
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
 	}
 }

@@ -19,20 +19,27 @@ int count=0;
 
 <title>电影详情页面</title>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<link rel="stylesheet" type="text/css" href="bootstrap-3.3.4-dist/css/bootstrap.min.css">
+<script src="bootstrap-3.3.4-dist/js/bootstrap.js"></script>
+<script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+
+
 <link href="css/bootstrap1.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- start plugins -->
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<!-- 
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> -->
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900'
 	rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <!-- 梁泽民加的css样式 开始-->
 <link rel="stylesheet" href="css/reset1.css" />
 <link rel="stylesheet" href="css/ccslider1.css" />
 <link rel="stylesheet" href="css/style1.css" />
 <style type="text/css">
+
 #slider {
 	width: 980px;
 	height: 450px;
@@ -64,7 +71,7 @@ int count=0;
 </head>
 
 <body>
-	<s:include value="userFunction.jsp"></s:include>
+		<s:include value="movic_nav.jsp"></s:include>
 
 	<!-- 电影显示区域  --------------------------------->
 	<!-- 
@@ -146,45 +153,42 @@ int count=0;
 								<img src="<s:property value="movic.movicPost"/>"
 									class="img-responsive" alt="无法显示" />
 							</div>
-							<div class="movie_rate">
-								<div class="rating_desc">
-									<p>Your Vote :</p>
-								</div>
-								<table>
-									<tr>
-										<td><img alt="" src="images/star5.png" height="30px"
-											width="50px"></td>
-										<td>：<s:property value="#session.userCountByScore[4]" />人觉得力荐!
-										</td>
-									</tr>
-									<tr>
-										<td><img alt="" src="images/star4.png" height="30px"
-											width="50px"></td>
-										<td>：<s:property value="#session.userCountByScore[3]" />人觉得推荐!
-										</td>
-									</tr>
-									<tr>
-										<td><img alt="" src="images/star3.png" height="30px"
-											width="50px"></td>
-										<td>：<s:property value="#session.userCountByScore[2]" />人觉得还行!
-										</td>
-									</tr>
-									<tr>
-										<td><img alt="" src="images/star2.png" height="30px"
-											width="50px"></td>
-										<td>：<s:property value="#session.userCountByScore[1]" />人觉得较差!
-										</td>
-									</tr>
-									<tr>
-										<td><img alt="" src="images/star1.png" height="30px"
-											width="50px"></td>
-										<td>：<s:property value="#session.userCountByScore[0]" />人觉得很差!
-										</td>
-									</tr>
+							
+							<!-- ========星星区============ --> 
+							<div class="movie_rate"  align="center">
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true">   <s:property value="#session.userCountByScore[4]"/>人</span>
+                            	<br>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" >   <s:property value="#session.userCountByScore[3]"/>人</span>
+                            	<br>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" ></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" >   <s:property value="#session.userCountByScore[2]"/>人</span>
+                            	<br>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" ></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" ></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" >   <s:property value="#session.userCountByScore[1]"/>人</span>
+                            	<br>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" ></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" ></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" ></span>
+                            	<span class="glyphicon glyphicon-star-empty" aria-hidden="true" >   <s:property value="#session.userCountByScore[0]"/>人</span>                           	
+                            </div>
 
-								</table>
-								<div class="clearfix"></div>
-							</div>
+                            <!-- ========星星区============ -->
+                            
 						</div>
 						<div class="desc1 span_3_of_2">
 							<p class="movie_option">
@@ -227,9 +231,9 @@ int count=0;
 							</p>
 							<div class="down_btn">
 								<a class="btn1"
-									href="showDownloadListAction?movicOid=<s:property value="movic.movicOid"/>"><span>
-								</span>Download</a>
+									href="showDownloadListAction?movicOid=<s:property value="movic.movicOid"/>">Download</a>
 							</div>
+
 						</div>
 						<div class="clearfix"></div>
 
@@ -261,6 +265,7 @@ int count=0;
 												<p>
 													<s:property value="#mComments.commentsInfo" />
 												</p>
+												<br><br>
 											</div>
 											<div class="clearfix"></div>
 										</li>
@@ -269,15 +274,19 @@ int count=0;
 
 								<s:else>暂无数据</s:else>
 								<form action="scanCommentsAction">
+									<div align="center" class="form-submit1">
 									<input type="hidden" name="id"
 										value='<s:property value="#session.nowMovieId"/>'>
-									<div align="center" class="form-submit1">
 										<input type="submit" value="更多评论"><br>
 									</div>
 								</form>
 							</ul>
-						</div>
+								<div class="button" align="center">
+      								<a href="editComments.jsp" class="hvr-shutter-out-horizontal"  style="text-decoration: none;">发表评论！</a>
+								</div>
+						</div>		
 					</div>
+					
 					<!--  ====================右边图册区 在这里添加=======================================-->
 
 
@@ -325,9 +334,9 @@ int count=0;
 	</div>
 
 	<!-- ============================输写评论区 （开始） ===================================================== -->
-	<h2 align="center">
-		<a href="editComments.jsp">我也要评论！</a>
-	</h2>
+		
+	
+
 
 	<!-- ============================输写评论区 （结束） ===================================================== -->
 
