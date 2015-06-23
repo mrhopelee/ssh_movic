@@ -213,7 +213,7 @@ public class UserAction extends ActionSupport {
 		}
 		catch (Exception e)
 		{
-			addFieldError("username","用户名或昵称以存在");
+			addFieldError("username","用户名或昵称以存在或该邮箱已经存在");
 			return "input";
 		}
 		

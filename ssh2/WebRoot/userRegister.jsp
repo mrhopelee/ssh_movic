@@ -9,6 +9,7 @@
 
 <body>
 	<div style="margin: 0 auto; width: 250px;">
+	
 		<form action="userRigisterAction" method="post">
 			<s:fielderror fieldName="username"></s:fielderror>
 			<label for="exampleInputName2">用户名</label> <input type="text"

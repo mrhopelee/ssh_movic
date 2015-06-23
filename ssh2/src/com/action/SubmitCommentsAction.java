@@ -40,7 +40,9 @@ public class SubmitCommentsAction extends ActionSupport {
 		}
 		
 		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("user");
+		nowMoiveId=(int) request.getSession().getAttribute("nowMovieId");
 		
+		System.out.println("nowMoiveId="+nowMoiveId);
 		
 		if(submitCommentsService.checkUser(userInfo.getUserOid())) {
 			submitCommentsService.submitExecptScore(nowMoiveId, userInfo.getUserOid(), score, comments_text);
