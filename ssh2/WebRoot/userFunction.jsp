@@ -10,6 +10,14 @@
 <script src="bootstrap-3.3.4-dist/js/bootstrap.js"></script>
 <title>用户个人中心</title>
 
+<script>
+$(document).ready(
+		$.ajax({data:null,dataType:"HTML",success:function(date){
+	 		$("#page").html(date);
+	 		$("#admin").html("");
+	 		},type:"post",url:"findUserComments"})
+		);
+</script>
 </head>
 <body class="container-fluid">
 	<!--  
