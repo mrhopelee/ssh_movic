@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            </div>
 		            <div align="center" class="form-submit1">
 		         		<input type="submit" value="好了，添加评论"><br>
-		         		<a href="scanMovieAction?id=0">取消</a>
+		         		<a href="scanMovieAction?id= <s:property value="#session.nowMovieId"/>">取消</a>
 			        </div>
 					<div class="clearfix"></div>
 	          	</form>
