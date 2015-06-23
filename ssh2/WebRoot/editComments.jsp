@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </table>
     </form>
 -->
-
+<br><br><br><br><br><br><br><br><br>
 			<s:fielderror></s:fielderror>
  
 	           <form method="post" action="subCommentsAction" >
