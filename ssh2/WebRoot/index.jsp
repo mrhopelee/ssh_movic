@@ -5,7 +5,7 @@
 <html>
 <head>
 <!-- 使用bootstrap 的css样式 -->
-<title>首页</title>
+<title>首页</title> 
 
 <link rel="stylesheet" type="text/css" href="bootstrap-3.3.4-dist/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/new.css">
