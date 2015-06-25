@@ -5,8 +5,11 @@
 <body class="container-fluid">
 	<div class="row">
 		<div class="col-sm-12 col-md-12 iatborderline navbar-fixed-top">
-			<div class="col-sm-6 col-sm-offset-1 col-md-6 col-md-offset-1 logo ">
-				<div class="col-sm-4 col-md-4">myfilm</div>
+			<div class="col-sm-6 col-sm-offset-1 col-md-6 col-md-offset-1 ">
+				<div class="col-sm-4 col-md-4 nav_left">
+					<a href="index.jsp" class=""><span
+						class="nav_logo">myfilm</span></a>
+				</div>
 				<!-- <h2 class="logo">My Film</h2> -->
 				<div class="col-sm-8 col-md-8 iatsearch">
 					<s:form cssClass="input-group" action="moviciatsetsearch"
