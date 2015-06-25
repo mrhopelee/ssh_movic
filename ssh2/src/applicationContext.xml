@@ -50,14 +50,6 @@
     <!-- 打开aop 注解 -->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
     <!-- 配置action -->
-	<bean id="login" class="com.action.login">
-	</bean>
-	<!-- 配置server -->
-	<bean id="loginserver" class="com.server.Loginserver">
-	</bean>
-	<!-- 打开aop容器 -->
-	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
-	<!-- 配置aop类 -->
-	<bean  class="com.aop.befordaop"></bean>
+	
 	
 	</beans>
