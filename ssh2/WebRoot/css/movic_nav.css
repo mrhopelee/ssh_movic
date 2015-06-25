@@ -1,57 +1,66 @@
 @CHARSET "UTF-8";
 
-html{
-        overflow: scroll;
-        overflow-x: scroll;
-        overflow-y: scroll;
-        height:100%;
-        width:100%;
-    }
-@font-face {
-    font-family: 'ruthieregular';
-    src: url("../font-ruthie/ruthie-regular-webfont.eot");
-    src: url('../font-ruthie/ruthie-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../font-ruthie/ruthie-regular-webfont.woff2') format('woff2'),
-         url('../font-ruthie/ruthie-regular-webfont.woff') format('woff'),
-         url('../font-ruthie/ruthie-regular-webfont.ttf') format('truetype'),
-         url('../font-ruthie/ruthie-regular-webfont.svg#ruthieregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+/* 显示y滚动条 隐藏x滚动条 */
+html {
+	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	height: 100%;
+	width: 100%;
 }
-.input-group, .info2, .chinesefont, a {
+
+/* Ruthie字体 */
+@font-face {
+	font-family: 'ruthieregular';
+	src: url("../font-ruthie/ruthie-regular-webfont.eot");
+	src: url('../font-ruthie/ruthie-regular-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('../font-ruthie/ruthie-regular-webfont.woff2') format('woff2'),
+		url('../font-ruthie/ruthie-regular-webfont.woff') format('woff'),
+		url('../font-ruthie/ruthie-regular-webfont.ttf') format('truetype'),
+		url('../font-ruthie/ruthie-regular-webfont.svg#ruthieregular')
+		format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* 除了logo其他字体设置为微软雅黑 */
+.input-group, a {
 	font-family: "微软雅黑";
 }
 /* 顶部导航开始 */
+/* 导航height为90px body设置padding避免导航遮挡body */
 body {
 	padding-top: 140px;
 }
 
-.nav_left{
-	
-}
-.nav_logo{
-	font-family: "Ruthie", cursive;
+.nav_logo {
+	font-family: "Ruthie", ruthieregular, cursive;
 	font-size: 60px;
 	font-weight: 600;
 }
-.nav_left a{
+
+.nav_left a {
 	color: #2c3e50;
 	display: block;
 	width: 121px;
 	height: 85px;
-	padding:0px auto;
+	padding: 0px auto;
 }
-.nav_left a:HOVER{
+
+.nav_left a:HOVER {
 	text-decoration: none;
 	color: #4078C0;
 }
 
+/* 导航背景，导航底部阴影 */
 .iatborderline {
 	border-bottom: 1px solid #DDD;
 	background-color: #F5F5F5;
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.125) inset;
 }
 
+/* 导航搜索 */
 .iatsearch {
 	padding-top: 26px;
 	padding-bottom: 26px;
@@ -61,6 +70,7 @@ body {
 	margin-bottom: 0em;
 }
 
+/* 导航右边链接 */
 .iatnava {
 	line-height: 85px;
 	font-size: 16px;
@@ -76,63 +86,53 @@ body {
 	text-decoration: underline;
 }
 
-.iatuser > a{
+.iatuser>a {
 	float: right;
 }
-.iatnavlink >a{
+
+.iatnavlink>a {
 	float: left;
 }
+
 a.list-group-item:focus, a.list-group-item:hover {
-    background-color: #E6E6E6;
+	background-color: #E6E6E6;
 }
+
 .list-group-item {
-    background-color: #F5F5F5;
-    border: 0px solid #F5F5F5;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.125) inset;
+	background-color: #F5F5F5;
+	border: 0px solid #F5F5F5;
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.125) inset;
 }
 
-
-.list-group-item{
+.list-group-item {
 	padding: 0px 15px;
 }
-.list-group{
-    padding-left: 0px;
-    margin-bottom: 0px;
-    line-height: 42px !important;
-    
-}
-.iatuserhidden{
-	position: absolute;
-	left:100px;
-	top:0px;
-	display: none;
-	font-size: 12px;
-	width:80px;
-}/* 
-.iatuserhidden */
-.iatuser >.list-group-item{
-	float: left;
-}
-/* .iatuser:hover >a{
-	display: none;
-}  */
-.iatuser:hover >.iatuserhidden
-{
-	display: block;
-}
-/* .userhead {
-	width: auto;
-	height: 30px;
-	display: block;
-}
-*/
-.userhead{
-	position: relative;
+
+.list-group {
+	padding-left: 0px;
+	margin-bottom: 0px;
+	line-height: 42px !important;
 }
 
-.userimg{
-	/* display: inline-block; */
+/* 登陆后，鼠标移到头像显示的元素 */
+.iatuserhidden {
+	position: absolute;
+	left: 100px;
+	top: 0px;
+	display: none;
+	font-size: 12px;
+	width: 80px;
 }
+
+.iatuser>.list-group-item {
+	float: left;
+}
+
+.iatuser:hover>.iatuserhidden {
+	display: block;
+}
+
+/* 用户头像 */
 .userimg img {
 	width: 55px;
 	height: 50px;
@@ -141,4 +141,5 @@ a.list-group-item:focus, a.list-group-item:hover {
 .userimg span {
 	/* margin-left: 2px;
 	line-height: 30px; */
+	
 }
