@@ -4,12 +4,17 @@
 <html>
 <head>
 <title>用户登录</title>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="bootstrap-3.3.4-dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/userLogin.css">
+<script src="javascript/2.1.4jquery.js"></script>
+<script src="bootstrap-3.3.4-dist/js/bootstrap.js"></script>
 </head>
 <body>
-
-	<div style="margin: 0 auto; width: 250px">
+	<s:include value="background.jsp"></s:include>
 	
+	<div class="userlogin">
+	<span class="myfilm">myfilm</span>
 		<s:fielderror></s:fielderror>
 		<s:form action="userLoginAction" namespace="/">
 			<label for="exampleInputName2">用户名:</label>

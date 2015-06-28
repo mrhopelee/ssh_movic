@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+* {
+  margin:0;
+  padding:0;
+
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+input, textarea {
+  -moz-user-select: auto;
+  -khtml-user-select: auto;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+body {
+  color:#333333;
+  background:#fff;
+  font-family:Arial, Helvetica, sans-serif
+}
+img {
+  border:none;
+  -webkit-touch-callout:none;
+}
+ul li {
+  list-style:none
+}
