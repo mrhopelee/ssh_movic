@@ -18,7 +18,7 @@ import com.server.interfaces.UserServer;
 
 public class UserAction extends ActionSupport {
 	
-	
+	private String result;
 	private UserInfo user;
 	@Resource
 	private UserServer userServer;
@@ -28,7 +28,19 @@ public class UserAction extends ActionSupport {
 	private String uploadContentType;  
 	private String uploadFileName;  
 	
+	//异步传送的数据
+	private String userName;
+	private String userDisplayName;
+	private String userEmail;
 	
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
 	public UserInfo getUser() {
 		return user;
 	}
@@ -71,6 +83,32 @@ public class UserAction extends ActionSupport {
 
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
+	}
+	
+	
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserDisplayName() {
+		return userDisplayName;
+	}
+
+	public void setUserDisplayName(String userDisplayName) {
+		this.userDisplayName = userDisplayName;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	//验证用户是否存在 或者 用户密码是否正确
@@ -243,9 +281,60 @@ public class UserAction extends ActionSupport {
 			addFieldError("userpassword", "密码长度必须为6-15位");
 		}
 		
+	}
+	
+	//该方法是用来进行异步验证用户名是否存在
+	public String checkUserNameExist()
+	{
+		System.out.println(userName);
+		if(userServer.checkUserNameExist(userName))
+		{
+			//存在 说明不可用
+			result="false";
+		}
+		else
+		{
+			//不存在说明可用
+			result="true";
+		}
 		
 		
+		return "success";
 		
+	}
+	
+	public String checkUserDisplayNameExist()
+	{
+		System.out.println(userDisplayName);
+		if(userServer.checkUserDisplayNameExist(userDisplayName))
+		{
+			//存在 说明不可用
+			result="false";
+		}
+		else
+		{
+			//不存在说明可用
+			result="true";
+		}
+		
+		return "success";
+		
+	}
+	
+	public String checkUserEmailExist()
+	{
+		System.out.println(userEmail);
+		if(userServer.checkUserEmailExist(userEmail))
+		{
+			//存在 说明不可用
+			result="false";
+		}
+		else
+		{
+			//不存在说明可用
+			result="true";
+		}
+		return "success";
 		
 	}
 	

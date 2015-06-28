@@ -324,10 +324,32 @@
     <!-- 用户评论管理的action -->
     
 <!-- /陈浩贤      -->
-    
+    <!-- 异步action -->
 	</package>
+	
 	<package name="myajax" namespace="/" extends="json-default,struts-default">
 	<action name="getinfoAction" class="com.ajax.action.MyAjaxAction" method="getinfo">
+	<result type="json">
+	<param name="root">result</param>
+	</result>
+	</action>
+	
+	<!-- 判断用户名是否可用 -->
+	<action name="checkUserNameExistAction" class="userAction" method="checkUserNameExist">
+	<result type="json">
+	<param name="root">result</param>
+	</result>
+	</action>
+	
+	<!-- 判断用户显示名是否可用 -->
+	<action name="checkUserDisplayNameExist" class="userAction" method="checkUserDisplayNameExist">
+	<result type="json">
+	<param name="root">result</param>
+	</result>
+	</action>
+	
+	<!-- 判断用户电子邮件是否可用 -->
+	<action name="checkUserEmailExistAction" class="userAction" method="checkUserEmailExist">
 	<result type="json">
 	<param name="root">result</param>
 	</result>
