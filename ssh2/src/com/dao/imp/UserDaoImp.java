@@ -101,4 +101,60 @@ public class UserDaoImp implements UserDao {
 		return (UserInfo) sessionFactory.getCurrentSession().load(UserInfo.class,userid);
 	}
 
+
+
+
+	@Override
+	public boolean checkUserNameExist(String userName) {
+		
+		int size;
+		size=sessionFactory.getCurrentSession().createQuery("from UserInfo where userName=?").setString(0,userName).list().size();
+		
+		if(size>0)
+		{
+		return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+
+
+	@Override
+	public boolean checkUserDisplayNameExist(String userDisplayName) {
+		
+		int size;
+		size=sessionFactory.getCurrentSession().createQuery("from UserInfo where userDisplayName=?").setString(0,userDisplayName).list().size();
+		
+		if(size>0)
+		{
+		return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+
+
+	@Override
+	public boolean checkUserEmailExist(String userEmail) {
+		int size;
+		size=sessionFactory.getCurrentSession().createQuery("from UserInfo where userEmail=?").setString(0,userEmail).list().size();
+		
+		if(size>0)
+		{
+		return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 }

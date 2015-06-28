@@ -11,4 +11,7 @@ public interface UserServer {
 	public UserInfo getUser(int userid);//根据用户id获取用户信息
 	public boolean addUserIntegral(UserInfo user);//添加用户积分记录
 	
+	public boolean checkUserNameExist(String userName);//判断该用户名是否已经存在
+	public boolean checkUserDisplayNameExist(String userDisplayName);//判断该用户名是否已经存在
+	public boolean checkUserEmailExist(String userEmail);//判断该用户名是否已经存在
 }
