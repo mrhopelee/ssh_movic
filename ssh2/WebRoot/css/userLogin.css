@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+/* logo左功能右 */
+.myfilm {
+    font-family: "Ruthie",ruthieregular,cursive;
+    font-size: 400px;
+    font-weight: 800;
+    color: rgba(44,62,80, 0.1);
+    position: absolute;
+    left: -215%;
+    top: -180px;
+}
+.userlogin {
+    width: 400px;
+    height: 247px;
+    margin-left: -200px;
+    margin-top: -123px;
+    position: fixed;
+    top: 50%;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #EEE;
+    left: 80%;
+}
+
+/*  logo上功能下 
+.myfilm {
+	font-family: "Ruthie", ruthieregular, cursive;
+	font-size: 200px;
+	font-weight: 800;
+	position: absolute;
+	left: 50%;
+	margin-left: -180px;
+	margin-top: -306px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.userlogin {
+	width: 400px;
+	height: 247px;
+	margin-left: -200px;
+	margin-top: -123px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	padding: 20px;
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 1px solid #eee;
+} */

@@ -5,14 +5,14 @@
 <html>
 <head>
 <!-- 使用bootstrap 的css样式 -->
-<title>首页</title>
+<title>首页</title> 
 
 <link rel="stylesheet" type="text/css" href="bootstrap-3.3.4-dist/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/new.css">
+<link rel="stylesheet" type="text/css" href="css/index_photoshow.css">
 <link rel="stylesheet" type="text/css" href="css/indexlist.css">
 <script src="javascript/2.1.4jquery.js"></script>
 <script src="bootstrap-3.3.4-dist/js/bootstrap.js"></script>
-<script src="javascript/new.js"></script>
+<script src="javascript/index_photoshow.js"></script>
 </head>
 <body>
 	<%-- <s:include value="userFunction.jsp"></s:include> --%>
