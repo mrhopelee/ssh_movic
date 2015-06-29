@@ -29,8 +29,14 @@
 			</div>
 			<s:if test="#session.user!=null">
 				<div class="col-xs-6 col-md-6 iatuser">
-					<a class="userimg list-group-item" href="usermanager.jsp"> <img
-						src="<s:property value="#session.user.userLogo"/>" alt="username" /><span>&nbsp;</span>
+					<a class="userimg list-group-item" href="usermanager.jsp"> <%-- <img src="<s:property value="#session.user.userLogo"/>" alt="username" /> --%>
+
+						<s:if test="#session.user.userLogo==null">
+							<img alt="无法显示" src="img/user_large.jpg">
+						</s:if> <s:else>
+							<img id="logo1" alt="无法显示"
+								src='<s:property value="#session.user.userLogo"/>'>
+						</s:else> <span>&nbsp;</span>
 					</a>
 					<div class="list-group iatuserhidden">
 						<a href="userFunction.jsp" class="list-group-item"> 个人中心 </a> <a
