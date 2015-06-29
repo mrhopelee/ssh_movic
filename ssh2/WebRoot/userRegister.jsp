@@ -17,7 +17,7 @@
 	<span class="myfilm">myfilm</span>
 	<div class="userlogin">
 
-		
+		<s:fielderror></s:fielderror>
 		<form action="userRigisterAction" method="post">
 			<s:fielderror fieldName="username"></s:fielderror>
 			<span>注册<span class="rf">myfilm</span>账号
@@ -155,7 +155,7 @@
 			<p>
 				<label for="exampleInputPassword1">重复密码</label> <input type="password"
 					class="form-control" id="rePassword" placeholder="请输入密码"
-					required="required" name="user.userPassword" />
+					required="required"  />
 			</p>
 			<div id="tips4"></div>
 			<p>

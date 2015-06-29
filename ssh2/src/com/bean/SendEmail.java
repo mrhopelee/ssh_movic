@@ -30,6 +30,16 @@ public class SendEmail {
 	public void setVerificationCode(String verificationCode) {
 		this.verificationCode = verificationCode;
 	}
+	public SendEmail()
+	{
+		
+	}
+	public SendEmail(String userEmail,String verificationCode)
+	{
+		this.userEmail=userEmail;
+		this.verificationCode=verificationCode;
+		
+	}
 
 	public void sendEmail() throws Exception {
          

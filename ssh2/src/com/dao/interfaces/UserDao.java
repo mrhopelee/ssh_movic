@@ -14,4 +14,9 @@ public interface UserDao {
 	public boolean checkUserNameExist(String userName);//判断该用户名是否已经存在
 	public boolean checkUserDisplayNameExist(String userDisplayName);//判断该用户名是否已经存在
 	public boolean checkUserEmailExist(String userEmail);//判断该用户名是否已经存在
+	
+	//根据用户编号更新用户密码
+	public boolean updateUserPassword(String userPassword,int userOid);
+	//获取用户编号通过用户邮件
+		public int getUserOidByEmail(String userEmail);
 }

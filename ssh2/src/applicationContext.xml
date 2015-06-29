@@ -99,6 +99,9 @@
 	
 	<bean id="fileDownloadAction" class="com.action.FileDownloadAction"></bean>
 	
+	<bean id="userRetrievePasswordServer" class="com.server.imp.UserRetrievePasswordServerImp"></bean>
+	<bean id="userRetrievePasswordDao" class="com.dao.imp.UserRetrievePasswordDaoImp"></bean>
+	
 <!-- 电影管理有关的bean配置   梁泽民配置 结束-->
 
 	<!-- 电影类型有关的bean配置   李灏配置 开始-->
