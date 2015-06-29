@@ -17,7 +17,7 @@
 	<span class="myfilm">myfilm</span>
 	<div class="userlogin">
 
-		<s:fielderror></s:fielderror>
+		
 		<form action="userRigisterAction" method="post">
 			<s:fielderror fieldName="username"></s:fielderror>
 			<span>注册<span class="rf">myfilm</span>账号
@@ -149,16 +149,39 @@
 			</p>
 			<p>
 				<label for="exampleInputPassword1">密码</label> <input type="password"
-					class="form-control" id="exampleInputPassword1" placeholder="请输入密码"
+					class="form-control" id="Password" placeholder="请输入密码"
 					required="required" name="user.userPassword" />
 			</p>
+			<p>
+				<label for="exampleInputPassword1">重复密码</label> <input type="password"
+					class="form-control" id="rePassword" placeholder="请输入密码"
+					required="required" name="user.userPassword" />
+			</p>
+			<div id="tips4"></div>
 			<p>
 				<label>性别</label> <label><input type="radio" value="男"
 					checked="checked" name="user.userSex" />男</label> <label><input
 					type="radio" value="女" name="user.userSex" />女</label><br>
 			</p>
-			<input type="submit" value="注册" class="btn"> <input
-				type="reset" value="重置" class="btn">
+			<input type="submit" value="注册" class="btn" id="submit"> 
+			<script type="text/javascript">
+			$("#submit").click(function(){
+			if($("#Password").val()!=$("#rePassword").val())
+				{	
+					$("#tips4").html("<span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>密码不一致");
+				
+					return false;
+				}
+				else
+				{
+				return true;
+				}
+			
+			})
+			
+		
+			</script>
+			<input type="reset" value="重置" class="btn">
 
 		</form>
 
