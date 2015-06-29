@@ -2,6 +2,7 @@ package com.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -328,6 +329,7 @@ public class UserAction extends ActionSupport {
 		{
 			//存在 说明不可用
 			result="false";
+			
 		}
 		else
 		{
@@ -335,6 +337,8 @@ public class UserAction extends ActionSupport {
 			result="true";
 		}
 		return "success";
+		
+	
 		
 	}
 	
