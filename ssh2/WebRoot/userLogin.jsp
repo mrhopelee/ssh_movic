@@ -12,12 +12,14 @@
 </head>
 <body>
 	<s:include value="background.jsp"></s:include>
-	
-	<div class="userlogin">
 	<span class="myfilm">myfilm</span>
+	<div class="userlogin">
+
 		<s:fielderror></s:fielderror>
 		<s:form action="userLoginAction" namespace="/">
-			<span>登陆myfilm</span><a href="index.jsp">首页<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			<span>登陆<span class="rf">myfilm</span></span>
+			<a href="index.jsp">首页<span class="glyphicon glyphicon-home"
+				aria-hidden="true"></span></a>
 			<!-- <label for="exampleInputName2">用户名:</label> -->
 			<input name="user.userName" type="text" class="form-control"
 				id="exampleInputName2" placeholder="请输入用户名" required="required">
@@ -26,9 +28,9 @@
 				id="exampleInputPassword1" placeholder="请输入密码" required="required">
 			<input type="reset" class="btn" value="重置">
 			<input type="submit" class="btn" value="登录">
-			
+
 		</s:form>
-		
+
 	</div>
 </body>
 </html>
