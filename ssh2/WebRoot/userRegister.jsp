@@ -175,6 +175,12 @@
 				}
 				else
 				{
+					if($("#Password").val().length<6||$("#Password").val().length>16)
+					{
+					$("#tips4").html("<span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>密码长度必须为6-15位");
+				
+					return false;
+					}
 				return true;
 				}
 			
