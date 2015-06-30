@@ -26,14 +26,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 	<br>
 	<p align="center" color="gray">
-		<font size=" 3" color="gray">--------------------Welcome--------------------</font><br><br>
-
-	~~~~~~~~~~~~~~~尊贵的用户你好~~~~~~~~~~<br>
-	~~~~~~~~~~~~~~~~~~~~~~升级为VIP用户可无限下载电影资源喔~~~~~~~~~~~~~~~~~~~~~~<br>
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~精彩电影，等你来下~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>
-	<font size=" 3" color="red">--------------------积分够999分才可升级为尊贵会员喔亲--------------------</font><br><br>
-		<font size=" 5" color="red">--------------------9 9 9--------------------</font><br><br>
-		</p>
 	<hr color="gray" size="3">
 	<br>
 <%-- 	<s:action name="test" flush="true" namespace="/"></s:action> --%>

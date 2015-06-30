@@ -287,12 +287,12 @@ public class UserManageAction extends ActionSupport {
 		}
 		// 如果密码不为空，且不匹配长度为4～25的字母和数字组成的字符串。
 		if (!(userPassword.trim().equals(""))
-				&& !Pattern.matches("\\w{5,15}", userPassword.trim())) {
-			this.addFieldError("password", "您输入密码必须是字母和数字，且长度必须是5到15之间！");
+				&& !Pattern.matches("\\w{6,15}", userPassword.trim())) {
+			this.addFieldError("password", "您输入密码必须是字母和数字，且长度必须是6到15之间！");
 		}
 		if (!(rePassword.trim().equals(""))
-				&& !Pattern.matches("\\w{5,15}", rePassword.trim())) {
-			this.addFieldError("rePassword", "您输入密码必须是字母和数字，且长度必须是5到15之间！");
+				&& !Pattern.matches("\\w{6,15}", rePassword.trim())) {
+			this.addFieldError("rePassword", "您输入密码必须是字母和数字，且长度必须是6到15之间！");
 		}
 
 		if (!(userPassword.trim().equals(rePassword.trim()))) {
