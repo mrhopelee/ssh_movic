@@ -52,14 +52,25 @@
 	text-align: center;
 	width: 50px;
 	cursor: pointer;
+	border-radius: 50px;
 }
 
 .music-buttons span {
 	display: block;
-	font-family: "微软雅黑";
+	/* font-family: "微软雅黑"; */
 	color: #fff;
-	font-size: 40px;
+	font-size: 36px;
 	font-weight: 600;
+	width: 100%;
+	height: 100%;
+	line-height: 50px;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	height: 100%;
+	line-height: 50px;
+	border-radius: 50px;
 }
 
 .music-buttons span:hover {
@@ -76,10 +87,12 @@
 	left: 0px;
 	top: 0px;
 	z-index: 11;
+	/* cursor: pointer; */
 }
 
 .photoshowbottom {
 	text-align: center;
+	margin: 20px 0px;
 }
 
 .rdiv {
@@ -97,8 +110,9 @@
 .thumbnail {
 	border: 2px solid #DDD !important;
 }
-.indexdb{
-	margin:10px auto 30px
+
+.indexdb {
+	margin: 10px auto 30px
 }
 /* .hrbottom{
 	border-bottom: 1px solid #EEE;
