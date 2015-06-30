@@ -26,9 +26,10 @@
 			<!-- <label for="exampleInputPassword1">密码</label> -->
 			<input name="user.userPassword" type="password" class="form-control"
 				id="exampleInputPassword1" placeholder="请输入密码" required="required">
+				
 			<input type="reset" class="btn" value="重置">
 			<input type="submit" class="btn" value="登录">
-
+<a href="userRetrievePassword.jsp">找回密码</a>
 		</s:form>
 
 	</div>

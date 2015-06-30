@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -11,7 +12,8 @@
   
   <body>
 	  <div style="width: 500px;margin: 0 auto;">
-	  <form action="" method="post">
+	  <p><s:fielderror></s:fielderror></p>
+	  <form action="resetPasswordAction" method="post">
 	  <label for="userEmail">找回密码邮箱：</label>
 	  <input type="email" class="form-control" id="userEmail" placeholder="请输入您的注册邮箱" required="required" name="userEmail" >
 	  <div id="tips1"></div>
@@ -28,21 +30,25 @@
 			,dataType:"JSON",success:function(date){
 			
 			
-			if(date=="false")
+			if(date=="true")
 			{
 			//该用户已存在
 			$("#tips1").html("<img width=\"25px\" height=\"25px\" src=\"img/right.png\">");
 			}
-			else
+			else if(date="false")
 			{
 			$("#tips1").html("<img width=\"25px\" height=\"25px\" src=\"img/false.png\">该邮箱无效");
 			}
+			else
+			{
+			  $("#tips1").html("<img width=\"25px\" height=\"25px\" src=\"img/false.png\">发送失败");
+			}
 			
 			}
-			,type:"post",url:"checkUserEmailExistAction"})
+			,type:"post",url:"sendEmailAction"})
 		  
 		  
-		  count = 5;
+		  count = 60;
 		  $("#get").attr("disabled", true);
 		  var time=setInterval(function(){
 		      
@@ -64,9 +70,43 @@
 		  </script>
 		<br>
 		<label for="verificationCode">验证码</label> 
-		<input type="text"class="form-control" id="userDisplayName" placeholder="请输入验证码" required="required" name="verificationCode">
+		<p>
+		<input type="text"class="form-control" id="verificationCode" placeholder="请输入验证码" required="required" name="verificationCode">
+		<span id="tips2"></span>
+		</p>
 		<script type="text/javascript">
+		$("#verificationCode").blur(function(){
 		
+		$.ajax({data:{
+		 userEmail:$("#userEmail").val(),
+	     verificationCode:$("#verificationCode").val()
+		
+		},dataType:"JSON",success:function(date){
+		
+			if(date=="null")
+			{
+			  $("#tips2").html("<span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>该验证不存在");
+			}
+		    if(date=="out of time")
+			{
+				$("#tips2").html("<span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>该验证超时");
+			}
+			if(date=="false")
+			{
+			$("#tips2").html("<span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>该验证重复");
+			
+			}
+			if(date=="ok")
+			{
+				$("#tips2").html("<span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>");
+			
+			}
+				
+		}
+		,type:"post",url:"checkEmailAndVerificationCodeAction"})
+		
+		
+		})
 		</script>
 		
 		<label for="Password">密码</label> 

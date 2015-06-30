@@ -1,10 +1,23 @@
 @CHARSET "UTF-8";
-
+/* Ruthie字体 */
+@font-face {
+	font-family: 'ruthieregular';
+	src: url("../font-ruthie/ruthie-regular-webfont.eot");
+	src: url('../font-ruthie/ruthie-regular-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('../font-ruthie/ruthie-regular-webfont.woff2') format('woff2'),
+		url('../font-ruthie/ruthie-regular-webfont.woff') format('woff'),
+		url('../font-ruthie/ruthie-regular-webfont.ttf') format('truetype'),
+		url('../font-ruthie/ruthie-regular-webfont.svg#ruthieregular')
+		format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 * {
 	font-family: "微软雅黑";
 }
 .rf{
-	font-family: "Ruthie";
+	font-family: "Ruthie", ruthieregular, cursive;
 	font-size: 30px;
 	font-weight: 800;
 }

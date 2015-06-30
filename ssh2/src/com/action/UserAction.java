@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
+import java.util.Random;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -12,9 +13,11 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.bean.MD5Util;
+import com.bean.SendEmail;
 import com.bean.UserInfo;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.server.interfaces.UserRetrievePasswordServer;
 import com.server.interfaces.UserServer;
 
 public class UserAction extends ActionSupport {
@@ -23,6 +26,8 @@ public class UserAction extends ActionSupport {
 	private UserInfo user;
 	@Resource
 	private UserServer userServer;
+	@Resource
+	private UserRetrievePasswordServer userRetrievePasswordServer;
 	
 	//文件上传的3个东西
 	private File upload;  
@@ -33,7 +38,18 @@ public class UserAction extends ActionSupport {
 	private String userName;
 	private String userDisplayName;
 	private String userEmail;
+	private String verificationCode;
+	private String password;
 	
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getResult() {
 		return result;
 	}
@@ -111,6 +127,24 @@ public class UserAction extends ActionSupport {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
+	
+
+	public UserRetrievePasswordServer getUserRetrievePasswordServer() {
+		return userRetrievePasswordServer;
+	}
+
+	public void setUserRetrievePasswordServer(
+			UserRetrievePasswordServer userRetrievePasswordServer) {
+		this.userRetrievePasswordServer = userRetrievePasswordServer;
+	}
+
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
 
 	//验证用户是否存在 或者 用户密码是否正确
 	public String userLogin()
@@ -168,7 +202,7 @@ public class UserAction extends ActionSupport {
 			FileUtils.copyFile(upload, new File(file,uploadFileName));
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -241,6 +275,7 @@ public class UserAction extends ActionSupport {
 	
 	public String userRigister()
 	{
+		
 		//System.out.println(" "+user.getUserName()+" "+user.getUserPassword()+" "+user.getUserSex()+" "+user.getUserEmail()+" "+user.getUserDisplayName());
 		MD5Util md5=new MD5Util();
 		user.setUserPassword(md5.getMD5(user.getUserPassword().getBytes()));
@@ -279,6 +314,7 @@ public class UserAction extends ActionSupport {
 		}
 		if(user.getUserPassword().length()<=5||user.getUserPassword().length()>=16)
 		{
+			System.out.println(user.getUserPassword()+" 注册密码为");
 			addFieldError("userpassword", "密码长度必须为6-15位");
 		}
 		
@@ -329,7 +365,6 @@ public class UserAction extends ActionSupport {
 		{
 			//存在 说明不可用
 			result="false";
-			
 		}
 		else
 		{
@@ -338,9 +373,88 @@ public class UserAction extends ActionSupport {
 		}
 		return "success";
 		
-	
-		
 	}
+	//异步验证 用户邮箱 和 验证码是否正确
+	public String checkEmailAndVerificationCode()
+	{
+		// System.out.println("userEmail= "+userEmail+"  验证码"+verificationCode);
+		
+		
+		
+		 result=userRetrievePasswordServer.checkEmailAndVerificationCode(userEmail, verificationCode);
+		 
+		return "success";
+	}
+	public String resetPassword()
+	{
+		
+		//System.out.println(password+" "+userEmail+"  "+verificationCode);
+		int userOid=userRetrievePasswordServer.findBackUserOid(userEmail, verificationCode);
+		if(userOid==-1)
+		{
+			addFieldError("aa","不符合修改条件");
+			return "input";
+		}
+		//更新用户密码
+		
+		MD5Util md5=new MD5Util();
+		password=md5.getMD5(password.getBytes());
+		userServer.updateUserPassword(password, userOid);
+		
+		//更新找回密码记录 将记录改成修改状态
+		int urpOid=userRetrievePasswordServer.findBackUrpOid(userEmail, verificationCode);
+		userRetrievePasswordServer.finish(urpOid);
+		
+		return "success";
+	}
+	public String sendEmail()
+	{
+		if(userServer.checkUserEmailExist(userEmail))
+		{
+			//用户存在 可以发送邮件并增加一条记录
+			//1.首先发送一封邮件
+			Random r=new Random();
+			String value="";
+			
+			//6位随机数
+			for(int i=0;i<=5;i++)
+			{
+				value=value+r.nextInt(10);
+			}
+			
+			SendEmail se= new SendEmail();
+			se.setVerificationCode(value);
+			se.setUserEmail(userEmail);
+			try {
+				se.sendEmail();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "error";
+			}
+			
+			//添加一条记录或更新一条记录
+			//1.获取该邮件对应的用户编号
+			//2.根据用户编号添加或更新记录
+			int userOid;
+			userOid=userServer.getUserOidByEmail(userEmail);
+			
+			userRetrievePasswordServer.alertURP(userOid,value);
+			
+			
+			
+			
+			result="true";
+		}
+		else
+		{
+			//不存在说明不可发送邮件
+			result="false";
+		}
+		
+		return "success";
+	}
+	
 	
 	
 }

@@ -157,4 +157,28 @@ public class UserDaoImp implements UserDao {
 		}
 	}
 
+
+
+
+	
+	public boolean updateUserPassword(String userPassword, int userOid) {
+		UserInfo user=(UserInfo) sessionFactory.getCurrentSession().load(UserInfo.class,userOid);
+		user.setUserPassword(userPassword);
+		return true;
+	}
+
+
+
+
+	
+	public int getUserOidByEmail(String userEmail) {
+		UserInfo u=(UserInfo) sessionFactory.getCurrentSession().createQuery("from UserInfo where userEmail=?").setString(0,userEmail).uniqueResult();
+		if(u==null)
+		{
+			return -1;
+		}
+		
+		return u.getUserOid();
+	}
+
 }

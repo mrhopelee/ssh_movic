@@ -214,6 +214,11 @@
     </result>   
     </action>
     
+    <action name="resetPasswordAction" class="userAction" method="resetPassword" >
+    <result name="success">/success.jsp</result>
+    <result name="input">/userRetrievePassword.jsp</result>
+    </action>
+    
     <!-- 带参数的action配置
     <result name="input" type="redirectAction">
     <param name="actionName">scanMovieAction</param>
@@ -350,6 +355,20 @@
 	
 	<!-- 判断用户电子邮件是否可用 -->
 	<action name="checkUserEmailExistAction" class="userAction" method="checkUserEmailExist">
+	<result type="json">
+	<param name="root">result</param>
+	</result>
+	</action>
+	
+	<!-- 判断电子邮件 以及 对应的验证码 是否存在和正确 -->
+	<action name="checkEmailAndVerificationCodeAction" class="userAction" method="checkEmailAndVerificationCode">
+	<result type="json">
+	<param name="root">result</param>
+	</result>
+	</action>
+	
+	<!-- 发送电子邮件 -->
+	<action name="sendEmailAction" class="userAction" method="sendEmail">
 	<result type="json">
 	<param name="root">result</param>
 	</result>

@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'success.jsp' starting page</title>
+<title>成功</title>
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -20,12 +20,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<p align="center" color="gray">
 	<hr color="gray" size="3">
 	<br>
-	<font size=" 6" color="gray">--------------------Congratulation,Success!!!--------------------</font>
+	<font size=" 6" color="gray">--------------------操作成功!!!--------------------</font>
 	<br>
 	<br>
 	<br>
 	<font size=" 5" color="gray">--------------------<a
-		href="index.jsp">Click here Back To Index</a>--------------------
+		href="index.jsp">返回首页</a>--------------------
 	</font>
 
 	</p>
