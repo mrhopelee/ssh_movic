@@ -23,20 +23,24 @@ public class SubmitCommentsDao implements SubmitCommentsDaoInter {
 	
 
 	@Override
-	public boolean checkUser(int nowUserId) {
-		int count = 0;
-		String hql = "select count(usmOid) from UserScoreMovic where userInfo.userOid="+nowUserId;
+	public boolean checkUser(int nowUserId,int movicOid) {
+		//int count = 0;
+		//String hql = "select count(usmOid) from UserScoreMovic where userInfo.userOid="+nowUserId;
 		//List<UserScoreMovic> list = null;
+		UserScoreMovic usm=null;
 		try {
 			//list = sessionFactory.getCurrentSession().createQuery(hql).list();
-			Query query = sessionFactory.getCurrentSession().createQuery(hql);
-			long temp = (Long) query.uniqueResult();
-			count = (int) temp;
+			Query query = sessionFactory.getCurrentSession().createQuery("from UserScoreMovic where userInfo.userOid=? and movicInfo.movicOid=?")
+					.setInteger(0,nowUserId).setInteger(1, movicOid);
+			
+			 usm=(UserScoreMovic) query.uniqueResult();
+			//long temp = (Long) query.uniqueResult();
+			//count = (int) temp;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if(count!=0) return true;
+		if(usm!=null) return true;
 		else			
 			return false;
 	}

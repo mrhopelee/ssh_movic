@@ -70,9 +70,9 @@ public class SubmitCommentsService implements SubmitCommentsServiceInter {
 
 
 	@Override
-	public boolean checkUser(int nowUserId) {
+	public boolean checkUser(int nowUserId,int movicOid) {
 		
-		return submitCommentsDao.checkUser(nowUserId);
+		return submitCommentsDao.checkUser(nowUserId,movicOid);
 	}
 
 	public SubmitCommentsDaoInter getSubmitCommentsDao() {
