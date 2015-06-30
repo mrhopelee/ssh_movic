@@ -60,31 +60,45 @@ public class UserServerImp implements UserServer {
 	}
 
 
-	@Override
+
 	public boolean addUserIntegral(UserInfo user) {
 		
 		return userDao.addUserIntegral(user);
 	}
 
 
-	@Override
+
 	public boolean checkUserNameExist(String userName) {
 		// TODO Auto-generated method stub
 		return userDao.checkUserNameExist(userName);
 	}
 
 
-	@Override
+	
 	public boolean checkUserDisplayNameExist(String userDisplayName) {
 		// TODO Auto-generated method stub
 		return userDao.checkUserDisplayNameExist(userDisplayName);
 	}
 
 
-	@Override
+
 	public boolean checkUserEmailExist(String userEmail) {
-		// TODO Auto-generated method stub
+	
 		return userDao.checkUserEmailExist(userEmail);
+	}
+
+
+	
+	public boolean updateUserPassword(String userPassword, int userOid) {
+		
+		return userDao.updateUserPassword(userPassword, userOid);
+	}
+
+
+	@Override
+	public int getUserOidByEmail(String userEmail) {
+		
+		return userDao.getUserOidByEmail(userEmail);
 	}
 
 

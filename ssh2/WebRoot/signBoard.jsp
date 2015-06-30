@@ -21,24 +21,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-
 <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-	<br>
-	<p align="center" color="gray">
-		<font size=" 3" color="gray">--------------------Welcome--------------------</font>
-	</p>
-	<br>
-	<br>
-	<br>
 	<hr color="gray" size="3">
-	<br>
-	
-	
 	<%
-		
 	UserInfo user1 = (UserInfo) request.getSession().getAttribute("user");
 	%>
-
 	<form id="form1" name="form1" method="post" action="signBoard" >
 		<table align="center"  class="table table-hover table-bordered " >
 			<tr  align="center">
