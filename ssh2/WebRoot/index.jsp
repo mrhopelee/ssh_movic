@@ -22,21 +22,21 @@
 		<div class="hiddenshadow"></div>
 		<div id="photoshow" class="">
 			<a class="photoshow_a" title="1" href="javascript:return(0);"
-				style="z-index:8;"> <img src="movic_picture/10.jpg" />
+				style="z-index:8;"> <img draggable="false" src="movic_picture/10.jpg" />
 			</a> <a class="photoshow_a" title="2" href="javascript:alert(2);"
-				style="z-index:7;"> <img src="movic_picture/11.jpg" />
+				style="z-index:7;"> <img draggable="false" src="movic_picture/11.jpg" />
 			</a> <a class="photoshow_a" title="3" href="javascript:alert(3);"
-				style="z-index:7;"> <img src="movic_picture/12.jpg" />
+				style="z-index:7;"> <img draggable="false" src="movic_picture/12.jpg" />
 			</a> <a class="photoshow_a" title="4" href="javascript:alert(4);"
-				style="z-index:7;"> <img src="movic_picture/13.jpg" />
+				style="z-index:7;"> <img draggable="false" src="movic_picture/13.jpg" />
 			</a> <a class="photoshow_a" title="5" href="javascript:alert(5);"
-				style="z-index:7;"> <img src="movic_picture/14.jpg" />
+				style="z-index:7;"> <img draggable="false" src="movic_picture/14.jpg" />
 			</a>
 			<div id="btn_prev" class=" music-buttons music-title">
-				<span class=""><</span>
+				<span class="glyphicon glyphicon-chevron-left"></span>
 			</div>
 			<div id="btn_next" class=" music-buttons music-title">
-				<span class="">></span>
+				<span class="glyphicon glyphicon-chevron-right"></span>
 			</div>
 		</div>
 		<div class="photoshowbottom">
