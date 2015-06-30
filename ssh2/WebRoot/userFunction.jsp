@@ -92,7 +92,7 @@ function navInit(){
 				<form action="adminFunction.jsp">
 					<input type="submit" value="管理中心" class="btn btn-info" id="b7">
 				</form>
-				<script type="text/javascript">
+				<%-- <script type="text/javascript">
 					$("#b7").click(function() {
 						navInit();
 						$("#b7").addClass("active");
@@ -107,7 +107,7 @@ function navInit(){
 							url : "adminFunction.jsp"
 						})
 					})
-				</script>
+				</script> --%>
 			</s:if>
 
 			<input type="submit" value="查看我的评论" class="btn btn-primary" id="b6">

@@ -165,7 +165,7 @@
 </head>
 
 <body>
-<s:include value="userFunction.jsp"></s:include>
+<s:include value="movic_nav.jsp"></s:include>
 <div id="admin">
 	<!-- =============================试验效果================== -->
 
