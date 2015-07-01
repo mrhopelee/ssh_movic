@@ -29,7 +29,8 @@
 			</div>
 			<s:if test="#session.user!=null">
 				<div class="col-xs-6 col-md-6 iatuser">
-					<a class="userimg list-group-item" href="javascript:return(0);"> <%-- <img src="<s:property value="#session.user.userLogo"/>" alt="username" /> --%>
+					<a class="userimg list-group-item" href="javascript:return(0);">
+						<%-- <img src="<s:property value="#session.user.userLogo"/>" alt="username" /> --%>
 
 						<s:if test="#session.user.userLogo==null">
 							<img alt="无法显示" src="img/user_large.jpg">
