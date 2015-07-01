@@ -10,13 +10,16 @@ import com.bean.UserScoreMovic;
 
 public interface SubmitCommentsDaoInter {
 
-	boolean checkUser(int nowUserId);
+	boolean checkUser(int nowUserId,int movicOid);
 
 
 	void addComments(MovicComments mComments);
 
 
 	void addScore(UserScoreMovic uScore);
+
+
+	
 	
 	
 

@@ -44,9 +44,14 @@ public class SubmitCommentsAction extends ActionSupport {
 		
 		System.out.println("nowMoiveId="+nowMoiveId);
 		
-		if(submitCommentsService.checkUser(userInfo.getUserOid())) {
+		if(submitCommentsService.checkUser(userInfo.getUserOid(),nowMoiveId)) {
+			
+			
 			submitCommentsService.submitExecptScore(nowMoiveId, userInfo.getUserOid(), score, comments_text);
+		
 		}else{
+			System.out.println("用户评分电影");
+			
 			submitCommentsService.submitComments(nowMoiveId, userInfo.getUserOid(), score, comments_text);		
 		}
 		return SUCCESS;		

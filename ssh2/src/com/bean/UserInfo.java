@@ -22,6 +22,7 @@ public class UserInfo implements java.io.Serializable {
 	private Set userScoreMovics = new HashSet(0);
 	private Set movicCommentses = new HashSet(0);
 	private Set userSignIns = new HashSet(0);
+	private Set userRetrievePasswords = new HashSet(0);
 	private Set userIntegrals = new HashSet(0);
 
 	// Constructors
@@ -43,7 +44,7 @@ public class UserInfo implements java.io.Serializable {
 	public UserInfo(UserType userType, String userName, String userPassword,
 			String userDisplayName, String userSex, String userLogo,
 			String userEmail, Set userScoreMovics, Set movicCommentses,
-			Set userSignIns, Set userIntegrals) {
+			Set userSignIns, Set userRetrievePasswords, Set userIntegrals) {
 		this.userType = userType;
 		this.userName = userName;
 		this.userPassword = userPassword;
@@ -54,6 +55,7 @@ public class UserInfo implements java.io.Serializable {
 		this.userScoreMovics = userScoreMovics;
 		this.movicCommentses = movicCommentses;
 		this.userSignIns = userSignIns;
+		this.userRetrievePasswords = userRetrievePasswords;
 		this.userIntegrals = userIntegrals;
 	}
 
@@ -145,6 +147,14 @@ public class UserInfo implements java.io.Serializable {
 
 	public void setUserSignIns(Set userSignIns) {
 		this.userSignIns = userSignIns;
+	}
+
+	public Set getUserRetrievePasswords() {
+		return this.userRetrievePasswords;
+	}
+
+	public void setUserRetrievePasswords(Set userRetrievePasswords) {
+		this.userRetrievePasswords = userRetrievePasswords;
 	}
 
 	public Set getUserIntegrals() {
