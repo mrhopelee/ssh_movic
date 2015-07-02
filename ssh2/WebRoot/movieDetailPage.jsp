@@ -141,7 +141,7 @@ int count=0;
 		<div class="container_wrap">
 			<div class="header_top">
 				<div class="col-sm-3 logo">
-					<a href="index.html"><img src="images/logo.png" alt="" /></a>
+					<a href="index.jsp"><img src="images/logo.png" alt="" /></a>
 				</div>
 				<div class="clearfix"></div>
 			</div>
