@@ -3,6 +3,15 @@
 .input-group, .info2, .chinesefont, a {
 	font-family: "微软雅黑";
 }
+*{
+	font-family: "微软雅黑";
+}
+.rf{
+	font-family: "Ruthie", ruthieregular, cursive;
+	font-size: 30px;
+	font-weight: 800;
+}
+
 /* .logo{
 	font-family: "Ruthie", cursive;
 	font-size: 180px;
@@ -204,6 +213,7 @@ a>.btn.active, a>.btn:active, a>.btn-default:focus {
 	font-family: "微软雅黑";
 } */
 .iatcenter {
+	
 	margin: 0px auto;
 	text-align: center;
 	/* border-bottom: 1px solid #EEE; */

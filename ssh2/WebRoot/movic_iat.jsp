@@ -162,7 +162,7 @@
 			</div>
 			<div class="col-sm-12 col-md-12 iatcenter">
 				<s:if test="#session.moviciatpaging.pageCount==0">
-					wu nei rong
+					<p style="height: 300px; margin: 30px 0px;">很抱歉，<span class="rf">myfilm</span>还没有这部电影</p>
 					</s:if>
 				<s:if test="#session.moviciatpaging.pageCount<=6">
 					<s:bean name="org.apache.struts2.util.Counter" id="counter">

@@ -30,10 +30,10 @@ int count=0;
 <!-- start plugins -->
 <!-- 
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> -->
-<link
+<!-- <link
 	href='http://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900'
 	rel='stylesheet' type='text/css'>
-
+ -->
 <!-- 梁泽民加的css样式 开始-->
 <link rel="stylesheet" href="css/reset1.css" />
 <link rel="stylesheet" href="css/ccslider1.css" />
