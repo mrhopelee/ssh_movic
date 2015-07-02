@@ -11,7 +11,6 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="url" value="jdbc:sqlserver://127.0.0.1:1433;"></property>
@@ -33,10 +32,21 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>com/bean/Usertype.hbm.xml</value>
-				<value>com/bean/Userinfo.hbm.xml</value>
-				<value>com/bean/Postresponse.hbm.xml</value>
-				<value>com/bean/Post.hbm.xml</value></list>
+				<value>com/bean/UserSignIn.hbm.xml</value>
+				<value>com/bean/MovicType.hbm.xml</value>
+				<value>com/bean/MovicDownload.hbm.xml</value>
+				<value>com/bean/UserType.hbm.xml</value>
+				<value>com/bean/UserIntegral.hbm.xml</value>
+				<value>com/bean/MovicVisiterNumber.hbm.xml</value>
+				<value>com/bean/UserScoreMovic.hbm.xml</value>
+				<value>com/bean/MovicInfo.hbm.xml</value>
+				<value>com/bean/MovicArea.hbm.xml</value>
+				<value>com/bean/MovicComments.hbm.xml</value>
+				<value>com/bean/UserInfo.hbm.xml</value>
+				<value>com/bean/MovicPicture.hbm.xml</value>
+				<value>com/bean/MovicBeloneArea.hbm.xml</value>
+				<value>com/bean/MovicBeloneType.hbm.xml</value>
+				<value>com/bean/UserRetrievePassword.hbm.xml</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -52,4 +62,83 @@
     <!-- 配置action -->
 	
 	
+	<!-- 配置server -->
+
+	
+	<!-- 打开aop容器 -->
+	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
+	<!-- 配置aop类 -->
+	
+	<!-- 积分管理有关的bean配置   黄隆昌配置 开始-->
+	<bean id="IntegralManageDao" class="com.dao.imp.IntegralManageDaoImp"></bean>
+	<bean id="IntegralManageService" class="com.server.imp.IntegralManageServerImp"></bean>
+	<bean id="IntegralManageAction" class="com.action.IntegralManageAction"></bean>
+	
+	<!-- 用户管理有关的bean配置   黄隆昌配置 开始-->
+	<bean id="UserManageDao" class="com.dao.imp.UserManageDaoImp"></bean>
+	<bean id="UserManageService" class="com.server.imp.UserManageServerImp"></bean>
+	<bean id="UserManageAction" class="com.action.UserManageAction"></bean>
+	
+	
+	<!-- 电影管理有关的bean配置   梁泽民配置 开始-->
+	<bean id="movicManagementDao" class="com.dao.imp.MovicManagementDaoImp"></bean>
+	<bean id="movicManagementServer" class="com.server.imp.MovicManagementServerImp"></bean>
+	<bean id="movicManagementAction" class="com.action.MovicManagementAction" scope="prototype"></bean>
+	
+	<bean id="movicPictureAction" class="com.action.MovicPictureAction" scope="prototype"></bean>
+	<bean id="movicPictureServer" class="com.server.imp.MovicPictureServerImp"></bean>
+	<bean id="movicPictureDao" class="com.dao.imp.MovicPictureDaoImp"></bean>
+	
+	<bean id="userAction" class="com.action.UserAction" scope="prototype"></bean>
+	<bean id="userServer" class="com.server.imp.UserServerImp"></bean>
+	<bean id="userDao" class="com.dao.imp.UserDaoImp"></bean>
+	
+	<bean id="movicDownloadAction" class="com.action.MovicDownloadAction" scope="prototype"></bean>
+	<bean id="movicDownloadServer" class="com.server.imp.MovicDownloadServerImp"></bean>
+	<bean id="movicDownloadDao" class="com.dao.imp.MovicDownloadDaoImp"></bean>
+	
+	<bean id="fileDownloadAction" class="com.action.FileDownloadAction"></bean>
+	
+	<bean id="userRetrievePasswordServer" class="com.server.imp.UserRetrievePasswordServerImp"></bean>
+	<bean id="userRetrievePasswordDao" class="com.dao.imp.UserRetrievePasswordDaoImp"></bean>
+	
+<!-- 电影管理有关的bean配置   梁泽民配置 结束-->
+
+	<!-- 电影类型有关的bean配置   李灏配置 开始-->
+	<bean id="movicTypeDao" class="com.dao.imp.MovicTypeDaoImp"></bean>
+	<bean id="movicTypeServer" class="com.server.imp.MovicTypeServerImp" scope="prototype"></bean>
+	<bean id="movicTypeAction" class="com.action.MovicTypeAction"></bean>
+	<bean id="movicAreaDao" class="com.dao.imp.MovicAreaDaoImp"></bean>
+	<bean id="movicAreaServer" class="com.server.imp.MovicAreaServerImp" scope="prototype"></bean>
+	<bean id="movicAreaAction" class="com.action.MovicAreaAction"></bean>
+	<bean id="movicIatDao" class="com.dao.imp.MovicIatDaoImp"></bean>
+	<bean id="movicIatServer" class="com.server.imp.MovicIatServerImp"></bean>
+	<bean id="movicIatAction" class="com.action.MovicIatAction"></bean>
+	<!-- 电影类型有关的bean配置   李灏配置 结束-->
+	
+<!-- 陈浩贤 -->
+	<!-- 配置action -->
+	<bean id="showMovieDetailAction" class="com.action.ShowMovieDetailAction"></bean>
+	<bean id="commentsManageAction" class="com.action.CommentsManageAction"></bean>
+	<bean id="scanAllCommentsAction" class="com.action.ScanAllCommentsAction"></bean>
+	<bean id="submitCommentsAction" class="com.action.SubmitCommentsAction"></bean>
+	<!-- 配置service -->
+	<bean id="findCommentsService" class="com.server.imp.FindCommentsService"></bean>	
+	<bean id="commentsManageService" class="com.server.imp.CommentsManageService"></bean>
+	<bean id="countUserByScoreService" class="com.server.imp.CountUserByScoreService"></bean>
+	<bean id="submitCommentsService" class="com.server.imp.SubmitCommentsService"></bean>
+	<!-- 配置dao -->
+	<bean id="findCommentsDao" class="com.dao.imp.FindCommentsDao"></bean>
+	<bean id="commentsManageDao" class="com.dao.imp.CommentsManageDao"></bean>
+	<bean id="countUserByScoreDao" class="com.dao.imp.CountUserByScoreDao"></bean>
+	<bean id="submitCommentsDao" class="com.dao.imp.SubmitCommentsDao"></bean>
+<!-- /陈浩贤 -->
+<!-- ajax action -->
+<bean id="myAjaxAction" class="com.ajax.action.MyAjaxAction" scope="prototype"></bean>
+
 	</beans>
+
+
+	
+	
+	

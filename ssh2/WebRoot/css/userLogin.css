@@ -1,0 +1,109 @@
+@CHARSET "UTF-8";
+/* Ruthie字体 */
+@font-face {
+	font-family: 'ruthieregular';
+	src: url("../font-ruthie/ruthie-regular-webfont.eot");
+	src: url('../font-ruthie/ruthie-regular-webfont.eot?#iefix')
+		format('embedded-opentype'),
+		url('../font-ruthie/ruthie-regular-webfont.woff2') format('woff2'),
+		url('../font-ruthie/ruthie-regular-webfont.woff') format('woff'),
+		url('../font-ruthie/ruthie-regular-webfont.ttf') format('truetype'),
+		url('../font-ruthie/ruthie-regular-webfont.svg#ruthieregular')
+		format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+* {
+	font-family: "微软雅黑";
+}
+.rf{
+	font-family: "Ruthie", ruthieregular, cursive;
+	font-size: 30px;
+	font-weight: 800;
+}
+/* logo左功能右 */
+.myfilm {
+	font-family: "Ruthie", ruthieregular, cursive;
+	font-size: 350px;
+	font-weight: 800;
+	color: rgba(44, 62, 80, 0.1);
+	position: fixed;
+	top: 50%;
+	left: 35%;
+	margin-left: -340px;
+	margin-top: -250px;
+}
+
+.userlogin {
+	width: 300px;
+	height: auto;
+	margin-left: -200px;
+	margin-top: -123px;
+	padding: 20px;
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 1px solid #EEE;
+	position: fixed;
+	top: 50%;
+	left: 80%;
+}
+/*  logo上功能下 
+.myfilm {
+	font-family: "Ruthie", ruthieregular, cursive;
+	font-size: 200px;
+	font-weight: 800;
+	position: absolute;
+	left: 50%;
+	margin-left: -180px;
+	margin-top: -306px;
+	color: rgba(255, 255, 255, 0.5);
+}
+.userlogin {
+	width: 400px;
+	height: 247px;
+	margin-left: -200px;
+	margin-top: -123px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	padding: 20px;
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 1px solid #eee;
+} */
+.userlogin>form>span {
+	font-size: 16px;
+}
+
+.userlogin>form>a {
+	font-size: 16px;
+	float: right;
+}
+
+.form-control {
+	width: 100%;
+	height: 40px;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+	background-color: rgba(255, 255, 255, 0.7);
+	margin: 15px auto;
+}
+
+.btn {
+	float: right;
+	margin-left: 10px;
+	color: #333;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: rgba(238, 238, 238, 0.5);
+	/* background-image: linear-gradient(#FCFCFC, #EEE); */
+	border: 1px solid rgba(213, 213, 213, 0.5);
+	border-radius: 3px;
+}
+
+.btn:hover, .btn:active {
+	text-decoration: none;
+	background-color: rgba(221, 221, 221, 0.5);
+	/* background-image: linear-gradient(#EEE, #DDD); */
+	border-color: rgba(204, 204, 204, 0.5);
+}

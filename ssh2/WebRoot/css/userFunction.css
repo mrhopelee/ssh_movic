@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+.userfun_middle{
+	margin-bottom: 60px;
+}
+.userfun_nav{
+	float:left;
+	padding: 50px;
+	border: 1px solid #eee;
+}
+.userfun_nav input{
+	display: block;
+	margin:15px auto;
+	width: 100%;
+}
+
+.userfun_page {
+	overflow: auto;
+	
+}
