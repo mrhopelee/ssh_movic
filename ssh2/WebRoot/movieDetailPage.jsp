@@ -71,7 +71,7 @@ int count=0;
 </head>
 
 <body>
-		<s:include value="movic_nav.jsp"></s:include>
+		
 
 	<!-- 电影显示区域  --------------------------------->
 	<!-- 
@@ -483,4 +483,5 @@ int count=0;
 
 
 </body>
+<s:include value="movic_nav.jsp"></s:include>
 </html>

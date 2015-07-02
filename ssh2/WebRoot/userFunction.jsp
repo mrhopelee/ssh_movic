@@ -230,8 +230,8 @@ function navInit(){
 		<div id="page" class="userfun_page"></div>
 
 	</div>
-
-</body>
 <s:include value="movic_nav.jsp"></s:include>
 <s:include value="movic_bottom.jsp"></s:include>
+</body>
+
 </html>
