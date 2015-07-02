@@ -482,11 +482,12 @@ ul.callbacks_tabs.callbacks1_tabs {
 	display: block;
 	z-index: 2;
 	text-shadow: none;
-	margin: 0;
+	margin: 20px;
 	max-width: none;
-	position: absolute;
+
+	/* position: absolute;
 	top: 58%;
-	right: 15%;
+	right: 15%; */
 }
 
 .button a {

@@ -242,7 +242,9 @@ int count=0;
 						<s:property value="movic.movicIntroduction" />
 						</p>
 
-
+						<div class="button" align="center">
+      								<a href="editComments.jsp" class="hvr-shutter-out-horizontal"  style="text-decoration: none;">发表评论！</a>
+								</div>
 						<div class="single">
 							<h1>用户评论</h1>
 
@@ -282,9 +284,7 @@ int count=0;
 									</div>
 								</form>
 							</ul>
-								<div class="button" align="center">
-      								<a href="editComments.jsp" class="hvr-shutter-out-horizontal"  style="text-decoration: none;">发表评论！</a>
-								</div>
+								
 						</div>		
 					</div>
 					<!--  ====================右边图册区 在这里添加=======================================-->
@@ -293,7 +293,7 @@ int count=0;
 					<div class="col-md-3">
 						<div class="movie_img">
 							<div class="grid_2">
-								<img src="images/pic6.jpg" class="img-responsive" alt="">
+								<img src="img/广告.png" class="img-responsive" alt="">
 								<div class="caption1">
 									<ul class="list_5 list_7">
 										<li><i class="icon5"> </i>
@@ -305,7 +305,7 @@ int count=0;
 							</div>
 						</div>
 						<div class="grid_2 col_1">
-							<img src="images/pic2.jpg" class="img-responsive" alt="">
+							<img src="img/广告2.jpg" class="img-responsive" alt="">
 							<div class="caption1">
 								<ul class="list_3 list_7">
 									<li><i class="icon5"> </i>
@@ -316,7 +316,7 @@ int count=0;
 							</div>
 						</div>
 						<div class="grid_2 col_1">
-							<img src="images/pic9.jpg" class="img-responsive" alt="">
+							<img src="img/广告3.png" class="img-responsive" alt="">
 							<div class="caption1">
 								<ul class="list_3 list_7">
 									<li><i class="icon5"> </i>
