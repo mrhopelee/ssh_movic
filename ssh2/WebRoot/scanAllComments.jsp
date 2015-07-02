@@ -98,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 						<h3>
 						<img width="50px" height="50px" src="<s:property value="#mComments.userInfo.userLogo"/>">
-							<s:property value="#mComments.userInfo.userName" />
+							<s:property value="#mComments.userInfo.userDisplayName" />
 						</h3>
 						<p>
 							IN

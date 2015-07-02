@@ -155,11 +155,11 @@ int count=0;
 							</div>
 							
 							<!-- ========星星区============ --> 
-							<div class="movie_rate"  align="center">
-                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+							<div class="movie_rate" >
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"> </span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"> </span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"> </span>
+                            	<span class="glyphicon glyphicon-star" aria-hidden="true"> </span>
                             	<span class="glyphicon glyphicon-star" aria-hidden="true">   <s:property value="#session.userCountByScore[4]"/>人</span>
                             	<br>
                             	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -260,7 +260,7 @@ int count=0;
 											</div>
 											<div class="data">
 												<div class="title">
-													<s:property value="#mComments.userInfo.userName" />
+													<s:property value="#mComments.userInfo.userDisplayName" />
 													/
 													<s:property value="#mComments.commentsDate" />
 												</div>
