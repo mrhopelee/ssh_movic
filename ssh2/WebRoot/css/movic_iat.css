@@ -1,0 +1,232 @@
+@CHARSET "UTF-8";
+
+.input-group, .info2, .chinesefont, a {
+	font-family: "微软雅黑";
+}
+*{
+	font-family: "微软雅黑";
+}
+.rf{
+	font-family: "Ruthie", ruthieregular, cursive;
+	font-size: 30px;
+	font-weight: 800;
+}
+
+/* .logo{
+	font-family: "Ruthie", cursive;
+	font-size: 180px;
+	font-weight: 600;
+	color: #2c3e50;	
+} *//* 
+顶部导航开始
+body {
+	padding-top: 120px;
+}
+
+.alltop {
+	position: fixed;
+	z-index: 2;
+	top: 0px;
+	left: 0px;
+}
+
+.logo {
+	font-family: "Ruthie", cursive;
+	font-size: 60px;
+	font-weight: 600;
+	color: #2c3e50;
+}
+
+.iatborderline {
+	border-bottom: 1px solid #DDD;
+	background-color: #F5F5F5;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.125) inset;
+}
+
+.iatsearch {
+	padding-top: 26px;
+	padding-bottom: 26px;
+}
+
+.iatsearch>form {
+	margin-bottom: 0em;
+}
+
+.iatnava {
+	line-height: 85px;
+	font-size: 16px;
+	display: block;
+}
+
+.iatnava>a {
+	color: #2c3e50;
+}
+
+.iatnava>a:focus, .iatnava>a:hover {
+	color: #4078C0;
+	text-decoration: underline;
+}
+}
+
+.iatuser > a{
+	float: right;
+}
+.iatnavlink >a{
+	float: left;
+}
+a.list-group-item:focus, a.list-group-item:hover {
+    background-color: #E6E6E6;
+}
+.list-group-item {
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
+}
+
+
+.list-group-item{
+	padding: 0px 15px;
+}
+.list-group{
+    padding-left: 0px;
+    margin-bottom: 0px;
+    line-height: 42px; !important
+    
+}
+.iatuserhidden{
+	position: absolute;
+	left:100px;
+	top:0px;
+	display: none;
+	font-size: 12px;
+}
+.iatuser:hover >a{
+	display: none;
+} 
+.iatuser:hover >.iatuserhidden
+{
+	display: block;
+}
+.userhead {
+	width: auto;
+	height: 30px;
+	display: block;
+}
+
+.userhead{
+	position: relative;
+}
+
+.userimg{
+	display: inline-block;
+}
+.userimg img {
+	width: 55px;
+	height: 50px;
+}
+
+.userimg span {
+	margin-left: 2px;
+	line-height: 30px;
+}
+
+顶部导航结束 */
+.thumbnail {
+	margin-bottom: 0px;
+}
+.iatmovicinfo{
+	margin-bottom:30px;
+}
+.iatmovicinfo>.thumbnail a>img, .iatmovicinfo>.thumbnail>img {
+	width: 100%;
+	height: 300px; 
+}
+/* h3 {
+	display: inline;
+} */
+.iatmargin2 {
+	margin: 2px 0px;
+}
+
+.iatmargin5 {
+	/* margin-top: 5px;
+	margin-bottom: 8px; */
+	border-bottom: 1px solid #DDD;
+}
+
+.iatmargin50 {
+	margin-top: 50px;
+	border-bottom: 1px solid #DDD;
+	margin-bottom: 30px;
+}
+
+a>.btn-default.active, a>.btn-default:hover, a>.btn-default:focus, a>.btn-default
+	{
+	border-color: #fff;
+}
+
+a>.btn.active, a>.btn:active, a>.btn-default:focus {
+	color: #ffffff;
+	background-color: #5BC0DE;
+	background-image: none;
+	outline: 0px none;
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.125) inset;
+}
+
+.iatpadding {
+	line-height: 43px;
+	font-size: 16px;
+	color: #909090;
+	background-color: #ffffff;
+}
+
+.iatpadding2 {
+	line-height: 36px;
+	font-size: 16px;
+	color: #909090;
+	background-color: #ffffff;
+}
+
+.iatfont12 {
+	font-size: 12px;
+	margin-left: 10px;
+	float: right;
+}
+/* .iatpadding {
+	padding: 10px 20px;
+	display: inline-block;
+} */
+.info2 {
+	/* background-color: #6c3e50; */
+	/* background-color: #4C9ED9; */
+	
+}
+
+.iatpadding8 {
+	padding-top: 8px;
+}
+/* .radio-inline input[type="radio"] {
+	margin-top: 12px;
+}
+
+.radio-inline {
+	line-height: 38px;
+	font-family: "微软雅黑";
+} */
+.iatcenter {
+	
+	margin: 0px auto;
+	text-align: center;
+	/* border-bottom: 1px solid #EEE; */
+}
+
+.iatcenter>a {
+	font-size: 20px;
+}
+
+.iatpagenow {
+	font-size: 35px;
+	font-family: "Ruthie", cursive, "微软雅黑";
+	font-weight: 800;
+	color: #2c3e50;
+	/* color:#3C763D; */
+}
